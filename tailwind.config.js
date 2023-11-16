@@ -16,5 +16,20 @@ module.exports = {
         },
     },
 
-    plugins: [require('@tailwindcss/forms')],
+    plugins: [
+        require('@tailwindcss/forms'),
+
+        iconsPlugin({
+            // 利用したい icon collection を利用する
+            // https://icones.js.org/
+            collections: getIconCollections(["fa6-regular", "fa6-solid"]),
+        }),
+    ],
+
+    //ここから追加
+    purge: [
+        './resources/**/*.blade.php',
+        './resources/**/*.js',
+    ],
+    //ここまで追加
 };

@@ -9,7 +9,7 @@
 
 <body>
     <script>
-        window.location.replace('/m-shonanchigasaki/index.php');
+        window.location.replace('main/index.php');
     </script>
 </body>
 

@@ -14,10 +14,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('info');
+    return view('m-shonanchigasaki');
 });
 
-Route::get('/admin', function () {
+Route::get('/cms', function () {
     return view('welcome');
 });
 

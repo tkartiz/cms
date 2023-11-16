@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AnnounceController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -12,6 +14,13 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+// アプリ用
+Route::resource('announces', AnnounceController::class)
+->middleware(['auth']);
+
+
+
 
 Route::get('/', function () {
     return view('m-shonanchigasaki');

@@ -15,10 +15,12 @@ class CreateAnnouncesTable extends Migration
     {
         Schema::create('announces', function (Blueprint $table) {
             $table->id();
+            $table->boolean('show');
             $table->date('date')->nullable();
             $table->string('title');
-            $table->text('content');
+            $table->text('content')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

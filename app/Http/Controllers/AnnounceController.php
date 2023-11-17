@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+use App\Models\Announce;
+
 class AnnounceController extends Controller
 {
     /**
@@ -14,7 +16,10 @@ class AnnounceController extends Controller
      */
     public function index()
     {
-        return view('announces.index');
+        $announces = Announce::all();
+        return view('announces.index',[
+            'announces' => $announces,
+        ]);
     }
 
     /**
@@ -35,8 +40,15 @@ class AnnounceController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([]);
+        $request->validate([
+            'show' => 'required|boolean',
+            'date' => 'nullable|date',
+            'title' => 'required|string|max:50',
+            'content' => 'nullable|string',
+        ]);
+
         Announce::create([
+            'show' => $request->show,
             'date' => $request->date,
             'title' => $request->title,
             'content' => $request->content,
@@ -44,7 +56,7 @@ class AnnounceController extends Controller
 
         return redirect()
         ->route('announces.index')
-        ->with(['message'=>'申請書を作成しました。', 'status'=>'info']);
+        ->with(['message'=>'作成しました。', 'status'=>'info']);
     }
 
     /**
@@ -66,7 +78,10 @@ class AnnounceController extends Controller
      */
     public function edit($id)
     {
-        //
+        $announce = Announce::find($id);
+        return view('announces.edit',[
+            'announce' => $announce,
+        ]);
     }
 
     /**
@@ -78,7 +93,23 @@ class AnnounceController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'show' => 'required|boolean',
+            'date' => 'nullable|date',
+            'title' => 'required|string|max:50',
+            'content' => 'nullable|string',
+        ]);
+
+        $announce = Announce::find($id);
+        $announce->show = $request->show;
+        $announce->date = $request->date;
+        $announce->title = $request->title;
+        $announce->content = $request->content;
+        $announce->save();
+
+        return redirect()
+        ->route('announces.index')
+        ->with(['message'=>'更新しました。', 'status'=>'info']);
     }
 
     /**
@@ -89,6 +120,10 @@ class AnnounceController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Announce::findOrFail($id)->delete();  // ソフトデリート
+
+        return redirect()
+                ->route('announces.index')
+                ->with(['message' => '記事番号【 '.$id.' 】を削除しました。', 'status' => 'alert']);
     }
 }

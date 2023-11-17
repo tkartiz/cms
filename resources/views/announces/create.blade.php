@@ -43,7 +43,7 @@
                                 </div>
                             </div>
                         </div>
-                        <x-announce-column name='content' value='{{ old("content") }}'/>
+                        <x-announce-column contentID='content' value='{{ old("content") }}'/>
                     </div>
                     <div class="w-3/4 flex mx-auto my-10">
                         <button type="submit" class="w-1/2 p-2 text-white bg-indigo-500 border-0 focus:outline-none hover:bg-indigo-600 rounded-l-xl">

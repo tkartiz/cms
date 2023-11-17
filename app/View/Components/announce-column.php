@@ -7,12 +7,16 @@ use Illuminate\View\Component;
 class announce-column extends Component
 {
 
-    public String $name;
+    public String $contentID;
+    public String $contentIDtray1;
+    public String $contentIDtray2;
     public ?String $value;
 
-    public function __construct(String $name, ?String $value)
+    public function __construct(String $contentID, String $contentIDtray1, String $contentIDtray2, ?String $value)
     {
-        $this->name = $name;
+        $this->contentID = $contentID;
+        $this->contentIDtray1 = $contentIDtray1;
+        $this->contentIDtray2 = $contentIDtray2;
         $this->value = $value;
     }
 

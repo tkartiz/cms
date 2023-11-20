@@ -92,8 +92,7 @@
                                             <td rowspan="2" class="text-sm border border-slate-300">{{ $announce->date }}</td>
                                             <td rowspan="2" class="text-start text-sm border border-slate-300">{{ $announce->title }}</td>
                                             <td rowspan="2" class="text-start text-sm border border-slate-300">
-                                                @for($i = 1; $i < 2; $i++) <?php $tmpName = 'content' . $i; ?> {!! nl2br($announce->$tmpName) !!}<br>
-                                                    @endfor
+                                                {!! nl2br($announce->content['content1']) !!}
                                             </td>
                                             <td class="text-sm border border-slate-300">{{ $announce->created_at->format('Y-m-d') }}</td>
                                         </tr>

@@ -9,7 +9,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="w-full bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <x-auth-validation-errors class="mb-4" :errors="$errors" />
-                <form method="POST" action="{{ route('announces.store') }}">
+                <form method="POST" action="{{ route('announces.store') }}" enctype="multipart/form-data">
                     @csrf
                     <div class="p-3 bg-white">
                         <div class="flex">
@@ -43,10 +43,16 @@
                                 </div>
                             </div>
                         </div>
-                        @for($i = 1 ; $i < 7 ; $i++)
-                        <?php $tmpName = 'content'.$i; ?>
-                        <x-announce-column contentID="{{ $tmpName }}" value='{{ old($tmpName) }}'/>
-                        @endfor
+                        <?php for ($i = 1; $i < 7; $i++) : ?>
+                            <div class="pb-3 border-double border-4 rounded border-gray-300">
+                                <p class="w-full p-2 text-center text-lg font-bold bg-gray-200">カラム{{ $i }}</p>
+                                <?php $tmpName = 'content' . $i; ?>
+                                <x-announce-column contentID="{{ $tmpName }}" value='{{ old($tmpName) }}' />
+                                <div class="mt-3">
+                                    <x-announce-image contentID="{{ $tmpName }}" />
+                                </div>
+                            </div>
+                        <?php endfor; ?>
                     </div>
                     <div class="w-3/4 flex mx-auto my-10">
                         <button type="submit" class="w-1/2 p-2 text-white bg-indigo-500 border-0 focus:outline-none hover:bg-indigo-600 rounded-l-xl">

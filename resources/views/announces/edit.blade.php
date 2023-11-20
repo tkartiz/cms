@@ -52,10 +52,16 @@
                                 </div>
                             </div>
                         </div>
-                        @for($i = 1 ; $i < 7 ; $i++)
-                        <?php $tmpName = 'content'.$i; ?>
-                        <x-announce-column contentID="{{ $tmpName }}" value='{{ $announce->$tmpName }}'/>
-                        @endfor
+                        <?php for ($i = 1; $i < 7; $i++) : ?>
+                            <div class="pb-3 border-double border-4 rounded border-gray-300">
+                                <p class="w-full p-2 text-center text-lg font-bold bg-gray-200">カラム{{ $i }}</p>
+                                <?php $tmpName = 'content' . $i; ?>
+                                <x-announce-column contentID="{{ $tmpName }}" value='{{ $announce->content[$tmpName] }}' />
+                                <div class="mt-3">
+                                    <x-announce-image contentID="{{ $tmpName }}" />
+                                </div>
+                            </div>
+                        <?php endfor; ?>
                     </div>
                     <div class="w-3/4 flex mx-auto my-10">
                         <button type="submit" class="w-1/2 p-2 text-white bg-indigo-500 border-0 focus:outline-none hover:bg-indigo-600 rounded-l-xl">

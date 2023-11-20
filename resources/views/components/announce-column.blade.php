@@ -1,5 +1,6 @@
-<div class="d-flex flex-wrap p-2">
-    <div class="tag">
+<div class="flex flex-wrap px-2">
+    <p class="me-auto ps-2">【文章】</p>
+    <div class="tag ms-auto">
         <input id="<?php echo $contentID ?>.'bold'" class="tag1" type="button" onclick="applyStyle('<?php echo $contentID ?>', 'fw-bold', '')">
         <input id="<?php echo $contentID ?>.'italic'" class="tag2" type="button" onclick="applyStyle('<?php echo $contentID ?>', 'fst-italic', '')">
         <input id="<?php echo $contentID ?>.'underline'" class="tag3" type="button" onclick="applyStyle('<?php echo $contentID ?>', 'text-decoration-underline', '')">
@@ -37,7 +38,7 @@
             <?php } ?>
         </div>
     </div>
-    <textarea id=<?php echo $contentID ?> class="w-full h-32" name=<?php echo $contentID ?>><?php echo $value ?></textarea>
+    <textarea id=<?php echo $contentID ?> class="w-full h-32 py-1 px-3  bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 leading-8 transition-colors duration-200 ease-in-out" name=<?php echo $contentID ?>><?php echo $value ?></textarea>
 </div>
 <script type="text/javascript" defer>
      // 太文字

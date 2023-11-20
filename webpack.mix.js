@@ -15,5 +15,6 @@ mix.js('resources/js/app.js', 'public/js')
     .js('resources/js/pallet.js', 'public/js')
     .autoload({ "jquery": ['$', 'window.jQuery'], })
     .postCss('resources/css/app.css', 'public/css', [
-        //
-    ]);
+        require('tailwindcss'),
+    ])
+    .styles('resources/css/pallet.css', 'public/css/pallet.css');

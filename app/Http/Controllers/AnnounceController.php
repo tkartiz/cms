@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use App\Models\Announce;
+use App\Libraries\Common;
 
 class AnnounceController extends Controller
 {
@@ -17,7 +18,7 @@ class AnnounceController extends Controller
     public function index()
     {
         $announces = Announce::all();
-        return view('announces.index',[
+        return view('announces.index', [
             'announces' => $announces,
         ]);
     }
@@ -44,29 +45,82 @@ class AnnounceController extends Controller
             'show' => 'required|boolean',
             'date' => 'nullable|date',
             'title' => 'required|string|max:50',
-            'content1' => 'nullable|string',
+            'content' => 'nullable|string',
             'content2' => 'nullable|string',
             'content3' => 'nullable|string',
             'content4' => 'nullable|string',
             'content5' => 'nullable|string',
             'content6' => 'nullable|string',
+            'content1Img1Cap' => 'nullable|string',
+            'content1Img2Cap' => 'nullable|string',
+            'content1Img3Cap' => 'nullable|string',
+            'content2Img1Cap' => 'nullable|string',
+            'content2Img2Cap' => 'nullable|string',
+            'content2Img3Cap' => 'nullable|string',
+            'content3Img1Cap' => 'nullable|string',
+            'content3Img2Cap' => 'nullable|string',
+            'content3Img3Cap' => 'nullable|string',
+            'content4Img1Cap' => 'nullable|string',
+            'content4Img2Cap' => 'nullable|string',
+            'content4Img3Cap' => 'nullable|string',
+            'content5Img1Cap' => 'nullable|string',
+            'content5Img2Cap' => 'nullable|string',
+            'content5Img3Cap' => 'nullable|string',
+            'content6Img1Cap' => 'nullable|string',
+            'content6Img2Cap' => 'nullable|string',
+            'content6Img3Cap' => 'nullable|string',
         ]);
+
+        // ========= お知らせ欄と画像数の設定 ==========
+        $colNum = 6;
+        $colImgNum = 3;
+
+        // $file_path = 'https://ff-server.site/bm_tool/'; // サーバーの場合
+        $file_path = 'http://127.0.0.1:8000/'; // ローカルの場合
+        $dir_storage_path = $file_path . 'storage/announce/';
+        // ========= お知らせ欄と画像数の設定 ==========
+
+        $content = [];
+        for ($i = 1; $i < ($colNum + 1); $i++) {
+            $tmpContent = 'content' . $i;
+            $content[$tmpContent] = $request->$tmpContent;
+
+            for ($j = 1; $j < ($colImgNum + 1); $j++) {
+                $tmpImg = 'c' . $i . 'Img' . $j;
+
+                $requestImg = 'content' . $i . 'Img' . $j;
+                $requestImgLocation = $requestImg . 'Location';
+                $requestImgWidth = $requestImg . 'Width';
+                $requestImgHeight = $requestImg . 'Height';
+                $requestImgCap = $requestImg . 'Cap';
+
+                $k = 3 * ($i - 1) + ($j - 1);
+                if ($request->file('file') != null && array_key_exists($k, $request->file('file'))) {
+                    $content[$tmpImg] = $request->file('file')[$k]->getClientOriginalName();
+                    $file_path = $dir_storage_path . $request->id . '/' . $content[$tmpImg];
+                    $content[$tmpImg . 'Path'] = $file_path;
+                } else {
+                    $content[$tmpImg] = null;
+                    $content[$tmpImg . 'Path'] = null;
+                }
+
+                $content[$tmpImg . 'Loc'] = $request->$requestImgLocation;
+                $content[$tmpImg . 'W'] = $request->$requestImgWidth;
+                $content[$tmpImg . 'H'] = $request->$requestImgHeight;
+                $content[$tmpImg . 'Cap'] = $request->$requestImgCap;
+            }
+        }
 
         Announce::create([
             'show' => $request->show,
             'date' => $request->date,
             'title' => $request->title,
-            'content1' => $request->content1,
-            'content2' => $request->content2,
-            'content3' => $request->content3,
-            'content4' => $request->content4,
-            'content5' => $request->content5,
-            'content6' => $request->content6,
+            'content' => $content,
         ]);
 
         return redirect()
-        ->route('announces.index')
-        ->with(['message'=>'作成しました。', 'status'=>'info']);
+            ->route('announces.index')
+            ->with(['message' => '作成しました。', 'status' => 'info']);
     }
 
     /**
@@ -89,7 +143,7 @@ class AnnounceController extends Controller
     public function edit($id)
     {
         $announce = Announce::find($id);
-        return view('announces.edit',[
+        return view('announces.edit', [
             'announce' => $announce,
         ]);
     }
@@ -128,8 +182,8 @@ class AnnounceController extends Controller
         $announce->save();
 
         return redirect()
-        ->route('announces.index')
-        ->with(['message'=>'更新しました。', 'status'=>'info']);
+            ->route('announces.index')
+            ->with(['message' => '更新しました。', 'status' => 'info']);
     }
 
     /**
@@ -143,7 +197,7 @@ class AnnounceController extends Controller
         Announce::findOrFail($id)->delete();  // ソフトデリート
 
         return redirect()
-                ->route('announces.index')
-                ->with(['message' => '記事番号【 '.$id.' 】を削除しました。', 'status' => 'alert']);
+            ->route('announces.index')
+            ->with(['message' => '記事番号【 ' . $id . ' 】を削除しました。', 'status' => 'alert']);
     }
 }

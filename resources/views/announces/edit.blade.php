@@ -52,16 +52,25 @@
                                 </div>
                             </div>
                         </div>
-                        <?php for ($i = 1; $i < 7; $i++) : ?>
+                        <?php for ($i = 1; $i < 7; $i++) { ?>
                             <div class="pb-3 border-double border-4 rounded border-gray-300">
                                 <p class="w-full p-2 text-center text-lg font-bold bg-gray-200">カラム{{ $i }}</p>
                                 <?php $tmpName = 'content' . $i; ?>
                                 <x-announce-column contentID="{{ $tmpName }}" value='{{ $announce->content[$tmpName] }}' />
-                                <div class="mt-3">
-                                    <x-announce-image contentID="{{ $tmpName }}" />
+                                <div class="flex px-2 justify-around">
+                                    <?php for ($j = 1; $j < 4; $j++) { ?>
+                                        <div class="mt-3">
+                                            <?php $tmpImg = 'col' . $i . 'Img' . $j; ?>
+                                            <?php $tmpImgLocation = $tmpImg . 'Location'; ?>
+                                            <?php $tmpImgWidth = $tmpImg . 'Width'; ?>
+                                            <?php $tmpImgHeight = $tmpImg . 'Height'; ?>
+                                            <?php $tmpImgCap = $tmpImg . 'Cap'; ?>
+                                            <x-announce-image contentID="{{ $tmpName }}" imgNum='{{ $j }}' colImg='{{ $announce->content[$tmpImg] }}' colImgLocation='{{ $announce->content[$tmpImgLocation] }}' colImgWidth='{{ $announce->content[$tmpImgWidth] }}' colImgHeight='{{ $announce->content[$tmpImgHeight] }}' colImgCap='{{ $announce->content[$tmpImgCap] }}' />
+                                        </div>
+                                    <?php }; ?>
                                 </div>
                             </div>
-                        <?php endfor; ?>
+                        <?php }; ?>
                     </div>
                     <div class="w-3/4 flex mx-auto my-10">
                         <button type="submit" class="w-1/2 p-2 text-white bg-indigo-500 border-0 focus:outline-none hover:bg-indigo-600 rounded-l-xl">

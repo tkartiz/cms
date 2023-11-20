@@ -86,7 +86,7 @@ class AnnounceController extends Controller
             $content[$tmpContent] = $request->$tmpContent;
 
             for ($j = 1; $j < ($colImgNum + 1); $j++) {
-                $tmpImg = 'c' . $i . 'Img' . $j;
+                $tmpImg = 'col' . $i . 'Img' . $j;
 
                 $requestImg = 'content' . $i . 'Img' . $j;
                 $requestImgLocation = $requestImg . 'Location';
@@ -104,9 +104,9 @@ class AnnounceController extends Controller
                     $content[$tmpImg . 'Path'] = null;
                 }
 
-                $content[$tmpImg . 'Loc'] = $request->$requestImgLocation;
-                $content[$tmpImg . 'W'] = $request->$requestImgWidth;
-                $content[$tmpImg . 'H'] = $request->$requestImgHeight;
+                $content[$tmpImg . 'Location'] = $request->$requestImgLocation;
+                $content[$tmpImg . 'Width'] = $request->$requestImgWidth;
+                $content[$tmpImg . 'Height'] = $request->$requestImgHeight;
                 $content[$tmpImg . 'Cap'] = $request->$requestImgCap;
             }
         }

@@ -6,11 +6,23 @@ use Illuminate\View\Component;
 
 class announce-image extends Component
 {
-    public String $contentID;
+    public $contentID;
+    public $imgNum;
+    public $colImg;
+    public $colImgLocation;
+    public $colImgWidth;
+    public $colImgHeight;
+    public $colImgCap;
 
-    public function __construct(String $contentID)
+    public function __construct($contentID, $imgNum, $colImg, $colImgLocation, $colImgWidth, $colImgHeight, $colImgCap)
     {
         $this->contentID = $contentID;
+        $this->imgNum = $imgNum;
+        $this->colImg = $colImg;
+        $this->colImgLocation = $colImgLocation;
+        $this->colImgWidth = $colImgWidth;
+        $this->colImgHeight = $colImgHeight;
+        $this->colImgCap = $colImgCap;
     }
 
     /**

@@ -8,15 +8,11 @@ class announce-column extends Component
 {
 
     public String $contentID;
-    public String $contentIDtray1;
-    public String $contentIDtray2;
     public ?String $value;
 
-    public function __construct(String $contentID, String $contentIDtray1, String $contentIDtray2, ?String $value)
+    public function __construct(String $contentID, ?String $value)
     {
         $this->contentID = $contentID;
-        $this->contentIDtray1 = $contentIDtray1;
-        $this->contentIDtray2 = $contentIDtray2;
         $this->value = $value;
     }
 

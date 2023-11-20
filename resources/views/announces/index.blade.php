@@ -45,7 +45,7 @@
                                             <th rowspan="2" class="w-48 px-2 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100 border border-slate-300">
                                                 タイトル</th>
                                             <th rowspan="2" class="w-auto px-2 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100 border border-slate-300">
-                                                内容</th>
+                                                内容（カラム１のみ表示）</th>
                                             <th class="w-24 px-2 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100 border border-slate-300">
                                                 作成日</th>
                                         </tr>
@@ -91,7 +91,10 @@
                                             </td>
                                             <td rowspan="2" class="text-sm border border-slate-300">{{ $announce->date }}</td>
                                             <td rowspan="2" class="text-start text-sm border border-slate-300">{{ $announce->title }}</td>
-                                            <td rowspan="2" class="text-start text-sm border border-slate-300">{!! nl2br($announce->content) !!}</td>
+                                            <td rowspan="2" class="text-start text-sm border border-slate-300">
+                                                @for($i = 1; $i < 2; $i++) <?php $tmpName = 'content' . $i; ?> {!! nl2br($announce->$tmpName) !!}<br>
+                                                    @endfor
+                                            </td>
                                             <td class="text-sm border border-slate-300">{{ $announce->created_at->format('Y-m-d') }}</td>
                                         </tr>
                                         <tr>

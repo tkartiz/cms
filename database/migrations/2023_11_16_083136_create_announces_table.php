@@ -18,7 +18,12 @@ class CreateAnnouncesTable extends Migration
             $table->boolean('show');
             $table->date('date')->nullable();
             $table->string('title');
-            $table->text('content')->nullable();
+            $table->text('content1')->nullable();
+            $table->text('content2')->nullable();
+            $table->text('content3')->nullable();
+            $table->text('content4')->nullable();
+            $table->text('content5')->nullable();
+            $table->text('content6')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

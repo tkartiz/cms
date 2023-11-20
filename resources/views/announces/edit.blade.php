@@ -52,7 +52,10 @@
                                 </div>
                             </div>
                         </div>
-                        <x-announce-column contentID='content' value='{{ $announce->content }}'/>
+                        @for($i = 1 ; $i < 7 ; $i++)
+                        <?php $tmpName = 'content'.$i; ?>
+                        <x-announce-column contentID="{{ $tmpName }}" value='{{ $announce->$tmpName }}'/>
+                        @endfor
                     </div>
                     <div class="w-3/4 flex mx-auto my-10">
                         <button type="submit" class="w-1/2 p-2 text-white bg-indigo-500 border-0 focus:outline-none hover:bg-indigo-600 rounded-l-xl">

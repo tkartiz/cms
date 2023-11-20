@@ -44,14 +44,24 @@ class AnnounceController extends Controller
             'show' => 'required|boolean',
             'date' => 'nullable|date',
             'title' => 'required|string|max:50',
-            'content' => 'nullable|string',
+            'content1' => 'nullable|string',
+            'content2' => 'nullable|string',
+            'content3' => 'nullable|string',
+            'content4' => 'nullable|string',
+            'content5' => 'nullable|string',
+            'content6' => 'nullable|string',
         ]);
 
         Announce::create([
             'show' => $request->show,
             'date' => $request->date,
             'title' => $request->title,
-            'content' => $request->content,
+            'content1' => $request->content1,
+            'content2' => $request->content2,
+            'content3' => $request->content3,
+            'content4' => $request->content4,
+            'content5' => $request->content5,
+            'content6' => $request->content6,
         ]);
 
         return redirect()
@@ -97,14 +107,24 @@ class AnnounceController extends Controller
             'show' => 'required|boolean',
             'date' => 'nullable|date',
             'title' => 'required|string|max:50',
-            'content' => 'nullable|string',
+            'content1' => 'nullable|string',
+            'content2' => 'nullable|string',
+            'content3' => 'nullable|string',
+            'content4' => 'nullable|string',
+            'content5' => 'nullable|string',
+            'content6' => 'nullable|string',
         ]);
 
         $announce = Announce::find($id);
         $announce->show = $request->show;
         $announce->date = $request->date;
         $announce->title = $request->title;
-        $announce->content = $request->content;
+        $announce->content1 = $request->content1;
+        $announce->content2 = $request->content2;
+        $announce->content3 = $request->content3;
+        $announce->content4 = $request->content4;
+        $announce->content5 = $request->content5;
+        $announce->content6 = $request->content6;
         $announce->save();
 
         return redirect()

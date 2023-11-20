@@ -1,19 +1,19 @@
 <div class="d-flex flex-wrap p-2">
     <div class="tag">
-        <input class="tag1" type="button" onclick="applyStyle('<?php echo $contentID ?>', 'fw-bold', '')">
-        <input class="tag2" type="button" onclick="applyStyle('<?php echo $contentID ?>', 'fst-italic', '')">
-        <input class="tag3" type="button" onclick="applyStyle('<?php echo $contentID ?>', 'text-decoration-underline', '')">
-        <input class="tag4" type="button" onclick="applyStyle('<?php echo $contentID ?>', 'text-decoration-line-through', '')">
-        <input class="tag11" type="button" onclick="applyStyle('<?php echo $contentID ?>', '', 'font-size:1.50em;')">
-        <input class="tag12" type="button" onclick="applyStyle('<?php echo $contentID ?>', '', 'font-size:0.75em;')">
+        <input id="<?php echo $contentID ?>.'bold'" class="tag1" type="button" onclick="applyStyle('<?php echo $contentID ?>', 'fw-bold', '')">
+        <input id="<?php echo $contentID ?>.'italic'" class="tag2" type="button" onclick="applyStyle('<?php echo $contentID ?>', 'fst-italic', '')">
+        <input id="<?php echo $contentID ?>.'underline'" class="tag3" type="button" onclick="applyStyle('<?php echo $contentID ?>', 'text-decoration-underline', '')">
+        <input id="<?php echo $contentID ?>.'linethrough'" class="tag4" type="button" onclick="applyStyle('<?php echo $contentID ?>', 'text-decoration-line-through', '')">
+        <input id="<?php echo $contentID ?>.'bigger'" class="tag11" type="button" onclick="applyStyle('<?php echo $contentID ?>', '', 'font-size:1.50em;')">
+        <input id="<?php echo $contentID ?>.'smaller'" class="tag12" type="button" onclick="applyStyle('<?php echo $contentID ?>', '', 'font-size:0.75em;')">
 
-        <input id="tray1" class="tag8" type="button" onclick="appearTray('<?php echo '#' . $contentID . 'tray1'; ?>')">
-        <input class="tag13" type="button" onclick="appearTray('<?php echo '#' . $contentID . 'tray2'; ?>')">
+        <input id="<?php echo $contentID ?>.'color'" class="tag8" type="button" onclick="appearTray('<?php echo  $contentID . 'tray1'; ?>')">
+        <input id="<?php echo $contentID ?>.'bgcolor'" class="tag13" type="button" onclick="appearTray('<?php echo  $contentID . 'tray2'; ?>')">
 
-        <input class="tag5" type="button" onclick="applyStyle('<?php echo $contentID ?>', 'text-left', '')">
-        <input class="tag6" type="button" onclick="applyStyle('<?php echo $contentID ?>', 'text-center', '')">
-        <input class="tag7" type="button" onclick="applyStyle('<?php echo $contentID ?>', 'text-right', '')">
-        <input class="tag9" type="button" onclick="applyLink('<?php echo $contentID ?>')">
+        <input id="<?php echo $contentID ?>.'textleft'" class="tag5" type="button" onclick="applyStyle('<?php echo $contentID ?>', 'text-left', '')">
+        <input id="<?php echo $contentID ?>.'textcenter'" class="tag6" type="button" onclick="applyStyle('<?php echo $contentID ?>', 'text-center', '')">
+        <input id="<?php echo $contentID ?>.'textright'" class="tag7" type="button" onclick="applyStyle('<?php echo $contentID ?>', 'text-right', '')">
+        <input id="<?php echo $contentID ?>.'applyLink'" class="tag9" type="button" onclick="applyLink('<?php echo $contentID ?>')">
 
         <?php
         $color_array = array(
@@ -28,14 +28,90 @@
         ?>
         <div id="<?php echo $contentID . 'tray1'; ?>" class="tray1 hidden">
             <?php for ($k = 0; $k < count($color_array); $k++) { ?>
-                <input id="<?php echo $contentID . 'col' . $color_array[$k]; ?>" style="background-color:<?php echo $color_array[$k] ?>;" type="button" onclick="applyStyle('<?php echo $contentID ?>', '','color:<?php echo $color_array[$k] ?>;')">
+                <input style="background-color:<?php echo $color_array[$k] ?>;" type="button" onclick="applyStyle('<?php echo $contentID ?>', '','color:<?php echo $color_array[$k] ?>;')">
             <?php } ?>
         </div>
         <div id="<?php echo $contentID . 'tray2'; ?>" class="tray2 hidden">
             <?php for ($k = 0; $k < count($color_array); $k++) { ?>
-                <input id="<?php echo $contentID . 'bgcol' . $color_array[$k]; ?>" style="background-color:<?php echo $color_array[$k] ?>;" type="button" onclick="applyStyle('<?php echo $contentID ?>', '','background:linear-gradient(transparent 40%, <?php echo $color_array[$k] ?> 0%); padding:0 5px;')">
+                <input style="background-color:<?php echo $color_array[$k] ?>;" type="button" onclick="applyStyle('<?php echo $contentID ?>', '','background:linear-gradient(transparent 40%, <?php echo $color_array[$k] ?> 0%); padding:0 5px;')">
             <?php } ?>
         </div>
     </div>
     <textarea id=<?php echo $contentID ?> class="w-full h-32" name=<?php echo $contentID ?>><?php echo $value ?></textarea>
 </div>
+<script type="text/javascript" defer>
+     // 太文字
+     document.getElementById(<?php echo $contentID ?>.'bold').addEventListener('click', function() {
+        window.applyStyle();
+    });
+
+    // イタリック文字
+    document.getElementById(<?php echo $contentID ?>.'italic').addEventListener('click', function() {
+        window.applyStyle();
+    });
+
+    // 下線
+    document.getElementById(<?php echo $contentID ?>.'underline').addEventListener('click', function() {
+        window.applyStyle();
+    });
+
+    // 取り消し線
+    document.getElementById(<?php echo $contentID ?>.'linethrough').addEventListener('click', function() {
+        window.applyStyle();
+    });
+
+    // 文字サイズアップ
+    document.getElementById(<?php echo $contentID ?>.'bigger').addEventListener('click', function() {
+        window.applyStyle();
+    });
+
+    // 文字サイズダウン
+    document.getElementById(<?php echo $contentID ?>.'smaller').addEventListener('click', function() {
+        window.applyStyle();
+    });
+
+    // 文字色指定・色パレット表示
+    document.getElementById(<?php echo $contentID ?>.'color').addEventListener('click', function() {
+        window.appearTray();
+    });
+
+    // 文字色指定
+    document.getElementById(<?php echo $contentID ?>.'tray1').addEventListener('click', function() {
+        window.applyStyle();
+    });
+
+    // 文字背景色指定・色パレット表示
+    document.getElementById(<?php echo $contentID ?>.'bgcolor').addEventListener('click', function() {
+        window.appearTray();
+    });
+
+    // 文字背景色指定
+    document.getElementById(<?php echo $contentID ?>.'tray2').addEventListener('click', function() {
+        window.applyStyle();
+    });
+
+     // 文字左寄せ
+     document.getElementById(<?php echo $contentID ?>.'textleft').addEventListener('click', function() {
+        window.applyStyle();
+    });
+
+    // 文字左寄せ
+    document.getElementById(<?php echo $contentID ?>.'textleft').addEventListener('click', function() {
+        window.applyStyle();
+    });
+
+    // 文字中央寄せ
+    document.getElementById(<?php echo $contentID ?>.'textcenter').addEventListener('click', function() {
+        window.applyStyle();
+    });
+
+    // 文字右寄せ
+    document.getElementById(<?php echo $contentID ?>.'textright').addEventListener('click', function() {
+        window.applyStyle();
+    });
+
+    // リンク付け
+    document.getElementById(<?php echo $contentID ?>.'applyLink').addEventListener('click', function() {
+        window.applyLink();
+    });
+</script>

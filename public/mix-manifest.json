@@ -1,6 +1,8 @@
 {
     "/js/app.js": "/js/app.js",
     "/js/pallet.js": "/js/pallet.js",
+    "/js/accordion.js": "/js/accordion.js",
+    "/css/accordion.css": "/css/accordion.css",
     "/css/app.css": "/css/app.css",
     "/css/pallet.css": "/css/pallet.css"
 }

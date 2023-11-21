@@ -15,7 +15,7 @@ class CreateAnnouncesTable extends Migration
     {
         Schema::create('announces', function (Blueprint $table) {
             $table->id();
-            $table->boolean('show');
+            $table->string('release');
             $table->date('date')->nullable();
             $table->string('title');
             $table->json('content')->nullable(); // 文章、画像はJson型で保存する

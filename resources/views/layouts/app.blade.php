@@ -14,11 +14,10 @@
     <!-- Styles -->
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('css/pallet.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/accordion.css') }}">
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-    <script src="{{ asset('js/pallet.js') }}" defer></script>
-
 
 </head>
 
@@ -39,5 +38,11 @@
         </main>
     </div>
 </body>
+<!-- jquery Scripts -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+<!-- 自作Scripts -->
+<script src="{{ asset('js/pallet.js') }}" defer></script>
+<script src="{{ asset('js/accordion.js') }}" defer></script>
 
 </html>

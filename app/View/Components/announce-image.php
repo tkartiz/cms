@@ -9,16 +9,18 @@ class announce-image extends Component
     public $contentID;
     public $imgNum;
     public $colImg;
+    public $colImgPath;
     public $colImgLocation;
     public $colImgWidth;
     public $colImgHeight;
     public $colImgCap;
 
-    public function __construct($contentID, $imgNum, $colImg, $colImgLocation, $colImgWidth, $colImgHeight, $colImgCap)
+    public function __construct($contentID, $imgNum, $colImg, $colImgPath, $colImgLocation, $colImgWidth, $colImgHeight, $colImgCap)
     {
         $this->contentID = $contentID;
         $this->imgNum = $imgNum;
         $this->colImg = $colImg;
+        $this->colImgPath = $colImgPath;
         $this->colImgLocation = $colImgLocation;
         $this->colImgWidth = $colImgWidth;
         $this->colImgHeight = $colImgHeight;

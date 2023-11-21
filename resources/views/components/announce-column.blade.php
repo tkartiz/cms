@@ -41,8 +41,8 @@
     <textarea id=<?php echo $contentID ?> class="w-full h-32 py-1 px-3  bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 leading-8 transition-colors duration-200 ease-in-out" name=<?php echo $contentID ?>><?php echo $value ?></textarea>
 </div>
 <script type="text/javascript" defer>
-     // 太文字
-     document.getElementById(<?php echo $contentID ?>.'bold').addEventListener('click', function() {
+    // 太文字
+    document.getElementById(<?php echo $contentID ?>.'bold').addEventListener('click', function() {
         window.applyStyle();
     });
 

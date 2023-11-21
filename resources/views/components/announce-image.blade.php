@@ -8,6 +8,16 @@
     </div>
     <input class="w-full py-1 mb-1" type="file" name="file[]" multiple="multiple">
     <p class="w-full py-1 mb-1">現選択：{{ $colImg }}</p>
+    @if(!is_null($colImg))
+    <input type="hidden" name="<?php echo $contentID . 'Img' . $imgNum .'_org'; ?>" value="{{ $colImg }}">
+    @else
+    <input type="hidden" name="<?php echo $contentID . 'Img' . $imgNum .'_org'; ?>" value="">
+    @endif
+    @if(!is_null($colImgPath))
+    <input type="hidden" name="<?php echo $contentID . 'Img' . $imgNum .'Path_org'; ?>" value="{{ $colImgPath }}">
+    @else
+    <input type="hidden" name="<?php echo $contentID . 'Img' . $imgNum .'Path_org'; ?>" value="">
+    @endif
     <select form-select" type="text" name="<?php echo $contentID . 'Img' . $imgNum . 'Location'; ?>" class="w-1/2 py-1 px-3 mb-2 bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 transition-colors duration-200 ease-in-out" >
         @if($colImgLocation === "left")
         <option selected value="left">左寄せ</option>

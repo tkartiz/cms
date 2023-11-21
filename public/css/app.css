@@ -790,6 +790,10 @@ select {
   margin-left: auto;
   margin-right: auto;
 }
+.my-10 {
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+}
 .my-6 {
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
@@ -869,9 +873,6 @@ select {
 .mt-8 {
   margin-top: 2rem;
 }
-.me-3 {
-  margin-inline-end: 0.75rem;
-}
 .block {
   display: block;
 }
@@ -913,9 +914,6 @@ select {
 }
 .h-8 {
   height: 2rem;
-}
-.h-24 {
-  height: 6rem;
 }
 .min-h-screen {
   min-height: 100vh;
@@ -959,6 +957,9 @@ select {
 .w-5 {
   width: 1.25rem;
 }
+.w-5\/6 {
+  width: 83.333333%;
+}
 .w-6 {
   width: 1.5rem;
 }
@@ -970,12 +971,6 @@ select {
 }
 .w-full {
   width: 100%;
-}
-.w-1\/4 {
-  width: 25%;
-}
-.w-5\/6 {
-  width: 83.333333%;
 }
 .max-w-6xl {
   max-width: 72rem;

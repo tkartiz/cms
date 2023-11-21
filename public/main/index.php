@@ -17,17 +17,19 @@ $count = 0; // 表示記事カウント用変数
 // $password = 'kawata203';
 
 // ローカルの場合
-$dsn = 'mysql:dbname=cms;charset=utf8;host=127.0.0.1:3308';
-$user = 'cmsuser';
-$password = '';
+$dsn = 'mysql:host=127.0.0.1:3306;dbname=cms;charset=utf8';
+$user = 'bmuser';
+$password = 'Bmuser2023';
 
 try {
   $pdo = new PDO($dsn, $user, $password);
+  $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+  $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+  $stm = $pdo->query("SET NAMES utf8;");
   print('接続に成功しました。<br>');
-
+  
   foreach ($pdo->query('select * from announces') as $row) {
     echo '<p>';
-    echo $row['id'], ' : ';
     echo $row['content'], ' : ';
     echo '</p>';
   }

@@ -9,18 +9,19 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="w-full ms-auto flex px-5 mt-4">
-                    <div class="w-24 flex me-2 btn px-2 py-1 text-center text-sm text-white bg-indigo-500 border-0 focus:outline-none hover:bg-indigo-600 rounded-lg">
+                    <button onclick="ListAll()" class="w-24 me-2 btn px-2 py-1 text-center text-sm text-white bg-indigo-500 border-0 focus:outline-none hover:bg-indigo-600 rounded-lg">すべて表示</button>
+                    <button onclick="ListRelease()" class="w-24 flex me-2 btn px-2 py-1 text-center text-sm text-white bg-indigo-500 border-0 focus:outline-none hover:bg-indigo-600 rounded-lg">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-bell-fill me-2" viewBox="0 0 16 16" style="color:white;">
                             <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zm.995-14.901a1 1 0 1 0-1.99 0A5.002 5.002 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901z" />
                         </svg>
                         <p class="self-center text-start">公開</p>
-                    </div>
-                    <div class="w-24 flex me-auto btn px-2 py-1 text-center text-sm text-white bg-indigo-500 border-0 focus:outline-none hover:bg-indigo-600 rounded-lg">
+                    </button>
+                    <button onclick="ListDraft()" class="w-24 flex me-auto btn px-2 py-1 text-center text-sm text-white bg-indigo-500 border-0 focus:outline-none hover:bg-indigo-600 rounded-lg">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-bell-slash me-2" viewBox="0 0 16 16" style="color:white;">
                             <path d="M5.164 14H15c-.299-.199-.557-.553-.78-1-.9-1.8-1.22-5.12-1.22-6 0-.264-.02-.523-.06-.776l-.938.938c.02.708.157 2.154.457 3.58.161.767.377 1.566.663 2.258H6.164l-1 1zm5.581-9.91a3.986 3.986 0 0 0-1.948-1.01L8 2.917l-.797.161A4.002 4.002 0 0 0 4 7c0 .628-.134 2.197-.459 3.742-.05.238-.105.479-.166.718l-1.653 1.653c.02-.037.04-.074.059-.113C2.679 11.2 3 7.88 3 7c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0c.942.19 1.788.645 2.457 1.284l-.707.707zM10 15a2 2 0 1 1-4 0h4zm-9.375.625a.53.53 0 0 0 .75.75l14.75-14.75a.53.53 0 0 0-.75-.75L.625 15.625z" />
                         </svg>
                         <p class="self-center">非公開</p>
-                    </div>
+                    </button>
                     <a href="{{ route('announces.create') }}" class="w-24 ms-auto btn px-2 py-1 text-center text-white bg-indigo-500 border-0 focus:outline-none hover:bg-indigo-600 rounded-lg">
                         新規作成</a>
                 </div>
@@ -56,7 +57,7 @@
                                     </thead>
                                     <tbody>
                                         @foreach($announces as $announce)
-                                        <tr>
+                                        <tr class="<?php echo $announce->release; ?>">
                                             <td rowspan="2" class="border border-slate-300">
                                                 @if($announce->release === "release")
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-bell-fill mx-auto" viewBox="0 0 16 16" style="color:blue;">
@@ -96,7 +97,7 @@
                                             </td>
                                             <td class="text-sm border border-slate-300">{{ $announce->created_at->format('Y-m-d') }}</td>
                                         </tr>
-                                        <tr>
+                                        <tr class="<?php echo $announce->release; ?>">
                                             <td class="text-sm border border-slate-300">{{ $announce->updated_at->format('Y-m-d') }}</td>
                                         </tr>
                                         @endforeach
@@ -114,6 +115,33 @@
             'use strict';
             if (confirm('本当に削除してもいいですか？')) {
                 document.getElementById('del_' + e.dataset.id).submit();
+            }
+        }
+
+        function ListAll() {
+            if ($('.release').hasClass('hidden')) {
+                $('.release').removeClass('hidden');
+            }
+            if ($('.draft').hasClass('hidden')) {
+                $('.draft').removeClass('hidden');
+            }
+        }
+
+        function ListRelease() {
+            if ($('.release').hasClass('hidden')) {
+                $('.release').removeClass('hidden');
+            }
+            if (!($('.draft').hasClass('hidden'))) {
+                $('.draft').addClass('hidden');
+            }
+        }
+
+        function ListDraft() {
+            if (!($('.release').hasClass('hidden'))) {
+                $('.release').addClass('hidden');
+            }
+            if ($('.draft').hasClass('hidden')) {
+                $('.draft').removeClass('hidden');
             }
         }
     </script>

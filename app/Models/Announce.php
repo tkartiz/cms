@@ -12,6 +12,7 @@ class Announce extends Model
     use HasFactory, SoftDeletes;
 
     protected $fillable = [
+        'stamp',
         'release',
         'date',
         'title',

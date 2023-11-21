@@ -45,13 +45,14 @@ class AnnounceController extends Controller
 
         $content = Common::announceContent($request); // お知らせ内容を配列にまとめる
 
-        Announce::create([
+        Announce::create([ //　id取得のために一旦保存する
+            'stamp' => $request->stamp,
             'release' =>  $request->release,
             'date' =>  $request->date,
             'title' =>  $request->title,
             'content' => $content,
         ]);
-
+        
         return redirect()
             ->route('announces.index')
             ->with(['message' => '作成しました。', 'status' => 'info']);
@@ -96,7 +97,6 @@ class AnnounceController extends Controller
         $content = Common::announceContent($request); // お知らせ内容を配列にまとめる
 
         $announce = Announce::find($id);
-
         $announce->release = $request->release;
         $announce->date = $request->date;
         $announce->title = $request->title;

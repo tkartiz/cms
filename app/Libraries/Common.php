@@ -47,8 +47,9 @@ class Common
         $colImgNum = 3;
 
         // $file_path = 'https://ff-server.site/bm_tool/'; // サーバーの場合
-        $file_path = 'http://127.0.0.1:8000/'; // ローカルの場合
-        $dir_storage_path = $file_path . 'storage/announce/';
+        // $file_path = 'http://127.0.0.1:8000/'; // ローカルの場合
+        $kind = 'announce';
+        // $dir_storage_path = $file_path . 'storage/' . $kind . '/';
         // ========= お知らせ欄と画像数の設定 ==========
 
         $content = [];
@@ -74,10 +75,10 @@ class Common
                 // ファイル選択時
                 $k = 3 * ($i - 1) + ($j - 1);
                 if ($request->file('file') != null && array_key_exists($k, $request->file('file'))) {
-                    $content[$tmpImg] = $request->file('file')[$k]->getClientOriginalName();
-                    $file_path = $dir_storage_path . $request->id . '/' . $content[$tmpImg];
-                    $content[$tmpImg . 'Path'] = $file_path;
-                } elseif ($request->file('file') != null && !array_key_exists($k, $request->file('file'))) {
+                    $savedfile = Common::saveFile($request, $k, $kind); // ファイルの保存
+                    $content[$tmpImg] = $savedfile[0];
+                    $content[$tmpImg . 'Path'] = $savedfile[1];
+                } else {
                     $content[$tmpImg] = $request->$requestImgorg;
                     $content[$tmpImg . 'Path'] = $request->$requestImgPathorg;
                 }
@@ -87,7 +88,7 @@ class Common
                 $content[$tmpImg . 'Cap'] = $request->$requestImgCap;
 
                 // ファイル削除時
-                if ($request->$requestImgDelete == "yes") {
+                if ($request->$requestImgDelete == "yes") { // ソフトデリートのためファイルの完全削除はしない
                     $content[$tmpImg] = null;
                     $content[$tmpImg . 'Path'] = null;
                     $content[$tmpImg . 'Location'] = null;
@@ -101,29 +102,30 @@ class Common
         return $content;
     }
 
-    public static function saveFile($request, $kind)
+    public static function saveFile($request, $k, $kind)
     {
-        // $kind: announce
         // $file_path = 'https://ff-server.site/bm_tool/'; // サーバーの場合
         $file_path = 'http://127.0.0.1:8000/'; // ローカルの場合
 
         $dir_pub_path = 'public/' . $kind . '/';
         $dir_storage_path = $file_path . 'storage/' . $kind . '/';
 
-        $directory = $dir_pub_path . $request->id;
+        // ディレクトリ作成（なければ）
+        $directory = $dir_pub_path . $request->stamp;
         Storage::makeDirectory($directory);
-        $file_name = $request->file('file')->getClientOriginalName();
-        $request->file('file')->storeAs($directory, $file_name);
 
-        if ($kind == 'application') {
-            $request->file = $file_name;
-            $request->filepath = $dir_storage_path . $request->application_id . '/' . $file_name;
-        }
+        // ファイル保存（外部からも呼び出せるようにpublicフォルダへ保存）
+        $savedfile[0] = $request->file('file')[$k]->getClientOriginalName();
+        $request->file('file')[$k]->storeAs($directory, $savedfile[0]);
+
+        // ファイル読込み用のパスを生成（サーバーではドメインからのパスがないと表示できないため）
+        $savedfile[1] = $dir_storage_path . $request->stamp . '/' . $savedfile[0];
+
+        return $savedfile;
     }
 
     public static function delFile($request, $kind)
     {
-        // $kind: announce
         $dir_pub_path = 'public/' . $kind . '/';
 
         $deletefile = $dir_pub_path . $request->application_id . '/' . $request->old_file;

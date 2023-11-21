@@ -14,29 +14,37 @@
                     @method('put')
                     <div class="p-3 bg-white">
                         <div class="flex">
+                            <input type="hidden" name="stamp" value="{{ $announce->stamp }}">
                             <div class="p-2 w-1/6">
                                 <p class="text-gray-700">公開／非公開</p>
                                 <ul class="w-48 text-sm font-medium text-gray-700">
+                                    @if($announce->release == "release")
                                     <li class="w-full">
                                         <div class="flex items-center ps-3">
-                                            @if($announce->release === "release")
                                             <input checked id="release" type="radio" value="release" name="release" class="w-4 h-4 text-blue-600 bg-gray-100 focus:ring-blue-500 focus:ring-2">
-                                            @else
-                                            <input id="release" type="radio" value="release" name="srelease" class="w-4 h-4 text-blue-600 bg-gray-100 focus:ring-blue-500 focus:ring-2">
-                                            @endif
                                             <label for="release" class="w-full py-1 ms-2 text-gray-700">公開</label>
                                         </div>
                                     </li>
                                     <li class="w-full">
                                         <div class="flex items-center ps-3">
-                                            @if($announce->release === "draft")
-                                            <input checked id="draft" type="radio" value="draft" name="release" class="w-4 h-4 text-blue-600 bg-gray-100 focus:ring-blue-500 focus:ring-2">
-                                            @else
                                             <input id="draft" type="radio" value=draft" name="release" class="w-4 h-4 text-blue-600 bg-gray-100 focus:ring-blue-500 focus:ring-2">
-                                            @endif
                                             <label for="draft" class="w-full py-1 ms-2 text-gray-700">非公開</label>
                                         </div>
                                     </li>
+                                    @else
+                                    <li class="w-full">
+                                        <div class="flex items-center ps-3">
+                                            <input id="release" type="radio" value="release" name="release" class="w-4 h-4 text-blue-600 bg-gray-100 focus:ring-blue-500 focus:ring-2">
+                                            <label for="release" class="w-full py-1 ms-2 text-gray-700">公開</label>
+                                        </div>
+                                    </li>
+                                    <li class="w-full">
+                                        <div class="flex items-center ps-3">
+                                            <input checked id="draft" type="radio" value=draft" name="release" class="w-4 h-4 text-blue-600 bg-gray-100 focus:ring-blue-500 focus:ring-2">
+                                            <label for="draft" class="w-full py-1 ms-2 text-gray-700">非公開</label>
+                                        </div>
+                                    </li>
+                                    @endif
                                 </ul>
                             </div>
                             <div class="p-2 w-1/6">

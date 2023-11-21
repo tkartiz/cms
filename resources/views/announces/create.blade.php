@@ -13,6 +13,7 @@
                     @csrf
                     <div class="p-3 bg-white">
                         <div class="flex">
+                            <input type="hidden" name="stamp" value="<?php echo time() ?>">
                             <div class="p-2 w-1/6">
                                 <p class="text-gray-700">公開／非公開</p>
                                 <ul class="w-48 text-sm font-medium text-gray-700">

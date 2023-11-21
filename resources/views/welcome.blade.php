@@ -422,7 +422,7 @@
 
         <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
             <div class="flex justify-center pt-8 sm:justify-start sm:pt-0">
-                <img class="w-auto h-8" src="/storage/logo/Artiz Logo.svg" alt="Artizロゴ">
+                <img class="w-auto h-8" src="storage/logo/Artiz Logo.svg" alt="Artizロゴ">
                 <p class="text-lg" style="margin: 5px 0;">「道の駅ちがさき」用CMS</p>
             </div>
 

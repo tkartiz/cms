@@ -27,7 +27,7 @@
                                     </li>
                                     <li class="w-full">
                                         <div class="flex items-center ps-3">
-                                            <input id="draft" type="radio" value=draft" name="release" class="w-4 h-4 text-blue-600 bg-gray-100 focus:ring-blue-500 focus:ring-2">
+                                            <input id="draft" type="radio" value="draft" name="release" class="w-4 h-4 text-blue-600 bg-gray-100 focus:ring-blue-500 focus:ring-2">
                                             <label for="draft" class="w-full py-1 ms-2 text-gray-700">非公開</label>
                                         </div>
                                     </li>
@@ -40,7 +40,7 @@
                                     </li>
                                     <li class="w-full">
                                         <div class="flex items-center ps-3">
-                                            <input checked id="draft" type="radio" value=draft" name="release" class="w-4 h-4 text-blue-600 bg-gray-100 focus:ring-blue-500 focus:ring-2">
+                                            <input checked id="draft" type="radio" value="draft" name="release" class="w-4 h-4 text-blue-600 bg-gray-100 focus:ring-blue-500 focus:ring-2">
                                             <label for="draft" class="w-full py-1 ms-2 text-gray-700">非公開</label>
                                         </div>
                                     </li>

@@ -9,6 +9,33 @@ $announces = read_Json($JsonFile);
 $ids = array_column($announces, 'date');
 array_multisort($ids, SORT_DESC, $announces);
 $count = 0; // 表示記事カウント用変数
+
+// MySQLからデータを取得する
+// サーバーの場合
+// $dsn = 'mysql:dbname=artiz01_shonanchigasaki;host=sv13036.xserver.jp';
+// $user = 'artiz01_cmsuser';
+// $password = 'kawata203';
+
+// ローカルの場合
+$dsn = 'mysql:dbname=cms;charset=utf8;host=127.0.0.1:3308';
+$user = 'cmsuser';
+$password = '';
+
+try {
+  $pdo = new PDO($dsn, $user, $password);
+  print('接続に成功しました。<br>');
+
+  foreach ($pdo->query('select * from announces') as $row) {
+    echo '<p>';
+    echo $row['id'], ' : ';
+    echo $row['content'], ' : ';
+    echo '</p>';
+  }
+} catch (PDOException $e) {
+  print('Error:' . $e->getMessage());
+  die();
+}
+
 ?>
 
 <head>

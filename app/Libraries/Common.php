@@ -45,11 +45,7 @@ class Common
         // ========= お知らせ欄と画像数の設定 ==========
         $colNum = 6;
         $colImgNum = 3;
-
-        // $file_path = 'https://ff-server.site/bm_tool/'; // サーバーの場合
-        // $file_path = 'http://127.0.0.1:8000/'; // ローカルの場合
         $kind = 'announce';
-        // $dir_storage_path = $file_path . 'storage/' . $kind . '/';
         // ========= お知らせ欄と画像数の設定 ==========
 
         $content = [];
@@ -104,7 +100,7 @@ class Common
 
     public static function saveFile($request, $k, $kind)
     {
-        // $file_path = 'https://ff-server.site/bm_tool/'; // サーバーの場合
+        // $file_path = 'https://ff-server.site/m-shonanchigasaki/'; // サーバーの場合
         $file_path = 'http://127.0.0.1:8000/'; // ローカルの場合
 
         $dir_pub_path = 'public/' . $kind . '/';

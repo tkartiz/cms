@@ -1,8 +1,6 @@
 <?php
 include 'include/function_min.php';
-$JsonName = "announce.json";
-$JsonFile = "../storage/announce/".$JsonName;
-$announces = read_Json($JsonFile);
+$announces = read_Json('announce');
 $taget_announce = $_GET['filename'];
 ?>
 

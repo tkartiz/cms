@@ -3,9 +3,8 @@
 
 <?php
 include 'include/function_min.php'; // 共通関数読込み
-$JsonName = "announce.json";
-$JsonFile = "../storage/announce/".$JsonName;
-$announces = read_Json($JsonFile);
+$siteview = "release";
+$announces = read_Json('announce');
 $ids = array_column($announces, 'date');
 array_multisort($ids, SORT_DESC, $announces);
 $count = 0; // 表示記事カウント用変数
@@ -52,9 +51,11 @@ $count = 0; // 表示記事カウント用変数
     <div class="swiper-wrapper">
       <?php foreach ($announces as $announce) : ?>
         <div class="swiper-slide me-3">
-          <a class="text-decoration-none" href="announce.php?filename=<?php echo $announce["stamp"]; ?>">
-            <p class="w-100 px-2"><?php echo $announce["date"]; ?>：<?php echo $announce["title"]; ?></p>
-          </a>
+          <?php if ($announce["release"] == $siteview) { ?>
+            <a class="text-decoration-none" href="announce.php?filename=<?php echo $announce["stamp"]; ?>">
+              <p class="w-100 px-2"><?php echo $announce["date"]; ?>：<?php echo $announce["title"]; ?></p>
+            </a>
+          <?php } ?>
         </div>
       <?php endforeach; ?>
     </div>

@@ -47,11 +47,13 @@
                                                 タイトル</th>
                                             <th rowspan="2" class="w-auto px-2 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100 border border-slate-300">
                                                 内容（カラム１のみ表示）</th>
-                                            <th class="w-24 px-2 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100 border border-slate-300">
+                                            <th rowspan="2" class="w-20 px-2 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100 border border-slate-300">
+                                                プレビュー</th>
+                                            <th class="w-24 py-1 pb-1 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100 border border-slate-300">
                                                 作成日</th>
                                         </tr>
                                         <tr>
-                                            <th class="px-2 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100 border border-slate-300">
+                                            <th class="px-2 py-1 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100 border border-slate-300">
                                                 最新更新日</th>
                                         </tr>
                                     </thead>
@@ -94,6 +96,18 @@
                                             <td rowspan="2" class="text-start text-sm border border-slate-300">{{ $announce->title }}</td>
                                             <td rowspan="2" class="text-start text-sm border border-slate-300">
                                                 {!! nl2br($announce->content['content1']) !!}
+                                            </td>
+                                            <td rowspan="2" class="border border-slate-300">
+                                                @if($announce->release === "release")
+                                                <a href="{{ 'main/announce.php?filename='.$announce->stamp }}" target='_BLANK' class="w-full p-1 text-center">
+                                                @else
+                                                <a href="{{ 'preview/announce.php?filename='.$announce->stamp }}" target='_BLANK' class="w-full p-1 text-center">
+                                                @endif
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-binoculars mx-auto" viewBox="0 0 16 16" style="color:green;">
+                                                        <path d="M3 2.5A1.5 1.5 0 0 1 4.5 1h1A1.5 1.5 0 0 1 7 2.5V5h2V2.5A1.5 1.5 0 0 1 10.5 1h1A1.5 1.5 0 0 1 13 2.5v2.382a.5.5 0 0 0 .276.447l.895.447A1.5 1.5 0 0 1 15 7.118V14.5a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 14.5v-3a.5.5 0 0 1 .146-.354l.854-.853V9.5a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v.793l.854.853A.5.5 0 0 1 7 11.5v3A1.5 1.5 0 0 1 5.5 16h-3A1.5 1.5 0 0 1 1 14.5V7.118a1.5 1.5 0 0 1 .83-1.342l.894-.447A.5.5 0 0 0 3 4.882V2.5zM4.5 2a.5.5 0 0 0-.5.5V3h2v-.5a.5.5 0 0 0-.5-.5h-1zM6 4H4v.882a1.5 1.5 0 0 1-.83 1.342l-.894.447A.5.5 0 0 0 2 7.118V13h4v-1.293l-.854-.853A.5.5 0 0 1 5 10.5v-1A1.5 1.5 0 0 1 6.5 8h3A1.5 1.5 0 0 1 11 9.5v1a.5.5 0 0 1-.146.354l-.854.853V13h4V7.118a.5.5 0 0 0-.276-.447l-.895-.447A1.5 1.5 0 0 1 12 4.882V4h-2v1.5a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5V4zm4-1h2v-.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5V3zm4 11h-4v.5a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5V14zm-8 0H2v.5a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5V14z" />
+                                                    </svg>
+                                                </a>
+                                                
                                             </td>
                                             <td class="text-sm border border-slate-300">{{ $announce->created_at->format('Y-m-d') }}</td>
                                         </tr>

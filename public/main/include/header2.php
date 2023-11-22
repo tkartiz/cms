@@ -3,5 +3,5 @@
         <a href="index.php">
             <img class="object-fit-cover" style="object-position:center;" src="img/top/image1slim.jpg" alt="道の駅ちがさきイメージ">
         </a>
-</div>
+    </div>
 </header>

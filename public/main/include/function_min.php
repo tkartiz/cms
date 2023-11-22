@@ -1,8 +1,12 @@
 <?php
-function read_Json($kind)
+function read_Json($kind, $siteview)
 {
     // ファイル読込先 ********************************************
-    $JsonName = $kind.'.json';
+    if($siteview === 'release'){
+        $JsonName = $kind . '.json';
+    } else {
+        $JsonName = 'draft_'.$kind . '.json';
+    }
     $JsonFile = '../storage/'.$kind.'/'.$JsonName;
     // ファイル読込先 ********************************************
 

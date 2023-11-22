@@ -1,6 +1,7 @@
 <?php
-include 'include/function_min.php';
-$announces = read_Json('announce');
+include "include/release.php"; // 公開/非公開変数読込み
+include 'include/function_min.php'; // 共通関数読込み
+$announces = read_Json('announce', $siteview);
 ?>
 
 <!DOCTYPE html>
@@ -22,18 +23,16 @@ $announces = read_Json('announce');
                 </div>
                 <table class="w-100 mt-2 mx-auto" style="line-height:3rem;">
                     <?php foreach ($announces as $announce) : ?>
-                        <?php if ($announce["release"] == 'release') { ?>
-                            <tr id="info_<?php echo $announce["stamp"]; ?>" class="<?php echo $announce["release"]; ?>" style="border-bottom:1px dotted grey">
-                                <td style="width:15%; min-width: 6rem;">
-                                    <p style="margin-bottom:0.5rem; font-size: 0.85rem"><?php echo $announce["date"]; ?></p>
-                                </td>
-                                <td>
-                                    <a href="announce.php?filename=<?php echo $announce["stamp"]; ?>">
-                                        <p class="lh-sm" style="margin-bottom:0.5rem;"><?php echo $announce["title"]; ?></p>
-                                    </a>
-                                </td>
-                            </tr>
-                        <?php } ?>
+                        <tr id="info_<?php echo $announce["stamp"]; ?>" class="<?php echo $announce["release"]; ?>" style="border-bottom:1px dotted grey">
+                            <td style="width:15%; min-width: 6rem;">
+                                <p style="margin-bottom:0.5rem; font-size: 0.85rem"><?php echo $announce["date"]; ?></p>
+                            </td>
+                            <td>
+                                <a href="announce.php?filename=<?php echo $announce["stamp"]; ?>">
+                                    <p class="lh-sm" style="margin-bottom:0.5rem;"><?php echo $announce["title"]; ?></p>
+                                </a>
+                            </td>
+                        </tr>
                     <?php endforeach; ?>
                 </table>
             </div>

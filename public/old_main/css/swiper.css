@@ -1,0 +1,4 @@
+/* スライドの動き等速 */
+.swiper-wrapper {
+  transition-timing-function: linear;
+}

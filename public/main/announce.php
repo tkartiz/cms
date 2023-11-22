@@ -1,6 +1,7 @@
 <?php
-include 'include/function_min.php';
-$announces = read_Json('announce');
+include "include/release.php"; // 公開/非公開変数読込み
+include 'include/function_min.php'; // 共通関数読込み
+$announces = read_Json('announce', $siteview);
 $taget_announce = $_GET['filename'];
 ?>
 
@@ -14,7 +15,7 @@ $taget_announce = $_GET['filename'];
         <?php include "include/header2.php"; ?>
         <div class="container px-1 px-sm-2" >
             <?php foreach ($announces as $announce) : ?>
-                <?php if ($announce["release"] == 'release' && $announce["stamp"] == $taget_announce) : ?>
+                <?php if ($announce["stamp"] == $taget_announce) : ?>
                     <?php include "include/announce_detail.php"; ?>
                 <?php endif; ?>
             <?php endforeach; ?>

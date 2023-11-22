@@ -1,14 +1,7 @@
 <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PL38JRF" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
 <!-- Yahoo Tag -->
-<script async src="https://s.yimg.jp/images/listing/tool/cv/ytag.js"></script>
-<script>
-window.yjDataLayer = window.yjDataLayer || [];
-function ytag() { yjDataLayer.push(arguments); }
-ytag({"type":"ycl_cookie"});
-</script>
 <!-- End Yahoo Tag -->
 
 <!-- jquery Js読込み start -->
@@ -16,9 +9,13 @@ ytag({"type":"ycl_cookie"});
 <!-- jquery Js読込み end -->
 
 <!-- Bootstrap Js読込み start -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 <!-- Bootstrap Js読込み end -->
 
+<!-- swiper -->
+<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+<script src="js/swiper.js"></script>
+<!-- swiper -->
+
 <!-- 専用Js読込み start -->
-<script src="./asset/js/miya-gurashi.js"></script>
 <!-- 専用Js読込み end -->

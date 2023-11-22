@@ -48,7 +48,8 @@ $colImgNum = 3;
                         $img_style = 'max-height:' . $announce['col' . ($i + 1) . 'Img' . $Img[$ImgCount - 1] . 'Height'] . 'px;';
                     }
                     
-                    $img_src = $announce_imgFolder_path . $announce['col' . ($i + 1) . 'Img' . $Img[$ImgCount - 1]].'?p=(new Date()).getTime()';
+                    // $img_src = $announce_imgFolder_path . $announce['col' . ($i + 1) . 'Img' . $Img[$ImgCount - 1]].'?p=(new Date()).getTime()';
+                    $img_src = $announce['col' . ($i + 1) . 'Img' . $Img[$ImgCount - 1].'Path'].'?p=(new Date()).getTime()';
                 ?>
                     <div class="d-flex flex-wrap contentP">
                         <p class="<?php echo $p_class ?>">
@@ -67,7 +68,8 @@ $colImgNum = 3;
                     $ImgWidth_num = 12;
                     $img_class = "col-12 order-1 order-sm-1 col-sm-" . $ImgWidth_num;
                     $img_style = 'max-height:' . $announce['col' . ($i + 1) . 'Img' . $Img[$ImgCount - 1] . 'Height'] . 'px;';
-                    $img_src = $announce_imgFolder_path . $announce['col' . ($i + 1) . 'Img' . $Img[$ImgCount - 1]].'?p=(new Date()).getTime()';
+                    // $img_src = $announce_imgFolder_path . $announce['col' . ($i + 1) . 'Img' . $Img[$ImgCount - 1]].'?p=(new Date()).getTime()';
+                    $img_src = $announce['col' . ($i + 1) . 'Img' . $Img[$ImgCount - 1].'Path'].'?p=(new Date()).getTime()';
                 ?>
                     <div class="d-flex flex-wrap contentP">
                         <div class="<?php echo $img_class ?>">
@@ -98,7 +100,8 @@ $colImgNum = 3;
                             } else {
                                 $img_class = "contentP overflow-hidden h-auto col-12 col-sm-6 ps-sm-1 order-" . ($k + 1) . "order-sm-" . ($k + 1);
                             }
-                            $img_src = $announce_imgFolder_path . $announce['col' . ($i + 1) . 'Img' . $Img[$k]].'?p=(new Date()).getTime()';
+                            // $img_src = $announce_imgFolder_path . $announce['col' . ($i + 1) . 'Img' . $Img[$k]].'?p=(new Date()).getTime()';
+                            $img_src = $announce['col' . ($i + 1) . 'Img' . $Img[$ImgCount - 1].'Path'].'?p=(new Date()).getTime()';
                         ?>
                             <div class="<?php echo $img_class ?>">
                                 <img class="img2" style="<?php echo $img_style ?>" src="<?php echo $img_src ?>" alt="">
@@ -131,7 +134,8 @@ $colImgNum = 3;
                             } else {
                                 $img_class = "contentP overflow-hidden h-auto col-12 col-sm-4 ps-sm-1 order-" . ($k + 1) . "order-sm-" . ($k + 1);
                             }
-                            $img_src = $announce_imgFolder_path . $announce['col' . ($i + 1) . 'Img' . $Img[$k]].'?p=(new Date()).getTime()';
+                            // $img_src = $announce_imgFolder_path . $announce['col' . ($i + 1) . 'Img' . $Img[$k]].'?p=(new Date()).getTime()';
+                            $img_src = $announce['col' . ($i + 1) . 'Img' . $Img[$ImgCount - 1].'Path'].'?p=(new Date()).getTime()';
                         ?>
                             <div class="<?php echo $img_class ?>">
                                 <img class="img3" style="<?php echo $img_style ?>" src="<?php echo $img_src ?>" alt="">
@@ -143,12 +147,6 @@ $colImgNum = 3;
                     </div>
                 <?php } ?>
             <?php } ?>
-        </div>
-        <div class="py-2" style="background-color:lightgray;">
-            <p class="text-muted d-flex gap-5 justify-content-center">
-                <a href="index.php#info_<?php echo $announce["stamp"]; ?>">ホームページに戻る</a>
-                <a href="announce_list.php">お知らせ一覧へ</a>
-            </p>
         </div>
     </div>
 </div>

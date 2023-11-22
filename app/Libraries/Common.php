@@ -48,10 +48,13 @@ class Common
         $kind = 'announce';
         // ========= お知らせ欄と画像数の設定 ==========
 
-        $content = [];
-        $content['release'] =  $request->release;
-        $content['date'] =  $request->date;
-        $content['title'] =  $request->title;
+        $content = array(
+            "release" => $request->release,
+            "stamp" => $request->stamp,
+            "date" => $request->date,
+            "title" => $request->title,
+        );
+
         for ($i = 1; $i < ($colNum + 1); $i++) {
             $tmpContent = 'content' . $i;
             $content[$tmpContent] = $request->$tmpContent;
@@ -95,20 +98,33 @@ class Common
             }
         }
 
+        // ========== Jsonファイルに書き出し =========================================
+        $Json = Common::read_Json($kind);
+        $Json[] = $content;
+        Common::write_Json($kind, $Json);
+        // ========== Jsonファイルに書き出し =========================================
+
         return $content;
     }
 
+    // *****　ファイルアップロード関数　***************************************************
     public static function saveFile($request, $k, $kind)
     {
-        // $file_path = 'https://ff-server.site/m-shonanchigasaki/'; // サーバーの場合
-        $file_path = 'http://127.0.0.1:8000/'; // ローカルの場合
-
+        // ========== ディレクトリ作成（なければ） ================
         $dir_pub_path = 'public/' . $kind . '/';
-        $dir_storage_path = $file_path . 'storage/' . $kind . '/';
-
-        // ディレクトリ作成（なければ）
         $directory = $dir_pub_path . $request->stamp;
         Storage::makeDirectory($directory);
+        // ========== ディレクトリ作成（なければ） ================
+
+        // ========== ファイル保存先 ================
+        // サーバーの場合
+        // $file_path = 'https://ff-server.site/m-shonanchigasaki/'; 
+        // $dir_storage_path = $file_path.'storage/' . $kind . '/';
+
+        // ローカルの場合
+        $dir_storage_path = 'storage/' . $kind . '/';
+        // ========== ファイル保存先 ================
+        
 
         // ファイル保存（外部からも呼び出せるようにpublicフォルダへ保存）
         $savedfile[0] = $request->file('file')[$k]->getClientOriginalName();
@@ -120,11 +136,63 @@ class Common
         return $savedfile;
     }
 
+    // *****　アップロードファイル削除関数　***************************************************
     public static function delFile($request, $kind)
     {
+        // ========== ファイル保存先 ================
         $dir_pub_path = 'public/' . $kind . '/';
+        // ========== ファイル保存先 ================
 
         $deletefile = $dir_pub_path . $request->application_id . '/' . $request->old_file;
         Storage::delete($deletefile);
     }
+
+    // *****　Jsonファイル書き込み関数　***************************************************
+    public static function write_Json($kind, $array)
+    {
+        // ========== ディレクトリ作成（なければ） ================
+        $dir_pub_path = 'public/' . $kind . '/';
+        $directory = $dir_pub_path;
+        Storage::makeDirectory($directory);
+        // ========== ディレクトリ作成（なければ） ================
+
+        // ========== ファイル保存先 ================
+        // サーバーの場合
+        // $file_path = 'https://ff-server.site/m-shonanchigasaki/'; 
+        // $dir_storage_path = $file_path.'storage/' . $kind . '/';
+
+        // ローカルの場合
+        $dir_storage_path = 'storage/' . $kind . '/';
+        // ========== ファイル保存先 ================
+
+        // ========== ファイル名 ================
+        $JsonName = $kind . '.json';
+        $JsonFile = $dir_storage_path.$JsonName;
+        // ========== ファイル名 ================
+
+        $array = array_values($array);
+        $array = json_encode($array, JSON_UNESCAPED_UNICODE);
+        file_put_contents($JsonFile, $array);
+    }
+
+    // *****　Jsonファイル読込み関数　***************************************************
+    public static function read_Json($kind)
+    {
+        // ========== ファイル読込み先 ================
+        // $file_path = 'https://ff-server.site/m-shonanchigasaki/'; // サーバーの場合
+        // $file_path = 'http://127.0.0.1:8000/'; // ローカルの場合
+        $dir_storage_path = 'storage/' . $kind . '/';
+        // ========== ファイル読込み先 ================
+
+        // ========== ファイル名 ================
+        $JsonName = $kind . '.json';
+        $JsonFile = $dir_storage_path.$JsonName;
+        // ========== ファイル名 ================
+
+        $array = file_get_contents($JsonFile);
+        $array = mb_convert_encoding($array, 'UTF8', 'ASCII, JIS, UTF-8, EUC-JP, SJIS-WIN');
+        $array = json_decode($array, true);
+        return $array;
+    }
+
 }

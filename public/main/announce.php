@@ -1,7 +1,7 @@
 <?php
 include 'include/function_min.php';
 $JsonName = "announce.json";
-$JsonFile = "json/".$JsonName;
+$JsonFile = "../storage/announce/".$JsonName;
 $announces = read_Json($JsonFile);
 $taget_announce = $_GET['filename'];
 ?>
@@ -20,6 +20,12 @@ $taget_announce = $_GET['filename'];
                     <?php include "include/announce_detail.php"; ?>
                 <?php endif; ?>
             <?php endforeach; ?>
+        </div>
+        <div class="py-2" style="background-color:lightgray;">
+            <p class="text-muted d-flex gap-5 justify-content-center">
+                <a href="index.php#info_<?php echo $announce["stamp"]; ?>">ホームページに戻る</a>
+                <a href="announce_list.php">お知らせ一覧へ</a>
+            </p>
         </div>
     </main>
 

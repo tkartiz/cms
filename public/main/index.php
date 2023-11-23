@@ -15,14 +15,7 @@ $count = 0; // 表示記事カウント用変数
 <?php include "include/head.php"; ?><!-- ヘッド読み込み -->
 
 <body>
-  <header>
-    <div class="banner">
-      <img src="img/logo.png" alt="道の駅ちがさきロゴ">
-      <?php if ($siteview === 'draft') { ?>
-        <h1 class="w-100 position-absolute top-0 start-0 bg-warning">ドラフト版</h1>
-      <?php } ?>
-    </div>
-  </header>
+  <?php include "include/header.php"; ?><!-- ヘッド読み込み -->
 
   <!-- ここからお知らせ -->
   <div class="swiper">

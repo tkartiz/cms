@@ -13,7 +13,7 @@ $taget_announce = $_GET['filename'];
 <body>
     <main style="width:100%; background-color:lightgray;">
         <?php include "include/header2.php"; ?>
-        <div class="container px-1 px-sm-2" >
+        <div class="container px-1 px-sm-2">
             <?php foreach ($announces as $announce) : ?>
                 <?php if ($announce["stamp"] == $taget_announce) : ?>
                     <?php include "include/announce_detail.php"; ?>

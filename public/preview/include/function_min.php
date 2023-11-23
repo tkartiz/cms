@@ -13,7 +13,6 @@ function read_Json($kind, $siteview)
     $Json = file_get_contents($JsonFile);
     $Json = mb_convert_encoding($Json, 'UTF8', 'ASCII, JIS, UTF-8, EUC-JP, SJIS-WIN');
     $Json = json_decode($Json, true);
-
     return $Json;
 }
 ?>

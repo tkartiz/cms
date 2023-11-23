@@ -24,12 +24,10 @@ $colImgNum = 3;
                         $ImgCount = $ImgCount + 1;
                     }
                 } ?>
-                <!-- 画像０・コメントありの場合 -->
                 <?php if ($ImgCount == 0 && !empty($announce["content" . ($i + 1)])) { ?>
-                    <div class="contentP">
+                    <div class="">
                         <p><?php echo nl2br($announce['content' . ($i + 1)]); ?></p>
                     </div>
-                    <!-- 画像１・コメントありの場合 -->
                 <?php } else if ($ImgCount == 1 && !empty($announce["content" . ($i + 1)])) { ?>
                     <?php
                     $name = "col" . ($i + 1) . "Img" . $Img[$ImgCount - 1];
@@ -43,6 +41,7 @@ $colImgNum = 3;
                         $p_class = "ps-3 col-12 order-2 order-sm-2 col-sm-" . $pWidth_num;
                         $img_class = "overflow-hidden h-auto col-12 order-1 order-sm-1 col-sm-" . $ImgWidth_num;
                     }
+
                     if (empty($announce[$name . 'Height'])) {
                         $img_style = 'width:100%';
                     } else {
@@ -51,7 +50,8 @@ $colImgNum = 3;
 
                     $img_src = $announce[$name . 'Path'] . '?p=(new Date()).getTime()';
                     ?>
-                    <div class="d-flex flex-wrap contentP">
+                    
+                    <div class="d-flex flex-wrap ">
                         <p class="<?php echo $p_class ?>">
                             <?php echo nl2br($announce["content" . ($i + 1)]); ?>
                         </p>
@@ -62,7 +62,6 @@ $colImgNum = 3;
                             <p>
                         </div>
                     </div>
-                    <!-- 画像１・コメントなし -->
                 <?php } else if ($ImgCount == 1 && empty($announce["content" . ($i + 1)])) {
                     $name = "col" . ($i + 1) . "Img" . $Img[$ImgCount - 1];
                     $ImgWidth = $announce[$name . "Width"];
@@ -71,7 +70,7 @@ $colImgNum = 3;
                     $img_style = 'max-height:' . $announce[$name . 'Height'] . 'px;';
                     $img_src = $announce[$name . 'Path'] . '?p=(new Date()).getTime()';
                 ?>
-                    <div class="d-flex flex-wrap contentP">
+                    <div class="d-flex flex-wrap ">
                         <div class="<?php echo $img_class ?>">
                             <img class="object-fit-cover w-100 h-auto" style="<?php echo $img_style ?>" src="<?php echo $img_src ?>" alt="">
                             <p class="small p-1 px-sm-2">
@@ -79,7 +78,6 @@ $colImgNum = 3;
                             <p>
                         </div>
                     </div>
-                    <!-- 画像２・コメント有無関係なし -->
                 <?php } else if ($ImgCount == 2) {
                     // 画像高さ入力があった場合に統一する
                     $ImgHeightMin = 0;
@@ -92,16 +90,18 @@ $colImgNum = 3;
                     }
                     if ($Height_array != null) {
                         $ImgHeightMin = min($Height_array);
-                        $img_style = 'max-height:' . $ImgHeightMin . 'px;';
+                        $img_style = 'max-height:' . $ImgHeightMin . 'px; width:100%; object-fit:cover; object-position:center;';
+                    } else {
+                        $img_style = 'width:100%; object-fit:cover; object-position:center;';
                     }
                 ?>
                     <div class="d-flex flex-wrap">
                         <?php for ($k = 0; $k < $ImgCount; $k++) {
                             $name = 'col' . ($i + 1) . 'Img' . $Img[$k];
                             if ($k == 0) {
-                                $img_class = "contentP overflow-hidden h-auto col-12 col-sm-6 pe-sm-1 order-" . ($k + 1) . "order-sm-" . ($k + 1);
+                                $img_class = "overflow-hidden h-auto col-12 col-sm-6 pe-sm-1 order-" . ($k + 1) . " order-sm-" . ($k + 1);
                             } else {
-                                $img_class = "contentP overflow-hidden h-auto col-12 col-sm-6 ps-sm-1 order-" . ($k + 1) . "order-sm-" . ($k + 1);
+                                $img_class = "overflow-hidden h-auto col-12 col-sm-6 ps-sm-1 order-" . ($k + 1) . " order-sm-" . ($k + 1);
                             }
                             $img_src = $announce[$name . 'Path'] . '?p=(new Date()).getTime()';
                         ?>
@@ -113,29 +113,33 @@ $colImgNum = 3;
                             </div>
                         <?php } ?>
                     </div>
-                    <!-- 画像３・コメント有無関係なし -->
                 <?php } else if ($ImgCount == 3) { ?>
-                    <?php $ImgHeightMin = 0;
+                    <?php
+                    // 画像高さ入力があった場合に統一する
+                    $ImgHeightMin = 0;
                     $Height_array = [];
                     for ($j = 0; $j < $ImgCount; $j++) {
-                        if ($announce['col' . ($i + 1) . 'Img' . $Img[$j] . 'Height'] > 0) {
-                            $Height_array[] = $announce['col' . ($i + 1) . 'Img' . $Img[$j] . 'Height'];
+                        $name = 'col' . ($i + 1) . 'Img' . $Img[$j];
+                        if ($announce[$name. 'Height'] > 0) {
+                            $Height_array[] = $announce[$name . 'Height'];
                         }
                     }
                     if ($Height_array != null) {
                         $ImgHeightMin = min($Height_array);
-                        $img_style = 'max-height:' . $ImgHeightMin . 'px;';
+                        $img_style = 'max-height:' . $ImgHeightMin . 'px; width:100%; object-fit:cover; object-position:center;';
+                    } else {
+                        $img_style = 'width:100%; object-fit:cover; object-position:center;';
                     }
                     ?>
                     <div class="d-flex flex-wrap">
                         <?php for ($k = 0; $k < $ImgCount; $k++) {
                             $name = 'col' . ($i + 1) . 'Img' . $Img[$k];
                             if ($k == 0) {
-                                $img_class = "contentP overflow-hidden h-auto col-12 col-sm-4 pe-sm-1 order-" . ($k + 1) . "order-sm-" . ($k + 1);
+                                $img_class = "overflow-hidden h-auto col-12 col-sm-4 pe-sm-1 order-" . ($k + 1) . "order-sm-" . ($k + 1);
                             } else if ($k == 1) {
-                                $img_class = "contentP overflow-hidden h-auto col-12 col-sm-4 px-sm-1 order-" . ($k + 1) . "order-sm-" . ($k + 1);
+                                $img_class = "overflow-hidden h-auto col-12 col-sm-4 px-sm-1 order-" . ($k + 1) . "order-sm-" . ($k + 1);
                             } else {
-                                $img_class = "contentP overflow-hidden h-auto col-12 col-sm-4 ps-sm-1 order-" . ($k + 1) . "order-sm-" . ($k + 1);
+                                $img_class = "overflow-hidden h-auto col-12 col-sm-4 ps-sm-1 order-" . ($k + 1) . "order-sm-" . ($k + 1);
                             }
                             $img_src = $announce[$name . 'Path'] . '?p=(new Date()).getTime()';
                             ?>

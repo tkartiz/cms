@@ -24,16 +24,16 @@
     <div class="w-full flex mb-2 items-center">
         <label for="<?php echo $contentID . 'Img' . $imgNum . 'Location'; ?>">位置：</label>
         <select form-select" type="text" name="<?php echo $contentID . 'Img' . $imgNum . 'Location'; ?>" class="w-32 py-1 px-3 mb-2 bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 transition-colors duration-200 ease-in-out">
-            @if($colImgLocation === "left")
-            <option selected value="left">左寄せ</option>
-            <option value="right">右寄せ</option>
-            @elseif($colImgLocation === "right")
-            <option selected value="left">左寄せ</option>
-            <option value="right">右寄せ</option>
+            @if($colImgLocation === "order-1")
+            <option selected value="order-1">左寄せ</option>
+            <option value="order-2">右寄せ</option>
+            @elseif($colImgLocation === "order-2")
+            <option value="order-1">左寄せ</option>
+            <option selected value="order-2">右寄せ</option>
             @else
             <option selected value="">選択なし</option>
-            <option value="left">左寄せ</option>
-            <option value="right">右寄せ</option>
+            <option value="order-1">左寄せ</option>
+            <option value="order-2">右寄せ</option>
             @endif
         </select>
     </div>

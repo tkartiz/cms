@@ -184,11 +184,7 @@ class Common
         // ========== ディレクトリ作成（なければ） ================
 
         // ========== ファイル保存先 ================
-        // サーバーの場合
-        // $file_path = 'https://ff-server.site/m-shonanchigasaki/'; 
-        // $dir_storage_path = $file_path.'storage/' . $kind . '/';
-
-        // ローカルの場合
+        // ローカルの場合(サーバーも同様)
         $dir_storage_path =  'storage/' . $kind . '/';
         // ========== ファイル保存先 ================
 
@@ -212,11 +208,7 @@ class Common
     public static function read_Json($kind, $release)
     {
         // ========== ファイル読込み先 ================
-        // サーバーの場合
-        // $file_path = 'https://ff-server.site/m-shonanchigasaki/'; 
-        // $dir_storage_path = $file_path.'storage/' . $kind . '/';
-
-        // ローカルの場合
+        // ローカルの場合(サーバーも同様)
         $dir_storage_path = 'storage/' . $kind . '/';
         // ========== ファイル読込み先 ================
 

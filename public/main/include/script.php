@@ -17,5 +17,9 @@
 <script src="js/swiper.js"></script>
 <!-- swiper -->
 
+<!-- カウントダウンタイマー -->
+<script src="js/countdown.js"></script>
+<!-- カウントダウンタイマー -->
+
 <!-- 専用Js読込み start -->
 <!-- 専用Js読込み end -->

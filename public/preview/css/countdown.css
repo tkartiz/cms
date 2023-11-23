@@ -1,0 +1,116 @@
+.clip-text {
+  /* font-size: 90px;
+  font-weight: bold; */
+  position: relative;
+  display: inline-block;
+  margin: .5em;
+  /* text-align: center; */
+  color: #ffffff;
+  border: solid 1px #ffffff;
+  border-radius: 0.5rem;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+  -ms-background-clip: text;
+  -ms-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.clip-text:before,
+.clip-text:after {
+  position: absolute;
+  content: '';
+}
+
+.clip-text:before {
+  z-index: -2;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: inherit;
+  background-size: cover;
+  -webkit-animation: anim 3s infinite ease-in;
+  -moz-animation: anim 3s infinite ease-in;
+  -ms-animation: anim 3s infinite ease-in;
+  animation: anim 3s infinite ease-in;
+}
+
+.clip-text:after {
+  position: absolute;
+  z-index: -1;
+  top: .125em;
+  right: .25em;
+  bottom: .125em;
+  left: .25em;
+  /* border: solid 1px #ffffff; */
+  border-radius: 0.35rem;
+  background-color: #49ACDD;
+}
+
+.clip-text_one {
+  background-image: url(../img/top/haikei.jpg);
+  background-size: 300%;
+  background-position: bottom;
+  -webkit-animation: anim 6s infinite ease-in-out;
+  -moz-animation: anim 6s infinite ease-in-out;
+  -ms-animation: anim 6s infinite ease-in-out;
+  animation: anim 6s infinite ease-in-out;
+}
+
+@-webkit-keyframes anim {
+  0% {
+    background-position: left;
+  }
+
+  50% {
+    background-position: right;
+  }
+
+  100% {
+    background-position: left;
+  }
+}
+
+@-moz-keyframes anim {
+  0% {
+    background-position: left;
+  }
+
+  50% {
+    background-position: right;
+  }
+
+  100% {
+    background-position: left;
+  }
+}
+
+@-ms-keyframes anim {
+  0% {
+    background-position: left;
+  }
+
+  50% {
+    background-position: right;
+  }
+
+  100% {
+    background-position: left;
+  }
+}
+
+@keyframes anim {
+  0% {
+    background-position: left;
+  }
+
+  50% {
+    background-position: right;
+  }
+
+  100% {
+    background-position: left;
+  }
+}

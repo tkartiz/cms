@@ -47,6 +47,10 @@
     <link rel="stylesheet" href="css/swiper.css">
     <!-- swiper -->
 
+    <!-- カウントダウンタイマー -->
+    <link rel="stylesheet" href="css/countdown.css">
+    <!-- カウントダウンタイマー -->
+
     <!-- 専用Css読込み start -->
     <link rel="stylesheet" href="css/style.css?p=(new Date()).getTime()">
     <!-- 専用Css読込み end -->

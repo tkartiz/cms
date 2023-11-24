@@ -24,7 +24,7 @@ CountdownTimer.prototype = {
         if ((this.timeLimit - today) > 0) {
             // timer = '<small>オープンまで</small><br>' + days + '<small>日</small>' + this.addZero(hours) + '<small>時間</small>' + this.addZero(mins) + '<small>分</small>' + this.addZero(secs) + '<small>秒</small>'
             // this.elem.innerHTML = timer;
-            timer = '<span class="fs-4">オープンまで</span>&nbsp;' + days + '<span class="fs-4">日</span>'
+            timer = '<span class="fs-4">あと</span>&nbsp;' + days + '<span class="fs-4">日</span>'
             this.elem.innerHTML = timer;
             tid = setTimeout(function () { me.countDown(); }, 10);
 

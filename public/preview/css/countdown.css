@@ -1,12 +1,9 @@
 .clip-text {
-  /* font-size: 90px;
-  font-weight: bold; */
   position: relative;
   display: inline-block;
   margin: .5em;
-  /* text-align: center; */
-  color: #ffffff;
-  border: solid 1px #ffffff;
+  color: #0000ff;
+  /* border: solid 1px #ffffff; */
   border-radius: 0.5rem;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -15,6 +12,7 @@
   -ms-background-clip: text;
   -ms-text-fill-color: transparent;
   background-clip: text;
+  text-shadow: #0000ff 0px 1px 1px;
 }
 
 .clip-text:before,
@@ -31,28 +29,30 @@
   left: 0;
   background-image: inherit;
   background-size: cover;
-  -webkit-animation: anim 3s infinite ease-in;
-  -moz-animation: anim 3s infinite ease-in;
-  -ms-animation: anim 3s infinite ease-in;
-  animation: anim 3s infinite ease-in;
+  -webkit-animation: anim 6s infinite ease-in;
+  -moz-animation: anim 6s infinite ease-in;
+  -ms-animation: anim 6s infinite ease-in;
+  animation: anim 6s infinite ease-in;
 }
 
 .clip-text:after {
   position: absolute;
   z-index: -1;
   top: .125em;
-  right: .25em;
+  right: .125em;
   bottom: .125em;
-  left: .25em;
-  /* border: solid 1px #ffffff; */
+  left: .125em;
   border-radius: 0.35rem;
-  background-color: #49ACDD;
+  /* background-color: #A5D5E3; */
+  background-image: url(../img/top/image2.jpg);
+  /* background-size: cover; */
+  background-position: left top;
 }
 
 .clip-text_one {
-  background-image: url(../img/top/haikei.jpg);
-  background-size: 300%;
-  background-position: bottom;
+  background-image: url(../img/top/image2.jpg);
+  background-size: 125%;
+  background-position: left top;
   -webkit-animation: anim 6s infinite ease-in-out;
   -moz-animation: anim 6s infinite ease-in-out;
   -ms-animation: anim 6s infinite ease-in-out;

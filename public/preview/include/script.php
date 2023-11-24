@@ -17,8 +17,12 @@
 <script src="js/swiper.js"></script>
 <!-- swiper -->
 
+<!-- メニュー -->
+<script src="js/header.js?p=(new Date()).getTime()"></script>
+<!-- メニュー -->
+
 <!-- カウントダウンタイマー -->
-<script src="js/countdown.js"></script>
+<script src="js/countdown.js?p=(new Date()).getTime()"></script>
 <!-- カウントダウンタイマー -->
 
 <!-- 専用Js読込み start -->

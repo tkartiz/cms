@@ -13,10 +13,10 @@ $announces = read_Json('announce', $siteview);
     <?php include "include/header2.php"; ?>
 
     <main>
-        <div class="container">
-            <div class="list px-5 pb-5" style="padding-bottom:8rem;">
+        <div class="wrapper">
+            <div class="list px-3">
                 <div class="w-100 d-flex align-items-baseline" style="border-bottom:1px solid gray;">
-                    <h3 class="mt-5 me-5">お知らせ一覧</h3>
+                    <h3 class="mt-3 me-5">お知らせ一覧</h3>
                     <a class="ms-auto" href="index.php">
                         <p class="text-muted">ホームへ</p>
                     </a>

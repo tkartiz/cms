@@ -10,11 +10,11 @@ $colImgNum = 3;
 
 <div>
     <div class="bg-white">
-        <div class="w-100 pb-5 px-5" style="background-color:lightgray;">
+        <div class="w-100 py-2 px-2 px-sm-4" style="background-color:lightgray;">
             <h6><?php echo $announce["date"]; ?></h6>
             <h3 class="fs-3"><?php echo nl2br($announce["title"]); ?></h3>
         </div>
-        <div class="p-5">
+        <div class="p-2">
             <?php for ($i = 0; $i < $colNum; $i++) { ?>
                 <?php    // 画像カウントと画像がある番号の把握
                 $ImgCount = 0;
@@ -25,7 +25,7 @@ $colImgNum = 3;
                     }
                 } ?>
                 <?php if ($ImgCount == 0 && !empty($announce["content" . ($i + 1)])) { ?>
-                    <div class="pb-5">
+                    <div class="">
                         <p><?php echo nl2br($announce['content' . ($i + 1)]); ?></p>
                     </div>
                 <?php } else if ($ImgCount == 1 && !empty($announce["content" . ($i + 1)])) { ?>
@@ -35,10 +35,10 @@ $colImgNum = 3;
                     $ImgWidth_num = (int)explode('-', $ImgWidth)[1];
                     $pWidth_num = 12 - $ImgWidth_num;
                     if ($announce[$name . "Location"] == "order-2") {
-                        $p_class = "pe-5 col-12 order-2 order-sm-1 col-sm-" . $pWidth_num;
+                        $p_class = "pe-3 col-12 order-2 order-sm-1 col-sm-" . $pWidth_num;
                         $img_class = "overflow-hidden h-auto col-12 order-1 order-sm-2 col-sm-" . $ImgWidth_num;
                     } else if ($announce[$name . "Location"] == "order-1") {
-                        $p_class = "ps-5 col-12 order-2 order-sm-2 col-sm-" . $pWidth_num;
+                        $p_class = "ps-3 col-12 order-2 order-sm-2 col-sm-" . $pWidth_num;
                         $img_class = "overflow-hidden h-auto col-12 order-1 order-sm-1 col-sm-" . $ImgWidth_num;
                     }
 
@@ -51,7 +51,7 @@ $colImgNum = 3;
                     $img_src = $announce[$name . 'Path'] . '?p=(new Date()).getTime()';
                     ?>
                     
-                    <div class="d-flex flex-wrap pb-5">
+                    <div class="d-flex flex-wrap ">
                         <p class="<?php echo $p_class ?>">
                             <?php echo nl2br($announce["content" . ($i + 1)]); ?>
                         </p>
@@ -70,7 +70,7 @@ $colImgNum = 3;
                     $img_style = 'max-height:' . $announce[$name . 'Height'] . 'px;';
                     $img_src = $announce[$name . 'Path'] . '?p=(new Date()).getTime()';
                 ?>
-                    <div class="d-flex flex-wrap pb-5">
+                    <div class="d-flex flex-wrap ">
                         <div class="<?php echo $img_class ?>">
                             <img class="object-fit-cover w-100 h-auto" style="<?php echo $img_style ?>" src="<?php echo $img_src ?>" alt="">
                             <p class="small p-1 px-sm-2">
@@ -95,7 +95,7 @@ $colImgNum = 3;
                         $img_style = 'width:100%; object-fit:cover; object-position:center;';
                     }
                 ?>
-                    <div class="d-flex flex-wrap pb-5">
+                    <div class="d-flex flex-wrap">
                         <?php for ($k = 0; $k < $ImgCount; $k++) {
                             $name = 'col' . ($i + 1) . 'Img' . $Img[$k];
                             if ($k == 0) {
@@ -131,7 +131,7 @@ $colImgNum = 3;
                         $img_style = 'width:100%; object-fit:cover; object-position:center;';
                     }
                     ?>
-                    <div class="d-flex flex-wrap pb-5">
+                    <div class="d-flex flex-wrap">
                         <?php for ($k = 0; $k < $ImgCount; $k++) {
                             $name = 'col' . ($i + 1) . 'Img' . $Img[$k];
                             if ($k == 0) {

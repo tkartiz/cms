@@ -44,14 +44,11 @@ a {
   text-decoration: none;
 }
 
-header {
-  z-index: 1;
+.title-font {
+  font-family: 'Cinzel', serif;
 }
 
 /* ========================================================== */
 /* 画面サイズ　***px未満 */
 /* ========================================================== */
-@media screen and (max-width: px) {
-  
-
-}
+@media screen and (max-width: px) {}

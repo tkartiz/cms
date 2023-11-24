@@ -24,10 +24,13 @@
     <link rel="manifest" href="./asset/icon/favicon/manifest.webmanifest">
     <!-- ファビコンend -->
 
-    <!-- グーグルフォント --><!-- しっぽり明朝 -->
+    <!-- グーグルフォント -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- しっぽり明朝 -->
     <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Cinzel -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800;900&display=swap" rel="stylesheet">
     <!-- グーグルフォント -->
 
     <!-- Bootstrap Css読込み start -->
@@ -48,7 +51,7 @@
     <!-- swiper -->
 
     <!-- カウントダウンタイマー -->
-    <link rel="stylesheet" href="css/countdown.css">
+    <link rel="stylesheet" href="css/countdown.css?p=(new Date()).getTime()">
     <!-- カウントダウンタイマー -->
 
     <!-- 専用Css読込み start -->

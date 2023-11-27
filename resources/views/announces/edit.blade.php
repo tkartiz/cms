@@ -16,6 +16,38 @@
                         <div class="flex">
                             <input type="hidden" name="stamp" value="{{ $announce->stamp }}">
                             <div class="p-2 w-1/6">
+                                <p class="text-gray-700">イベント／プレスリリース</p>
+                                <ul class="w-48 text-sm font-medium text-gray-700">
+                                    @if($announce->item == "event")
+                                    <li class="w-full">
+                                        <div class="flex items-center ps-3">
+                                            <input checked id="event" type="radio" value="event" name="item" class="w-4 h-4 text-blue-600 bg-gray-100 focus:ring-blue-500 focus:ring-2">
+                                            <label for="event" class="w-full py-1 ms-2 text-gray-700">イベント</label>
+                                        </div>
+                                    </li>
+                                    <li class="w-full">
+                                        <div class="flex items-center ps-3">
+                                            <input id="press" type="radio" value="press" name="item" class="w-4 h-4 text-blue-600 bg-gray-100 focus:ring-blue-500 focus:ring-2">
+                                            <label for="press" class="w-full py-1 ms-2 text-gray-700">プレスリリース</label>
+                                        </div>
+                                    </li>
+                                    @else
+                                    <li class="w-full">
+                                        <div class="flex items-center ps-3">
+                                            <input id="event" type="radio" value="event" name="item" class="w-4 h-4 text-blue-600 bg-gray-100 focus:ring-blue-500 focus:ring-2">
+                                            <label for="event" class="w-full py-1 ms-2 text-gray-700">イベント</label>
+                                        </div>
+                                    </li>
+                                    <li class="w-full">
+                                        <div class="flex items-center ps-3">
+                                            <input checked id="press" type="radio" value="press" name="item" class="w-4 h-4 text-blue-600 bg-gray-100 focus:ring-blue-500 focus:ring-2">
+                                            <label for="press" class="w-full py-1 ms-2 text-gray-700">プレスリリース</label>
+                                        </div>
+                                    </li>
+                                    @endif
+                                </ul>
+                            </div>
+                            <div class="p-2 w-1/6">
                                 <p class="text-gray-700">公開／非公開</p>
                                 <ul class="w-48 text-sm font-medium text-gray-700">
                                     @if($announce->release == "release")
@@ -53,7 +85,7 @@
                                     <input type="date" id="date" name="date" value="{{ $announce->date }}" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
                                 </div>
                             </div>
-                            <div class="p-2 w-4/6">
+                            <div class="p-2 w-3/6">
                                 <div class="relative">
                                     <label for="title" class="leading-7 text-sm text-gray-600">タイトル</label>
                                     <input type="text" id="title" name="title" value="{{ $announce->title }}" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />

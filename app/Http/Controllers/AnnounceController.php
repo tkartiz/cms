@@ -47,6 +47,7 @@ class AnnounceController extends Controller
 
         Announce::create([ //　id取得のために一旦保存する
             'stamp' => $request->stamp,
+            'item' => $request->item,
             'release' =>  $request->release,
             'date' =>  $request->date,
             'title' =>  $request->title,
@@ -97,6 +98,7 @@ class AnnounceController extends Controller
         $content = Common::announceContent($request); // お知らせ内容を配列にまとめる
 
         $announce = Announce::find($id);
+        $announce->item = $request->item;
         $announce->release = $request->release;
         $announce->date = $request->date;
         $announce->title = $request->title;

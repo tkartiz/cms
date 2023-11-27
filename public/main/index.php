@@ -45,7 +45,14 @@ $stores = array_reverse(glob('img/store/*.jpg'));
         <?php foreach ($announces as $announce) : ?>
           <div class="swiper-slide mt-2 me-3">
             <a class="text-decoration-none" href="announce.php?filename=<?php echo $announce["stamp"]; ?>">
-              <p class="w-100 px-2 text-center"><?php echo $announce["date"]; ?>：<?php echo $announce["title"]; ?></p>
+              <p class="w-100 px-3 text-center text-truncate border-end border-2 border-info" style="width: 10rem;">
+                <?php if($announce['item'] === "event") { ?>
+                <i class="bi bi-circle-fill" style="color:red;"></i>イベント&nbsp;
+                <?php } else { ?> 
+                <i class="bi bi-circle-fill" style="color:orange;"></i>プレスリリース&nbsp;
+                <?php } ?>
+                <?php echo $announce["date"]; ?>：<?php echo $announce["title"]; ?>
+              </p>
             </a>
           </div>
         <?php endforeach; ?>
@@ -58,9 +65,55 @@ $stores = array_reverse(glob('img/store/*.jpg'));
     <div class="container">
       <!-- コンセプト -->
       <div id="concept" class="w-100" style="padding:120px 0;">
-        <p class="text-center lh-sm title-font" style="font-size:4rem; font-weight:900;">Consepct<br><span class="fs-4">コンセプト</span></p>
+        <p class="text-center title-font" style="font-size:4rem; font-weight:900; line-height:3rem;">Consept<br><span class="fs-4">コンセプト</span></p>
         <div>
+          <div class="position-relative w-100 mt-5" style="height:800px;">
+            <div class="position-absolute translate-middle start-50 mt-5" style="top:100px;">
+              <p class="fs-4 text-center mb-0">～Mohala He Li'a～</p>
+              <p class="fs-1 fw-bold text-center">湘南ちがさき</p>
+            </div>
+            <div class="position-absolute p-4 rounded-pill d-flex align-items-center top-0 start-0" style="width:450px; height:450px; background-color:#49acdd ;">
+              <div class="w-100 text-center">
+                <p class="fs-5 fw-bold mb-5">湘南・茅ヶ崎の新しい拠点</p>
+                <ul class="list-unstyled lh-lg">
+                  <li class="mb-4">観光も日常も手軽に楽しめる場所</li>
+                  <li class="mb-4">誰でも使いやすく、居心地のいい空間とサービス</li>
+                  <li class="mb-4">元気で楽しい湘南・茅ヶ崎のくらしを発信</li>
+                </ul>
+              </div>
+            </div>
 
+            <div class="position-absolute translate-middle p-4 rounded-pill d-flex align-items-center" style="top:550px; left:35%; width:450px; height:450px; background-color:#de49ac;">
+              <div class="w-100 text-center">
+                <p class="fs-5 fw-bold mb-5">茅ヶ崎のここがいい、アピールしよう</p>
+                <ul class="list-unstyled lh-lg">
+                  <li class="mb-4">茅ヶ崎の海や自然、季節感を楽しもう</li>
+                  <li class="mb-4">地元のものや文化を大事にして、<br>みんなに知ってもらおう</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="position-absolute translate-middle p-4 rounded-pill d-flex align-items-center" style="top:550px; left:65%; width:450px; height:450px; background-color:#de7b49;">
+              <div class="w-100 text-center">
+                <p class="fs-5 fw-bold mb-5">みんなで盛り上げよう</p>
+                <ul class="list-unstyled lh-lg">
+                  <li class="mb-4">楽しさやアイデアを大事にして、<br>みんなが愛する場所にしよう</li>
+                  <li class="mb-4">価値観の違いを楽しんで、<br>一緒にエリアをよくしていこう</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="position-absolute p-4 rounded-pill d-flex align-items-center top-0 end-0" style="width:450px; height:450px; background-color:#49de7b;">
+              <div class="w-100 text-center">
+                <p class="fs-5 fw-bold mb-5">湘南・茅ヶ崎の未来を一緒に作ろう</p>
+                <ul class="list-unstyled lh-lg">
+                  <li class="mb-4">地元の力を引き出して、みんなが暮らしやすい場所に</li>
+                  <li class="mb-4">クリエイティブなアイデアや地域への思いを応援しよう</li>
+                  <li class="mb-4"> 旅行や体験を通して、<br>湘南・茅ヶ崎をもっと好きになってもらおう​​</li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -69,21 +122,70 @@ $stores = array_reverse(glob('img/store/*.jpg'));
     <div class="flex-container mx-auto" style="max-width:1500px;">
       <!-- 施設 -->
       <div id="facility" class="w-100" style="padding:120px 0;">
-        <p class="text-center lh-sm title-font" style="font-size:4rem; font-weight:900;">Facility<br><span class="fs-4">施設について</span></p>
+        <p class="text-center title-font" style="font-size:4rem; font-weight:900;  line-height:3rem;">Facility<br><span class="fs-4">施設について</span></p>
         <div class="w-100">
-          <div class="d-flex">
+          <div class="w-100 position-relative overflow-hidden text-center rounded" style="margin-top:80px; height:40vw;">
+            <!-- 外観1 -->
+            <div id="pers1" class="position-absolute" style="z-index:10; width:32px; height:32px; top:18vw; left:60%; cursor:pointer;">
+              <svg fill="currentColor" class="w-100 h-100 bi bi-arrow-down-circle-fill bg-white rounded-pill" viewBox="0 0 16 16">
+                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V4.5z" />
+              </svg>
+            </div>
+
+            <!-- 外観2 -->
+            <div id="pers2" class="position-absolute" style="z-index:10; width:32px; height:32px; top:27vw; left:50%; cursor:pointer;">
+              <svg fill="currentColor" class="w-100 h-100 bi bi-arrow-up-right-circle-fill bg-white rounded-pill" style="transform:rotate(30deg)" viewBox="0 0 16 16">
+                <path d="M0 8a8 8 0 1 0 16 0A8 8 0 0 0 0 8zm5.904 2.803a.5.5 0 1 1-.707-.707L9.293 6H6.525a.5.5 0 1 1 0-1H10.5a.5.5 0 0 1 .5.5v3.975a.5.5 0 0 1-1 0V6.707l-4.096 4.096z" />
+              </svg>
+            </div>
+
+            <!-- 外観3 -->
+            <div id="pers3" class="position-absolute" style="z-index:10; width:32px; height:32px; top:31.5vw; left:50%; cursor:pointer;">
+              <svg fill="currentColor" class="w-100 h-100 bi bi-arrow-right-circle-fill bg-white rounded-pill" viewBox="0 0 16 16">
+                <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z" />
+              </svg>
+            </div>
+
+            <!-- 内観 -->
+            <div id="pers4" class="position-absolute" style="z-index:10; width:32px; height:32px; top:26vw; left:65%; cursor:pointer;">
+              <svg fill="currentColor" class="w-100 h-100 bi bi-c-circle-fill bg-white rounded-pill" viewBox="0 0 16 16">
+                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0ZM8.146 4.992c.961 0 1.641.633 1.729 1.512h1.295v-.088c-.094-1.518-1.348-2.572-3.03-2.572-2.068 0-3.269 1.377-3.269 3.638v1.073c0 2.267 1.178 3.603 3.27 3.603 1.675 0 2.93-1.02 3.029-2.467v-.093H9.875c-.088.832-.75 1.418-1.729 1.418-1.224 0-1.927-.891-1.927-2.461v-1.06c0-1.583.715-2.503 1.927-2.503Z" />
+              </svg>
+            </div>
+
+
+            <img class="w-100 object-fit-cover" style="z-index:0;" src="./img/intro/image00.jpg" alt="">
+            <div id="pers-frm1" class="d-none position-absolute top-0 start-0 overflow-hidden border border-white border-5 border-top-0 border-start-0" style="z-index:10; width: 56%; height:26vw;">
+              <img id="pers1-img" class="impress d-none w-100 h-100 object-fit-cover" src="./img/intro/image01.jpg" alt="">
+              <img id="pers2-img" class="impress d-none w-100 h-100 object-fit-cover" src="./img/intro/image02.jpg" alt="">
+              <img id="pers3-img" class="impress d-none w-100 h-100 object-fit-cover" src="./img/intro/image03_kai.jpg" alt="">
+            </div>
+            <div id="pers-frm2" class="d-none w-100 d-flex position-absolute top-0 start-0 bg-white overflow-hidden" style="z-index:10; height:17vw;">
+              <div class="col-4 h-100 overflow-hidden border border-white border-5 border-top-0 border-start-0">
+                <img id="pers4-img" class="impress h-100 object-fit-cover" src="./img/intro/image04.jpg" alt="">
+              </div>
+              <div class="col-4 h-100 overflow-hidden border border-white border-5 border-top-0 border-start-0">
+                <img id="pers5-img" class="impress h-100 object-fit-cover" src="./img/intro/image05.jpg" alt="">
+              </div>
+              <div class="col-4 h-100 overflow-hidden border border-white border-5 border-top-0 border-start-0 border-end-0">
+                <img id="pers6-img" class="impress h-100 object-fit-cover" src="./img/intro/image06.jpg" alt="">
+              </div>
+            </div>
+          </div>
+
+          <!-- <div class="d-flex">
             <div class="w-50 position-relative">
               <div class="w-100 position-absolute start-50 bottom-0 p-2" style="transform:translateX(-50%);">
-                <div class="d-flex justify-content-center align-items-center mx-auto" style="width:320px; height:320px; background-color:#49ACDD;">
-                  <p class="text-center m-0 p-0 text-white fs-1 fw-bold">湘南ちがさき<br><span class="fs-2">完成予想図</span></p>
+                <div class="d-flex justify-content-center align-items-center mx-auto" style="width:320px; height:320px; background-color:rgb(40,40,40,0.6);">
+                  <p class="text-center m-0 p-0 text-white fs-1 fw-bold">湘南ちがさき<br><span class="fs-2">完成イメージ</span></p>
                 </div>
-                <p class="mt-5 border fs-5">ここに説明を入れますここに説明を入れますここに説明を入れますここに説明を入れますここに説明を入れますここに説明を入れますここに説明を入れます</p>
+                <p class="mt-5 fs-5"></p>
               </div>
             </div>
             <div class="w-50 position-relative" style="width:calc(160px * 3.5); height:calc(160px * 4); margin-top:80px;">
               <div class="position-absolute top-0 end-0" style="z-index:0; width:calc(160px * 3); height:calc(160px * 3.5); background-color:#72BFC6; opacity: 0.8; transform:translateX(-80px);"></div>
               <div class="position-absolute bottom-0 end-0 overflow-hidden" style="z-index:10; width:calc(160px * 3); height:calc(160px * 3.5);">
-                <img class="h-100 object-fit-cover" style="object-position: -120px;" src="./img/intro/3west.jpg" alt="">
+                <img class="h-100 object-fit-cover" style="object-position: -240px;" src="./img/intro/image01.jpg" alt="">
               </div>
             </div>
           </div>
@@ -91,40 +193,40 @@ $stores = array_reverse(glob('img/store/*.jpg'));
             <div class="col-6 position-relative me-auto" style="width:calc(160px * 5); height:calc(160px * 3.5); margin-top:160px;">
               <div class="position-absolute top-0 start-0" style="z-index:0; width:calc(160px * 4.5); height:calc(160px * 3); background-color:#72BFC6; opacity: 0.8;"></div>
               <div class="position-absolute bottom-0 end-0 overflow-hidden" style="z-index:10; width:calc(160px * 4.5); height:calc(160px * 3);">
-                <img class="h-100 object-fit-cover" style="object-position: 0px;" src="./img/intro/2east.jpg" alt="">
+                <img class="h-100 object-fit-cover" style="object-position: 0px;" src="./img/intro/image03_kai.jpg" alt="">
               </div>
             </div>
             <div class="col-6 position-relative">
-              <div class="w-75 position-absolute start-50 bottom-0 border p-2 fs-5" style="height:320px; transform:translate(-50%, -80px);">ここに説明を入れますここに説明を入れますここに説明を入れますここに説明を入れますここに説明を入れますここに説明を入れますここに説明を入れます</div>
+              <div class="w-75 position-absolute start-50 bottom-0 p-2 fs-5" style="height:320px; transform:translate(-50%, -80px);"></div>
             </div>
           </div>
 
           <div class="d-flex">
             <div class="col-4 position-relative">
-              <div class="w-100 position-absolute start-100 border p-2 fs-5" style="height:320px; transform:translate(-50%, -50%); top:35%;">ここに説明を入れますここに説明を入れますここに説明を入れますここに説明を入れますここに説明を入れます</div>
+              <div class="w-100 position-absolute start-100 p-2 fs-5" style="height:320px; transform:translate(-50%, -50%); top:35%;"></div>
             </div>
             <div class="col-8 d-flex justify-content-around" style="margin-top:160px;">
               <div class="position-relative" style="width:calc(160px * 3.5); height:calc(160px * 2.3); margin-top:480px;">
                 <div class="position-absolute top-0 end-0" style="z-index:0; width:calc(160px * 3.2); height:calc(160px * 2); background-color:#72BFC6; opacity: 0.8;"></div>
                 <div class="position-absolute bottom-0 start-0 overflow-hidden" style="z-index:10; width:calc(160px * 3.2); height:calc(160px * 2); transform:translateX(-80px);">
-                  <img class="w-100 object-fit-cover" style="object-position: -20px;" src="./img/intro/5naibu2f.jpg" alt="">
+                  <img class="w-100 object-fit-cover" style="width:calc(160px * 3.2); height:calc(160px * 2); object-position: -100px;" src="./img/intro/image05.jpg" alt="">
                 </div>
               </div>
               <div class="position-relative" style="width:calc(160px * 3.5); height:calc(160px * 2.3);">
                 <div class="position-absolute top-0 end-0" style="z-index:0; width:calc(160px * 3.2); height:calc(160px * 2); background-color:#72BFC6; opacity: 0.8;"></div>
                 <div class="position-absolute bottom-0 end-0 overflow-hidden" style="z-index:10; width:calc(160px * 3.2); height:calc(160px * 2); transform:translateX(-80px);">
-                  <img class="h-100 object-fit-cover" style="object-position: -20px;" src="./img/intro/4naibi1f.jpg" alt="">
+                  <img class="h-100 object-fit-cover" style="width:calc(160px * 3.2); height:calc(160px * 2); object-position: -20px;" src="./img/intro/image06.jpg" alt="">
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
     <div class="container">
       <!-- ストアガイド -->
       <div id="store" class="w-100" style="padding:120px 0;">
-        <p class="text-center lh-sm title-font" style="font-size:4rem; font-weight:900;">Store<br><span class="fs-4">ストア</span></p>
+        <p class="text-center title-font" style="font-size:4rem; font-weight:900;  line-height:3rem;">Store<br><span class="fs-4">ストア</span></p>
         <div>
           <div class="slider2 overflow-hidden" style="height:400px;">
             <div class="swiper-wrapper">
@@ -157,7 +259,7 @@ $stores = array_reverse(glob('img/store/*.jpg'));
 
       <!-- アクセス -->
       <div id="access" class="w-100" style="padding:120px 0;">
-        <p class="text-center lh-sm title-font" style="font-size:4rem; font-weight:900;">Access<br><span class="fs-4">アクセス</span></p>
+        <p class="text-center title-font" style="font-size:4rem; font-weight:900; line-height:3rem;">Access<br><span class="fs-4">アクセス</span></p>
         <div class="w-100 overflow-hidden text-center" style="height:500px;">
           <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d1627.7083231985107!2d139.37759337864887!3d35.320473835475795!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzXCsDE5JzEzLjciTiAxMznCsDIyJzQzLjIiRQ!5e0!3m2!1sja!2sjp!4v1700803864416!5m2!1sja!2sjp" width="1200" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
@@ -219,7 +321,7 @@ $stores = array_reverse(glob('img/store/*.jpg'));
 
       <!-- お問合せ -->
       <div id="contact" class="w-100" style="padding:120px 0;">
-        <p class="text-center lh-sm title-font" style="font-size:4rem; font-weight:900;">Contact<br><span class="fs-4">お問合せ</span></p>
+        <p class="text-center title-font" style="font-size:4rem; font-weight:900; line-height:3rem;">Contact<br><span class="fs-4">お問合せ</span></p>
         <div class="mx-auto" style="width:30rem; margin-top:80px;">
           <dl class="d-flex">
             <dt style="width:8rem;">CONTACT:</dt>

@@ -16,6 +16,7 @@ class CreateAnnouncesTable extends Migration
         Schema::create('announces', function (Blueprint $table) {
             $table->id();
             $table->string('stamp');
+            $table->string('item');
             $table->string('release');
             $table->date('date')->nullable();
             $table->string('title');

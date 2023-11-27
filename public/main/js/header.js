@@ -5,3 +5,9 @@ $('#menu').click(function() {
         $('#menu-collapse').addClass('d-none');
     };
 })
+
+$('.jump').click(function() {
+    if(!$('#menu-collapse').hasClass('d-none')){
+        $('#menu-collapse').addClass('d-none');
+    };
+})

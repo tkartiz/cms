@@ -17,13 +17,8 @@
 <script src="js/swiper.js"></script>
 <!-- swiper -->
 
-<!-- メニュー -->
-<script src="js/header.js?p=(new Date()).getTime()"></script>
-<!-- メニュー -->
-
-<!-- カウントダウンタイマー -->
-<script src="js/countdown.js?p=(new Date()).getTime()"></script>
-<!-- カウントダウンタイマー -->
-
 <!-- 専用Js読込み start -->
+<script src="js/header.js?p=(new Date()).getTime()"></script> <!-- メニュー -->
+<script src="js/countdown.js?p=(new Date()).getTime()"></script> <!-- カウントダウンタイマー -->
+<script src="js/facility.js?p=(new Date()).getTime()"></script> <!-- 施設 -->
 <!-- 専用Js読込み end -->

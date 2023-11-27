@@ -13,6 +13,7 @@ class Announce extends Model
 
     protected $fillable = [
         'stamp',
+        'item',
         'release',
         'date',
         'title',

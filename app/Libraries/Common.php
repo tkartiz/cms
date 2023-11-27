@@ -11,6 +11,7 @@ class Common
     public static function announceValidation($request)
     {
         $request->validate([
+            'item' => 'required|string',
             'release' => 'required|string',
             'date' => 'nullable|date',
             'title' => 'required|string|max:50',
@@ -50,6 +51,7 @@ class Common
         // ========= お知らせ欄と画像数の設定 ==========
 
         $content = array(
+            "item" => $request->item,
             "release" => $request->release,
             "stamp" => $request->stamp,
             "date" => $request->date,

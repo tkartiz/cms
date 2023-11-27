@@ -48,6 +48,30 @@ a {
   font-family: 'Cinzel', serif;
 }
 
+.appear {
+  display: block;
+  animation: appear-anim 0.8s linear;
+}
+
+@keyframes appear-anim {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.impress{
+  transform:scale(1);
+  transition: transform 0.6s;
+}
+
+.impress:hover{
+  transform:scale(1.15);
+}
+
 /* ========================================================== */
 /* 画面サイズ　***px未満 */
 /* ========================================================== */

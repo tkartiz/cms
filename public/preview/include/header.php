@@ -65,29 +65,29 @@
                 <div class="mb-4">
                     <p class="title-font">INFO</p>
                     <div class="ms-4 d-flex">
-                        <p class="col-4"><a href="announce_list.php">イベント</a></p>
-                        <p class="col-4"><a href="announce_list.php">お知らせ</a></p>
+                        <p class="col-4"><a class="jump" href="announce_list.php">イベント</a></p>
+                        <p class="col-4"><a class="jump" href="announce_list.php">お知らせ</a></p>
                     </div>
                 </div>
                 <div class="mb-4">
                     <p class="title-font">ABOUT</p>
                     <div class="ms-4 d-flex">
-                        <p class="col-4"><a href="#concept">コンセプト</a></p>
+                        <p class="col-4"><a class="jump" href="#concept">コンセプト</a></p>
                     </div>
                 </div>
                 <div class="mb-4">
                     <p class="title-font">GUIDE</p>
                     <div class="ms-4 d-flex">
-                        <p class="col-4"><a href="#facility">施設</a></p>
-                        <p class="col-4"><a href="#store">ストア</a></p>
-                        <p class="col-4"><a href="#access">アクセス</a></p>
+                        <p class="col-4"><a class="jump" href="#facility">施設</a></p>
+                        <p class="col-4"><a class="jump" href="#store">ストア</a></p>
+                        <p class="col-4"><a class="jump" href="#access">アクセス</a></p>
                     </div>
                 </div>
                 <div class="mb-4">
                     <p class="title-font">OTHER</p>
                     <div class="ms-4 d-flex flex-wrap">
-                        <p class="col-4"><a href="#sns">SNS</a></p>
-                        <p class="col-4"><a href="#contact">お問合せ</a></p>
+                        <p class="col-4"><a class="jump" href="#sns">SNS</a></p>
+                        <p class="col-4"><a class="jump" href="#contact">お問合せ</a></p>
                     </div>
                 </div>
             </div>

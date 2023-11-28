@@ -26,7 +26,7 @@
                 </li>
                 <li class="d-flex col-2 bg-white" style="width:100px;">
                     <div class="dropdown-center align-self-center my-0 mx-auto">
-                        <button class="dropdown-toggle border border-0 bg-transparent" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <button class="dropdown-toggle border-0 bg-transparent" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                             言語
                         </button>
                         <ul class="dropdown-menu">

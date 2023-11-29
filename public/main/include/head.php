@@ -18,10 +18,10 @@
     <title>道の駅ちがさき</title>
 
     <!-- ファビコンstart -->
-    <link rel="icon" href="./asset/icon/favicon/faviicon.ico" sizes="any"><!-- 32×32 -->
-    <link rel="icon" href="./asset/icon/favicon/icon.svg" type="image/svg+xml">
-    <link rel="apple-touch-icon" href="./asset/icon/favicon/apple-touch-icon.png"><!-- 180×180 -->
-    <link rel="manifest" href="./asset/icon/favicon/manifest.webmanifest">
+    <!-- <link rel="icon" href="./asset/icon/favicon/faviicon.ico" sizes="any"> 32×32 -->
+    <!-- <link rel="icon" href="./asset/icon/favicon/icon.svg" type="image/svg+xml"> -->
+    <!-- <link rel="apple-touch-icon" href="./asset/icon/favicon/apple-touch-icon.png"> 180×180 -->
+    <!-- <link rel="manifest" href="./asset/icon/favicon/manifest.webmanifest"> -->
     <!-- ファビコンend -->
 
     <!-- グーグルフォント -->

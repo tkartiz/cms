@@ -941,14 +941,14 @@ select {
 .w-3\/4 {
   width: 75%;
 }
+.w-3\/6 {
+  width: 50%;
+}
 .w-32 {
   width: 8rem;
 }
 .w-4 {
   width: 1rem;
-}
-.w-4\/6 {
-  width: 66.666667%;
 }
 .w-48 {
   width: 12rem;
@@ -970,9 +970,6 @@ select {
 }
 .w-full {
   width: 100%;
-}
-.w-3\/6 {
-  width: 50%;
 }
 .max-w-6xl {
   max-width: 72rem;

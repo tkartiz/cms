@@ -6,55 +6,47 @@
     <div class="w-100 d-flex justify-content-between">
         <!-- ロゴ -->
         <div class="ms-2" style="width:80px; height:80px; margin:5px;">
-            <img class="w-100 object-fit" src="img/logo.png" alt="道の駅ちがさきロゴ">
+            <!-- <img class="w-100 object-fit" src="img/logo.png" alt="道の駅ちがさきロゴ"> -->
         </div>
 
         <!-- メニュー -->
-        <div class="border rounded-bottom" style="width:600px; height:90px;">
+        <div class="border rounded-bottom" style="width:500px; height:90px;">
             <ul class="w-100 d-flex m-0 p-0" style="height:90px;">
                 <li class="d-flex col-2 bg-white" style="width:100px;">
-                    <p class="my-0 mx-auto align-self-center"><a href="#top">トップ</a></p>
+                    <p class="title-font my-0 mx-auto align-self-center"><a href="#top">TOP</a></p>
                 </li>
                 <li class="d-flex col-2 bg-white" style="width:100px;">
-                    <p class="my-0 mx-auto align-self-center text-center lh-sm"><a href="#concept">コンセプト</a></p>
+                    <p class="title-font my-0 mx-auto align-self-center text-center lh-sm"><a href="#about">ABOUT</a></p>
                 </li>
                 <li class="d-flex col-2 bg-white" style="width:100px;">
-                    <p class="my-0 mx-auto align-self-center"><a href="#guide">ガイド</a></p>
-                </li>
-                <li class="d-flex col-2 bg-white" style="width:100px;">
-                    <p class="my-0 mx-auto align-self-center"><a href="#contact">お問合せ</a></p>
+                    <p class="title-font my-0 mx-auto align-self-center"><a href="#guide">GUIDE</a></p>
                 </li>
                 <li class="d-flex col-2 bg-white" style="width:100px;">
                     <div class="dropdown-center align-self-center my-0 mx-auto">
-                        <button class="dropdown-toggle border-0 bg-transparent" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            言語
+                        <button class="title-font dropdown-toggle border-0 bg-transparent" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            JPN
                         </button>
                         <ul class="dropdown-menu">
                             <li>
-                                <button active class="dropdown-item" type="button">
-                                    <a href="index.php">JPN</a>
+                                <button class="dropdown-item" type="button">
+                                    <a class="title-font" href="https://translate.google.com/translate?sl=ja&tl=en&u=https://ff-server.site/m-shonanchigasaki/main/index.php">EN</a>
                                 </button>
                             </li>
                             <li>
                                 <button class="dropdown-item" type="button">
-                                    <a href="https://translate.google.com/translate?sl=ja&tl=en&u=https://ff-server.site/m-shonanchigasaki/main/index.php">EN</a>
+                                    <a class="title-font" href="https://translate.google.com/translate?sl=ja&tl=zh-CN&u=https://ff-server.site/m-shonanchigasaki/main/index.php">CHS</a>
                                 </button>
                             </li>
                             <li>
                                 <button class="dropdown-item" type="button">
-                                    <a href="https://translate.google.com/translate?sl=ja&tl=zh-CN&u=https://ff-server.site/m-shonanchigasaki/main/index.php">CHS</a>
-                                </button>
-                            </li>
-                            <li>
-                                <button class="dropdown-item" type="button">
-                                    <a href="https://translate.google.com/translate?sl=ja&tl=ko&u=https://ff-server.site/m-shonanchigasaki/main/index.php">KOR</a>
+                                    <a class="title-font" href="https://translate.google.com/translate?sl=ja&tl=ko&u=https://ff-server.site/m-shonanchigasaki/main/index.php">KOR</a>
                                 </button>
                             </li>
                         </ul>
                     </div>
                 </li>
                 <li id="menu" class="d-flex col-2" style="width:100px; background-color:#8CD0E3; cursor:pointer;">
-                    <p class="my-0 mx-auto align-self-center">メニュー</p>
+                    <p class="title-font my-0 mx-auto align-self-center">MENU</p>
                 </li>
             </ul>
         </div>
@@ -63,31 +55,46 @@
             <p class="fs-3 fw-bold text-center mb-5">湘南ちがさき</p>
             <div>
                 <div class="mb-4">
-                    <p class="title-font">INFO</p>
+                    <div class="d-flex align-items-baseline">
+                        <p class="title-font fs-5 me-2">EVENT & NEWS</p>
+                        <p class="text-muted small">イベント＆お知らせ</p>
+                    </div>
                     <div class="ms-4 d-flex">
-                        <p class="col-4"><a class="jump" href="announce_list.php">イベント</a></p>
-                        <p class="col-4"><a class="jump" href="announce_list.php">お知らせ</a></p>
+                        <p class="col-6"><a class="jump" href="event/">イベント</a></p>
+                        <p class="col-6"><a class="jump" href="news/">お知らせ</a></p>
                     </div>
                 </div>
                 <div class="mb-4">
-                    <p class="title-font">ABOUT</p>
+                    <div class="d-flex align-items-baseline">
+                        <p class="title-font fs-5 me-2">ABOUT</p>
+                        <p class="text-muted small">湘南ちがさきについて</p>
+                    </div>
                     <div class="ms-4 d-flex">
-                        <p class="col-4"><a class="jump" href="#concept">コンセプト</a></p>
+                        <p class="col-6"><a class="jump" href="about/concept/">コンセプト</a></p>
+                        <p class="col-6"><a class="jump" href="about/environment/">環境への取組み</a></p>
                     </div>
                 </div>
                 <div class="mb-4">
-                    <p class="title-font">GUIDE</p>
-                    <div class="ms-4 d-flex">
-                        <p class="col-4"><a class="jump" href="#facility">施設</a></p>
-                        <p class="col-4"><a class="jump" href="#store">ストア</a></p>
-                        <p class="col-4"><a class="jump" href="#access">アクセス</a></p>
+                    <div class="d-flex align-items-baseline">
+                        <p class="title-font fs-5 me-2">GUIDE</p>
+                        <p class="text-muted small">施設ガイド</p>
                     </div>
-                </div>
-                <div class="mb-4">
-                    <p class="title-font">OTHER</p>
                     <div class="ms-4 d-flex flex-wrap">
-                        <p class="col-4"><a class="jump" href="#sns">SNS</a></p>
-                        <p class="col-4"><a class="jump" href="#contact">お問合せ</a></p>
+                        <p class="col-12"><a class="jump" href="areamap/">エリアマップ</a></p>
+                        <p class="col-6"><a class="jump" href="areamap/product_food/">物販・フード</a></p>
+                        <p class="col-6"><a class="jump" href="areamap/service/">「コト」サービス</a></p>
+                        <p class="col-6"><a class="jump" href="areamap/rest/">休憩所・広場</a></p>
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <div class="d-flex align-items-baseline">
+                        <p class="title-font fs-5 me-2">OTHER</p>
+                        <p class="text-muted small">その他</p>
+                    </div>
+                    <div class="ms-4 d-flex flex-wrap">
+                        <p class="col-6"><a class="jump" href="access/">アクセスマップ</a></p>
+                        <p class="col-6"><a class="jump" href="faq/">よくあるご質問</a></p>
+                        <p class="col-6"><a class="jump" href="inquiry/">お問い合わせ</a></p>
                     </div>
                 </div>
             </div>

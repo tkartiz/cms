@@ -9,7 +9,7 @@
 
 <body>
     <script>
-        window.location.replace('main/index.php');
+        window.location.replace('main/');
     </script>
 </body>
 

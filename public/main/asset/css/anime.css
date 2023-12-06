@@ -1,0 +1,190 @@
+:root {
+  --animeTop: 0;
+  --surferTraceSize: 1;
+  --animeHeight: 730px;
+  --animeHeightRatio: 1;
+  
+  --sectionMargin: 400px;
+}
+
+#anime {
+  z-index: -1;
+  transform: translateY(calc(-50% - var(--sectionMargin)/4));
+  top: calc(var(--animeTop));
+  width: 100vw;
+  height: var(--animeHeight);
+}
+
+/* サーファー -------------------------------- */
+#surferTrace1,
+#surferTrace2 {
+  position: relative;
+  width: 100%;
+  height: var(--animeHeight);
+}
+
+#surferTrace1 svg,
+#surferTrace2 svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#surferTrace1 svg g,
+#surferTrace2 svg g {
+  transform-origin: center;
+  transform: scale(1, var(--animeHeightRatio));
+}
+
+.surfer {
+  width: 9vw;
+  height: calc(9vw * 1.145);
+  background: url("../img/background/surfer.svg") no-repeat;
+  offset-rotate: auto -40deg;
+  offset-path: polygon(0% 0%, 33.85% 0%, 70.31% 100%, 100% 100%);
+  animation: surfer-move 10s linear infinite;
+}
+
+@keyframes surfer-move {
+  0% {
+    offset-distance: 0%;
+    transform: scale(0.5);
+    opacity: 0;
+  }
+
+  1% {
+    offset-distance: 0%;
+    transform: scale(0.5);
+    opacity: 1;
+  }
+
+  25% {
+    transform: scale(0.7);
+  }
+
+  55% {
+    transform: scale(0.7);
+  }
+
+  72% {
+    transform: scale(1);
+  }
+
+  97% {
+    offset-distance: 49%;
+    opacity: 1;
+  }
+
+  99% {
+    offset-distance: 50%;
+    opacity: 0;
+  }
+
+  100% {
+    offset-distance: 100%;
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+/* サーファー -------------------------------- */
+
+/* 歩く女性 -------------------------------- */
+.lady {
+  width: 2.8vw;
+  height: calc(2.8vw * 3.82);
+  background: url("../img/background/lady.svg") no-repeat;
+  offset-rotate: 0deg;
+  offset-path: polygon(100% -400px, 22% calc(95% + 300px), 0% calc(100% + 400px));
+  animation: lady-move 30s linear infinite;
+}
+
+@keyframes lady-move {
+  0% {
+    offset-distance: 0%;
+    opacity: 0;
+    transform: scale(0.6);
+  }
+
+  1% {
+    opacity: 1;
+  }
+
+  33% {
+    opacity: 1;
+  }
+
+  35% {
+    opacity: 0;
+  }
+
+  62% {
+    opacity: 0;
+    transform: scale(1.2);
+  }
+
+  65% {
+    opacity: 1;
+  }
+
+  97% {
+    offset-distance: 49%;
+    opacity: 1;
+    transform: scale(1.2);
+  }
+
+  99% {
+    offset-distance: 50%;
+    opacity: 0;
+    transform: scale(1.2);
+  }
+
+  100% {
+    opacity: 0;
+    offset-distance: 100%;
+  }
+}
+
+/* 歩く女性 -------------------------------- */
+
+
+/* お茶を飲む女性 -------------------------------- */
+.lady2 {
+  width: 9vw;
+  height: calc(9vw * 1.244);
+  background: url("../img/background/lady2.svg") no-repeat;
+
+  transform: translateY(30%);
+
+  left: 20vw;
+  bottom: 0;
+}
+
+/* お茶を飲む女性 -------------------------------- */
+
+/* 散策する男性と娘 -------------------------------- */
+.gentleman {
+  width: 2.8vw;
+  height: calc(2.8vw * 4);
+  background: url("../img/background/gentleman.svg") no-repeat;
+
+  transform: translateY(-100%);
+
+  left: 42vw;
+  top: 0;
+}
+
+.child {
+  width: 2.5vw;
+  height: calc(2.5vw * 4);
+  background: url("../img/background/child.svg") no-repeat;
+
+  transform: translateY(-70%);
+
+  left: 45.5vw;
+  top: 0;
+}
+
+/* 散策する男性と娘 -------------------------------- */

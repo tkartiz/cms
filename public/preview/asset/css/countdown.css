@@ -1,0 +1,58 @@
+.clip-text,
+.clip-text-bgnone {
+  position: relative;
+  display: inline-block;
+  border-radius: 0.5rem;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+  -ms-background-clip: text;
+  -ms-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.clip-text:before,
+.clip-text:after,
+.clip-text-bgnone:before,
+.clip-text-bgnone:after {
+  position: absolute;
+  content: '';
+}
+
+.clip-text:before,
+.clip-text-bgnone:before {
+  z-index: -2;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  /* background-image: inherit; */
+}
+
+.clip-text:after {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: 0.35rem;
+  background-color: rgb(255,255,255,0.85);
+}
+
+.clip-text-bgnone:after {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: 0.35rem;
+  background-color: none;
+}
+
+.clip-text_one {
+  /* background-color: #07c5ff; */
+  background-image: url(../img/top/clip_bg.png);
+}

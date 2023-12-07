@@ -32,7 +32,7 @@ if ($level === 3) {
                 <div class="d-flex">
                     <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="../index.php">ホーム</a></li>
+                            <li class="breadcrumb-item"><a href="<?php echo $linkfile; ?>">ホーム</a></li>
                             <li class="breadcrumb-item" aria-current="page"><a href="../index.php">お問い合わせ</a></li>
                             <li class="breadcrumb-item active" aria-current="page">FAX・郵送でのお問い合わせ</li>
                         </ol>

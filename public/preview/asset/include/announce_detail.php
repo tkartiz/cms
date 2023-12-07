@@ -1,6 +1,6 @@
 <?php
 // ========== ファイル保存先 ================
-$announce_imgFolder_path = './asset/post/images/announce/';
+$announce_imgFolder_path = 'asset/post/images/announce/';
 // ========== ファイル保存先 ================
 // ========= お知らせ欄と画像数の設定 ==========
 $colNum = 6;
@@ -10,8 +10,8 @@ $colImgNum = 3;
 
 <div>
     <div class="bg-white">
-        <div class="w-100 pb-5 px-5" style="background-color:lightgray;">
-            <h6><?php echo $announce["date"]; ?></h6>
+        <div class="w-100 px-5 py-4" style="background-color:#96D8F5;">
+            <h4><?php echo $announce["date"]; ?></h4>
             <h3 class="fs-3"><?php echo nl2br($announce["title"]); ?></h3>
         </div>
         <div class="p-5">

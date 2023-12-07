@@ -1,3 +1,15 @@
+<?php
+// パス階層調整
+if ($level === 3) {
+    $pre = '../../';
+} else if ($level === 2) {
+    $pre = '../';
+} else {
+    $pre = '';
+}
+// パス階層調整
+?>
+
 <!-- Google Tag Manager (noscript) -->
 <!-- End Google Tag Manager (noscript) -->
 
@@ -18,9 +30,9 @@
 
 <!-- 専用Js読込み start -->
 <!-- メイン -->
-<script src="asset/js/main.js?p=(new Date()).getTime()"></script>
+<script src="<?php echo $pre;?>asset/js/main.js?p=(new Date()).getTime()"></script>
 <!-- 波 -->
-<script src="asset/js/wave.js?p=(new Date()).getTime()"></script>
+<script src="<?php echo $pre;?>asset/js/wave.js?p=(new Date()).getTime()"></script>
 <!-- カウントダウンタイマー -->
-<!-- <script src="asset/js/countdown.js?p=(new Date()).getTime()"></script> -->
+<!-- <script src="<?php echo $pre;?>asset/js/countdown.js?p=(new Date()).getTime()"></script> -->
 <!-- 専用Js読込み end -->

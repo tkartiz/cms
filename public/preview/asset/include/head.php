@@ -1,3 +1,15 @@
+<?php
+// パス階層調整
+if ($level === 3) {
+    $pre = '../../';
+} else if ($level === 2) {
+    $pre = '../';
+} else {
+    $pre = '';
+}
+// パス階層調整
+?>
+
 <head>
     <!-- Google tag (gtag.js) -->
     <!-- End Google tag (gtag.js) -->
@@ -45,12 +57,12 @@
 
     <!-- swiper -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="asset/css/swiper.css?p=(new Date()).getTime()">
+    <link rel="stylesheet" href="<?php echo $pre; ?>asset/css/swiper.css?p=(new Date()).getTime()">
     <!-- swiper -->
 
     <!-- 専用Css読込み start -->
-    <link rel="stylesheet" href="asset/css/style.css?p=(new Date()).getTime()">
-    <link rel="stylesheet" href="asset/css/anime.css?p=(new Date()).getTime()">
-    <link rel="stylesheet" href="asset/css/countdown.css?p=(new Date()).getTime()">
+    <link rel="stylesheet" href="<?php echo $pre; ?>asset/css/style.css?p=(new Date()).getTime()">
+    <link rel="stylesheet" href="<?php echo $pre; ?>asset/css/anime.css?p=(new Date()).getTime()">
+    <link rel="stylesheet" href="<?php echo $pre; ?>asset/css/countdown.css?p=(new Date()).getTime()">
     <!-- 専用Css読込み end -->
 </head>

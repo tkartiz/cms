@@ -4,7 +4,8 @@
 <?php
 include "asset/include/release.php"; // 公開/非公開変数読込み
 include 'asset/include/function_min.php'; // 共通関数読込み
-$announces = read_Json('announce', $siteview);
+$level = 1; // 1階層
+$announces = read_Json('announce', $siteview, $level);
 if (!is_null($announces)) {
   $ids = array_column($announces, 'date');
   array_multisort($ids, SORT_DESC, $announces);

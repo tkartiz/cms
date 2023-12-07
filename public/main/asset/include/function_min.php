@@ -1,5 +1,5 @@
 <?php
-function read_Json($kind, $siteview)
+function read_Json($kind, $siteview, $level)
 {
     // ファイル読込先 ********************************************
     if($siteview === 'release'){
@@ -7,7 +7,14 @@ function read_Json($kind, $siteview)
     } else {
         $JsonName = 'draft_'.$kind . '.json';
     }
-    $JsonFile = '../storage/'.$kind.'/'.$JsonName;
+    if($level === 3){
+        $JsonFile = '../../../storage/'.$kind.'/'.$JsonName;
+    } else if($level === 2) {
+        $JsonFile = '../../storage/'.$kind.'/'.$JsonName;
+    } else {
+        $JsonFile = '../storage/'.$kind.'/'.$JsonName;
+    }
+    
     // ファイル読込先 ********************************************
 
     $Json = file_get_contents($JsonFile);

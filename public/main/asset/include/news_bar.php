@@ -1,11 +1,11 @@
 <div id="news_bar" class="flex-container d-flex align-items-center justify-content-center position-relative">
-  <a href="news/" class="bar-side ms-auto title-font">INFO</a>
+  <a href="news/list.php" class="bar-side ms-auto title-font">INFO</a>
   <div class="swiper_newsbar m-0 container">
     <div class="swiper-wrapper">
       <?php if (!is_null($announces)) { ?>
         <?php foreach ($announces as $announce) : ?>
           <div class="swiper-slide pe-3" style="color: #24b5f5;">
-            <a class="text-decoration-none" href="announce.php?filename=<?php echo $announce["stamp"]; ?>">
+            <a class="text-decoration-none" href="news/index.php?filename=<?php echo $announce["stamp"]; ?>">
               <p class="swiper_newsbar_title w-100 px-3 text-truncate">
                 <?php if ($announce['item'] === "event") { ?>
                   <i class="bi bi-circle-fill" style="color:#d263ab;"></i>イベント&nbsp;
@@ -20,7 +20,7 @@
       <?php } ?>
     </div>
   </div>
-  <a href="news/" class="bar-side me-auto title-font fw-bold">おしらせ一覧</a>
+  <a href="news/list.php" class="bar-side me-auto title-font fw-bold">おしらせ一覧</a>
 </div>
 
 

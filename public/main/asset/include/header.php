@@ -39,7 +39,7 @@ if ($level === 3) {
                     </a>
                 </li>
                 <li class="d-none d-sm-block d-flex justify-content-center align-self-center p-2">
-                    <a href="<?php echo $linkfile . '#recruit'; ?>">
+                    <a href="<?php echo $pre . 'inquiry/'; ?>">
                         <div class="w-100 d-flex align-items-baseline justify-content-center">
                             <img src="<?php echo $pre; ?>asset/icon/contact.svg" style="width:30px; height:30px;">
                         </div>
@@ -98,7 +98,7 @@ if ($level === 3) {
                         <p class="text-muted small">イベント＆お知らせ</p>
                     </div>
                     <div class="ms-4 d-flex">
-                        <p class="col-6"><a class="jump" href="<?php echo $pre; ?>event/">イベント</a></p>
+                        <p class="col-6"><a class="jump" href="<?php echo $pre; ?>event/list.php">イベント</a></p>
                         <p class="col-6"><a class="jump" href="<?php echo $pre; ?>news/list.php">お知らせ</a></p>
                     </div>
                 </div>
@@ -130,7 +130,7 @@ if ($level === 3) {
                         <p class="text-muted small">その他</p>
                     </div>
                     <div class="ms-4 d-flex flex-wrap">
-                        <p class="col-6"><a class="jump" href="<?php echo $pre; ?>access/">SNS</a></p>
+                        <p class="col-6"><a class="jump" href="<?php echo $linkfile; ?>#sns">SNS</a></p>
                         <p class="col-6"><a class="jump" href="<?php echo $pre; ?>access/">アクセスマップ</a></p>
                         <p class="col-6"><a class="jump" href="<?php echo $pre; ?>faq/">よくあるご質問</a></p>
                         <p class="col-6"><a class="jump" href="<?php echo $pre; ?>inquiry/">お問い合わせ</a></p>

@@ -5,22 +5,27 @@
       <?php if (!is_null($announces)) { ?>
         <?php foreach ($announces as $announce) : ?>
           <div class="swiper-slide pe-3" style="color: #24b5f5;">
-            <a class="text-decoration-none" href="news/index.php?filename=<?php echo $announce["stamp"]; ?>">
-              <p class="swiper_newsbar_title w-100 px-3 text-truncate">
-                <?php if ($announce['item'] === "event") { ?>
+            <?php if ($announce['item'] === "event") { ?>
+              <a class="text-decoration-none" href="event/index.php?filename=<?php echo $announce["stamp"]; ?>">
+                <p class="swiper_newsbar_title w-100 px-3 text-truncate">
                   <i class="bi bi-circle-fill" style="color:#d263ab;"></i>イベント&nbsp;
-                <?php } else { ?>
+                  <?php echo $announce["date"]; ?>：<?php echo $announce["title"]; ?>
+                </p>
+              </a>
+            <?php } else { ?>
+              <a class="text-decoration-none" href="news/index.php?filename=<?php echo $announce["stamp"]; ?>">
+                <p class="swiper_newsbar_title w-100 px-3 text-truncate">
                   <i class="bi bi-circle-fill" style="color:#fff338" ;"></i>プレスリリース&nbsp;
-                <?php } ?>
-                <?php echo $announce["date"]; ?>：<?php echo $announce["title"]; ?>
-              </p>
-            </a>
+                  <?php echo $announce["date"]; ?>：<?php echo $announce["title"]; ?>
+                </p>
+              </a>
+            <?php } ?>
           </div>
         <?php endforeach; ?>
       <?php } ?>
     </div>
   </div>
-  <a href="news/list.php" class="bar-side me-auto title-font fw-bold">おしらせ一覧</a>
+  <a href="event/list.php" class="bar-side me-auto title-font fw-bold">EVENT</a>
 </div>
 
 

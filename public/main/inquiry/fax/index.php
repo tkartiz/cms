@@ -32,16 +32,16 @@ if ($level === 3) {
                 <div class="d-flex">
                     <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="<?php echo $linkfile; ?>">ホーム</a></li>
-                            <li class="breadcrumb-item"><a href="../index.php">エリアマップ</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">休憩所・広場</li>
+                            <li class="breadcrumb-item"><a href="../index.php">ホーム</a></li>
+                            <li class="breadcrumb-item" aria-current="page"><a href="../index.php">お問い合わせ</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">FAX・郵送でのお問い合わせ</li>
                         </ol>
                     </nav>
                 </div>
                 <div class="d-flex justify-content-between align-items-center mb-5 pt-4">
                     <div class="col-6">
-                        <p class="title-font title-fs">Rest</p>
-                        <p class="title-font title-fs-sub m-0">休憩所・広場</p>
+                        <p class="title-font title-fs">Inquiry</p>
+                        <p class="title-font title-fs-sub m-0">FAX・郵送でのお問い合わせ</p>
                     </div>
                     <div class="col-2">
                         <img class="w-100 h-100 object-fit-cover" src="<?php echo $pre; ?>asset/img/news/info_image01.svg" alt="波のイラスト">

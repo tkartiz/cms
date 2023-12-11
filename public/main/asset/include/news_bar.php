@@ -25,7 +25,7 @@
       <?php } ?>
     </div>
   </div>
-  <a href="event/list.php" class="bar-side me-auto title-font fw-bold">EVENT</a>
+  <a href="news/list.php" class="bar-side me-auto title-font fw-bold">お知らせ<br class="d-block d-xl-none">一覧</a>
 </div>
 
 

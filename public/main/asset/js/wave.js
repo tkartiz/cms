@@ -15,8 +15,12 @@ function init() {
     canvasList = [];
     colorList = [];
     // canvas1個めの色指定
-    canvasList.push(document.getElementById("waveCanvas"));
+    canvasList.push(document.getElementById("waveCanvasFooter"));
     colorList.push(['#24b5f5']);
+
+    // canvas2個めの色指定
+    canvasList.push(document.getElementById("waveCanvasTop"));
+    colorList.push(['#f5f5f5']);
 
     // 各キャンバスの初期化
     for (var canvasIndex in canvasList) {

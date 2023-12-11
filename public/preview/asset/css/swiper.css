@@ -20,11 +20,14 @@
 
 @media screen and (max-width: 1200px) {
   .bar-side {
-    width: 100px;
+    width: 110px;
+    font-size: 13px;
+    padding: 0;
   }
 }
 
 @media screen and (max-width: 991px) {
+
   .bar-side,
   .swiper_newsbar {
     height: 100px !important;
@@ -40,12 +43,12 @@
 
 .swiper_newsbar_title {
   border-right: solid 2px #24B5F5;
-  margin-top:13px;
+  margin-top: 13px;
 }
 
 @media screen and (max-width: 991px) {
   .swiper_newsbar_title {
-    border-right: none!important;
+    border-right: none !important;
   }
 }
 

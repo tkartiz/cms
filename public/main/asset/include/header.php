@@ -81,7 +81,12 @@ if ($level === 3) {
                     </div>
                 </li>
                 <li id="menu" class="d-flex justify-content-center p-2" style="cursor:pointer;">
-                    <p class="d-none d-md-block align-self-center m-0 text-center"><i class="bi bi-list"></i><br><span class="small">MENU</span></p>
+                    <p class="d-none d-md-block align-self-center m-0 text-center">
+                        <svg width="16" height="16" fill="color:#24b5f5;" class="bi bi-list" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+                        </svg>
+                        <br><span class="small">MENU</span>
+                    </p>
                     <p class="d-block d-md-none align-self-center m-0 text-center fs-2"><i class="bi bi-list"></i></p>
                 </li>
             </ul>
@@ -94,11 +99,11 @@ if ($level === 3) {
             <div>
                 <div class="mb-2 mb-sm-3">
                     <div class="d-flex align-items-baseline">
-                        <p class="title-font fs-5 me-2">EVENT & NEWS</p>
-                        <p class="text-muted small">イベント＆お知らせ</p>
+                        <p class="title-font fs-5 me-2">INFOMATION</p>
+                        <p class="text-muted small">お知らせ</p>
                     </div>
                     <div class="ms-4 d-flex">
-                        <p class="col-6"><a class="jump" href="<?php echo $pre; ?>event/list.php">イベント</a></p>
+                        <!-- <p class="col-6"><a class="jump" href="<?php echo $pre; ?>event/list.php">イベント</a></p> -->
                         <p class="col-6"><a class="jump" href="<?php echo $pre; ?>news/list.php">お知らせ</a></p>
                     </div>
                 </div>

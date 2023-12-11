@@ -1,4 +1,4 @@
-<div id="top" class="w-100">
+<div id="top" class="w-100 position-relative">
     <div id="fsv" class="w-100 h-100 position-relative">
         <div class="fsv-title position-absolute">
             <div class="fsv-subtitle1 d-flex align-items-stretch">
@@ -22,12 +22,14 @@
     </div>
 
     <!-- FSV下部の切り抜き形状 -->
-    <svg width="0" height="0" viewBox="0 0 1920 831">
+    <!-- <svg width="0" height="0" viewBox="0 0 1920 831">
         <defs>
             <clipPath id="clipshape" clipPathUnits="objectBoundingBox">
                 <path transform="scale(0.0005208,0.0011)" d='m.5,781.91c173.94,17.4,255.16,48.59,546.21,48.59,403.7,0,403.7-60,807.39-60,302.07,0,378.12,33.59,566.39,50.51V.5H.5v781.41Z'>
             </clipPath>
         </defs>
-    </svg>
+    </svg> -->
     <!-- FSV下部の切り抜き形状 -->
+    <!-- 波 -->
+    <canvas id="waveCanvasTop" class="position-absolute bottom-0"></canvas>
 </div>

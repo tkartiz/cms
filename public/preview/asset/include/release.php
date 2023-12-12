@@ -1,2 +1,2 @@
 <?php
-$siteview = "release";
+$siteview = "draft";

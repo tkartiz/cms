@@ -18,7 +18,7 @@ $(function () {
 // 画面横幅変更時に1回だけ読込み実施
 
 // メニュー
-$('#menu').click(function () {
+$('#menu').on('click', function () {
     if ($('#menu-collapse').hasClass('d-none')) {
         $('#menu-collapse').removeClass('d-none');
     } else {
@@ -26,17 +26,48 @@ $('#menu').click(function () {
     };
 })
 
-$('.jump').click(function () {
+$('.jump').on('click', function () {
     if (!$('#menu-collapse').hasClass('d-none')) {
         $('#menu-collapse').addClass('d-none');
     };
 })
 
-window.addEventListener("mousewheel", function (e) {
-    e.preventDefault();
-    if (e.wheelDelta != 0) {
+window.onwheel = (event) => {
+    if (event.deltaY != 0) {
         $('#menu-collapse').addClass('d-none');
+        $('.dropdown-menu').removeClass('show');
     }
-});
+}
 // メニュー
+
+
+// タイトル出現効果
+window.addEventListener('scroll', () => {
+    var scroll = window.scrollY;
+
+    $('.title-effect-trigger').each(function () {
+        var elemPos = $(this).offset().top + 30;
+        var windowHeight = $(window).height();
+        var container = $(this).children('.effect-inner-container');
+        var inner = $(this).find('.effect-inner');
+
+        if (scroll >= elemPos - windowHeight) {
+            container.addClass('appear');
+            inner.addClass('appear');
+        }
+    });
+
+
+    $('.fadeIn').each(function () {
+        var elemPos = $(this).offset().top - 50;
+        var windowHeight = $(window).height();
+        if (scroll >= elemPos - windowHeight) {
+            $(this).addClass('appear');
+        }
+    });
+});
+
+
+// タイトル出現効果
+
 

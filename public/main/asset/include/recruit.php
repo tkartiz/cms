@@ -1,8 +1,20 @@
+<?php
+$title_recruit_fonts = array('R', 'e', 'c', 'r', 'u', 'i', 't', 'm', 'e', 'n', 't');
+$delay_time = 0;
+?>
+
 <section id="recruit" class="container position-relative p-0">
     <div class="recruit-img">
         <div class="title-recruit position-absolute text-end">
-            <p class="title-font title-fs">Recruitment</p>
-            <p class="title-fs-sub">出品者様募集中</p>
+            <div class="title-font title-fs d-flex title-effect-trigger mb-2">
+                <?php foreach ($title_recruit_fonts as $title_recruit_font) : ?>
+                    <span class="effect-inner-container" style="animation-duration:1s; animation-delay: <?php echo $delay_time; ?>s; ">
+                        <span class="effect-inner" style="animation-duration:1.5s; animation-delay: <?php echo $delay_time; ?>s; "><?php echo $title_recruit_font; ?></span>
+                    </span>
+                    <?php $delay_time += 0.04; ?>
+                <?php endforeach; ?>
+            </div>
+            <p class="title-fs-sub fadeIn" style="animation-delay: <?php echo $delay_time; ?>s;">出品者様募集中</p>
         </div>
         <div class="recruit-img-outer w-100 position-relative">
             <div class="recruit-img-inner position-absolute translate-middle top-50 start-50"></div>

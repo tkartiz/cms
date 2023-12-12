@@ -22,70 +22,85 @@ if ($level === 3) {
         <!-- メニュー -->
         <div class="nav-bar">
             <ul class="d-flex m-0 p-0">
-                <li class="d-none d-sm-block d-flex justify-content-center align-self-center p-2">
+                <li class="d-none d-md-flex justify-content-center align-items-center p-2">
                     <a href="<?php echo $linkfile . '#top'; ?>">
                         <div class="w-100 d-flex align-items-baseline justify-content-center">
                             <img src="<?php echo $pre; ?>asset/icon/home.svg" style="width:30px; height:30px;">
+                            <p class="ms-2 me-0 mt-0 mb-1 fw-bold">Home</p>
                         </div>
-                        <p class="d-none d-md-block w-100 text-center small m-0">ホーム</p>
+                        <p class="d-none d-md-block w-100 text-center small m-0 fw-bold">ホーム</p>
                     </a>
                 </li>
-                <li class="d-none d-sm-block d-flex justify-content-center align-self-center p-2">
+                <li class="d-none d-md-flex justify-content-center align-items-center p-2">
                     <a href="<?php echo $linkfile . '#news_bar'; ?>">
                         <div class="w-100 d-flex align-items-baseline justify-content-center">
                             <img src="<?php echo $pre; ?>asset/icon/info.svg" style="width:30px; height:30px;">
+                            <p class="ms-2 me-0 mt-0 mb-1 fw-bold">Information</p>
                         </div>
-                        <p class="d-none d-md-block w-100 text-center small m-0">お知らせ</p>
+                        <p class="d-none d-md-block w-100 text-center small m-0 fw-bold">お知らせ</p>
                     </a>
                 </li>
-                <li class="d-none d-sm-block d-flex justify-content-center align-self-center p-2">
+                <li class="d-none d-md-flex justify-content-center align-items-center p-2">
                     <a href="<?php echo $pre . 'inquiry/'; ?>">
                         <div class="w-100 d-flex align-items-baseline justify-content-center">
                             <img src="<?php echo $pre; ?>asset/icon/contact.svg" style="width:30px; height:30px;">
+                            <p class="ms-2 me-0 mt-0 mb-1 fw-bold">Contact</p>
                         </div>
-                        <p class="d-none d-md-block w-100 text-center small m-0">お問い合わせ</p>
+                        <p class="d-none d-md-block w-100 text-center small m-0 fw-bold">お問い合わせ</p>
                     </a>
                 </li>
-                <li class="d-none d-sm-block d-flex justify-content-center align-self-center p-2">
+                <li class="d-none d-md-flex justify-content-center align-items-center p-2">
                     <a href="<?php echo $linkfile . '#sns'; ?>">
                         <div class="w-100 d-flex align-items-baseline justify-content-center">
                             <img src="<?php echo $pre; ?>asset/icon/X.svg" class="" style="margin:5px 0; width:20px; height:20px;">
                             <img src="<?php echo $pre; ?>asset/icon/facebook_2.svg" class="" style="width:20px; height:20px;">
                             <img src="<?php echo $pre; ?>asset/icon/instagram.svg" class="" style="width:20px; height:20px;">
                         </div>
-                        <p class="d-none d-md-block w-100 text-center small m-0">SNS</p>
+                        <p class="d-none d-md-block w-100 text-center small m-0 mt-2 fw-bold">SNS</p>
                     </a>
                 </li>
-                <li class="d-flex justify-content-center p-2">
+                <li class="d-flex justify-content-center align-items-center p-2">
                     <div class="dropdown-center align-self-center m-0">
                         <button class="dropdown-toggle border-0 bg-transparent" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="d-none d-md-block bi bi-translate"></i>JPN
+                            <i class="d-none d-md-block bi bi-translate fs-4 mb-1"></i><span class="small fw-bold">JPN</span>
                         </button>
                         <ul class="dropdown-menu">
                             <li>
                                 <button class="dropdown-item" type="button">
-                                    <a href="https://translate.google.com/translate?sl=ja&tl=en&u=https://ff-server.site/m-shonanchigasaki/main/index.php">EN</a>
+                                    <?php if ($siteview === 'draft') { ?>
+                                        <a href="https://translate.google.com/translate?sl=ja&tl=en&u=https://m-shonanchigasaki.com/main/index.php">EN</a>
+                                    <?php } else { ?>
+                                        <a href="https://translate.google.com/translate?sl=ja&tl=en&u=https://m-shonanchigasaki.com/preview/index.php">EN</a>
+                                    <?php } ?>
                                 </button>
                             </li>
                             <li>
                                 <button class="dropdown-item" type="button">
-                                    <a href="https://translate.google.com/translate?sl=ja&tl=zh-CN&u=https://ff-server.site/m-shonanchigasaki/main/index.php">CHS</a>
+                                    <?php if ($siteview === 'draft') { ?>
+                                        <a href="https://translate.google.com/translate?sl=ja&tl=zh-CN&u=https://m-shonanchigasaki.com/preview/index.php">CHS</a>
+                                    <?php } else { ?>
+                                        <a href="https://translate.google.com/translate?sl=ja&tl=zh-CN&u=https://m-shonanchigasaki.com/main/index.php">CHS</a>
+                                    <?php } ?>
                                 </button>
                             </li>
                             <li>
                                 <button class="dropdown-item" type="button">
-                                    <a href="https://translate.google.com/translate?sl=ja&tl=ko&u=https://ff-server.site/m-shonanchigasaki/main/index.php">KOR</a>
+                                    <?php if ($siteview === 'draft') { ?>
+                                        <a href="https://translate.google.com/translate?sl=ja&tl=ko&u=https://m-shonanchigasaki.com/preview/index.php">KOR</a>
+                                    <?php } else { ?>
+                                        <a href="https://translate.google.com/translate?sl=ja&tl=ko&u=https://m-shonanchigasaki.com/main/index.php">KOR</a>
+                                    <?php } ?>
                                 </button>
                             </li>
                         </ul>
                     </div>
                 </li>
-                <li id="menu" class="d-flex justify-content-center p-2" style="cursor:pointer;">
-                    <p class="d-none d-md-block align-self-center m-0 text-center">
-                        <svg width="16" height="16" fill="color:#24b5f5;" class="bi bi-list" viewBox="0 0 16 16">
+                <li id="menu" class="d-flex justify-content-center align-items-center p-2" style="cursor:pointer;">
+                    <p class="d-none d-md-block align-self-center m-0 text-center" style="color:#24b5f5;">
+                        <svg width="24" height="24" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
                             <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
                         </svg>
-                        <br><span class="small">MENU</span>
+                        <br><span class="small fw-bold">MENU</span>
                     </p>
                     <p class="d-block d-md-none align-self-center m-0 text-center fs-2"><i class="bi bi-list"></i></p>
                 </li>

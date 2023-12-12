@@ -85,6 +85,18 @@ header {
 }
 
 .nav-bar ul li {
+  height: 100px;
+}
+
+.nav-bar ul li:nth-child(1),
+.nav-bar ul li:nth-child(2),
+.nav-bar ul li:nth-child(3) {
+  width: 150px;
+}
+
+.nav-bar ul li:nth-child(4),
+.nav-bar ul li:nth-child(5),
+.nav-bar ul li:nth-child(6) {
   width: 100px;
 }
 
@@ -93,14 +105,52 @@ header {
   background: #ffffff;
 }
 
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 1200px) {
   .nav-bar ul li {
-    width: 60px;
+    height: 80px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .nav-bar {
+    width: 100%;
+    padding: 0;
+  }
+
+  .nav-bar ul li:nth-child(1),
+  .nav-bar ul li:nth-child(2),
+  .nav-bar ul li:nth-child(3) {
+    width: calc(60% / 3);
+  }
+
+  .nav-bar ul li:nth-child(4),
+  .nav-bar ul li:nth-child(5),
+  .nav-bar ul li:nth-child(6) {
+    width: calc(40% / 3);
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .nav-bar {
+    width: 160px;
+  }
+
+  .nav-bar ul li:nth-child(5),
+  .nav-bar ul li:nth-child(6) {
+    width: calc(100% / 2);
+  }
+
+  .dropdown-menu li {
+    text-align: center !important;
+    width: 100% !important;
+    height: 40px !important;
   }
 
   #menu-collapse {
-    width: 100%;
+    width: 96%;
+    margin: 0 auto;
   }
+
 }
 
 .HPname {
@@ -144,17 +194,16 @@ footer {
 }
 
 #fsv {
-  background-image: url(../img/top/image03.jpg);
+  background-image: url(../img/top/top.jpg);
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center bottom;
-  clip-path: url(#clipshape);
+  background-position: left bottom;
 }
 
 .fsv-title {
   width: 760px;
-  top: 13%;
-  transform: translateX(10%);
+  bottom: 160px;
+  transform: translateX(100px);
 }
 
 .fsv-subtitle1 {
@@ -169,20 +218,16 @@ footer {
 
 .fsv-subtitle1 .clip-text p {
   font-weight: bolder;
-  font-size: calc((3.1736vw + 29.01px) * 0.545);
-}
-
-.fsv-subtitle4 {
-  background: linear-gradient(to right, rgb(256, 256, 256, 0.6), rgb(256, 256, 256, 0.15));
+  font-size: calc((2.6667vw + 24px) * 0.5);
 }
 
 .fsv-subtitle4 p {
   margin: 0;
-  color: #07c5ff;
-  text-shadow: #ffffff 1px 0 1px;
+  color: #f5f5f5;
+  text-shadow: #393939 0 1px 5px;
   text-align: start;
   font-weight: bold;
-  font-size: calc((3.1736vw + 29.01px)* 0.409);
+  font-size: calc((2.6667vw + 24px)* 0.375);
 }
 
 .fsv-subtitle2 {
@@ -194,7 +239,7 @@ footer {
   padding: 0;
   font-weight: bolder;
   /* font-size: 5.5rem; */
-  font-size: calc(3.1736vw + 29.01px);
+  font-size: calc(2.6667vw + 24px);
 }
 
 .fsv-subtitle3 {
@@ -204,49 +249,65 @@ footer {
 .fsv-subtitle3 p {
   margin: 0;
   padding: 0;
-  font-weight: bolder;
-  font-size: calc((3.1736vw + 29.01px) * 0.818);
+  font-weight: 900;
+  font-size: calc((2.6667vw + 24px) * 0.6);
 }
 
 @media screen and (max-width: 1400px) {
+  .fsv-title {
+    bottom: 80px;
+    transform: translateX(60px);
+  }
+
   .fsv-subtitle3 {
-    margin-left: 12rem;
+    margin-left: 16rem;
   }
 }
 
 @media screen and (max-width: 1200px) {
   .fsv-title {
-    width: 75%;
+    width: 550px;
+    bottom: 80px;
+    transform: translateX(40px);
   }
 
   .fsv-subtitle3 {
-    margin-left: 10rem;
+    margin-left: 16rem;
   }
 }
 
 @media screen and (max-width: 992px) {
+  #fsv {
+    background-position: center bottom;
+  }
+
   .fsv-title {
-    width: auto;
-    top: 23%;
-    transform: translateX(3%);
+    transform: translateX(-50%);
+    width: 550px;
+    left: 50%;
+    top: 30%;
   }
 }
 
 @media screen and (max-width: 768px) {
   .fsv-title {
-    top: 12%;
-    left: 50%;
-    transform: translateX(-50%);
+    width: auto;
   }
 
+  .fsv-subtitle3 {
+    margin-left: 14rem;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .fsv-subtitle3 {
+    margin-left: 11rem;
+  }
 }
 
 @media screen and (max-width: 375px) {
   .fsv-title {
-    width: 96%;
-    top: 10%;
-    left: 55%;
-    transform: translateX(-50%);
+    width: 80%;
   }
 
   .fsv-subtitle3 {
@@ -513,6 +574,63 @@ footer {
 }
 
 /* 効果：ホバー時に拡大 ---------------------------------*/
+
+/* 効果：タイトル出現時に左に詰めてから表示 ---------------------------------*/
+.effect-inner-container {
+  opacity: 0;
+}
+
+.effect-inner-container.appear {
+  animation: title-effect-anime 1s ease-out 0s forwards;
+}
+
+.effect-inner {
+  background-size: 15000% 100%;
+}
+
+.effect-inner.appear {
+  animation-delay: 0s;
+  animation-duration: 1.5s;
+}
+
+@keyframes title-effect-anime {
+  0% {
+    opacity: 0;
+    transform: translateX(15px);
+  }
+
+  40% {
+    transform: translateX(-4px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.fadeIn {
+  opacity: 0;
+}
+
+.fadeIn.appear {
+  animation-name: fadeInAnime;
+  animation-duration: 1.5s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeInAnime {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+
+/* 効果：タイトル出現時に左に詰めてから表示 ---------------------------------*/
 
 
 /* ========================================================== */

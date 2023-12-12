@@ -27,11 +27,11 @@ function init() {
         var canvas = canvasList[canvasIndex];
         canvas.width = document.documentElement.clientWidth; //Canvasのwidthをウィンドウの幅に合わせる
         if(canvas.width < 577){ //波の高さ
-            canvas.height = 115;
+            canvas.height = 60;
         } else if(canvas.width < 993){
-            canvas.height = 130;
+            canvas.height = 70;
         } else {
-            canvas.height = 160;
+            canvas.height = 100;
         }
 
         canvas.contextCache = canvas.getContext("2d");

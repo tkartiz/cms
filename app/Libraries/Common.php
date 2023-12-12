@@ -147,10 +147,12 @@ class Common
         // ========== ファイル保存先 ================
         // サーバーの場合
         // $file_path = 'https://ff-server.site/m-shonanchigasaki/'; 
+        // $file_path = 'https://m-shonanchigasaki.com/';
         // $dir_storage_path = $file_path.'storage/' . $kind . '/';
 
         // ローカルの場合
-        $file_path = 'http://127.0.0.1:8000/'; // ローカルの場合
+        // $file_path = 'http://127.0.0.1:8000/'; // ローカルの場合
+        $file_path = '/';
         $dir_storage_path =  $file_path . 'storage/' . $kind . '/';
         // ========== ファイル保存先 ================
 

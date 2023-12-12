@@ -29,9 +29,9 @@ $announces = read_Json('announce', $siteview, $level);
                 <div class="col-4">
                     <p class="title-font title-fs">Info-list</p>
                     <ul class="d-flex gap-4 p-0 m-0">
-                        <li id="all" class="title-font title-fs-sub m-0">すべて</li>
-                        <li id="event" class="title-font title-fs-sub m-0">イベント</li>
-                        <li id="press" class="title-font title-fs-sub m-0">お知らせ</li>
+                        <li id="all" class="title-font title-fs-sub m-0" style="cursor:pointer;">すべて</li>
+                        <li id="event" class="title-font title-fs-sub m-0" style="cursor:pointer;">イベント</li>
+                        <li id="press" class="title-font title-fs-sub m-0" style="cursor:pointer;">お知らせ</li>
                     </ul>
                 </div>
                 <div class="col-2">
@@ -40,24 +40,24 @@ $announces = read_Json('announce', $siteview, $level);
             </div>
 
             <div class="w-100 mt-2 mx-auto">
-                <?php if(!is_null($announces)) { ?>
-                <?php foreach ($announces as $announce) : ?>
-                    <div id="info_<?php echo $announce["stamp"]; ?>" class="<?php echo $announce["release"] . ' ' . $announce['item']; ?> my-4 fw-bold" style="border-bottom:1px solid #0a3f70">
-                        <div class="d-flex small ">
-                            <div class="me-3">
-                                <?php if ($announce['item'] === "press") { ?>
-                                    <i class="bi bi-circle-fill" style="color:#fff338" ;"></i><span class="ms-2">プレスリリース</span>
-                                <?php } else { ?>
-                                    <i class="bi bi-circle-fill" style="color:#d263ab;"></i><span class="ms-2">イベント</span>
-                                <?php } ?>
+                <?php if (!is_null($announces)) { ?>
+                    <?php foreach ($announces as $announce) : ?>
+                        <div id="info_<?php echo $announce["stamp"]; ?>" class="<?php echo $announce["release"] . ' ' . $announce['item']; ?> my-4 fw-bold" style="border-bottom:1px solid #0a3f70">
+                            <div class="d-flex small ">
+                                <div class="me-3">
+                                    <?php if ($announce['item'] === "press") { ?>
+                                        <i class="bi bi-circle-fill" style="color:#fff338" ;"></i><span class="ms-2">プレスリリース</span>
+                                    <?php } else { ?>
+                                        <i class="bi bi-circle-fill" style="color:#d263ab;"></i><span class="ms-2">イベント</span>
+                                    <?php } ?>
+                                </div>
+                                <p class="mb-0"><?php echo $announce["date"]; ?></p>
                             </div>
-                            <p class="mb-0"><?php echo $announce["date"]; ?></p>
+                            <a class="text-truncate" href="index.php?filename=<?php echo $announce["stamp"]; ?>">
+                                <p class="ps-4"><?php echo $announce["title"]; ?></p>
+                            </a>
                         </div>
-                        <a class="text-truncate" href="index.php?filename=<?php echo $announce["stamp"]; ?>">
-                            <p class="ps-4"><?php echo $announce["title"]; ?></p>
-                        </a>
-                    </div>
-                <?php endforeach; ?>
+                    <?php endforeach; ?>
                 <?php } else { ?>
                     <p class="text-center">お知らせはありません。</p>
                 <?php } ?>
@@ -90,36 +90,35 @@ $announces = read_Json('announce', $siteview, $level);
 </body>
 
 <script>
-$('#all').click(function () {
-    if ($('.event').hasClass('d-none')) {
-        $('.event').removeClass('d-none');
-    };
+    $('#all').click(function() {
+        if ($('.event').hasClass('d-none')) {
+            $('.event').removeClass('d-none');
+        };
 
-    if ($('.press').hasClass('d-none')) {
-        $('.press').removeClass('d-none');
-    };
-})
+        if ($('.press').hasClass('d-none')) {
+            $('.press').removeClass('d-none');
+        };
+    })
 
-$('#event').click(function () {
-    if ($('.event').hasClass('d-none')) {
-        $('.event').removeClass('d-none');
-    };
+    $('#event').click(function() {
+        if ($('.event').hasClass('d-none')) {
+            $('.event').removeClass('d-none');
+        };
 
-    if (!$('.press').hasClass('d-none')) {
-        $('.press').addClass('d-none');
-    };
-})
+        if (!$('.press').hasClass('d-none')) {
+            $('.press').addClass('d-none');
+        };
+    })
 
-$('#press').click(function () {
-    if (!$('.event').hasClass('d-none')) {
-        $('.event').addClass('d-none');
-    };
+    $('#press').click(function() {
+        if (!$('.event').hasClass('d-none')) {
+            $('.event').addClass('d-none');
+        };
 
-    if ($('.press').hasClass('d-none')) {
-        $('.press').addClass('d-none');
-    };
-})
-
+        if ($('.press').hasClass('d-none')) {
+            $('.press').addClass('d-none');
+        };
+    })
 </script>
 
 </html>

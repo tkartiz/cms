@@ -29,9 +29,9 @@ $announces = read_Json('announce', $siteview, $level);
                 <div class="col-4">
                     <p class="title-font title-fs">Info-list</p>
                     <ul class="d-flex gap-4 p-0 m-0">
-                        <li id="all" class="title-font title-fs-sub m-0">すべて</li>
-                        <li id="event" class="title-font title-fs-sub m-0">イベント</li>
-                        <li id="press" class="title-font title-fs-sub m-0">お知らせ</li>
+                        <li id="all" class="title-font title-fs-sub m-0" style="cursor:pointer;">すべて</li>
+                        <li id="event" class="title-font title-fs-sub m-0" style="cursor:pointer;">イベント</li>
+                        <li id="press" class="title-font title-fs-sub m-0" style="cursor:pointer;">お知らせ</li>
                     </ul>
                 </div>
                 <div class="col-2">

@@ -48,10 +48,12 @@ window.addEventListener('scroll', () => {
     $('.title-effect-trigger').each(function () {
         var elemPos = $(this).offset().top + 30;
         var windowHeight = $(window).height();
+        var title = $(this).children('.title-about');
         var container = $(this).children('.effect-inner-container');
         var inner = $(this).find('.effect-inner');
 
         if (scroll >= elemPos - windowHeight) {
+            title.addClass('appear');
             container.addClass('appear');
             inner.addClass('appear');
         }

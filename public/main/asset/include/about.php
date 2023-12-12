@@ -13,7 +13,7 @@ $delay_time = 0;
 <section id="about" class="container">
     <div class="position-relative" style="height:<?php echo $about_height; ?>px;">
         <a href="about/">
-            <div class="title-about position-absolute title-anime sec-title">
+            <div class="title-about position-absolute">
                 <div class="title-font title-fs d-flex title-effect-trigger mb-2">
                     <?php foreach ($title_about_fonts as $title_about_font) : ?>
                         <span class="effect-inner-container" style="animation-duration:1s; animation-delay: <?php echo $delay_time; ?>s; ">

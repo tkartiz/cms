@@ -14,6 +14,7 @@ function init() {
     info.t = 0;
     canvasList = [];
     colorList = [];
+
     // canvas1個めの色指定
     canvasList.push(document.getElementById("waveCanvasFooter"));
     colorList.push(['#24b5f5']);
@@ -26,12 +27,18 @@ function init() {
     for (var canvasIndex in canvasList) {
         var canvas = canvasList[canvasIndex];
         canvas.width = document.documentElement.clientWidth; //Canvasのwidthをウィンドウの幅に合わせる
-        if(canvas.width < 577){ //波の高さ
-            canvas.height = 60;
-        } else if(canvas.width < 993){
-            canvas.height = 70;
+        if (canvas.width < 376) { //波の高さ
+            canvas.height = 30;
+            zoom = 2;
+        } else if (canvas.width < 993) {
+            canvas.height = 40;
+            zoom = 2;
+        } else if (canvas.width < 1401) {
+            canvas.height = 30;
+            zoom = 2;
         } else {
-            canvas.height = 100;
+            canvas.height = 40;
+            zoom = 2;
         }
 
         canvas.contextCache = canvas.getContext("2d");
@@ -66,7 +73,7 @@ function draw(canvas, color) {
     context.clearRect(0, 0, canvas.width, canvas.height);
 
     //波を描画 drawWave(canvas, color[数字（波の数を0から数えて指定）], 透過, 波の幅のzoom,波の開始位置の遅れ )
-    drawWave(canvas, color[0], 1, 3, 0);//drawWave(canvas, color[0],0.5, 3, 0);とすると透過50%の波が出来る
+    drawWave(canvas, color[0], 1, zoom, 0);//drawWave(canvas, color[0],0.5, 3, 0);とすると透過50%の波が出来る
 }
 
 /**
@@ -86,9 +93,6 @@ function drawWave(canvas, color, alpha, zoom, delay) {
 }
 
 /**
- * Function to draw sine
- * 
- * The sine curve is drawn in 10px segments starting at the origin. 
  * drawSine(時間, 波の幅のzoom, 波の開始位置の遅れ)
  */
 function drawSine(canvas, t, zoom, delay) {
@@ -99,13 +103,13 @@ function drawSine(canvas, t, zoom, delay) {
     // the canvas.
     var x = t; //時間を横の位置とする
     var y = Math.sin(x) / zoom;
-    context.moveTo(yAxis, unit * y + xAxis); //スタート位置にパスを置く
+    context.moveTo(yAxis, unit * y / 2); //スタート位置にパスを置く
 
     // Loop to draw segments (横幅の分、波を描画)
     for (i = yAxis; i <= canvas.width + 10; i += 10) {
         x = t + (-yAxis + i) / unit / zoom;
         y = Math.sin(x - delay) / 3;
-        context.lineTo(i, unit * y + xAxis);
+        context.lineTo(i, unit * y / 2 + xAxis);  // /2　を追加
     }
 }
 

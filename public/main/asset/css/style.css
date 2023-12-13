@@ -141,8 +141,12 @@ header {
 
 @media screen and (max-width: 576px) {
   .nav-bar {
-    width: 80px;
+    width: 60px;
     /* width: 160px; 翻訳使用不可のため変更 */
+  }
+
+  .nav-bar ul li {
+    height: 60px;
   }
 
   .nav-bar ul li:nth-child(5),
@@ -178,6 +182,12 @@ footer {
   height: 18vw;
 }
 
+.waveBaseFooter {
+  width: 100%;
+  height: 30px;
+  background-color: #24b5f5;
+}
+
 .fuji {
   height: 100%;
   top: 0;
@@ -192,9 +202,19 @@ footer {
   }
 }
 
+@media screen and (max-width: 768px) {
+  .waveBaseFooter {
+    height: 20px;
+  }
+}
+
 @media screen and (max-width: 576px) {
   footer {
     height: 40vw;
+  }
+
+  .waveBaseFooter {
+    height: 15px;
   }
 }
 
@@ -203,7 +223,29 @@ footer {
 /* メイン画面 ================================================*/
 /* TOP --------------------------------- */
 #top {
-  height: calc(100vh - 120px);
+  height: calc(100vh - 110px);
+  margin-bottom: 30px;
+}
+
+@media screen and (max-width: 1200px) {
+  #top {
+    height: calc(100vh - 90px);
+    margin-bottom: 20px;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  #top {
+    height: calc(100vh - 110px);
+    margin-bottom: 30px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #top {
+    height: calc(100vh - 140px);
+    margin-bottom: 20px;
+  }
 }
 
 #fsv {
@@ -606,7 +648,7 @@ footer {
 
 /* お知らせ画面 ================================================*/
 #news_list {
-  height: auto;
+  min-height: calc(100vh - 18vw);
 }
 
 .child_page {

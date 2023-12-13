@@ -25,7 +25,7 @@
       <?php } ?>
     </div>
   </div>
-  <a href="news/list.php" class="bar-side me-auto title-font fw-bold">お知らせ<br class="d-block d-xl-none">一覧</a>
+  <a href="news/list.php" class="d-none d-md-flex bar-side me-auto title-font fw-bold">お知らせ<br class="d-block d-xl-none">一覧</a>
 </div>
 
 

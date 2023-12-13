@@ -13,6 +13,7 @@ $delay_time = 0.7;
                     </span>
                     <?php $delay_time += 0.04; ?>
                 <?php endforeach; ?>
+                <?php $delay_time += 0.2; ?>
             </div>
             <p class="title-fs-sub fadeIn" style="animation-delay: <?php echo $delay_time; ?>s;">出品者様募集中</p>
         </div>
@@ -22,7 +23,7 @@ $delay_time = 0.7;
             <div class="recruit-img-frm2 position-absolute bottom-0 end-0"></div>
         </div>
     </div>
-    <div class="recruit-comment">
+    <div class="recruit-comment fadeIn" style="animation-delay: <?php echo $delay_time; ?>s;">
         <div class="recruit-comment-inner d-flex flex-wrap justify-content-center w-100 position-relative ih-ig fw-bold">
             <div class="recruit-comment-title position-absolute fs-3">出品者様、募集中！</div>
             <div class="col-12 px-4 px-sm-5 col-md-8 px-md-0 mx-auto mb-5">

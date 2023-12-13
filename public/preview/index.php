@@ -78,7 +78,7 @@ $slider_height = '400px';
   <script>
     // section間隙間設定
     var screenWidth = $(window).width();
-    if (screenWidth < 993) {
+    if (screenWidth < 1401) {
       sectionMargin = 350;
     } else {
       sectionMargin = 400;

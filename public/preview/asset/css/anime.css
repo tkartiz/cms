@@ -15,6 +15,12 @@
   height: var(--animeHeight);
 }
 
+@media screen and (max-width: 992px) {
+  #anime {
+    transform: translateY(calc(-50%));
+  }
+}
+
 /* サーファー -------------------------------- */
 #surferTrace1,
 #surferTrace2 {
@@ -45,6 +51,13 @@
   offset-rotate: auto -40deg;
   offset-path: polygon(0% 0%, 33.85% 0%, 70.31% 100%, 100% 100%);
   animation: surfer-move 10s linear infinite;
+}
+
+@media screen and (max-width: 576px) {
+  .surfer {
+    width: 17vw;
+    height: calc(17vw * 1.145);
+  }
 }
 
 @keyframes surfer-move {
@@ -99,6 +112,13 @@
   offset-rotate: 0deg;
   offset-path: polygon(100% -400px, 22% calc(95% + 300px), 0% calc(100% + 400px));
   animation: lady-move 30s linear infinite;
+}
+
+@media screen and (max-width: 576px) {
+  .lady {
+    width: 4.5vw;
+    height: calc(4.5vw * 3.82);
+  }
 }
 
 @keyframes lady-move {
@@ -161,6 +181,12 @@
   left: 20vw;
   bottom: 0;
 }
+@media screen and (max-width: 576px) {
+  .lady2 {
+    width: 16vw;
+    height: calc(16vw * 1.244);
+  }
+}
 
 /* お茶を飲む女性 -------------------------------- */
 
@@ -185,6 +211,18 @@
 
   left: 45.5vw;
   top: 0;
+}
+
+@media screen and (max-width: 576px) {
+  .gentleman {
+    width: 3.5vw;
+    height: calc(3.5vw * 4);
+  }
+  
+  .child {
+    width: 3vw;
+    height: calc(3vw * 4);
+  }
 }
 
 /* 散策する男性と娘 -------------------------------- */

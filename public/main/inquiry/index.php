@@ -57,16 +57,13 @@ if ($level === 3) {
                                 <input type="text" class="form-control" name="お名前" placeholder="名前（必須）" value="">
                             </div>
                             <div class="mb-3">
-                                <input type="text" class="form-control" name="住所" placeholder="住所" value="">
+                                <input type="text" class="form-control" name="title" placeholder="タイトル" value="">
                             </div>
                             <div class="mb-3">
-                                <input type="text" class="form-control" name="Email" placeholder="メールアドレス（必須）" value="">
-                            </div>
-                            <div class="mb-3">
-                                <input type="text" class="form-control" name="電話番号" placeholder="電話番号" value="">
+                                <input type="text" class="form-control" name="email" placeholder="メールアドレス（必須）" value="">
                             </div>
                             <div class="mb-4">
-                                <textarea class="form-control" name="お問い合わせ内容" rows="5" placeholder="メッセージを入力してください"></textarea>
+                                <textarea class="form-control" name="message" rows="5" placeholder="メッセージを入力してください"></textarea>
                             </div>
                             <div class="form-check mb-4">
                                 <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">

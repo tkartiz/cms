@@ -271,7 +271,7 @@ footer {
   text-align: center;
 }
 
-.fsv-subtitle1 .clip-text p {
+.fsv-subtitle1 .clip-text {
   font-weight: bolder;
   font-size: calc((2.6667vw + 24px) * 0.5);
 }
@@ -287,9 +287,6 @@ footer {
 
 .fsv-subtitle2 {
   text-align: center;
-}
-
-.fsv-subtitle2 p {
   margin: 0;
   padding: 0;
   font-weight: bolder;
@@ -298,10 +295,11 @@ footer {
 }
 
 .fsv-subtitle3 {
-  margin-left: 24rem;
+  /* margin-left: 24rem; */
 }
 
-.fsv-subtitle3 p {
+.fsv-subtitle3 {
+  float: right;
   margin: 0;
   padding: 0;
   font-weight: 900;

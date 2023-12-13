@@ -1,12 +1,12 @@
 <?php
 $title_recruit_fonts = array('R', 'e', 'c', 'r', 'u', 'i', 't', 'm', 'e', 'n', 't');
-$delay_time = 0;
+$delay_time = 0.7;
 ?>
 
 <section id="recruit" class="container position-relative p-0">
     <div class="recruit-img">
-        <div class="title-recruit position-absolute text-end">
-            <div class="title-font title-fs d-flex title-effect-trigger mb-2">
+        <div class="title-recruit position-absolute text-end title-effect-trigger ">
+            <div class="title-font title-fs d-flex mb-2">
                 <?php foreach ($title_recruit_fonts as $title_recruit_font) : ?>
                     <span class="effect-inner-container" style="animation-duration:1s; animation-delay: <?php echo $delay_time; ?>s; ">
                         <span class="effect-inner" style="animation-duration:1.5s; animation-delay: <?php echo $delay_time; ?>s; "><?php echo $title_recruit_font; ?></span>

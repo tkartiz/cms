@@ -63,8 +63,8 @@ button {
 
 @media screen and (max-width: 576px) {
   .title-fs {
-    line-height: calc(60px * 0.583);
-    font-size: 60px;
+    line-height: calc(50px * 0.583);
+    font-size: 50px;
   }
 
   .title-fs-sub {
@@ -100,6 +100,12 @@ header {
   width: 100px;
 }
 
+.dropdown-menu li {
+  text-align: center !important;
+  width: 100% !important;
+  height: 60px !important;
+}
+
 #menu-collapse {
   width: 400px;
   background: #ffffff;
@@ -120,24 +126,30 @@ header {
   .nav-bar ul li:nth-child(1),
   .nav-bar ul li:nth-child(2),
   .nav-bar ul li:nth-child(3) {
-    width: calc(60% / 3);
+    width: calc(66% / 3);
+    /* 翻訳使用不可のため変更 */
   }
 
   .nav-bar ul li:nth-child(4),
   .nav-bar ul li:nth-child(5),
+  /* 翻訳 */
   .nav-bar ul li:nth-child(6) {
-    width: calc(40% / 3);
+    width: calc(34% / 2);
+    /* 翻訳使用不可のため変更 */
   }
 }
 
 @media screen and (max-width: 576px) {
   .nav-bar {
-    width: 160px;
+    width: 80px;
+    /* width: 160px; 翻訳使用不可のため変更 */
   }
 
   .nav-bar ul li:nth-child(5),
+  /* 翻訳 */
   .nav-bar ul li:nth-child(6) {
-    width: calc(100% / 2);
+    width: calc(100% / 1);
+    /* 翻訳使用不可のため変更 */
   }
 
   .dropdown-menu li {
@@ -163,7 +175,7 @@ header {
 /* フッター  -------------------------------------------- */
 footer {
   color: #f5f5f5;
-  height: 350px;
+  height: 18vw;
 }
 
 .fuji {
@@ -176,18 +188,19 @@ footer {
 
 @media screen and (max-width: 992px) {
   footer {
-    height: 320px;
+    height: 30vw;
   }
 }
 
 @media screen and (max-width: 576px) {
   footer {
-    height: 250px;
+    height: 40vw;
   }
 }
 
 /* フッター  -------------------------------------------- */
 
+/* メイン画面 ================================================*/
 /* TOP --------------------------------- */
 #top {
   height: calc(100vh - 120px);
@@ -335,7 +348,25 @@ footer {
   height: calc(90px * 2.11);
   transform: rotate(45deg);
   background-color: #ffffff;
+  opacity: 0;
 }
+
+.title-about.appear::after {
+  animation-name: titlefadeInAnime;
+  animation-duration: 1.5s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes titlefadeInAnime {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
 
 @media screen and (max-width: 1400px) {
   .title-about {
@@ -388,6 +419,14 @@ footer {
   height: calc(90px * 2.11);
   transform: rotate(45deg);
   background-color: #ffffff;
+  opacity: 0;
+}
+
+.title-recruit.appear::after {
+  animation-name: titlefadeInAnime;
+  /* aboutのタイトルと共有 */
+  animation-duration: 1.5s;
+  animation-fill-mode: forwards;
 }
 
 @media screen and (max-width: 1400px) {
@@ -561,6 +600,83 @@ footer {
 }
 
 /* 出品者様募集 ---------------------------------*/
+/* メイン画面 ================================================*/
+
+
+
+/* お知らせ画面 ================================================*/
+#news_list {
+  height: auto;
+}
+
+.child_page {
+  z-index: -1;
+  width: 100%;
+}
+
+@media screen and (max-width: 992px) {
+  #news_list {
+    height: calc(100vh - 30vw);
+  }
+
+  .child_page {
+    position: absolute;
+    bottom: 0;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  #news_list {
+    height: calc(100vh - 40vw);
+  }
+}
+
+.container-inner {
+  /* 内容表示部分・子画面共通 */
+  padding: 0 0 60px;
+}
+
+@media screen and (max-width: 992px) {
+  .container-inner {
+    height: calc(100vh - 320px);
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .container-inner {
+    padding: 0;
+    height: calc(100vh - 250px);
+  }
+}
+
+.news-illust {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 15%;
+  height: auto;
+}
+
+@media screen and (max-width: 1400px) {
+  .news-illust {
+    width: 12%;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .news-illust {
+    width: 15%;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .news-illust {
+    width: 20%;
+  }
+}
+
+/* お知らせ画面 ================================================*/
+
 
 
 /* 効果：ホバー時に拡大 ---------------------------------*/

@@ -7,14 +7,15 @@ $slider_width = 800;
 $about_height = $slider_height * 2 + 200;
 // ABOUT・スライダー
 
-$title_about_fonts = array('F', 'a', 'c', 'i', 'l', 'i', 't', 'y');
-$delay_time = 0;
+// $title_about_fonts = array('F', 'a', 'c', 'i', 'l', 'i', 't', 'y');
+$title_about_fonts = array('A', 'b', 'o', 'u', 't');
+$delay_time = 0.7;
 ?>
 <section id="about" class="container">
     <div class="position-relative" style="height:<?php echo $about_height; ?>px;">
         <a href="about/">
-            <div class="title-about position-absolute">
-                <div class="title-font title-fs d-flex title-effect-trigger mb-2">
+            <div class="title-about position-absolute title-effect-trigger">
+                <div class="title-font title-fs d-flex mb-2">
                     <?php foreach ($title_about_fonts as $title_about_font) : ?>
                         <span class="effect-inner-container" style="animation-duration:1s; animation-delay: <?php echo $delay_time; ?>s; ">
                             <span class="effect-inner" style="animation-duration:1.5s; animation-delay: <?php echo $delay_time; ?>s; "><?php echo $title_about_font; ?></span>
@@ -22,10 +23,11 @@ $delay_time = 0;
                         <?php $delay_time += 0.04; ?>
                     <?php endforeach; ?>
                 </div>
+                <?php $delay_time += 0.2; ?>
                 <p class="title-fs-sub ms-3 fadeIn" style="animation-delay: <?php echo $delay_time; ?>s;">湘南ちがさき&nbsp;について</p>
             </div>
 
-            <div class="position-absolute bg-white mx-3 fadeIn" style="z-index:10; bottom:0px; right:0;">
+            <div class="position-absolute bg-white mx-3 fadeIn" style="z-index:10; bottom:0px; right:0; animation-delay:0.2s;">
                 <p class="px-5 py-4 lh-lg fw-bold">
                     道の駅紹介のサンプル記事<br>
                     サンプル記事サンプル記事サンプル記事サンプル記事<br>

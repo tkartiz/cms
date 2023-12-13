@@ -32,7 +32,7 @@ if ($level === 3) {
                     </a>
                 </li>
                 <li class="d-none d-md-flex justify-content-center align-items-center p-2">
-                    <a href="<?php echo $linkfile . '#news_bar'; ?>">
+                    <a href="<?php echo $pre; ?>news/list.php">
                         <div class="w-100 d-flex align-items-baseline justify-content-center">
                             <img src="<?php echo $pre; ?>asset/icon/info.svg" style="width:30px; height:30px;">
                             <p class="ms-2 me-0 mt-0 mb-1 fw-bold">Information</p>
@@ -59,7 +59,10 @@ if ($level === 3) {
                         <p class="d-none d-md-block w-100 text-center small m-0 mt-2 fw-bold">SNS</p>
                     </a>
                 </li>
-                <li class="d-flex justify-content-center align-items-center p-2">
+
+
+                <!-- google翻訳サイトで翻訳できないため消去　→　Chromeの翻訳機能は正常に使用可能 -->
+                <!-- <li class="d-flex justify-content-center align-items-center p-2">
                     <div class="dropdown-center align-self-center m-0">
                         <button class="dropdown-toggle border-0 bg-transparent" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <i class="d-none d-md-block bi bi-translate fs-4 mb-1"></i><span class="small fw-bold">JPN</span>
@@ -68,9 +71,9 @@ if ($level === 3) {
                             <li>
                                 <button class="dropdown-item" type="button">
                                     <?php if ($siteview === 'draft') { ?>
-                                        <a href="https://translate.google.com/translate?sl=ja&tl=en&u=https://m-shonanchigasaki.com/main/index.php">EN</a>
-                                    <?php } else { ?>
                                         <a href="https://translate.google.com/translate?sl=ja&tl=en&u=https://m-shonanchigasaki.com/preview/index.php">EN</a>
+                                    <?php } else { ?>
+                                        <a href="https://translate.google.com/translate?sl=ja&tl=en&u=https://m-shonanchigasaki.com/main/index.php">EN</a>
                                     <?php } ?>
                                 </button>
                             </li>
@@ -94,7 +97,9 @@ if ($level === 3) {
                             </li>
                         </ul>
                     </div>
-                </li>
+                </li> -->
+
+
                 <li id="menu" class="d-flex justify-content-center align-items-center p-2" style="cursor:pointer;">
                     <p class="d-none d-md-block align-self-center m-0 text-center" style="color:#24b5f5;">
                         <svg width="24" height="24" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
@@ -109,8 +114,10 @@ if ($level === 3) {
     </div>
     <div class="d-flex justify-content-end">
         <div id="menu-collapse" class="p-3 p-sm-5 d-none">
-            <p class="fs-6 fw-bold text-center m-0">～Mohala He Li'a～</p>
-            <p class="fs-3 fw-bold text-center mb-3 mb-sm-4">湘南ちがさき</p>
+            <a href="<?php echo $linkfile . '#top'; ?>">
+                <p class="fs-6 fw-bold text-center m-0">～Mohala He Li'a～</p>
+                <p class="fs-3 fw-bold text-center mb-3 mb-sm-4">湘南ちがさき</p>
+            </a>
             <div>
                 <div class="mb-2 mb-sm-3">
                     <div class="d-flex align-items-baseline">
@@ -119,7 +126,7 @@ if ($level === 3) {
                     </div>
                     <div class="ms-4 d-flex">
                         <!-- <p class="col-6"><a class="jump" href="<?php echo $pre; ?>event/list.php">イベント</a></p> -->
-                        <p class="col-6"><a class="jump" href="<?php echo $pre; ?>news/list.php">お知らせ</a></p>
+                        <p class="col-6"><a class="jump" href="<?php echo $pre; ?>news/list.php">お知らせ一覧</a></p>
                     </div>
                 </div>
                 <div class="mb-2 mb-sm-3">
@@ -127,12 +134,14 @@ if ($level === 3) {
                         <p class="title-font fs-5 me-2">ABOUT</p>
                         <p class="text-muted small">湘南ちがさきについて</p>
                     </div>
-                    <div class="ms-4 d-flex">
+
+                    <!-- <div class="ms-4 d-flex">
                         <p class="col-6"><a class="jump" href="<?php echo $pre; ?>about/concept/">コンセプト</a></p>
                         <p class="col-6"><a class="jump" href="<?php echo $pre; ?>about/environment/">環境への取組み</a></p>
-                    </div>
+                    </div> -->
                 </div>
-                <div class="mb-2 mb-sm-3">
+
+                <!-- <div class="mb-2 mb-sm-3">
                     <div class="d-flex align-items-baseline">
                         <p class="title-font fs-5 me-2">GUIDE</p>
                         <p class="text-muted small">施設ガイド</p>
@@ -143,7 +152,8 @@ if ($level === 3) {
                         <p class="col-6"><a class="jump" href="<?php echo $pre; ?>areamap/service/">「コト」サービス</a></p>
                         <p class="col-6"><a class="jump" href="<?php echo $pre; ?>areamap/rest/">休憩所・広場</a></p>
                     </div>
-                </div>
+                </div> -->
+
                 <div class="mb-2 mb-sm-3">
                     <div class="d-flex align-items-baseline">
                         <p class="title-font fs-5 me-2">OTHER</p>
@@ -151,8 +161,10 @@ if ($level === 3) {
                     </div>
                     <div class="ms-4 d-flex flex-wrap">
                         <p class="col-6"><a class="jump" href="<?php echo $linkfile; ?>#sns">SNS</a></p>
-                        <p class="col-6"><a class="jump" href="<?php echo $pre; ?>access/">アクセスマップ</a></p>
-                        <p class="col-6"><a class="jump" href="<?php echo $pre; ?>faq/">よくあるご質問</a></p>
+
+                        <!-- <p class="col-6"><a class="jump" href="<?php echo $pre; ?>access/">アクセスマップ</a></p>
+                        <p class="col-6"><a class="jump" href="<?php echo $pre; ?>faq/">よくあるご質問</a></p> -->
+
                         <p class="col-6"><a class="jump" href="<?php echo $pre; ?>inquiry/">お問い合わせ</a></p>
                     </div>
                 </div>

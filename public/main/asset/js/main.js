@@ -46,14 +46,13 @@ window.addEventListener('scroll', () => {
     var scroll = window.scrollY;
 
     $('.title-effect-trigger').each(function () {
-        var elemPos = $(this).offset().top + 30;
+        var elemPos = $(this).offset().top + 100;
         var windowHeight = $(window).height();
-        var title = $(this).children('.title-about');
-        var container = $(this).children('.effect-inner-container');
+        var container = $(this).find('.effect-inner-container');
         var inner = $(this).find('.effect-inner');
 
         if (scroll >= elemPos - windowHeight) {
-            title.addClass('appear');
+            $(this).addClass('appear');
             container.addClass('appear');
             inner.addClass('appear');
         }

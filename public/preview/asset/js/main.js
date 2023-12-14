@@ -18,57 +18,74 @@ $(function () {
 // 画面横幅変更時に1回だけ読込み実施
 
 // メニュー
-$('#menu').on('click', function () {
-    if ($('#menu-collapse').hasClass('d-none')) {
-        $('#menu-collapse').removeClass('d-none');
+$("#menu").on("click", function () {
+    if ($("#menu-collapse").hasClass("d-none")) {
+        $("#menu-collapse").removeClass("d-none");
     } else {
-        $('#menu-collapse').addClass('d-none');
-    };
-})
+        $("#menu-collapse").addClass("d-none");
+    }
+});
 
-$('.jump').on('click', function () {
-    if (!$('#menu-collapse').hasClass('d-none')) {
-        $('#menu-collapse').addClass('d-none');
-    };
-})
+$(".jump").on("click", function () {
+    if (!$("#menu-collapse").hasClass("d-none")) {
+        $("#menu-collapse").addClass("d-none");
+    }
+});
 
 window.onwheel = (event) => {
     if (event.deltaY != 0) {
-        $('#menu-collapse').addClass('d-none');
-        $('.dropdown-menu').removeClass('show');
+        $("#menu-collapse").addClass("d-none");
+        $(".dropdown-menu").removeClass("show");
     }
-}
+};
 // メニュー
 
-
 // タイトル出現効果
-window.addEventListener('scroll', () => {
+window.addEventListener("load", () => {
+    $(".toptitle-effect-trigger").each(function () {
+        var subtitle1 = $(this).find(".fsv-subtitle1");
+        subtitle1.addClass("appear");
+
+        var subtitle2 = $(this).find(".fsv-subtitle2");
+        subtitle2.addClass("appear");
+
+        var subtitle3 = $(this).find(".fsv-subtitle3");
+        subtitle3.addClass("appear");
+
+        var clipText = $(this).find(".clip-text");
+        var fadeInText = $(this).find(".fadeIn");
+        var container = $(this).find(".effect-inner-container");
+        var inner = $(this).find(".effect-inner");
+        clipText.addClass("appear");
+        fadeInText.addClass("appear");
+        container.addClass("appear");
+        inner.addClass("appear");
+    });
+});
+
+window.addEventListener("scroll", () => {
     var scroll = window.scrollY;
 
-    $('.title-effect-trigger').each(function () {
+    $(".title-effect-trigger").each(function () {
         var elemPos = $(this).offset().top + 100;
         var windowHeight = $(window).height();
-        var container = $(this).find('.effect-inner-container');
-        var inner = $(this).find('.effect-inner');
+        var container = $(this).find(".effect-inner-container");
+        var inner = $(this).find(".effect-inner");
 
         if (scroll >= elemPos - windowHeight) {
-            $(this).addClass('appear');
-            container.addClass('appear');
-            inner.addClass('appear');
+            $(this).addClass("appear");
+            container.addClass("appear");
+            inner.addClass("appear");
         }
     });
 
-
-    $('.fadeIn').each(function () {
+    $(".fadeIn").each(function () {
         var elemPos = $(this).offset().top - 50;
         var windowHeight = $(window).height();
         if (scroll >= elemPos - windowHeight) {
-            $(this).addClass('appear');
+            $(this).addClass("appear");
         }
     });
 });
 
-
 // タイトル出現効果
-
-

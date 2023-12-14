@@ -43,6 +43,15 @@ window.onwheel = (event) => {
 // タイトル出現効果
 window.addEventListener("load", () => {
     $(".toptitle-effect-trigger").each(function () {
+        var subtitle1 = $(this).find(".fsv-subtitle1");
+        subtitle1.addClass("appear");
+
+        var subtitle2 = $(this).find(".fsv-subtitle2");
+        subtitle2.addClass("appear");
+
+        var subtitle3 = $(this).find(".fsv-subtitle3");
+        subtitle3.addClass("appear");
+
         var clipText = $(this).find(".clip-text");
         var fadeInText = $(this).find(".fadeIn");
         var container = $(this).find(".effect-inner-container");

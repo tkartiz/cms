@@ -63,6 +63,5 @@ if ($level === 3) {
     <!-- 専用Css読込み start -->
     <link rel="stylesheet" href="<?php echo $pre; ?>asset/css/style.css?p=(new Date()).getTime()">
     <link rel="stylesheet" href="<?php echo $pre; ?>asset/css/anime.css?p=(new Date()).getTime()">
-    <link rel="stylesheet" href="<?php echo $pre; ?>asset/css/countdown.css?p=(new Date()).getTime()">
     <!-- 専用Css読込み end -->
 </head>

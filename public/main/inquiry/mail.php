@@ -29,7 +29,7 @@ if ($level === 3) {
             mb_language("Japanese");
             mb_internal_encoding("UTF-8");
 
-            $to = "t.kamiya@artiz-creative.co.jp";
+            $to = "t.kamiya@artiz-creative.co.jp,h.taki@artiz-creative.co.jp";
             $title = $_POST['title'];
             $message = "本メールは、「道の駅　湘南ちがさき」HPから【".$_POST['name']."】様からのお問い合わせです。";
             $message .= "\r\n";

@@ -649,25 +649,15 @@ footer {
   min-height: calc(100vh - 18vw);
 }
 
-.child_page {
-  z-index: -1;
-  width: 100%;
-}
-
 @media screen and (max-width: 992px) {
   #news_list {
-    height: calc(100vh - 30vw);
-  }
-
-  .child_page {
-    position: absolute;
-    bottom: 0;
+    min-height: calc(100vh - 30vw);
   }
 }
 
 @media screen and (max-width: 576px) {
   #news_list {
-    height: calc(100vh - 40vw);
+    min-height: calc(100vh - 40vw);
   }
 }
 
@@ -676,16 +666,9 @@ footer {
   padding: 0 0 60px;
 }
 
-@media screen and (max-width: 992px) {
-  .container-inner {
-    height: calc(100vh - 320px);
-  }
-}
-
 @media screen and (max-width: 576px) {
   .container-inner {
-    padding: 0;
-    height: calc(100vh - 250px);
+    padding: 0 0 30px;
   }
 }
 

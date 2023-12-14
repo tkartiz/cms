@@ -32,7 +32,7 @@ if ($level === 3) {
                     </a>
                 </li>
                 <li class="d-none d-md-flex justify-content-center align-items-center p-2">
-                    <a href="<?php echo $pre; ?>news/list.php">
+                    <a href="<?php echo $pre; ?>news/list.php?page=1">
                         <div class="w-100 d-flex align-items-baseline justify-content-center">
                             <img src="<?php echo $pre; ?>asset/icon/info.svg" style="width:30px; height:30px;">
                             <p class="ms-2 me-0 mt-0 mb-1 fw-bold">Information</p>
@@ -126,7 +126,7 @@ if ($level === 3) {
                     </div>
                     <div class="ms-4 d-flex">
                         <!-- <p class="col-6"><a class="jump" href="<?php echo $pre; ?>event/list.php">イベント</a></p> -->
-                        <p class="col-6"><a class="jump" href="<?php echo $pre; ?>news/list.php">お知らせ一覧</a></p>
+                        <p class="col-6"><a class="jump" href="<?php echo $pre; ?>news/list.php?page=1">お知らせ一覧</a></p>
                     </div>
                 </div>
                 <div class="mb-2 mb-sm-3">

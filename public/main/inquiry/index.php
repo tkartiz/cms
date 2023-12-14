@@ -54,16 +54,16 @@ if ($level === 3) {
                         <h2 class="fs-1 mb-5 text-center fw-bold">お問い合わせ</h2>
                         <form method="post" action="mail.php">
                             <div class="mb-3">
-                                <input type="text" class="form-control" name="お名前" placeholder="名前（必須）" value="">
+                                <input type="text" class="form-control" name="name" placeholder="名前（必須）" value="" required>
                             </div>
                             <div class="mb-3">
-                                <input type="text" class="form-control" name="title" placeholder="タイトル" value="">
+                                <input type="text" class="form-control" name="title" placeholder="タイトル（必須）" value="" required>
                             </div>
                             <div class="mb-3">
-                                <input type="text" class="form-control" name="email" placeholder="メールアドレス（必須）" value="">
+                                <input type="text" class="form-control" name="email" placeholder="メールアドレス（必須）" value="" required>
                             </div>
                             <div class="mb-4">
-                                <textarea class="form-control" name="message" rows="5" placeholder="メッセージを入力してください"></textarea>
+                                <textarea class="form-control" name="message" rows="5" placeholder="メッセージを入力してください（必須）" required></textarea>
                             </div>
                             <div class="form-check mb-4">
                                 <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
@@ -72,7 +72,7 @@ if ($level === 3) {
                                 </label>
                             </div>
                             <div class="text-center pt-4 col-md-6 offset-md-3">
-                                <button type="submit" class="btn btn-primary">送信</button>
+                                <button id="submitButton" type="submit" class="btn btn-primary">送信</button>
                             </div>
                         </form>
                     </div>
@@ -88,3 +88,25 @@ if ($level === 3) {
 </body>
 
 </html>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function(event) {
+        const triggerCheckbox = document.getElementById('flexCheckIndeterminate');
+        const targetButton = document.getElementById('submitButton');
+
+        targetButton.disabled = true;
+        targetButton.classList.add('is-inactive');
+
+        triggerCheckbox.addEventListener('change', function() {
+            if (this.checked) {
+                targetButton.disabled = false;
+                targetButton.classList.remove('is-inactive');
+                targetButton.classList.add('is-active');
+            } else {
+                targetButton.disabled = true;
+                targetButton.classList.remove('is-active');
+                targetButton.classList.add('is-inactive');
+            }
+        }, false);
+    }, false);
+</script>

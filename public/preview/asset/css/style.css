@@ -72,6 +72,13 @@ button {
   }
 }
 
+@media screen and (max-width: 375px) {
+  .title-fs {
+    line-height: calc(40px * 0.583);
+    font-size: 40px;
+  }
+}
+
 /* ナビ -------------------------------------------- */
 header {
   z-index: 100;
@@ -537,6 +544,17 @@ footer {
   }
 }
 
+@media screen and (max-width: 375px) {
+  .title-about {
+    top: -1.5rem;
+  }
+
+  .title-about::after {
+    width: calc(50px * 2.11);
+    height: calc(50px * 2.11);
+  }
+}
+
 /* ABOUT ---------------------------------*/
 
 /* 出品者様募集 ---------------------------------*/
@@ -602,6 +620,17 @@ footer {
   .title-recruit::after {
     width: calc(60px * 2.11);
     height: calc(60px * 2.11);
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .title-recruit {
+    top: -2rem;
+  }
+
+  .title-recruit::after {
+    width: calc(50px * 2.11);
+    height: calc(50px * 2.11);
   }
 }
 

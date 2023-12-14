@@ -53,7 +53,7 @@
   animation: surfer-move 10s linear infinite;
 }
 
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 768px) {
   .surfer {
     width: 17vw;
     height: calc(17vw * 1.145);
@@ -114,7 +114,7 @@
   animation: lady-move 30s linear infinite;
 }
 
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 768px) {
   .lady {
     width: 4.5vw;
     height: calc(4.5vw * 3.82);
@@ -181,10 +181,11 @@
   left: 20vw;
   bottom: 0;
 }
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 768px) {
   .lady2 {
     width: 16vw;
     height: calc(16vw * 1.244);
+    left: 12vw;
   }
 }
 
@@ -192,28 +193,28 @@
 
 /* 散策する男性と娘 -------------------------------- */
 .gentleman {
-  width: 2.8vw;
-  height: calc(2.8vw * 4);
+  width: 2vw;
+  height: calc(2vw * 4);
   background: url("../img/background/gentleman.svg") no-repeat;
 
   transform: translateY(-100%);
 
   left: 42vw;
-  top: 0;
+  top: 2vw;
 }
 
 .child {
-  width: 2.5vw;
-  height: calc(2.5vw * 4);
+  width: 1.7vw;
+  height: calc(1.7vw * 4);
   background: url("../img/background/child.svg") no-repeat;
 
   transform: translateY(-70%);
 
   left: 45.5vw;
-  top: 0;
+  top: 2vw;
 }
 
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 768px) {
   .gentleman {
     width: 3.5vw;
     height: calc(3.5vw * 4);

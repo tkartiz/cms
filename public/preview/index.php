@@ -96,7 +96,7 @@ $slider_height = '400px';
     // 背景アニメーション位置設定
 
     // 背景アニメーション高さ設定
-    if (screenWidth < 993 || screenWidth > 1400) {
+    if (screenWidth < 993) {
       animeHeight = sns_h + sectionMargin;
     } else {
       animeHeight = sns_h + sectionMargin * 1.5;

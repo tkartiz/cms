@@ -148,7 +148,7 @@ if ($current_page = $total_pages) {
         };
 
         if ($('.press').hasClass('d-none')) {
-            $('.press').addClass('d-none');
+            $('.press').removeClass('d-none');
         };
     })
 </script>

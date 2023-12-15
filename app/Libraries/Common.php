@@ -148,21 +148,33 @@ class Common
         // サーバーの場合
         // $file_path = 'https://ff-server.site/m-shonanchigasaki/'; 
         // $file_path = 'https://m-shonanchigasaki.com/';
-        // $dir_storage_path = $file_path.'storage/' . $kind . '/';
+        // $dir_storage_path = '../asset/storage/' . $kind . '/'. $request->stamp . '/';
 
-        // ローカルの場合
-        // $file_path = 'http://127.0.0.1:8000/'; // ローカルの場合
-        $file_path = '/';
-        $dir_storage_path =  $file_path . 'storage/' . $kind . '/';
+        // ローカルの場合（CMS）
+        $dir_storage_path = '/storage/' . $kind . '/' . $request->stamp . '/';
+
+        // LP用コピー先
+        $LP_storage_path1 = '../public/main/asset/storage/' . $kind . '/' . $request->stamp . '/';
+        $LP_storage_path2 = '../public/preview/asset/storage/' . $kind . '/' . $request->stamp . '/';
+
         // ========== ファイル保存先 ================
-
 
         // ファイル保存（外部からも呼び出せるようにpublicフォルダへ保存）
         $savedfile[0] = $request->file('file')[$k]->getClientOriginalName();
         $request->file('file')[$k]->storeAs($directory, $savedfile[0]);
 
+        if(!file_exists($LP_storage_path1)){
+            mkdir($LP_storage_path1, 0766, true);
+        }
+        copy($request->file('file')[$k], $LP_storage_path1  . $savedfile[0]);
+
+        if(!file_exists($LP_storage_path2)){
+            mkdir($LP_storage_path2, 0766, true);
+        }
+        copy($request->file('file')[$k], $LP_storage_path2  . $savedfile[0]);
+
         // ファイル読込み用のパスを生成（サーバーではドメインからのパスがないと表示できないため）
-        $savedfile[1] = $dir_storage_path . $request->stamp . '/' . $savedfile[0];
+        $savedfile[1] = $dir_storage_path . $savedfile[0];
 
         return $savedfile;
     }

@@ -91,7 +91,7 @@ class Common
 
                 // ファイル削除時
                 if ($request->$requestImgDelete == "yes") {
-                    Common::delFile($request, $kind, $requestImgPathorg); // ファイルの削除
+                    Common::delFile($request->$requestImgPathorg); // ファイルの削除
 
                     $content[$tmpImg] = null;
                     $content[$tmpImg . 'Path'] = null;
@@ -179,23 +179,47 @@ class Common
     }
 
     // *****　アップロードファイル削除関数　***************************************************
-    public static function delFile($request, $kind, $requestImgPathorg)
+    public static function delFile($filePath)
     {
-        // ========== ファイル保存先 ================
-        // LP用保存先
-        $LP_storage_path1 = '../public/main/asset/storage/' . $kind . '/' . $request->stamp . '/';
-        $LP_storage_path2 = '../public/preview/asset/storage/' . $kind . '/' . $request->stamp . '/';
-        // ========== ファイル保存先 ================
-
         // CMS用削除（完全デリート）
-        $deletefile = 'public/' .explode('/', $request->$requestImgPathorg)[2].'/'.explode('/', $request->$requestImgPathorg)[3].'/'.explode('/', $request->$requestImgPathorg)[4];
+        $deletefile = 'public/' . explode('/', $filePath)[2] . '/' . explode('/', $filePath)[3] . '/' . explode('/', $filePath)[4];
         Storage::delete($deletefile);
 
         // LP用削除（完全デリート）
-        $LP_deletefile1 = '../public/main/asset'.$request->$requestImgPathorg;
-        $LP_deletefile2 = '../public/preview/asset'.$request->$requestImgPathorg;
+        $LP_deletefile1 = '../public/main/asset' . $filePath;
+        $LP_deletefile2 = '../public/preview/asset' . $filePath;
         unlink($LP_deletefile1);
         unlink($LP_deletefile2);
+    }
+
+    // *****　LPのアップロードディレクトリ削除関数　********************************************
+    public static function delDir_LP($kind, $stamp)
+    {
+        // ========== ファイル保存先 ================
+        // LP用保存先
+        $LP_storage_path[0] = '../public/main/asset/storage/' . $kind . '/' . $stamp . '/';
+        $LP_storage_path[1] = '../public/preview/asset/storage/' . $kind . '/' . $stamp . '/';
+        // ========== ファイル保存先 ================
+
+        for ($i = 0; $i < 2; $i++) {
+            // 親ディレクトリ、削除するディレクトリが書き込み可能か確認
+            if (is_writable($LP_storage_path[$i])) {
+
+                // ディレクトリ内のファイルを取得
+                $files = scandir($LP_storage_path[$i]);
+
+                // ディレクトリ内のファイルを全て削除する
+                foreach ($files as $file_name) {
+
+                    if (!preg_match('/^\.(.*)/', $file_name)) {
+                        unlink($LP_storage_path[$i] . $file_name);
+                    }
+                }
+
+                // ディレクトリを削除
+                $result = rmdir($LP_storage_path[$i]);
+            }
+        }
     }
 
     // *****　Jsonファイル書き込み関数　***************************************************

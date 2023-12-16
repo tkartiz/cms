@@ -4,7 +4,7 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class announce-column extends Component
+class AnnounceColumn extends Component
 {
 
     public String $contentID;

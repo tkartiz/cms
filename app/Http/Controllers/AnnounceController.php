@@ -118,6 +118,11 @@ class AnnounceController extends Controller
      */
     public function destroy($id)
     {
+        $announce = Announce::findOrFail($id);
+        $stamp = $announce->stamp;
+        $kind = 'announce';
+        Common::delDir_LP($kind, $stamp); // LP内フォルダの完全削除
+
         Announce::findOrFail($id)->delete();  // ソフトデリート
 
         return redirect()

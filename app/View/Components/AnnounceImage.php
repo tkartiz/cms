@@ -4,7 +4,7 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class announce-image extends Component
+class AnnounceImage extends Component
 {
     public $contentID;
     public $imgNum;

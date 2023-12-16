@@ -9,7 +9,9 @@
     <input class="w-full py-1 mb-1" type="file" name="file[]" multiple="multiple">
     <div class="w-full flex mb-1">
         <p class="w-5/6 py-1 mb-1">現選択：{{ $colImg }}</p>
-        <img class="h-16 w-auto" src="{{ $colImgPath }}" alt"{{ $colImgCap }}">
+        <?php if(!empty($colImgPath)){ ?>
+            <img class="h-16 w-auto" src="{{ asset($colImgPath) }}" alt"{{ $colImgCap }}">
+        <?php } ?>
     </div>
     @if(!is_null($colImg))
     <input type="hidden" name="<?php echo $contentID . 'Img' . $imgNum . '_org'; ?>" value="{{ $colImg }}">

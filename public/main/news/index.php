@@ -39,7 +39,7 @@ if ($level === 3) {
                             <li class="breadcrumb-item active" aria-current="page">お知らせ</li>
                         </ol>
                     </nav>
-                    <a href="list.php">お知らせ一覧</a>
+                    <a href="list.php?page=1">お知らせ一覧</a>
                 </div>
                 <div class="d-flex justify-content-between align-items-center mb-5 pt-4">
                     <div class="col-2">

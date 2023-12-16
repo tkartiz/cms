@@ -90,7 +90,9 @@ class Common
                 $content[$tmpImg . 'Cap'] = $request->$requestImgCap;
 
                 // ファイル削除時
-                if ($request->$requestImgDelete == "yes") { // ソフトデリートのためファイルの完全削除はしない
+                if ($request->$requestImgDelete == "yes") {
+                    Common::delFile($request, $kind, $requestImgPathorg); // ファイルの削除
+
                     $content[$tmpImg] = null;
                     $content[$tmpImg . 'Path'] = null;
                     $content[$tmpImg . 'Location'] = null;
@@ -145,49 +147,55 @@ class Common
         // ========== ディレクトリ作成（なければ） ================
 
         // ========== ファイル保存先 ================
-        // サーバーの場合
-        // $file_path = 'https://ff-server.site/m-shonanchigasaki/'; 
-        // $file_path = 'https://m-shonanchigasaki.com/';
-        // $dir_storage_path = '../asset/storage/' . $kind . '/'. $request->stamp . '/';
-
-        // ローカルの場合（CMS）
+        // CMS表示用
         $dir_storage_path = '/storage/' . $kind . '/' . $request->stamp . '/';
 
         // LP用コピー先
         $LP_storage_path1 = '../public/main/asset/storage/' . $kind . '/' . $request->stamp . '/';
         $LP_storage_path2 = '../public/preview/asset/storage/' . $kind . '/' . $request->stamp . '/';
-
         // ========== ファイル保存先 ================
 
-        // ファイル保存（外部からも呼び出せるようにpublicフォルダへ保存）
+        // ファイル保存（/storage/app/publicフォルダへ保存）
         $savedfile[0] = $request->file('file')[$k]->getClientOriginalName();
         $request->file('file')[$k]->storeAs($directory, $savedfile[0]);
 
-        if(!file_exists($LP_storage_path1)){
+        // ファイル読込み用のパスを生成（サーバーではドメインからのパスがないと表示できないため）
+        $savedfile[1] = $dir_storage_path . $savedfile[0];
+
+        // ファイル保存（LPのフォルダへ保存　※LPからlaravelの/public/storageから画像を読めないため）
+        if (!file_exists($LP_storage_path1)) {
             mkdir($LP_storage_path1, 0766, true);
         }
         copy($request->file('file')[$k], $LP_storage_path1  . $savedfile[0]);
 
-        if(!file_exists($LP_storage_path2)){
+        if (!file_exists($LP_storage_path2)) {
             mkdir($LP_storage_path2, 0766, true);
         }
         copy($request->file('file')[$k], $LP_storage_path2  . $savedfile[0]);
 
-        // ファイル読込み用のパスを生成（サーバーではドメインからのパスがないと表示できないため）
-        $savedfile[1] = $dir_storage_path . $savedfile[0];
+
 
         return $savedfile;
     }
 
     // *****　アップロードファイル削除関数　***************************************************
-    public static function delFile($request, $kind)
+    public static function delFile($request, $kind, $requestImgPathorg)
     {
         // ========== ファイル保存先 ================
-        $dir_pub_path = 'public/' . $kind . '/';
+        // LP用保存先
+        $LP_storage_path1 = '../public/main/asset/storage/' . $kind . '/' . $request->stamp . '/';
+        $LP_storage_path2 = '../public/preview/asset/storage/' . $kind . '/' . $request->stamp . '/';
         // ========== ファイル保存先 ================
 
-        $deletefile = $dir_pub_path . $request->application_id . '/' . $request->old_file;
+        // CMS用削除（完全デリート）
+        $deletefile = 'public/' .explode('/', $request->$requestImgPathorg)[2].'/'.explode('/', $request->$requestImgPathorg)[3].'/'.explode('/', $request->$requestImgPathorg)[4];
         Storage::delete($deletefile);
+
+        // LP用削除（完全デリート）
+        $LP_deletefile1 = '../public/main/asset'.$request->$requestImgPathorg;
+        $LP_deletefile2 = '../public/preview/asset'.$request->$requestImgPathorg;
+        unlink($LP_deletefile1);
+        unlink($LP_deletefile2);
     }
 
     // *****　Jsonファイル書き込み関数　***************************************************

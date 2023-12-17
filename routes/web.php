@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AnnounceController;
+use App\Http\Controllers\DeletedAnnounceController;
 
 
 /*
@@ -17,6 +18,9 @@ use App\Http\Controllers\AnnounceController;
 
 // アプリ用
 Route::resource('announces', AnnounceController::class)
+->middleware(['auth']);
+
+Route::resource('deleted_announces', DeletedAnnounceController::class)
 ->middleware(['auth']);
 
 

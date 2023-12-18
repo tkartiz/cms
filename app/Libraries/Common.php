@@ -186,8 +186,8 @@ class Common
     public static function write_Json($kind, $release, $array)
     {
         // ========== ディレクトリ作成（なければ） ================
-        $storage_directory = 'public/' . $kind . '/';
-        Storage::makeDirectory($storage_directory);
+        // $storage_directory = 'public/' . $kind . '/';
+        // Storage::makeDirectory($storage_directory);
         // ========== ディレクトリ作成（なければ） ================
 
         // ========== ファイル保存先 ================
@@ -282,7 +282,6 @@ class Common
         // ========== ディレクトリ作成（なければ） ================
         $storage_directory = 'public/' . $kind . '/' . $request->stamp; // CMSストレージ先（操作用）
         Storage::makeDirectory($storage_directory);
-
         // ========== ディレクトリ作成（なければ） ================
 
         // ========== ファイル保存先 ================
@@ -296,7 +295,7 @@ class Common
 
         // ファイル保存（/storage/app/publicフォルダへ保存）
         $savedfile[0] = $request->file('file')[$k]->getClientOriginalName();
-        $request->file('file')[$k]->storeAs($storage_directory, $savedfile[0], 'public');
+        $request->file('file')[$k]->storeAs($storage_directory, $savedfile[0]);
 
         // ファイル読込み用のパスを生成（サーバーではドメインからのパスがないと表示できないため）
         $savedfile[1] = $directory . $savedfile[0];
@@ -376,10 +375,14 @@ class Common
         Storage::delete($deletefile);
 
         // LP用削除（完全デリート）
-        $LP_deletefile1 = '../public/main/asset' . $filePath;
-        $LP_deletefile2 = '../public/preview/asset' . $filePath;
-        unlink($LP_deletefile1);
-        unlink($LP_deletefile2);
+        $LP_deletefile[0] = '../public/main/asset' . $filePath;
+        $LP_deletefile[1] = '../public/preview/asset' . $filePath;
+
+        for ($i = 0; $i < 2; $i++) {
+            if (file_exists($LP_deletefile[$i])) {
+                unlink($LP_deletefile[$i]);
+            }
+        }
     }
     // *****　アップロードファイル削除関数　********************************************************
 

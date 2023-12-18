@@ -187,7 +187,7 @@ class Common
     {
         // ========== ディレクトリ作成（なければ） ================
         $storage_directory = 'public/' . $kind . '/';
-        Storage::makeDirectory($storage_directory);
+        Storage::makeDirectory($storage_directory, 'public');
         // ========== ディレクトリ作成（なければ） ================
 
         // ========== ファイル保存先 ================
@@ -281,7 +281,7 @@ class Common
     {
         // ========== ディレクトリ作成（なければ） ================
         $storage_directory = 'public/' . $kind . '/' . $request->stamp; // CMSストレージ先（操作用）
-        Storage::makeDirectory($storage_directory, '0755');
+        Storage::makeDirectory($storage_directory, 'public');
 
         // ========== ディレクトリ作成（なければ） ================
 
@@ -323,7 +323,7 @@ class Common
 
         for ($i = 0; $i < 2; $i++) {
             if (!file_exists($LP_storage_path[$i])) {
-                mkdir($LP_storage_path[$i], 0766);
+                mkdir($LP_storage_path[$i], 0766, true);
                 chmod($LP_storage_path[$i], 0766);
             }
             copy($request->file('file')[$k], $LP_storage_path[$i]  . $savedfile[0]);
@@ -349,6 +349,7 @@ class Common
         for ($i = 0; $i < 2; $i++) {
             if (!file_exists($LP_storage_path[$i])) {
                 mkdir($LP_storage_path[$i], 0766, true);
+                chmod($LP_storage_path[$i], 0766);
             }
         }
 
@@ -360,6 +361,7 @@ class Common
             $org_file = 'storage/' . explode('/', $restore_file)[1] . '/' . explode('/', $restore_file)[2] . '/' . explode('/', $restore_file)[3];
             for ($i = 0; $i < 2; $i++) {
                 copy($org_file, $LP_storage_path[$i] . $restore_files_name);
+                chmod($LP_storage_path[$i]  . $restore_files_name, 0644);
             }
         }
     }

@@ -187,7 +187,7 @@ class Common
     {
         // ========== ディレクトリ作成（なければ） ================
         $storage_directory = 'public/' . $kind . '/';
-        Storage::makeDirectory($storage_directory, 'public');
+        Storage::makeDirectory($storage_directory);
         // ========== ディレクトリ作成（なければ） ================
 
         // ========== ファイル保存先 ================
@@ -281,7 +281,7 @@ class Common
     {
         // ========== ディレクトリ作成（なければ） ================
         $storage_directory = 'public/' . $kind . '/' . $request->stamp; // CMSストレージ先（操作用）
-        Storage::makeDirectory($storage_directory, 'public');
+        Storage::makeDirectory($storage_directory);
 
         // ========== ディレクトリ作成（なければ） ================
 
@@ -296,7 +296,7 @@ class Common
 
         // ファイル保存（/storage/app/publicフォルダへ保存）
         $savedfile[0] = $request->file('file')[$k]->getClientOriginalName();
-        $request->file('file')[$k]->storeAs($storage_directory, $savedfile[0]);
+        $request->file('file')[$k]->storeAs($storage_directory, $savedfile[0], 'public');
 
         // ファイル読込み用のパスを生成（サーバーではドメインからのパスがないと表示できないため）
         $savedfile[1] = $directory . $savedfile[0];
@@ -323,8 +323,8 @@ class Common
 
         for ($i = 0; $i < 2; $i++) {
             if (!file_exists($LP_storage_path[$i])) {
-                mkdir($LP_storage_path[$i], 0766, true);
-                chmod($LP_storage_path[$i], 0766);
+                mkdir($LP_storage_path[$i], 0755, true);
+                chmod($LP_storage_path[$i], 0755);
             }
             copy($request->file('file')[$k], $LP_storage_path[$i]  . $savedfile[0]);
             chmod($LP_storage_path[$i]  . $savedfile[0], 0644);
@@ -348,8 +348,8 @@ class Common
 
         for ($i = 0; $i < 2; $i++) {
             if (!file_exists($LP_storage_path[$i])) {
-                mkdir($LP_storage_path[$i], 0766, true);
-                chmod($LP_storage_path[$i], 0766);
+                mkdir($LP_storage_path[$i], 0755, true);
+                chmod($LP_storage_path[$i], 0755);
             }
         }
 

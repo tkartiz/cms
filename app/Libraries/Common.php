@@ -281,7 +281,8 @@ class Common
     {
         // ========== ディレクトリ作成（なければ） ================
         $storage_directory = 'public/' . $kind . '/' . $request->stamp; // CMSストレージ先（操作用）
-        Storage::makeDirectory($storage_directory);
+        Storage::makeDirectory($storage_directory, '0755');
+
         // ========== ディレクトリ作成（なければ） ================
 
         // ========== ファイル保存先 ================
@@ -322,9 +323,11 @@ class Common
 
         for ($i = 0; $i < 2; $i++) {
             if (!file_exists($LP_storage_path[$i])) {
-                mkdir($LP_storage_path[$i], 0766, true);
+                mkdir($LP_storage_path[$i], 0766);
+                chmod($LP_storage_path[$i], 0766);
             }
             copy($request->file('file')[$k], $LP_storage_path[$i]  . $savedfile[0]);
+            chmod($LP_storage_path[$i]  . $savedfile[0], 0644);
         }
     }
     // *****　LPのアップロードディレクトリ＆ファイル生成関数　***************************************

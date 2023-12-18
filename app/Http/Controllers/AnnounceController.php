@@ -42,11 +42,14 @@ class AnnounceController extends Controller
      */
     public function store(Request $request)
     {
-        Common::announceValidation($request); // 入力値検証
+        // 入力値検証
+        Common::announceValidation($request);
 
-        $content = Common::announceContent($request); // お知らせ内容を配列にまとめる
+        // お知らせ内容を配列にまとめる　かつ　LP用Jsonに書き出す
+        $content = Common::announceContent($request); 
 
-        Announce::create([ //　id取得のために一旦保存する
+        // CMSに保存する
+        Announce::create([ 
             'stamp' => $request->stamp,
             'item' => $request->item,
             'release' =>  $request->release,
@@ -54,7 +57,7 @@ class AnnounceController extends Controller
             'title' =>  $request->title,
             'content' => $content,
         ]);
-        
+
         return redirect()
             ->route('announces.index')
             ->with(['message' => '作成しました。', 'status' => 'info']);
@@ -120,8 +123,11 @@ class AnnounceController extends Controller
     public function destroy($id)
     {
         $announce = Announce::findOrFail($id);
+        $release = $announce->release;
         $stamp = $announce->stamp;
         $kind = 'announce';
+
+        Common::del_Json($kind, $release, $stamp); // 対象Jsonからの削除
         Common::delDir_LP($kind, $stamp); // LP内フォルダの完全削除
 
         Announce::findOrFail($id)->delete();  // ソフトデリート

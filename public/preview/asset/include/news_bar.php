@@ -1,5 +1,5 @@
 <div id="news_bar" class="flex-container d-flex align-items-center justify-content-center position-relative">
-  <a href="news/list.php" class="bar-side ms-auto title-font">INFO</a>
+  <a href="news/list.php?page=1" class="bar-side ms-auto title-font">INFO</a>
   <div class="swiper_newsbar m-0 container">
     <div class="swiper-wrapper">
       <?php if (!is_null($announces)) { ?>
@@ -25,7 +25,7 @@
       <?php } ?>
     </div>
   </div>
-  <a href="news/list.php" class="d-none d-md-flex bar-side me-auto title-font fw-bold">お知らせ<br class="d-block d-xl-none">一覧</a>
+  <a href="news/list.php?page=1" class="d-none d-md-flex bar-side me-auto title-font fw-bold">お知らせ<br class="d-block d-xl-none">一覧</a>
 </div>
 
 

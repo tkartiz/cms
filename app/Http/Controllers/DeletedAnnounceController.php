@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Storage;
 use App\Models\Announce;
 use App\Libraries\Common;
 
@@ -59,7 +59,13 @@ class DeletedAnnounceController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $kind = 'announce';
+        
         Announce::onlyTrashed()->where('id', '=', $id)->restore();  // 復活させる
+        $restore_announce = Announce::find($id);
+
+        Common::update_Json($restore_announce->content, $kind); // Jsonへの記載を復活させる
+        Common::restoreDir_LP($kind, $restore_announce->stamp); // LPフォルダへ添付ファイルを復活させる
 
         return redirect()
             ->route('deleted_announces.index')
@@ -71,7 +77,17 @@ class DeletedAnnounceController extends Controller
      */
     public function destroy($id)
     {
-        Announce::onlyTrashed()->where('id', '=', $id)->forceDelete();  // 完全削除する
+        $kind = 'announce';
+        $del_announce = Announce::onlyTrashed()->where('id', '=', $id)->first();
+
+        // ========== ファイル保存先 ================
+        // CMSストレージ先（操作用）
+        $directory = 'public/' . $kind . '/' . $del_announce->stamp . '/';
+        // ========== ファイル保存先 ================
+
+        Storage::deleteDirectory($directory); // cmsストレージディレクトリを削除する
+
+        $del_announce->forceDelete();  // 完全削除する
 
         return redirect()
             ->route('deleted_announces.index')

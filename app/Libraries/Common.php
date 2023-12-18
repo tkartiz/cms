@@ -8,6 +8,7 @@ use App\Models\Announce;
 
 class Common
 {
+    // *****　お知らせの入力評価関数　*************************************************************
     public static function announceValidation($request)
     {
         $request->validate([
@@ -41,7 +42,11 @@ class Common
             'content6Img3Cap' => 'nullable|string',
         ]);
     }
+    // *****　お知らせの入力評価関数　*************************************************************
 
+
+
+    // *****　お知らせ入力項目のまとめ　***********************************************************
     public static function announceContent($request)
     {
         // ========= お知らせ欄と画像数の設定 ==========
@@ -103,28 +108,40 @@ class Common
             }
         }
 
-        // ========== 対象Jsonファイルに書き出し =========================================
-        $Json = Common::read_Json($kind, $request->release); // 対象Jsonファイルの読込み
+        // ========== 象Jsonに書き出し、非対称Jsonからは削除する ==========================
+        Common::update_Json($content, $kind);
+        // ========== 象Jsonに書き出し、非対称Jsonからは削除する ==========================
 
-        // 既に対象Jsonファイルに存在すれば削除する
+        return $content;
+    }
+    // *****　お知らせ入力項目のまとめ　***********************************************************
+
+
+
+    // *****　対象Jsonに書き出し、非対称Jsonからは削除する関数　************************************
+    public static function update_Json($content, $kind)
+    {
+        // ========== 対象Jsonファイルに書き出し =========================================
+        $Json = Common::read_Json($kind, $content['release']); // 対象Jsonファイルの読込み
+
+        // 既に対象Jsonファイルに存在すれば一旦削除する
         if (!is_null($Json)) {
             $nameArray = array_column($Json, 'stamp');
-            $keyIndex = array_search($request->stamp, $nameArray, true);
+            $keyIndex = array_search($content['stamp'], $nameArray, true);
             if ($keyIndex !== False) {
                 unset($Json[$keyIndex]);
-                Common::write_Json($kind, $request->release, $Json);
+                Common::write_Json($kind, $content['release'], $Json);
             }
-            // dd($nameArray, $keyIndex, $request->stamp, $Json);
         }
 
-        // 対象Jsonファイルに追加する
-        $reJson = Common::read_Json($kind, $request->release); // 対象Jsonファイルの再読込み
+        // 対象Jsonファイルに追加書き出しする
+        $reJson = Common::read_Json($kind, $content['release']); // 対象Jsonファイルの再読込み
         $reJson[] = $content;
-        Common::write_Json($kind, $request->release, $reJson);
+        Common::write_Json($kind, $content['release'], $reJson);
         // ========== 対象Jsonファイルに書き出し =========================================
 
         // ========== 対象外Jsonファイルから削除 =========================================
-        if ($request->release === 'release') {
+        if ($content['release'] === 'release') {
             $target_release = 'draft';
         } else {
             $target_release = 'release';
@@ -133,131 +150,17 @@ class Common
         $Json = Common::read_Json($kind, $target_release);
         Common::del_Json($kind, $target_release, $del_stamp);
         // ========== 対象外Jsonファイルから削除 =========================================
-
-        return $content;
     }
-
-    // *****　ファイルアップロード関数　***************************************************
-    public static function saveFile($request, $k, $kind)
-    {
-        // ========== ディレクトリ作成（なければ） ================
-        $dir_pub_path = 'public/' . $kind . '/';
-        $directory = $dir_pub_path . $request->stamp;
-        Storage::makeDirectory($directory);
-        // ========== ディレクトリ作成（なければ） ================
-
-        // ========== ファイル保存先 ================
-        // CMS表示用
-        $dir_storage_path = '/storage/' . $kind . '/' . $request->stamp . '/';
-
-        // LP用コピー先
-        $LP_storage_path1 = '../public/main/asset/storage/' . $kind . '/' . $request->stamp . '/';
-        $LP_storage_path2 = '../public/preview/asset/storage/' . $kind . '/' . $request->stamp . '/';
-        // ========== ファイル保存先 ================
-
-        // ファイル保存（/storage/app/publicフォルダへ保存）
-        $savedfile[0] = $request->file('file')[$k]->getClientOriginalName();
-        $request->file('file')[$k]->storeAs($directory, $savedfile[0]);
-
-        // ファイル読込み用のパスを生成（サーバーではドメインからのパスがないと表示できないため）
-        $savedfile[1] = $dir_storage_path . $savedfile[0];
-
-        // ファイル保存（LPのフォルダへ保存　※LPからlaravelの/public/storageから画像を読めないため）
-        if (!file_exists($LP_storage_path1)) {
-            mkdir($LP_storage_path1, 0766, true);
-        }
-        copy($request->file('file')[$k], $LP_storage_path1  . $savedfile[0]);
-
-        if (!file_exists($LP_storage_path2)) {
-            mkdir($LP_storage_path2, 0766, true);
-        }
-        copy($request->file('file')[$k], $LP_storage_path2  . $savedfile[0]);
+    // *****　対象Jsonに書き出し、非対称Jsonからは削除する関数　*************************************
 
 
 
-        return $savedfile;
-    }
-
-    // *****　アップロードファイル削除関数　***************************************************
-    public static function delFile($filePath)
-    {
-        // CMS用削除（完全デリート）
-        $deletefile = 'public/' . explode('/', $filePath)[2] . '/' . explode('/', $filePath)[3] . '/' . explode('/', $filePath)[4];
-        Storage::delete($deletefile);
-
-        // LP用削除（完全デリート）
-        $LP_deletefile1 = '../public/main/asset' . $filePath;
-        $LP_deletefile2 = '../public/preview/asset' . $filePath;
-        unlink($LP_deletefile1);
-        unlink($LP_deletefile2);
-    }
-
-    // *****　LPのアップロードディレクトリ削除関数　********************************************
-    public static function delDir_LP($kind, $stamp)
-    {
-        // ========== ファイル保存先 ================
-        // LP用保存先
-        $LP_storage_path[0] = '../public/main/asset/storage/' . $kind . '/' . $stamp . '/';
-        $LP_storage_path[1] = '../public/preview/asset/storage/' . $kind . '/' . $stamp . '/';
-        // ========== ファイル保存先 ================
-
-        for ($i = 0; $i < 2; $i++) {
-            // 親ディレクトリ、削除するディレクトリが書き込み可能か確認
-            if (is_writable($LP_storage_path[$i])) {
-
-                // ディレクトリ内のファイルを取得
-                $files = scandir($LP_storage_path[$i]);
-
-                // ディレクトリ内のファイルを全て削除する
-                foreach ($files as $file_name) {
-
-                    if (!preg_match('/^\.(.*)/', $file_name)) {
-                        unlink($LP_storage_path[$i] . $file_name);
-                    }
-                }
-
-                // ディレクトリを削除
-                $result = rmdir($LP_storage_path[$i]);
-            }
-        }
-    }
-
-    // *****　Jsonファイル書き込み関数　***************************************************
-    public static function write_Json($kind, $release, $array)
-    {
-        // ========== ディレクトリ作成（なければ） ================
-        $dir_pub_path = 'public/' . $kind . '/';
-        $directory = $dir_pub_path;
-        Storage::makeDirectory($directory);
-        // ========== ディレクトリ作成（なければ） ================
-
-        // ========== ファイル保存先 ================
-        // ローカルの場合(サーバーも同様)
-        $dir_storage_path =  'storage/' . $kind . '/';
-        // ========== ファイル保存先 ================
-
-        // ========== ファイル名 ================
-        if ($release === 'release') {
-            $JsonName = $kind . '.json';
-        } else {
-            $JsonName = 'draft_' . $kind . '.json';
-        }
-        $JsonFile = $dir_storage_path . $JsonName;
-        // ========== ファイル名 ================
-
-        $array = array_values($array);
-        $array = json_encode($array, JSON_UNESCAPED_UNICODE);
-        file_put_contents($JsonFile, $array);
-
-        Common::refine_Json($kind); // ソフトデリートデータも削除する
-    }
-
-    // *****　Jsonファイル読込み関数　***************************************************
+    // *****　Jsonファイル読込み関数　*************************************************************
     public static function read_Json($kind, $release)
     {
         // ========== ファイル読込み先 ================
         // ローカルの場合(サーバーも同様)
-        $dir_storage_path = 'storage/' . $kind . '/';
+        $directory =  'storage/' . $kind . '/';
         // ========== ファイル読込み先 ================
 
         // ========== ファイル名 ================
@@ -266,7 +169,7 @@ class Common
         } else {
             $JsonName = 'draft_' . $kind . '.json';
         }
-        $JsonFile = $dir_storage_path . $JsonName;
+        $JsonFile = $directory . $JsonName;
         // ========== ファイル名 ================
 
         $array = file_get_contents($JsonFile);
@@ -275,8 +178,43 @@ class Common
 
         return $array;
     }
+    // *****　Jsonファイル読込み関数　*************************************************************
 
-    // *****　Jsonファイル配列削除関数　***************************************************
+
+
+    // *****　Jsonファイル書き込み関数　***********************************************************
+    public static function write_Json($kind, $release, $array)
+    {
+        // ========== ディレクトリ作成（なければ） ================
+        $storage_directory = 'public/' . $kind . '/';
+        Storage::makeDirectory($storage_directory);
+        // ========== ディレクトリ作成（なければ） ================
+
+        // ========== ファイル保存先 ================
+        // ローカルの場合(サーバーも同様)
+        $directory =  'storage/' . $kind . '/';
+        // ========== ファイル保存先 ================
+
+        // ========== ファイル名 ================
+        if ($release === 'release') {
+            $JsonName = $kind . '.json';
+        } else {
+            $JsonName = 'draft_' . $kind . '.json';
+        }
+        $JsonFile = $directory . $JsonName;
+        // ========== ファイル名 ================
+
+        $array = array_values($array);
+        $array = json_encode($array, JSON_UNESCAPED_UNICODE);
+        file_put_contents($JsonFile, $array);
+
+        Common::softdelete_arrangement_Json($kind); // ソフトデリートデータも削除する
+    }
+    // *****　Jsonファイル書き込み関数　***********************************************************
+
+
+
+    // *****　Jsonファイル配列削除関数　***********************************************************
     public static function del_Json($kind, $release, $del_stamp)
     {
         // ========== Jsonファイルを読み込む ========== 
@@ -295,10 +233,14 @@ class Common
             }
         }
 
-        Common::refine_Json($kind); // ソフトデリートデータも削除する
+        Common::softdelete_arrangement_Json($kind); // ソフトデリートデータも削除する
     }
+    // *****　Jsonファイル配列削除関数　***********************************************************
 
-    public static function refine_Json($kind)
+
+
+    // *****　ソフトデリートしたデータをJsonファイル配列から削除する関数　****************************
+    public static function softdelete_arrangement_Json($kind)
     {
         $soft_delete_announces = Announce::onlyTrashed()->get();
         foreach ($soft_delete_announces as $soft_delete_announce) {
@@ -327,4 +269,146 @@ class Common
             }
         }
     }
+    // *****　ソフトデリートしたデータをJsonファイル配列から削除する関数　****************************
+
+
+
+
+
+
+    // *****　ファイルアップロード関数　************************************************************
+    public static function saveFile($request, $k, $kind)
+    {
+        // ========== ディレクトリ作成（なければ） ================
+        $storage_directory = 'public/' . $kind . '/' . $request->stamp; // CMSストレージ先（操作用）
+        Storage::makeDirectory($storage_directory);
+        // ========== ディレクトリ作成（なければ） ================
+
+        // ========== ファイル保存先 ================
+        // CMSストレージ先（表示用）
+        $directory = '/storage/' . $kind . '/' . $request->stamp . '/';
+
+        // LP用コピー先
+        $LP_storage_path[0] = '../public/main/asset/storage/' . $kind . '/' . $request->stamp . '/';
+        $LP_storage_path[1] = '../public/preview/asset/storage/' . $kind . '/' . $request->stamp . '/';
+        // ========== ファイル保存先 ================
+
+        // ファイル保存（/storage/app/publicフォルダへ保存）
+        $savedfile[0] = $request->file('file')[$k]->getClientOriginalName();
+        $request->file('file')[$k]->storeAs($storage_directory, $savedfile[0]);
+
+        // ファイル読込み用のパスを生成（サーバーではドメインからのパスがないと表示できないため）
+        $savedfile[1] = $directory . $savedfile[0];
+
+        // LPのフォルダへファイル保存（※LPからlaravelの/public/storageから画像を読めないため）
+        Common::makeDir_LP($kind, $request->stamp, $request, $k);
+
+        return $savedfile;
+    }
+    // *****　ファイルアップロード関数　************************************************************
+
+
+
+    // *****　LPのアップロードディレクトリ＆ファイル生成関数　***************************************
+    public static function makeDir_LP($kind, $stamp, $request, $k)
+    {
+        // ========== ファイル保存先 ================
+        // LP用保存先
+        $LP_storage_path[0] = '../public/main/asset/storage/' . $kind . '/' . $stamp . '/';
+        $LP_storage_path[1] = '../public/preview/asset/storage/' . $kind . '/' . $stamp . '/';
+        // ========== ファイル保存先 ================
+
+        $savedfile[0] = $request->file('file')[$k]->getClientOriginalName();
+
+        for ($i = 0; $i < 2; $i++) {
+            if (!file_exists($LP_storage_path[$i])) {
+                mkdir($LP_storage_path[$i], 0766, true);
+            }
+            copy($request->file('file')[$k], $LP_storage_path[$i]  . $savedfile[0]);
+        }
+    }
+    // *****　LPのアップロードディレクトリ＆ファイル生成関数　***************************************
+
+
+
+    // *****　LPのアップロードディレクトリ＆ファイルレストア関数　***********************************
+    public static function restoreDir_LP($kind, $stamp)
+    {
+        // ========== ファイル保存先 ================
+        // CMSストレージ先（操作用）
+        $directory = 'public/' . $kind . '/' . $stamp . '/';
+
+        // LP用保存先
+        $LP_storage_path[0] = '../public/main/asset/storage/' . $kind . '/' . $stamp . '/';
+        $LP_storage_path[1] = '../public/preview/asset/storage/' . $kind . '/' . $stamp . '/';
+        // ========== ファイル保存先 ================       
+
+        for ($i = 0; $i < 2; $i++) {
+            if (!file_exists($LP_storage_path[$i])) {
+                mkdir($LP_storage_path[$i], 0766, true);
+            }
+        }
+
+
+        $restore_files = Storage::allFiles($directory);
+
+        foreach ($restore_files as $restore_file) {
+            $restore_files_name = explode('/', $restore_file)[3];
+            $org_file = 'storage/' . explode('/', $restore_file)[1] . '/' . explode('/', $restore_file)[2] . '/' . explode('/', $restore_file)[3];
+            for ($i = 0; $i < 2; $i++) {
+                copy($org_file, $LP_storage_path[$i] . $restore_files_name);
+            }
+        }
+    }
+    // *****　LPのアップロードディレクトリ＆ファイルレストア関数　***********************************
+
+
+    // *****　アップロードファイル削除関数　********************************************************
+    public static function delFile($filePath)
+    {
+        // CMS用削除（完全デリート）
+        $deletefile = 'public/' . explode('/', $filePath)[2] . '/' . explode('/', $filePath)[3] . '/' . explode('/', $filePath)[4];
+        Storage::delete($deletefile);
+
+        // LP用削除（完全デリート）
+        $LP_deletefile1 = '../public/main/asset' . $filePath;
+        $LP_deletefile2 = '../public/preview/asset' . $filePath;
+        unlink($LP_deletefile1);
+        unlink($LP_deletefile2);
+    }
+    // *****　アップロードファイル削除関数　********************************************************
+
+
+
+    // *****　LPのアップロードディレクトリ＆ファイル削除関数　****************************************
+    public static function delDir_LP($kind, $stamp)
+    {
+        // ========== ファイル保存先 ================
+        // LP用保存先
+        $LP_storage_path[0] = '../public/main/asset/storage/' . $kind . '/' . $stamp . '/';
+        $LP_storage_path[1] = '../public/preview/asset/storage/' . $kind . '/' . $stamp . '/';
+        // ========== ファイル保存先 ================
+
+        for ($i = 0; $i < 2; $i++) {
+            // 親ディレクトリ、削除するディレクトリが書き込み可能か確認
+            if (is_writable($LP_storage_path[$i])) {
+
+                // ディレクトリ内のファイルを取得
+                $files = scandir($LP_storage_path[$i]);
+
+                // ディレクトリ内のファイルを全て削除する
+                foreach ($files as $file_name) {
+
+                    if (!preg_match('/^\.(.*)/', $file_name)) {
+                        unlink($LP_storage_path[$i] . $file_name);
+                    }
+                }
+
+                // ディレクトリを削除
+                rmdir($LP_storage_path[$i]);
+            }
+        }
+    }
+    // *****　LPのアップロードディレクトリ＆ファイル削除関数　****************************************
+
 }

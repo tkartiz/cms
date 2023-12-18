@@ -38,13 +38,14 @@ if ($current_page = $total_pages) {
             <p class="m-0">道の駅<br><span class="fs-3">湘南ちがさき</span></p>
         </div>
         <div class="container-inner position-relative">
-            <div class="d-flex justify-content-start">
+            <div class="d-flex justify-content-between">
                 <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="../index.php">ホーム</a></li>
                         <li class="breadcrumb-item active" aria-current="page">お知らせ一覧</li>
                     </ol>
                 </nav>
+                <a href="../index.php">ホーム</a>
             </div>
             <div class="d-flex justify-content-between align-items-center mb-2 pt-0 pt-md-2">
                 <div class="col-8 col-sm-9 col-md-8">
@@ -60,25 +61,28 @@ if ($current_page = $total_pages) {
                 </div>
             </div>
             <nav aria-label="Page navigation">
-                <ul class="pagination d-flex justify-content-center m-0">
-                    <li class="page-item">
-                        <a class="page-link border-0" style="background-color:#f5f5f5!important;" href="<?php echo 'list.php?page=' . $previous_page; ?>" aria-label="Previous">
-                            <span aria-hidden="true">&laquo;</span>
-                        </a>
-                    </li>
-                    <?php for ($i = 1; $i <= $total_pages; $i++) { ?>
-                        <li class="page-item"><a class="page-link border-0" style="background-color:#f5f5f5!important;" href="<?php echo 'list.php?page=' . $i; ?>"><?php echo $i; ?></a></li>
-                    <?php } ?>
-                    <li class="page-item">
-                        <a class="page-link border-0" style="background-color:#f5f5f5!important;" href="<?php echo 'list.php?page=' . $next_page; ?>" aria-label="Next">
-                            <span aria-hidden="true">&raquo;</span>
-                        </a>
-                    </li>
-                </ul>
+                <?php if ($total_pages > 0) { ?>
+                    <ul class="pagination d-flex justify-content-center m-0">
+                        <li class="page-item">
+                            <a class="page-link border-0" style="background-color:#f5f5f5!important;" href="<?php echo 'list.php?page=' . $previous_page; ?>" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                        <?php for ($i = 1; $i <= $total_pages; $i++) { ?>
+                            <li class="page-item"><a class="page-link border-0" style="background-color:#f5f5f5!important;" href="<?php echo 'list.php?page=' . $i; ?>"><?php echo $i; ?></a></li>
+                        <?php } ?>
+                        <li class="page-item">
+                            <a class="page-link border-0" style="background-color:#f5f5f5!important;" href="<?php echo 'list.php?page=' . $next_page; ?>" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    </ul>
+                <?php } ?>
             </nav>
 
-            <div class="w-100 mx-auto" style="height:<?php echo (int)$list_height; ?>px;">
-                <?php if (!is_null($announces)) { ?>
+
+            <?php if (count($announces) > 0) { ?>
+                <div class="w-100 mx-auto" style="height:<?php echo (int)$list_height; ?>px;">
                     <?php
                     foreach ($announces as $announce) :
                         if ($count > $max) {
@@ -106,10 +110,13 @@ if ($current_page = $total_pages) {
                         $count += 1;
                     endforeach;
                     ?>
-                <?php } else { ?>
-                    <p class="text-center">お知らせはありません。</p>
-                <?php } ?>
-            </div>
+                </div>
+            <?php } else { ?>
+                <div class="w-100 mx-auto d-flex justify-content-center" style="height:<?php echo (int)$list_height; ?>px;">
+                    <p class="align-self-center fs-5 fw-bold">現在、お知らせはありません。</p>
+                </div>
+            <?php } ?>
+
         </div>
         <div class="w-100 position-relative">
             <img class="news-illust" src="../asset/img/news/surfer.svg" alt="サーファーイラスト">

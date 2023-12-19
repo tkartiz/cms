@@ -7,7 +7,8 @@
         </x-slot>
 
         <div class="mb-4 text-sm text-gray-600">
-            {{ __('Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}
+            {{ __('パスワードをお忘れですか? 問題ありません。メールアドレスを教えていただければ、新しいパスワードを設定できるパスワードリセットリンクをお送りします。') }}
+            <!-- {{ __('Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }} -->
         </div>
 
         <!-- Session Status -->
@@ -27,8 +28,12 @@
             </div>
 
             <div class="flex items-center justify-end mt-4">
+                <a class="underline me-auto text-sm text-gray-600 hover:text-gray-900" href="{{ route('welcome') }}">
+                    {{ __('Welcome画面へ') }}
+                </a>
+
                 <x-button>
-                    {{ __('Email Password Reset Link') }}
+                    {{ __('パスワードリセットリンクを送信') }}
                 </x-button>
             </div>
         </form>

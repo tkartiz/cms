@@ -28,11 +28,11 @@ Route::resource('deleted_announces', DeletedAnnounceController::class)
 
 Route::get('/', function () {
     return view('m-shonanchigasaki');
-});
+})->name('home');
 
 Route::get('/cms', function () {
     return view('welcome');
-});
+})->name('welcome');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

@@ -15,14 +15,15 @@
         "laravel/tinker": "^2.8"
     },
     "require-dev": {
-        "spatie/laravel-ignition": "^2.1",
+        "askdkc/breezejp": "^1.7",
         "fakerphp/faker": "^1.9.1",
-        "laravel-lang/lang": "^10.4.2",
+        "laravel-lang/lang": "^10.9",
         "laravel/breeze": "1.*",
         "laravel/sail": "^1.18",
         "mockery/mockery": "^1.4.4",
         "nunomaduro/collision": "^7.1",
-        "phpunit/phpunit": "^10.0"
+        "phpunit/phpunit": "^10.0",
+        "spatie/laravel-ignition": "^2.1"
     },
     "autoload": {
         "psr-4": {

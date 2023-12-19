@@ -10,7 +10,8 @@
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- style -->
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 </head>
 
 <body class="antialiased">
@@ -18,7 +19,7 @@
         @if (Route::has('login'))
         <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
             @auth
-            <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Dashboard</a>
+            <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">ダッシュボード</a>
             @else
             <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">ログイン</a>
 
@@ -46,11 +47,9 @@
                                 <sppn class="text-gray-900 dark:text-white">お知らせ</span>
                             </div>
                         </div>
-
                         <div class="ml-12">
                             <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                お知らせ記事の追加・編集・削除&nbsp;⇒
-                                マニュアルは<a href="#!" class="ml-1 underline">こちら</a>
+                                お知らせ記事の追加・編集・削除
                             </div>
                         </div>
                     </div>
@@ -61,14 +60,13 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
                             </svg>
                             <div class="ml-4 text-lg leading-7 font-semibold">
-                                <sppn class="text-gray-900 dark:text-white">バナー(今後作成予定)</span>
+                                <sppn class="text-gray-900 dark:text-white">バナー</span>
                             </div>
                         </div>
 
                         <div class="ml-12">
                             <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                バナーの追加・編集・削除&nbsp;⇒
-                                マニュアルは<a href="#!" class="ml-1 underline">こちら</a>
+                                バナーの追加・編集・削除
                             </div>
                         </div>
                     </div>
@@ -77,16 +75,16 @@
 
             <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
                 <div class="grid grid-cols-2 md:grid-cols-4">
-                    <div class="p-6">
+                    <div class="p-3 sm:p-6">
                         <img class="" src="{{ asset('storage/img/image(1).jpg')}}" alt="">
                     </div>
-                    <div class="p-6">
+                    <div class="p-3 sm:p-6">
                         <img class="" src="{{ asset('storage/img/image(3).jpg')}}" alt="">
                     </div>
-                    <div class="p-6">
+                    <div class="p-3 sm:p-6">
                         <img class="" src="{{ asset('storage/img/image(2).jpg')}}" alt="">
                     </div>
-                    <div class="p-6">
+                    <div class="p-3 sm:p-6">
                         <img class="" src="{{ asset('storage/img/image(4).png')}}" alt="">
                     </div>
                 </div>
@@ -102,10 +100,6 @@
                             ホーム
                         </a>
                     </div>
-                </div>
-
-                <div class="ml-4 text-center text-sm text-gray-500 sm:text-right sm:ml-0">
-                    Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})
                 </div>
             </div>
         </div>

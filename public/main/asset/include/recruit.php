@@ -37,7 +37,7 @@ $delay_time = 0.7;
                     郵送またはFAXからお申し込みください。
                 </p>
                 <p class="m-2">
-                    <a href="inquiry/fax/2401_出品者募集サンプル.pdf" target="_blank">
+                    <a href="inquiry/fax/事業者募集説明会チラシ・ポスター.pdf" target="_blank">
                         <svg id="_レイヤー_2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29.57 23.88" style="width:auto; height:20px;">
                             <defs>
                                 <style>

@@ -47,8 +47,6 @@ if ($level === 3) {
                         <img class="w-100 h-100 object-fit-cover" src="<?php echo $pre; ?>asset/img/news/info_image01.svg" alt="波のイラスト">
                     </div>
                 </div>
-
-
             </div>
         </div>
     </div>
@@ -56,6 +54,7 @@ if ($level === 3) {
     <?php include "../../asset/include/footer.php" ?><!-- フッター -->
 
     <?php include "../../asset/include/script.php"; ?><!-- script読み込み -->
+
 </body>
 
 </html>

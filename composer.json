@@ -6,8 +6,6 @@
     "license": "MIT",
     "require": {
         "php": "^8.2",
-        "arcanedev/laravel-lang": "^11.x-dev",
-        "arcanedev/support": "^10.0",
         "barryvdh/laravel-debugbar": "^3.7",
         "guzzlehttp/guzzle": "^7.2",
         "laravel/framework": "^10.0",

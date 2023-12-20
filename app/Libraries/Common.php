@@ -3,7 +3,6 @@
 namespace app\Libraries;
 
 use Illuminate\Support\Facades\Storage;
-
 use App\Models\Announce;
 
 class Common
@@ -296,6 +295,18 @@ class Common
         // ファイル保存（/storage/app/publicフォルダへ保存）
         $savedfile[0] = $request->file('file')[$k]->getClientOriginalName();
         $request->file('file')[$k]->storeAs($storage_directory, $savedfile[0]);
+
+        // if ($kind != 'banner') {                                                       // バナー以外
+        //     $request->file('file')[$k]->storeAs($storage_directory, $savedfile[0]);
+        // } else {                                                                       // バナー
+        //     if($k === 0){                                                              // 300x250サイズ
+        //         $banner_pc = Image::make($request->file('file')[$k])->fit(300, 250);
+        //         $banner_pc->storeAs($storage_directory, $savedfile[0]);
+        //     } else {                                                                   // 320x 50サイズ
+        //         $banner_sp = Image::make($request->file('file')[$k])->fit(320, 50);
+        //         $banner_sp->storeAs($storage_directory, $savedfile[0]);
+        //     }
+        // }
 
         // ファイル読込み用のパスを生成（サーバーではドメインからのパスがないと表示できないため）
         $savedfile[1] = $directory . $savedfile[0];

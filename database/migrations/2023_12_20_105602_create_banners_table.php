@@ -15,8 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('stamp');
             $table->string('release');
-            $table->string('filename');
-            $table->string('filepath');
+            $table->string('filename_pc');
+            $table->string('filepath_pc');
+            $table->string('filename_sp');
+            $table->string('filepath_sp');
             $table->timestamps();
         });
     }

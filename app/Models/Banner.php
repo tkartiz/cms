@@ -12,7 +12,9 @@ class Banner extends Model
     protected $fillable = [
         'stamp',
         'release',
-        'filename',
-        'filepath',
+        'filename_pc',
+        'filepath_pc',
+        'filename_sp',
+        'filepath_sp',
     ];
 }

@@ -7,7 +7,6 @@ use App\Models\Banner;
 use Illuminate\Http\Request;
 
 use App\Libraries\Common;
-
 class BannerController extends Controller
 {
     /**
@@ -36,21 +35,32 @@ class BannerController extends Controller
     public function store(Request $request)
     {
         $kind = 'banner';
-        $k = 0;
 
         $request->validate([
             'release' => 'required|string',
         ]);
-
-        if ($request->file('file')) {
-            $savedfile = Common::saveFile($request, $k, $kind); // ファイルの保存
-            Banner::create([ 
-                'stamp' => $request->stamp,
-                'release' =>  $request->release,
-                'filename' =>  $savedfile[0],
-                'filepath' =>  $savedfile[1],
-            ]);
+        
+        for ($k = 0; $k < 2; $k++) {
+            if ($request->file('file')) {
+                $savedfile = Common::saveFile($request, $k, $kind); // ファイルの保存
+                if($k===0){
+                    $name_pc = $savedfile[0];
+                    $path_pc = $savedfile[1];
+                } else {
+                    $name_sp = $savedfile[0];
+                    $path_sp = $savedfile[1];
+                }
+            }
         }
+
+        Banner::create([
+            'stamp' => $request->stamp,
+            'release' =>  $request->release,
+            'filename_pc' =>  $name_pc,
+            'filepath_pc' =>  $path_pc,
+            'filename_sp' =>  $name_sp,
+            'filepath_sp' =>  $path_sp,
+        ]);
 
         return redirect()
             ->route('banners.index')
@@ -86,6 +96,17 @@ class BannerController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $banner = Banner::findOrFail($id);
+        $stamp = $banner->stamp;
+        $kind = 'banner';
+
+        Common::delFile($banner->filepath_pc); // LP内ファイル&CMSフォルダの完全削除
+        Common::delFile($banner->filepath_sp);
+        Common::delDir_LP($kind, $stamp); // LP内フォルダの完全削除
+        Banner::findOrFail($id)->forcedelete();  // DBからの完全削除
+
+        return redirect()
+            ->route('banners.index')
+            ->with(['message' => 'ファイル番号【 ' . $id . ' 】を削除しました。', 'status' => 'alert']);
     }
 }

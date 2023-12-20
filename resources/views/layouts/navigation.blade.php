@@ -13,10 +13,16 @@
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('ダッシュボード') }}
+                        {{ __('Dashboard') }}
                     </x-nav-link>
                     <x-nav-link :href="route('announces.index')" :active="request()->routeIs('announces.index')">
                         お知らせ
+                    </x-nav-link>
+                    <x-nav-link :href="route('banners.index')" :active="request()->routeIs('banners.index')">
+                        バナー
+                    </x-nav-link>
+                    <x-nav-link :href="route('documents.index')" :active="request()->routeIs('documents.index')" class='text-center'>
+                        アップロード<br>ファイル
                     </x-nav-link>
                 </div>
             </div>
@@ -71,6 +77,12 @@
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('announces.index')" :active="request()->routeIs('announces.index')">
                 お知らせ
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('banners.index')" :active="request()->routeIs('banners.index')">
+                バナー
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('documents.index')" :active="request()->routeIs('documents.index')" class='text-center'>
+                アップロード<br>ファイル
             </x-responsive-nav-link>
         </div>
 

@@ -55,7 +55,7 @@
                                             <th rowspan="2" class="w-48 px-2 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100 border border-slate-300">
                                                 タイトル</th>
                                             <th rowspan="2" class="w-auto px-2 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100 border border-slate-300">
-                                                内容（カラム１のみ表示）</th>
+                                                カラム１の内容<br><span class="font-normal">（注意：リンクはプレビューで確認してください）</span></th>
                                             <th rowspan="2" class="w-20 px-2 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100 border border-slate-300">
                                                 プレビュー</th>
                                             <th class="w-24 py-1 pb-1 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100 border border-slate-300">

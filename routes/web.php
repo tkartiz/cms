@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AnnounceController;
 use App\Http\Controllers\DeletedAnnounceController;
+use App\Http\Controllers\BannerController;
+use App\Http\Controllers\DocumentController;
 
 
 /*
@@ -22,6 +24,14 @@ Route::resource('announces', AnnounceController::class)
 
 Route::resource('deleted_announces', DeletedAnnounceController::class)
 ->middleware(['auth']);
+
+Route::resource('banners', BannerController::class)
+->middleware(['auth']);
+
+Route::resource('documents', DocumentController::class)
+->middleware(['auth']);
+
+// アプリ用
 
 
 

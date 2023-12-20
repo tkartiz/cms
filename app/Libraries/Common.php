@@ -370,9 +370,9 @@ class Common
     // *****　アップロードファイル削除関数　********************************************************
     public static function delFile($filePath)
     {
-        // CMS用削除（完全デリート）
-        $deletefile = 'public/' . explode('/', $filePath)[2] . '/' . explode('/', $filePath)[3] . '/' . explode('/', $filePath)[4];
-        Storage::delete($deletefile);
+        // CMS用削除（ディレクトリごと完全デリート）
+        $deletedir = 'public/' . explode('/', $filePath)[2] . '/' . explode('/', $filePath)[3];
+        Storage::deleteDirectory($deletedir);
 
         // LP用削除（完全デリート）
         $LP_deletefile[0] = '../public/main/asset' . $filePath;

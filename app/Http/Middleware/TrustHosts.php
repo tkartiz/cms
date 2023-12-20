@@ -14,7 +14,7 @@ class TrustHosts extends Middleware
     public function hosts(): array
     {
         return [
-            'mailhog',
+            'sv13036.xserver.jp',
             $this->allSubdomainsOfApplicationUrl(),
         ];
     }

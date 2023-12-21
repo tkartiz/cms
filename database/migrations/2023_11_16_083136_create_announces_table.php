@@ -20,7 +20,7 @@ class CreateAnnouncesTable extends Migration
             $table->string('release');
             $table->date('date')->nullable();
             $table->string('title');
-            $table->json('content')->nullable(); // 文章、画像はJson型で保存する
+            $table->json('content')->nullable(); // 文章、画像はJson型で保存する、LP用にその他情報も含む
             $table->timestamps();
             $table->softDeletes();
         });

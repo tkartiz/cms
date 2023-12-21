@@ -138,5 +138,6 @@
     "results": "件",
     "to": "から",
     "Showing": "表示中：",
-    "back to Welcome":"ウェルカム画面へ"
+    "back to Welcome":"ウェルカム画面へ",
+    "Whoops! Something went wrong.":"入力忘れか、入力に間違いがあります。"
 }

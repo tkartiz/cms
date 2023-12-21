@@ -381,9 +381,9 @@ class Common
     // *****　アップロードファイル削除関数　********************************************************
     public static function delFile($filePath)
     {
-        // CMS用削除（ディレクトリごと完全デリート）
-        $deletedir = 'public/' . explode('/', $filePath)[2] . '/' . explode('/', $filePath)[3];
-        Storage::deleteDirectory($deletedir);
+        // CMS用削除（完全デリート）
+        $CMS_deletefile = explode('/', $filePath)[2] . '/' . explode('/', $filePath)[3]. '/' . explode('/', $filePath)[4];
+        Storage::disk('public')->delete($CMS_deletefile);
 
         // LP用削除（完全デリート）
         $LP_deletefile[0] = '../public/main/asset' . $filePath;
@@ -399,6 +399,17 @@ class Common
 
 
 
+    // *****　CMSのアップロードディレクトリ削除関数　************************************************
+    public static function delDir_CMS($filePath)
+    {
+        // CMS用削除（中のファイルごと完全デリート）
+        $CMS_deleteDir = 'public/' . explode('/', $filePath)[2] . '/' . explode('/', $filePath)[3];
+        Storage::deleteDirectory($CMS_deleteDir);
+    }
+    // *****　CMSのアップロードディレクトリ削除関数　************************************************
+
+    
+    
     // *****　LPのアップロードディレクトリ＆ファイル削除関数　****************************************
     public static function delDir_LP($kind, $stamp)
     {

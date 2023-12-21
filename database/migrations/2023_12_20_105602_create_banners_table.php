@@ -15,10 +15,15 @@ return new class extends Migration
             $table->id();
             $table->string('stamp');
             $table->string('release');
+            $table->string('location');
+            $table->string('turn');
+            $table->date('period_start')->nullable();
+            $table->date('period_end')->nullable();
             $table->string('filename_pc');
             $table->string('filepath_pc');
             $table->string('filename_sp');
             $table->string('filepath_sp');
+            $table->json('content')->nullable(); // LP用にJson型で保存する
             $table->timestamps();
         });
     }

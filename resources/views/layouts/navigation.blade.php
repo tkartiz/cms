@@ -21,6 +21,9 @@
                     <x-nav-link :href="route('banners.index')" :active="request()->routeIs('banners.index')">
                         バナー
                     </x-nav-link>
+                    <x-nav-link :href="route('shops.index')" :active="request()->routeIs('shops.index')">
+                        ショップ
+                    </x-nav-link>
                     <x-nav-link :href="route('documents.index')" :active="request()->routeIs('documents.index')" class='text-center'>
                         アップロード<br>ファイル
                     </x-nav-link>
@@ -80,6 +83,9 @@
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('banners.index')" :active="request()->routeIs('banners.index')">
                 バナー
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('shops.index')" :active="request()->routeIs('shops.index')">
+                ショップ
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('documents.index')" :active="request()->routeIs('documents.index')" class='text-center'>
                 アップロード<br>ファイル

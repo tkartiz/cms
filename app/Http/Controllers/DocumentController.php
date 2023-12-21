@@ -90,7 +90,8 @@ class DocumentController extends Controller
         $stamp = $document->stamp;
         $kind = 'document';
 
-        Common::delFile($document->filepath); // LP内ファイル&CMSフォルダの完全削除
+        Common::delFile($document->filepath); // LP内ファイル&CMS内ファイルの完全削除
+        Common::delDir_CMS($document->filepath); // CMSトレージディレクトリを完全削除する
         Common::delDir_LP($kind, $stamp); // LP内フォルダの完全削除
         Document::findOrFail($id)->forcedelete();  // DBからの完全削除
 

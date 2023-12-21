@@ -5,7 +5,7 @@ use App\Http\Controllers\AnnounceController;
 use App\Http\Controllers\DeletedAnnounceController;
 use App\Http\Controllers\BannerController;
 use App\Http\Controllers\DocumentController;
-
+use App\Http\Controllers\ShopController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +29,9 @@ Route::resource('banners', BannerController::class)
 ->middleware(['auth']);
 
 Route::resource('documents', DocumentController::class)
+->middleware(['auth']);
+
+Route::resource('shops', ShopController::class)
 ->middleware(['auth']);
 
 // アプリ用

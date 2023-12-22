@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 use App\Models\Shop;
 use App\Libraries\Common;
@@ -35,6 +36,9 @@ class ShopController extends Controller
      */
     public function store(Request $request)
     {
+        // 種類を宣言
+        $kind = 'shop';
+
         // 入力値検証
         $request->validate([
             'release' => 'required|string',
@@ -64,7 +68,7 @@ class ShopController extends Controller
             'shop_infos' => $request->shop_infos,
         );
 
-        $kind = 'shop';
+        // ファイル処理
         $tmpname = [];
         $tmppath = [];
         for ($i = 0; $i < 5; $i++) {
@@ -72,50 +76,31 @@ class ShopController extends Controller
             $filename_org = 'filename' . $i . '_org';
             $filepath_org = 'filepath' . $i . '_org';
 
-            if ($i === 0 && $request->logo_delete === 'yes') {
-                Common::delFile($request->logopath_org);
-                $tmpname[$i] = null;
-                $tmppath[$i] = null;
-                $content['logo'] = null;
-                $content['logopath'] = null;
-            } elseif ($i === 0 && $request->logo_delete === 'no') {
-                if ($request->file('file') != null && array_key_exists($i, $request->file('file'))) {
-                    $savedfile = Common::saveFile($request, $i, $kind);
-                    $tmpname[$i] = $savedfile[0];
-                    $tmppath[$i] = $savedfile[1];
+            if ($request->file('file') != null && array_key_exists($i, $request->file('file'))) {
+                $savedfile = Common::saveFile($request, $i, $kind);
+                $tmpname[$i] = $savedfile[0];
+                $tmppath[$i] = $savedfile[1];
+                if ($i === 0) {
                     $content['logo'] = $savedfile[0];
                     $content['logopath'] = $savedfile[1];
                 } else {
-                    $tmpname[$i] = $request->logoname_org;
-                    $tmppath[$i] = $request->logopath_org;
-                    $content['logo'] = $request->logoname_org;
-                    $content['logopath'] = $request->logopath_org;
-                }
-            } elseif ($i !== 0 && $request->$check_delete === 'yes') {
-                dd($request->$check_delete, $request->$filepath_org);
-                Common::delFile($request->$filepath_org);
-                $tmpname[$i] = null;
-                $tmppath[$i] = null;
-                $content['filename' . $i] = null;
-                $content['filepath' . $i] = null;
-            } elseif ($i !== 0 && $request->$check_delete === 'no') {
-                dd($request->$check_delete, $request->$filepath_org);
-                if ($request->file('file') != null && array_key_exists($i, $request->file('file'))) {
-                    $savedfile = Common::saveFile($request, $i, $kind);
-                    $tmpname[$i] = $savedfile[0];
-                    $tmppath[$i] = $savedfile[1];
                     $content['filename' . $i] = $savedfile[0];
                     $content['filepath' . $i] = $savedfile[1];
+                }
+            } else {
+                $tmpname[$i] = null;
+                $tmppath[$i] = null;
+                if ($i === 0) {
+                    $content['logo'] = null;
+                    $content['logopath'] = null;
                 } else {
-                    $tmpname[$i] = $filename_org;
-                    $tmppath[$i] = $filepath_org;
-                    $content['filename' . $i] = $filename_org;
-                    $content['filepath' . $i] = $filepath_org;
+                    $content['filename' . $i] = null;
+                    $content['filepath' . $i] = null;
                 }
             }
         }
 
-        // CMSに保存する
+        // CMS DBに保存する
         Shop::create([
             'stamp' => $request->stamp,
             'release' => $request->release,
@@ -134,6 +119,9 @@ class ShopController extends Controller
             'filepath4' => $tmppath[4],
             'content' => $content,
         ]);
+
+        // Jsonに保存する
+        Common::update_Json($content, $kind);
 
         return redirect()
             ->route('shops.index')
@@ -164,6 +152,9 @@ class ShopController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        // 種類を宣言
+        $kind = 'shop';
+
         // 入力値検証
         $request->validate([
             'release' => 'required|string',
@@ -193,9 +184,10 @@ class ShopController extends Controller
             'shop_infos' => $request->shop_infos,
         );
 
+        // 対象データの呼び出し
         $shop = Shop::find($id);
 
-        $kind = 'shop';
+        // ファイル処理
         for ($i = 0; $i < 5; $i++) {
             $check_delete = 'file' . $i . '_delete';
             $filename_org = 'filename' . $i . '_org';
@@ -261,9 +253,12 @@ class ShopController extends Controller
         $shop->content = $content;
         $shop->save();
 
+        // Jsonに保存する
+        Common::update_Json($content, $kind);
+
         return redirect()
             ->route('shops.index')
-            ->with(['message' => '作成しました。', 'status' => 'info']);
+            ->with(['message' => '更新しました。', 'status' => 'info']);
     }
 
     /**
@@ -271,6 +266,43 @@ class ShopController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        // 種類を宣言
+        $kind = 'shop';
+
+        // 対象データを呼び出し
+        $shop = Shop::findOrFail($id);
+
+        // LP内ファイル&CMS内ファイルの完全削除
+        $del_dirpath = null;
+        if (!is_null($shop->logopath)) {
+            Common::delFile($shop->logopath);
+            $del_dirpath = $shop->logopath;
+        }
+        for ($i = 1; $i < 5; $i++) {
+            $del_filepath = 'filepath' . $i;
+            if (!is_null($shop->$del_filepath)) {
+                Common::delFile($shop->$del_filepath);
+                $del_dirpath = $shop->$del_filepath;
+            }
+        }
+
+        // CMSトレージディレクトリを完全削除する
+        $del_dirpath = '/storage/' . $kind . '/' . $shop->stamp;
+        if (Storage::exists($del_dirpath)) {
+            Common::delDir_CMS($del_dirpath);
+        }
+
+        // LP内フォルダの完全削除
+        Common::delDir_LP($kind, $shop->stamp);
+
+        // DBからの完全削除
+        Shop::findOrFail($id)->forcedelete();
+
+        // Jsonからの削除
+        Common::del_Json($kind, $shop->release, $shop->stamp);
+
+        return redirect()
+            ->route('shops.index')
+            ->with(['message' => 'ファイル番号【 ' . $id . ' 】を削除しました。', 'status' => 'alert']);
     }
 }

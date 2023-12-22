@@ -35,16 +35,21 @@ class DocumentController extends Controller
      */
     public function store(Request $request)
     {
+        // 種類を宣言
         $kind = 'document';
+
+        // ファイル数を設定(１つの場合、0)
         $k = 0;
 
+        // 入力評価
         $request->validate([
             'release' => 'required|string',
         ]);
 
+        // ファイル処理
         if ($request->file('file')) {
             $savedfile = Common::saveFile($request, $k, $kind); // ファイルの保存
-            Document::create([ 
+            Document::create([
                 'stamp' => $request->stamp,
                 'release' =>  $request->release,
                 'filename' =>  $savedfile[0],
@@ -78,7 +83,22 @@ class DocumentController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        // 公開状態反転処理
+        $document = Document::findOrFail($id);
+        if ($request->release === 'release') {
+            $document->release = 'draft';
+            $msg_before = '公開';
+            $msg_after = '非公開';
+        } else {
+            $document->release = 'release';
+            $msg_before = '非公開';
+            $msg_after = '公開';
+        }
+        $document->save();
+
+        return redirect()
+            ->route('documents.index')
+            ->with(['message' => '番号 ' . $id . ' を ' . $msg_before . ' から ' . $msg_after . ' に変更しました。', 'status' => 'info']);
     }
 
     /**
@@ -86,14 +106,26 @@ class DocumentController extends Controller
      */
     public function destroy(string $id)
     {
-        $document = Document::findOrFail($id);
-        $stamp = $document->stamp;
+        // 種類を宣言
         $kind = 'document';
 
-        Common::delFile($document->filepath); // LP内ファイル&CMS内ファイルの完全削除
-        Common::delDir_CMS($document->filepath); // CMSトレージディレクトリを完全削除する
-        Common::delDir_LP($kind, $stamp); // LP内フォルダの完全削除
-        Document::findOrFail($id)->forcedelete();  // DBからの完全削除
+        // 対象データを呼び出し
+        $document = Document::findOrFail($id);
+
+
+        $stamp = $document->stamp;
+
+        // LP内ファイル&CMS内ファイルの完全削除
+        Common::delFile($document->filepath);
+
+        // CMSトレージディレクトリを完全削除する
+        Common::delDir_CMS($document->filepath);
+
+        // LP内フォルダの完全削除
+        Common::delDir_LP($kind, $stamp);
+
+        // DBからの完全削除
+        Document::findOrFail($id)->forcedelete();
 
         return redirect()
             ->route('documents.index')

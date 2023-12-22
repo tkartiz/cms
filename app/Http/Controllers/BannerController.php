@@ -7,6 +7,7 @@ use App\Models\Banner;
 use Illuminate\Http\Request;
 
 use App\Libraries\Common;
+
 class BannerController extends Controller
 {
     /**
@@ -26,7 +27,7 @@ class BannerController extends Controller
      */
     public function create()
     {
-        //
+        return view('banners.create');
     }
 
     /**
@@ -34,16 +35,23 @@ class BannerController extends Controller
      */
     public function store(Request $request)
     {
+        // 種類を宣言
         $kind = 'banner';
 
+        // 入力を評価
         $request->validate([
             'release' => 'required|string',
+            'location' => 'required|string',
+            'turn' => 'integer|nullable',
+            'period_start' => 'date|nullable',
+            'period_end' => 'date|nullable',
         ]);
-        
+
+        // ファイル処理
         for ($k = 0; $k < 2; $k++) {
             if ($request->file('file')) {
                 $savedfile = Common::saveFile($request, $k, $kind); // ファイルの保存
-                if($k===0){
+                if ($k === 0) {
                     $name_pc = $savedfile[0];
                     $path_pc = $savedfile[1];
                 } else {
@@ -53,18 +61,41 @@ class BannerController extends Controller
             }
         }
 
-        Banner::create([
+        // LP用情報をまとまる
+        $content = array(
             'stamp' => $request->stamp,
             'release' =>  $request->release,
+            'location' =>  $request->location,
+            'turn' => $request->turn,
+            'period_start' => $request->period_start,
+            'period_end' => $request->period_end,
             'filename_pc' =>  $name_pc,
             'filepath_pc' =>  $path_pc,
             'filename_sp' =>  $name_sp,
             'filepath_sp' =>  $path_sp,
+        );
+
+        // CMS DBに保存する
+        Banner::create([
+            'stamp' => $request->stamp,
+            'release' =>  $request->release,
+            'location' =>  $request->location,
+            'turn' => $request->turn,
+            'period_start' => $request->period_start,
+            'period_end' => $request->period_end,
+            'filename_pc' =>  $name_pc,
+            'filepath_pc' =>  $path_pc,
+            'filename_sp' =>  $name_sp,
+            'filepath_sp' =>  $path_sp,
+            'content' => $content,
         ]);
+
+        // Jsonに保存する
+        Common::update_Json($content, $kind);
 
         return redirect()
             ->route('banners.index')
-            ->with(['message' => 'アップロード成功しました。', 'status' => 'info']);
+            ->with(['message' => 'バナー掲載に成功しました。', 'status' => 'info']);
     }
 
     /**
@@ -80,7 +111,10 @@ class BannerController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $banner = Banner::find($id);
+        return view('banners.edit', [
+            'banner' => $banner,
+        ]);
     }
 
     /**
@@ -88,7 +122,77 @@ class BannerController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        // 種類を宣言
+        $kind = 'banner';
+
+        // 入力を評価
+        $request->validate([
+            'release' => 'required|string',
+            'location' => 'required|string',
+            'turn' => 'integer|nullable',
+            'period_start' => 'date|nullable',
+            'period_end' => 'date|nullable',
+        ]);
+
+        // ファイル処理
+        for ($k = 0; $k < 2; $k++) {
+            if ($request->file('file')) {
+                $savedfile = Common::saveFile($request, $k, $kind); // ファイルの保存
+                if ($k === 0) {
+                    $name_pc = $savedfile[0];
+                    $path_pc = $savedfile[1];
+                } else {
+                    $name_sp = $savedfile[0];
+                    $path_sp = $savedfile[1];
+                }
+            } else {
+                if ($k === 0) {
+                    $name_pc = $request->filename_pc_org;
+                    $path_pc = $request->filepath_pc_org;
+                } else {
+                    $name_sp = $request->filename_sp_org;
+                    $path_sp = $request->filepath_sp_org;
+                }
+            }
+        }
+
+        // LP用情報をまとまる
+        $content = array(
+            'stamp' => $request->stamp,
+            'release' =>  $request->release,
+            'location' =>  $request->location,
+            'turn' => $request->turn,
+            'period_start' => $request->period_start,
+            'period_end' => $request->period_end,
+            'filename_pc' =>  $name_pc,
+            'filepath_pc' =>  $path_pc,
+            'filename_sp' =>  $name_sp,
+            'filepath_sp' =>  $path_sp,
+        );
+
+        // 対象データの呼び出し
+        $banner = Banner::find($id);
+
+        // CMSに保存する
+        $banner->stamp = $request->stamp;
+        $banner->release = $request->release;
+        $banner->location = $request->location;
+        // $banner->turn = $request->turn;
+        $banner->period_start = $request->period_start;
+        $banner->period_end = $request->period_end;
+        $banner->filename_pc = $name_pc;
+        $banner->filepath_pc = $path_pc;
+        $banner->filename_sp =  $name_sp;
+        $banner->filepath_sp =  $path_sp;
+        $banner->content = $content;
+        $banner->save();
+
+        // Jsonに保存する
+        Common::update_Json($content, $kind);
+
+        return redirect()
+            ->route('banners.index')
+            ->with(['message' => '更新しました。', 'status' => 'info']);
     }
 
     /**
@@ -96,14 +200,31 @@ class BannerController extends Controller
      */
     public function destroy(string $id)
     {
-        $banner = Banner::findOrFail($id);
-        $stamp = $banner->stamp;
+        // 種類を宣言
         $kind = 'banner';
 
-        Common::delFile($banner->filepath_pc); // LP内ファイル&CMSフォルダの完全削除
+        // 対象データを呼び出し
+        $banner = Banner::findOrFail($id);
+
+        // LP内ファイル&CMS内ファイルの完全削除
+        Common::delFile($banner->filepath_pc);
         Common::delFile($banner->filepath_sp);
-        Common::delDir_LP($kind, $stamp); // LP内フォルダの完全削除
-        Banner::findOrFail($id)->forcedelete();  // DBからの完全削除
+
+        // CMSトレージディレクトリを完全削除する
+        if (!is_null($banner->filepath_pc)) {
+            Common::delDir_CMS($banner->filepath_pc);
+        } elseif (!is_null($banner->filepath_sp)) {
+            Common::delDir_CMS($banner->filepath_sp);
+        }
+
+        // LP内フォルダの完全削除
+        Common::delDir_LP($kind, $banner->stamp);
+
+        // DBからの完全削除
+        Banner::findOrFail($id)->forcedelete();
+
+        // Jsonからの削除
+        Common::del_Json($kind, $banner->release, $banner->stamp);
 
         return redirect()
             ->route('banners.index')

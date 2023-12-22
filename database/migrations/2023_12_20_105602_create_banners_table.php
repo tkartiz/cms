@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('stamp');
             $table->string('release');
             $table->string('location');
-            $table->string('turn');
+            $table->string('turn')->nullable();
             $table->date('period_start')->nullable();
             $table->date('period_end')->nullable();
             $table->string('filename_pc');

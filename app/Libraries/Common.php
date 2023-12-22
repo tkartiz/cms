@@ -382,7 +382,7 @@ class Common
     public static function delFile($filePath)
     {
         // CMS用削除（完全デリート）
-        $CMS_deletefile = explode('/', $filePath)[2] . '/' . explode('/', $filePath)[3]. '/' . explode('/', $filePath)[4];
+        $CMS_deletefile = explode('/', $filePath)[2] . '/' . explode('/', $filePath)[3] . '/' . explode('/', $filePath)[4];
         Storage::disk('public')->delete($CMS_deletefile);
 
         // LP用削除（完全デリート）
@@ -408,8 +408,8 @@ class Common
     }
     // *****　CMSのアップロードディレクトリ削除関数　************************************************
 
-    
-    
+
+
     // *****　LPのアップロードディレクトリ＆ファイル削除関数　****************************************
     public static function delDir_LP($kind, $stamp)
     {
@@ -440,5 +440,56 @@ class Common
         }
     }
     // *****　LPのアップロードディレクトリ＆ファイル削除関数　****************************************
+
+
+
+
+    // *****　バナー番号降り直し関数　**************************************************************
+    function banner_renumber($elms, $release, $number)
+    {
+        $ids = array_column($elms, 'number');
+        array_multisort($ids, SORT_ASC, $elms);
+
+        if ($number != 0) {
+            $draft_number = 0;
+            $release_number = 0;
+            for ($i = 0; $i < count($elms); $i++) {
+                if ($elms[$i]['release'] === $release && $elms[$i]['release'] === "draft") {
+                    if ($elms[$i]['number'] == $number) {
+                        $elms[$i]['number'] = $number + 1;
+                        $draft_number += 1;
+                    } else {
+                        $elms[$i]['number'] = $elms[$i]['number'] + $draft_number;
+                    }
+                }
+
+                if ($elms[$i]['release'] === $release && $elms[$i]['release'] === "release") {
+                    if ($elms[$i]['number'] == $number) {
+                        $elms[$i]['number'] = $number + 1;
+                        $release_number += 1;
+                    } else {
+                        $elms[$i]['number'] = $elms[$i]['number'] + $release_number;
+                    }
+                }
+            }
+        } else {
+            $draft_number = 0;
+            $release_number = 0;
+            for ($i = 0; $i < count($elms); $i++) {
+                if ($elms[$i]['release'] === "draft") {
+                    $elms[$i]['number'] = $draft_number + 1;
+                    $draft_number += 1;
+                }
+
+                if ($elms[$i]['release'] === "release") {
+                    $elms[$i]['number'] = $release_number + 1;
+                    $release_number += 1;
+                }
+            }
+        }
+
+        return $elms;
+    }
+    // *****　バナー番号降り直し関数　**************************************************************
 
 }

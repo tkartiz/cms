@@ -255,6 +255,7 @@ return [
         'year' => '年',
         "release" => "公開／非公開",
         "category" => "カテゴリー",
+        "location" => "配置場所",
     ],
 
 ];

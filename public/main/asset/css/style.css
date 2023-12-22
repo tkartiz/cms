@@ -45,6 +45,11 @@ button {
   font-size: 90px;
 }
 
+.shop-logo {
+  height: calc(90px * 0.583);
+  width: auto;
+}
+
 .title-fs-sub {
   font-weight: 700;
   font-size: calc(90px * 0.25);
@@ -54,6 +59,11 @@ button {
   .title-fs {
     line-height: calc(70px * 0.583);
     font-size: 70px;
+  }
+
+  .shop-logo {
+    height: calc(70px * 0.583);
+    width: auto;
   }
 
   .title-fs-sub {
@@ -67,6 +77,11 @@ button {
     font-size: 50px;
   }
 
+  .shop-logo {
+    height: calc(50px * 0.583);
+    width: auto;
+  }
+
   .title-fs-sub {
     font-size: calc(60px * 0.25);
   }
@@ -76,6 +91,11 @@ button {
   .title-fs {
     line-height: calc(40px * 0.583);
     font-size: 40px;
+  }
+
+  .shop-logo {
+    height: calc(40px * 0.583);
+    width: auto;
   }
 }
 

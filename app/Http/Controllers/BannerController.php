@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Banner;
+use App\Models\Shop;
 use Illuminate\Http\Request;
 
 use App\Libraries\Common;
@@ -15,7 +16,10 @@ class BannerController extends Controller
      */
     public function index()
     {
-        $banners = Banner::all();
+        $banners = Banner::orderBy('location', 'asc')
+            ->orderBy('turn', 'asc')
+            ->orderBy('id','asc')
+            ->get();
 
         return view('banners.index', [
             'banners' => $banners,
@@ -27,7 +31,10 @@ class BannerController extends Controller
      */
     public function create()
     {
-        return view('banners.create');
+        $shops = Shop::select('stamp', 'name')->get();
+        return view('banners.create',[
+            'shops' => $shops,
+        ]);
     }
 
     /**
@@ -41,10 +48,10 @@ class BannerController extends Controller
         // 入力を評価
         $request->validate([
             'release' => 'required|string',
-            'location' => 'required|string',
             'turn' => 'integer|nullable',
             'period_start' => 'date|nullable',
             'period_end' => 'date|nullable',
+            'url' => 'string|nullable',
         ]);
 
         // ファイル処理
@@ -73,6 +80,7 @@ class BannerController extends Controller
             'filepath_pc' =>  $path_pc,
             'filename_sp' =>  $name_sp,
             'filepath_sp' =>  $path_sp,
+            'url' => $request->url,
         );
 
         // CMS DBに保存する
@@ -87,6 +95,7 @@ class BannerController extends Controller
             'filepath_pc' =>  $path_pc,
             'filename_sp' =>  $name_sp,
             'filepath_sp' =>  $path_sp,
+            'url' => $request->url,
             'content' => $content,
         ]);
 
@@ -112,8 +121,10 @@ class BannerController extends Controller
     public function edit(string $id)
     {
         $banner = Banner::find($id);
+        $shops = Shop::select('stamp', 'name')->get();
         return view('banners.edit', [
             'banner' => $banner,
+            'shops' => $shops,
         ]);
     }
 
@@ -128,10 +139,10 @@ class BannerController extends Controller
         // 入力を評価
         $request->validate([
             'release' => 'required|string',
-            'location' => 'required|string',
             'turn' => 'integer|nullable',
             'period_start' => 'date|nullable',
             'period_end' => 'date|nullable',
+            'url' => 'string|nullable',
         ]);
 
         // ファイル処理
@@ -168,6 +179,7 @@ class BannerController extends Controller
             'filepath_pc' =>  $path_pc,
             'filename_sp' =>  $name_sp,
             'filepath_sp' =>  $path_sp,
+            'url' => $request->url,
         );
 
         // 対象データの呼び出し
@@ -177,7 +189,7 @@ class BannerController extends Controller
         $banner->stamp = $request->stamp;
         $banner->release = $request->release;
         $banner->location = $request->location;
-        // $banner->turn = $request->turn;
+        $banner->turn = $request->turn;
         $banner->period_start = $request->period_start;
         $banner->period_end = $request->period_end;
         $banner->filename_pc = $name_pc;
@@ -185,6 +197,7 @@ class BannerController extends Controller
         $banner->filename_sp =  $name_sp;
         $banner->filepath_sp =  $path_sp;
         $banner->content = $content;
+        $banner->url = $request->url;
         $banner->save();
 
         // Jsonに保存する

@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('filepath_pc');
             $table->string('filename_sp');
             $table->string('filepath_sp');
+            $table->string('url')->nullable();
             $table->json('content')->nullable(); // LP用にJson型で保存する
             $table->timestamps();
         });

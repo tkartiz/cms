@@ -12,8 +12,8 @@
                 <form method="POST" action="{{ route('banners.update', $banner->id) }}" enctype="multipart/form-data">
                     @csrf
                     @method('put')
-                    <div class="p-3 bg-white">
-                        <div class="w-3/4 mx-auto flex">
+                    <div class="w-3/4 mx-auto p-3 bg-white">
+                        <div class="w-full mx-auto flex">
                             <input type="hidden" name="stamp" value="{{ $banner->stamp }}">
                             <div class="p-2 w-1/4">
                                 <p class="font-medium text-gray-700">公開／非公開</p>
@@ -51,7 +51,10 @@
                                 <label for="location" class="font-medium text-gray-700">配置場所</label>
                                 <select requierd id="location" name="location" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-0 px-3 leading-8 transition-colors duration-200 ease-in-out">
                                     <?php
-                                    $locations = ['トップぺージ', 'アクセスマップ', 'エリアマップ', 'サービス', '物産・飲食・物販'];
+                                    $locations = ['トップぺージ', 'エリアマップ', 'サービスゾーン', '物産・飲食・物販ゾーン'];
+                                    foreach ($shops as $shop) :
+                                        $locations[] = $shop->name;
+                                    endforeach;
                                     foreach ($locations as $location) :
                                         if ($location === $banner->location) {
                                     ?>
@@ -65,8 +68,8 @@
                                 </select>
                             </div>
                             <div class="p-2 w-1/4">
-                                <label for="period_start" class="w-20 leading-7 text-sm text-gray-600">順番</label>
-                                <input type="date" id="period_start" name="period_start" value="{{ $banner->period_start }}" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-0 px-3 leading-8 transition-colors duration-200 ease-in-out" style="height:30px" />
+                                <label for="turn" class="w-20 leading-7 text-sm text-gray-600">順番</label>
+                                <input type="integer" id="turn" name="turn" value="{{ $banner->turn }}" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-0 px-3 leading-8 transition-colors duration-200 ease-in-out" style="height:30px" />
                             </div>
                             <div class="p-2 w-1/4">
                                 <p class="font-medium">表示期間</p>
@@ -80,7 +83,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="w-3/4 mx-auto p-2">
+                        <div class="w-full mx-auto p-2">
                             <p class="font-medium">画像</p>
                             <div class="w-full flex">
                                 <div class="w-1/2">
@@ -98,6 +101,10 @@
                                     <img class="w-full p-2" src="{{ asset($banner->filepath_sp) }}" alt="スマホ用画像">
                                 </div>
                             </div>
+                        </div>
+                        <div class="w-1/2 p-2">
+                            <label for="url" class="font-medium py-1 ms-2 text-gray-700">URL</label>
+                            <input id="url" type="text" name="url" value="{{ $banner->url }}" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-0 px-3 leading-8 transition-colors duration-200 ease-in-out">
                         </div>
                     </div>
                     <div class="w-3/4 flex mx-auto my-6">

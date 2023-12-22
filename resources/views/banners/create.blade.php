@@ -11,8 +11,8 @@
                 <x-auth-validation-errors class="mb-4" :errors="$errors" />
                 <form method="POST" action="{{ route('banners.store') }}" enctype="multipart/form-data">
                     @csrf
-                    <div class="p-3 bg-white">
-                        <div class="w-3/4 mx-auto flex">
+                    <div class="w-3/4 mx-auto p-3 bg-white">
+                        <div class="w-full mx-auto flex">
                             <input type="hidden" name="stamp" value="<?php echo time() ?>">
                             <div class="p-2 w-1/3">
                                 <p class="font-medium text-gray-700">公開／非公開</p>
@@ -36,10 +36,13 @@
                                 <select requierd id="location" name="location" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-0 px-3 leading-8 transition-colors duration-200 ease-in-out">
                                     <option selected disabled value="">選択してください／選択なし</option>
                                     <?php
-                                    $locations = ['トップぺージ', 'アクセスマップ', 'エリアマップ', 'サービス', '物産・飲食・物販'];
-                                    foreach($locations as $location):
+                                    $locations = ['トップぺージ', 'エリアマップ', 'サービスゾーン', '物産・飲食・物販ゾーン'];
+                                    foreach ($shops as $shop) :
+                                        $locations[] = $shop->name;
+                                    endforeach;
+                                    foreach ($locations as $location) :
                                     ?>
-                                    <option value="<?php echo $location; ?>"><?php echo $location; ?></option>
+                                        <option value="<?php echo $location; ?>"><?php echo $location; ?></option>
                                     <?php endforeach; ?>
                                 </select>
                             </div>
@@ -55,9 +58,9 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="w-3/4 mx-auto p-2">
+                        <div class="w-full mx-auto p-2">
                             <p class="font-medium">画像</p>
-                            <div class="w-full">
+                            <div class="w-full flex">
                                 <div class="w-1/2">
                                     <label for="pc" class="text-sm py-1 ms-2 text-gray-700">PC用(推奨:300px x 250px)</label>
                                     <input id="pc" class="px-3 m-0" type="file" name="file[]" required>
@@ -67,6 +70,10 @@
                                     <input id="sp" class="px-3 m-0" type="file" name="file[]" required>
                                 </div>
                             </div>
+                        </div>
+                        <div class="w-1/2 p-2">
+                            <label for="url" class="font-medium py-1 ms-2 text-gray-700">URL</label>
+                            <input id="url" type="text" name="url" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-0 px-3 leading-8 transition-colors duration-200 ease-in-out">
                         </div>
                     </div>
                     <div class="w-3/4 flex mx-auto my-6">

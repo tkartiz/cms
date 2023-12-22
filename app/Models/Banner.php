@@ -20,6 +20,7 @@ class Banner extends Model
         'filepath_pc',
         'filename_sp',
         'filepath_sp',
+        'url',
         'content',
     ];
 

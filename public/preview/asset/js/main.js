@@ -52,6 +52,9 @@ window.addEventListener("load", () => {
         var subtitle3 = $(this).find(".fsv-subtitle3");
         subtitle3.addClass("appear");
 
+        var subtitle4 = $(this).find(".fsv-subtitle4");
+        subtitle4.addClass("appear");
+
         var clipText = $(this).find(".clip-text");
         var fadeInText = $(this).find(".fadeIn");
         var container = $(this).find(".effect-inner-container");
@@ -75,6 +78,17 @@ window.addEventListener("scroll", () => {
         if (scroll >= elemPos - windowHeight) {
             $(this).addClass("appear");
             container.addClass("appear");
+            inner.addClass("appear");
+        }
+    });
+
+    $(".recruit-comment-trigger").each(function () {
+        var elemPos = $(this).offset().top - 50;
+        var windowHeight = $(window).height();
+        var inner = $(this).find(".recruit-comment-inner");
+
+        if (scroll >= elemPos - windowHeight) {
+            $(this).addClass("appear");
             inner.addClass("appear");
         }
     });

@@ -29,7 +29,7 @@ if ($level === 3) {
             mb_language("Japanese");
             mb_internal_encoding("UTF-8");
 
-            $to = "t.kamiya@artiz-creative.co.jp,h.taki@artiz-creative.co.jp";
+            $to = "kanagawa_branch@farmersforest.co.jp";
             $title = $_POST['title'];
             $message = "本メールは、「道の駅　湘南ちがさき」HPから【".$_POST['name']."】様からのお問い合わせです。";
             $message .= "\r\n";
@@ -40,7 +40,8 @@ if ($level === 3) {
             $message .= "*********************************************************";
             $headers = "From: " . $_POST['email'];
             $headers .= "\r\n";
-            $headers .= "Cc: t.kamiya@artiz-creative.co.jp";
+            $headers .= "Cc:";
+            $headers .= "Bcc:jigyou@farmersforest.co.jp";
 
             if (mb_send_mail($to, $title, $message, $headers)) {
                 echo '<div class="col-11 col-md-6 mx-auto text-center">';

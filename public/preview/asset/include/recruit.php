@@ -1,11 +1,12 @@
 <?php
 $title_recruit_fonts = array('R', 'e', 'c', 'r', 'u', 'i', 't', 'm', 'e', 'n', 't');
+$recruit_comment_fonts = array('出', '品', '者', '、', '募', '集', '中', '！');
 $delay_time = 0.7;
 ?>
 
 <section id="recruit" class="container position-relative p-0">
     <div class="recruit-img">
-        <div class="title-recruit position-absolute text-end title-effect-trigger ">
+        <div class="title-recruit position-absolute text-end title-effect-trigger">
             <div class="title-font title-fs d-flex mb-2">
                 <?php foreach ($title_recruit_fonts as $title_recruit_font) : ?>
                     <span class="effect-inner-container" style="animation-duration:1s; animation-delay: <?php echo $delay_time; ?>s; ">
@@ -25,20 +26,22 @@ $delay_time = 0.7;
     </div>
     <div class="recruit-comment fadeIn" style="animation-delay: <?php echo $delay_time; ?>s;">
         <div class="recruit-comment-inner d-flex flex-wrap justify-content-center w-100 position-relative ih-ig fw-bold">
-            <div class="recruit-comment-title position-absolute fs-3">出品者様、募集中！</div>
+            <div class="recruit-comment-title position-absolute fs-3 text-center">
+                <span class="recruit-comment-trigger" style="animation-delay: <?php echo $delay_time; ?>s;">出品者様、募集中！</span>
+            </div>
             <div class="col-12 px-4 px-sm-5 col-md-8 px-md-0 mx-auto mb-5">
                 <p class="mb-4">
                     湘南ちがさきのオープンに合わせ<br>
-                    農産品・加工品等の出品者様を広く募集<br>
+                    農産物等の出品者様を広く募集<br>
                     しています！
                 </p>
                 <p class="mb-5">
                     出品を応募される方はオンラインフォーム<br>
                     郵送またはFAXからお申し込みください。
                 </p>
-                <p class="m-2">
-                    <a href="inquiry/fax/2401_出品者募集サンプル.pdf" target="_blank">
-                        <svg id="_レイヤー_2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29.57 23.88" style="width:auto; height:20px;">
+                <!-- <p class="m-2 pick">
+                    <a href="inquiry/fax/事業者募集説明会チラシ・ポスター.pdf" target="_blank">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29.57 23.88" class="me-3" style="width:auto; height:20px;">
                             <defs>
                                 <style>
                                     .cls-1 {
@@ -47,16 +50,16 @@ $delay_time = 0.7;
                                     }
                                 </style>
                             </defs>
-                            <g id="_レイヤー_1-2">
+                            <g>
                                 <path class="cls-1" d="m5.67,10.85L.34,3.09C-.73,1.47.92-.56,2.72.14l25.58,9.94c1.69.66,1.69,3.06,0,3.71L2.72,23.74c-1.81.7-3.45-1.33-2.39-2.95l5.33-7.75c.44-.66.44-1.52,0-2.19Z" />
                             </g>
                         </svg>
                         FAX・郵送でのお申し込み
                     </a>
-                </p>
-                <p class="m-2">
-                    <a href="">
-                        <svg id="_レイヤー_2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29.57 23.88" style="width:auto; height:20px;">
+                </p> -->
+                <p class="m-2 pick">
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdOan7bxdGu69WBCFO0gdYQ9lwd0P7YVKYncjxbaWHU9Yi4gw/viewform" target="_blank">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29.57 23.88" class="me-3" style="width:auto; height:20px;">
                             <defs>
                                 <style>
                                     .cls-1 {
@@ -65,7 +68,7 @@ $delay_time = 0.7;
                                     }
                                 </style>
                             </defs>
-                            <g id="_レイヤー_1-2">
+                            <g>
                                 <path class="cls-1" d="m5.67,10.85L.34,3.09C-.73,1.47.92-.56,2.72.14l25.58,9.94c1.69.66,1.69,3.06,0,3.71L2.72,23.74c-1.81.7-3.45-1.33-2.39-2.95l5.33-7.75c.44-.66.44-1.52,0-2.19Z" />
                             </g>
                         </svg>
@@ -73,9 +76,9 @@ $delay_time = 0.7;
                     </a>
                 </p>
             </div>
-            <div class="col-12 px-2 col-md-8 px-md-0 text-center">
+            <div class="pick col-12 px-2 col-md-8 px-md-0 text-center">
                 <a href="inquiry/">
-                    <p class="m-2 fs-5 d-flex align-items-center justify-content-center">
+                    <p class=m-2 fs-5 d-flex align-items-center justify-content-center">
                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 30 30" class="me-2" style="width:30px; height:30px;" xml:space="preserve">
                             <style type="text/css">
                                 .st0 {

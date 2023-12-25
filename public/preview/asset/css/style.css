@@ -41,30 +41,45 @@ button {
 
 .title-fs {
   font-weight: 900;
-  line-height: calc(90px * 0.583);
-  font-size: 90px;
+  line-height: calc(70px * 0.583);
+  font-size: 70px;
+}
+
+.shop-logo {
+  height: calc(70px * 0.583);
+  width: auto;
 }
 
 .title-fs-sub {
   font-weight: 700;
-  font-size: calc(90px * 0.25);
+  font-size: calc(70px * 0.25);
 }
 
 @media screen and (max-width: 1200px) {
-  .title-fs {
+  /* .title-fs {
     line-height: calc(70px * 0.583);
     font-size: 70px;
   }
 
+  .shop-logo {
+    height: calc(70px * 0.583);
+    width: auto;
+  }
+
   .title-fs-sub {
     font-size: calc(70px * 0.25);
-  }
+  } */
 }
 
 @media screen and (max-width: 576px) {
   .title-fs {
     line-height: calc(50px * 0.583);
     font-size: 50px;
+  }
+
+  .shop-logo {
+    height: calc(50px * 0.583);
+    width: auto;
   }
 
   .title-fs-sub {
@@ -76,6 +91,11 @@ button {
   .title-fs {
     line-height: calc(40px * 0.583);
     font-size: 40px;
+  }
+
+  .shop-logo {
+    height: calc(40px * 0.583);
+    width: auto;
   }
 }
 
@@ -186,7 +206,7 @@ header {
 /* フッター  -------------------------------------------- */
 footer {
   color: #f5f5f5;
-  height: 18vw;
+  height: 12vw;
 }
 
 .waveBaseFooter {
@@ -203,13 +223,23 @@ footer {
   transform: translateX(-50%);
 }
 
+@media screen and (max-width: 1200px) {
+  footer {
+    height: 15vw;
+  }
+}
+
 @media screen and (max-width: 992px) {
   footer {
-    height: 30vw;
+    height: 20vw;
   }
 }
 
 @media screen and (max-width: 768px) {
+  footer {
+    height: 23vw;
+  }
+
   .waveBaseFooter {
     height: 20px;
   }
@@ -217,7 +247,7 @@ footer {
 
 @media screen and (max-width: 576px) {
   footer {
-    height: 40vw;
+    height: 30vw;
   }
 
   .waveBaseFooter {
@@ -230,28 +260,28 @@ footer {
 /* メイン画面 ================================================*/
 /* TOP --------------------------------- */
 #top {
-  height: calc(100vh - 110px);
-  margin-bottom: 30px;
+  height: calc(100vh - 160px);
+  margin-bottom: 80px;
 }
 
 @media screen and (max-width: 1200px) {
   #top {
-    height: calc(100vh - 90px);
-    margin-bottom: 20px;
+    height: calc(100vh - 140px);
+    margin-bottom: 70px;
   }
 }
 
 @media screen and (max-width: 992px) {
   #top {
-    height: calc(100vh - 110px);
-    margin-bottom: 30px;
+    height: calc(100vh - 150px);
+    margin-bottom: 70px;
   }
 }
 
 @media screen and (max-width: 768px) {
   #top {
-    height: calc(100vh - 140px);
-    margin-bottom: 20px;
+    height: calc(100vh - 200px);
+    margin-bottom: 80px;
   }
 }
 
@@ -277,9 +307,20 @@ footer {
   opacity: 0;
 }
 
+.fsv-subtitle4 {
+  color: #e0822d;
+  text-shadow: #ffffff 0 1px 6px;
+  background-color: rgb(198, 182, 83, 0.05);
+  text-align: start;
+  font-weight: bold;
+  font-size: calc((2.6667vw + 24px)* 0.375);
+  opacity: 0;
+}
+
 .fsv-subtitle1.appear,
 .fsv-subtitle2.appear,
-.fsv-subtitle3.appear {
+.fsv-subtitle3.appear,
+.fsv-subtitle4.appear {
   animation-name: topfadeInAnime;
   animation-delay: 1s;
   animation-duration: 1.5s;
@@ -304,15 +345,6 @@ footer {
   font-size: calc((2.6667vw + 24px) * 0.6);
   padding: 0 30px;
   transform: translateX(60px);
-}
-
-.fsv-subtitle4 {
-  color: #ffffff;
-  text-shadow: #393939 0 1px 6px;
-  background-color: rgb(57, 57, 57, 0.035);
-  text-align: start;
-  font-weight: bold;
-  font-size: calc((2.6667vw + 24px)* 0.375);
 }
 
 @media screen and (max-width: 1400px) {
@@ -482,7 +514,7 @@ footer {
 /* ABOUT ---------------------------------*/
 .title-about {
   z-index: 10;
-  top: -3.5rem;
+  top: -3rem;
   left: -2.5rem;
 }
 
@@ -492,8 +524,8 @@ footer {
   position: absolute;
   top: -50%;
   left: 20%;
-  width: calc(90px * 2.11);
-  height: calc(90px * 2.11);
+  width: calc(70px * 2.11);
+  height: calc(70px * 2.11);
   transform: rotate(45deg);
   background-color: #ffffff;
   opacity: 0;
@@ -515,6 +547,14 @@ footer {
   }
 }
 
+.about-message {
+  z-index: 10;
+  position: absolute;
+  bottom: 0px;
+  right: 0;
+  animation-delay: 0.2s;
+}
+
 
 @media screen and (max-width: 1400px) {
   .title-about {
@@ -530,6 +570,12 @@ footer {
   .title-about::after {
     width: calc(70px * 2.11);
     height: calc(70px * 2.11);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .about-message {
+    display: none;
   }
 }
 
@@ -557,15 +603,60 @@ footer {
 
 /* ABOUT ---------------------------------*/
 
+/* SNS ---------------------------------*/
+.sns-title {
+  /* height: 260px; */
+  top: -180px;
+  left: 0;
+  z-index: 10;
+  position: absolute;
+}
+
+.sns-logo {
+  width: 160px;
+  height: 160px;
+}
+
+@media screen and (max-width: 768px) {
+  .sns-title {
+    top: -180px;
+  }
+
+  .sns-logo {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  #sns {
+    margin-top: 0;
+  }
+
+  .sns-title {
+    position: relative;
+    flex-wrap: wrap;
+    top: 0;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  #sns {
+    margin-top: 40px;
+  }
+}
+
+/* SNS ---------------------------------*/
+
 /* 出品者様募集 ---------------------------------*/
 .title-recruit {
   z-index: 10;
-  top: -4.5rem;
+  top: -3.5rem;
   right: -3.5rem;
 }
 
 .title-recruit .title-fs-sub {
-  margin-right: -1rem;
+  margin-right: 2.75rem;
 }
 
 .title-recruit::after {
@@ -574,8 +665,8 @@ footer {
   position: absolute;
   top: -50%;
   right: 5%;
-  width: calc(90px * 2.11);
-  height: calc(90px * 2.11);
+  width: calc(70px * 2.11);
+  height: calc(70px * 2.11);
   transform: rotate(45deg);
   background-color: #ffffff;
   opacity: 0;
@@ -605,6 +696,10 @@ footer {
     width: calc(70px * 2.11);
     height: calc(70px * 2.11);
   }
+
+  .title-recruit .title-fs-sub {
+    margin-right: 2rem;
+  }
 }
 
 @media screen and (max-width: 576px) {
@@ -614,7 +709,7 @@ footer {
   }
 
   .title-recruit .title-fs-sub {
-    margin-right: 0;
+    margin-right: 1.5rem;
   }
 
   .title-recruit::after {
@@ -631,6 +726,10 @@ footer {
   .title-recruit::after {
     width: calc(50px * 2.11);
     height: calc(50px * 2.11);
+  }
+
+  .title-recruit .title-fs-sub {
+    margin-right: 0.75rem;
   }
 }
 
@@ -692,9 +791,37 @@ footer {
 .recruit-comment-title {
   top: -20px;
   left: -40px;
-  background-color: #fff338;
   padding: 1rem 3rem;
+  background-color: #fff338;
   transform: rotate(-8.3deg);
+  opacity: 0;
+  animation-name: recruit-comment-title-anime;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+  animation-delay: 2s;
+}
+
+@keyframes recruit-comment-title-anime {
+  0% {
+    opacity: 0;
+    transform: rotate(-8.3deg) translateX(80%) scaleX(40%);
+  }
+
+  50% {
+    transform: rotate(-8.3deg) translateX(-40%) scaleX(20%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: rotate(-8.3deg) translateX(0) scaleX(100%);
+  }
+}
+
+
+.recruit-comment .pick:hover {
+  color: #24b5f5;
+  transform: translateY(-1px);
 }
 
 @media screen and (max-width: 1200px) {
@@ -756,14 +883,33 @@ footer {
   }
 }
 
-@media screen and (max-width: 375px) {
+@media screen and (max-width: 576px) {
   .recruit-comment-title {
     top: -10px;
-    left: 45px;
-    padding: 0.5rem 2rem;
-    transform: rotate(0deg);
+    left: 50%;
+    padding: 0.5rem 1.5rem;
+    width: 70vw;
+    transform: rotate(0deg) translateX(-50%);
   }
 
+  @keyframes recruit-comment-title-anime {
+    0% {
+      opacity: 0;
+      transform: translateX(30%) scaleX(40%);
+    }
+
+    50% {
+      transform: translateX(-90%) scaleX(20%);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateX(-50%) scaleX(100%);
+    }
+  }
+}
+
+@media screen and (max-width: 375px) {
   .recruit-comment-inner {
     font-size: 1rem;
   }

@@ -49,7 +49,7 @@ if ($level === 3) {
                         <p class="d-none d-md-block w-100 text-center small m-0 fw-bold">お問い合わせ</p>
                     </a>
                 </li>
-                <li class="d-none d-md-flex justify-content-center align-items-center p-2">
+                <!-- <li class="d-none d-md-flex justify-content-center align-items-center p-2">
                     <a href="<?php echo $linkfile . '#sns'; ?>">
                         <div class="w-100 d-flex align-items-baseline justify-content-center">
                             <img src="<?php echo $pre; ?>asset/icon/X.svg" class="" style="margin:5px 0; width:20px; height:20px;">
@@ -58,7 +58,7 @@ if ($level === 3) {
                         </div>
                         <p class="d-none d-md-block w-100 text-center small m-0 mt-2 fw-bold">SNS</p>
                     </a>
-                </li>
+                </li> -->
 
 
                 <!-- google翻訳サイトで翻訳できないため消去　→　Chromeの翻訳機能は正常に使用可能 -->
@@ -160,7 +160,7 @@ if ($level === 3) {
                         <p class="text-muted small">その他</p>
                     </div>
                     <div class="ms-4 d-flex flex-wrap">
-                        <p class="col-6"><a class="jump" href="<?php echo $linkfile; ?>#sns">SNS</a></p>
+                        <!-- <p class="col-6"><a class="jump" href="<?php echo $linkfile; ?>#sns">SNS</a></p> -->
 
                         <!-- <p class="col-6"><a class="jump" href="<?php echo $pre; ?>access/">アクセスマップ</a></p>
                         <p class="col-6"><a class="jump" href="<?php echo $pre; ?>faq/">よくあるご質問</a></p> -->

@@ -9,7 +9,6 @@ $json = mb_convert_encoding($json, 'UTF8', 'ASCII,JIS,UTF-8,EUC-JP,SJIS-WIN');
 $obj = json_decode($json, true);
 
 $insta = [];
-
 foreach ($obj['media']['data'] as $k => $v) {
     if (!empty($v['thumbnail_url'])) {
         $data = [
@@ -26,10 +25,25 @@ foreach ($obj['media']['data'] as $k => $v) {
     }
     $insta[] = $data;
 }
+
+$stores =  glob('asset/img/choice_chigasaki/*.jpg');
+
+$title_sns_fonts = array('C', 'h', 'o', 'i', 'c', 'e', '！');
+
 ?>
 
-<section id="sns" class="mx-auto text-center">
-    <ul class="d-flex justify-content-center gap-3 gap-md-5 p-0 mb-4">
+<section id="sns" class="container mx-auto text-center position-relative">
+    <div class="sns-title d-flex align-items-center">
+        <img src="asset/img/sns/logo.png" alt="" class="sns-logo me-3 me-lg-5">
+        <div class="text-start pt-4 fw-bold">
+            <span class="fs-4">道の駅から発信するオリジナルブランド<br class="d-block d-lg-none">「Choice! CHIGASAKI」</span><br>
+            <p class="ms-0 ms-lg-3">
+                <span class="">茅ヶ崎には、ここにしかないいいもの、もとからあるいいもの、<br class="d-none d-lg-block d-xl-none">茅ヶ崎だからこそのライフスタイルがあります。<br>
+                <span class="">「Choice! CHIGASAKI」は、そんな茅ヶ崎の本質的な魅⼒の発信をしています。</span>
+            </p>
+        </div>
+    </div>
+    <!-- <ul class="d-flex justify-content-center gap-3 gap-md-5 p-0 mb-4">
         <li>
             <a href="" class="d-flex" style="height:40px;">
                 <svg class="me-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 30 30" style="enable-background:new 0 0 30 30;" xml:space="preserve">
@@ -101,24 +115,28 @@ foreach ($obj['media']['data'] as $k => $v) {
                 <p class="d-none d-sm-block title-font m-0 fs-2 d-flex align-self-center" style="color:#1a1a1a;">Twitter</p>
             </a>
             </li>
-    </ul>
-
-    <div class="swiper_sns_container container position-relative overflow-hidden">
+    </ul> -->
+    <div class="swiper_sns_container container position-relative overflow-hidden" style="z-index:-1;">
         <div class="swiper_sns">
-            <div class="swiper-wrapper">
+            <!-- <div class="swiper-wrapper">
                 <?php foreach ($insta as $k => $v) : ?>
-                    <div class="swiper-slide size_swiper_sns px-1">
+                    <div class="swiper-slide size_swiper_sns px-1 overflow-hidden">
                         <a href="' . $v['link'] . '" target="_blank">
                             <img class="impress w-100 h-100 object-fit-cover rounded-2" src="<?php echo $v['img']; ?>">
                         </a>
                     </div>
                 <?php endforeach; ?>
+            </div> -->
+            <div class="swiper-wrapper">
+                <?php foreach ($stores as $store) : ?>
+                    <div class="swiper-slide size_swiper_sns px-1 overflow-hidden">
+                        <img class="impress w-100 h-100 object-fit-cover rounded-2" src="<?php echo $store; ?>">
+                    </div>
+                <?php endforeach; ?>
             </div>
         </div>
-        <!-- 前後の矢印 -->
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-button-next"></div>
-        <!-- ページネーション -->
+        <!-- <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div> -->
         <div class="swiper-pagination"></div>
     </div>
     <!-- <div class="text-muted"><a href="https://www.instagram.com/tk.sample/">view more</a></div> -->

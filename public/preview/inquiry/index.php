@@ -41,23 +41,28 @@ if ($level === 3) {
                 </div>
                 <div class="d-flex justify-content-between align-items-center mb- pt-0">
                     <div class="col-8 col-sm-9 col-md-8">
-                        <p class="title-font title-fs">Inquiry</p>
-                        <p class="title-font title-fs-sub m-0">お問い合わせ</p>
+                        <p class="title-font title-fs">Contact</p>
+                        <!-- <p class="title-font title-fs-sub m-0">お問い合わせ</p> -->
                     </div>
 
                     <div class="col-4 col-sm-3 col-md-2">
-                        <img class="w-100 h-100 object-fit-cover" src="<?php echo $pre; ?>asset/img/news/info_image01.svg" alt="波のイラスト">
+                        <!-- <img class="w-100 h-100 object-fit-cover" src="<?php echo $pre; ?>asset/img/news/info_image01.svg" alt="波のイラスト"> -->
                     </div>
                 </div>
-                <div class="container-fluid">
+                <div class="container-fluid mt-5">
                     <div class="col-md-8 offset-md-2">
-                        <h2 class="fs-1 mb-5 text-center fw-bold">お問い合わせ</h2>
+                        <h2 class="fs-2 mb-4 text-center fw-bold">お問い合わせ</h2>
                         <form method="post" action="mail.php">
                             <div class="mb-3">
                                 <input type="text" class="form-control" name="name" placeholder="名前（必須）" value="" required>
                             </div>
-                            <div class="mb-3">
-                                <input type="text" class="form-control" name="title" placeholder="タイトル（必須）" value="" required>
+                            <div class="mb-3 d-flex align-items-center">
+                                <label for="title" style="width:20%;">タイトル（必須）</label>
+                                <select required id="title" name="title" class="form-control" style="width:80%!important;">
+                                    <option selected disabled value="">選択してください／選択なし</option>
+                                    <option value="出品">出品について</option>
+                                    <option value="その他">その他</option>
+                                </select>
                             </div>
                             <div class="mb-3">
                                 <input type="text" class="form-control" name="email" placeholder="メールアドレス（必須）" value="" required>
@@ -78,7 +83,7 @@ if ($level === 3) {
                     </div>
                 </div>
             </div>
-            <img class="position-absolute bottom-0 start-0" style="width:130px; height:auto; transform:translateY(50%);" src="<?php echo $pre; ?>asset/img/news/surfer.svg" alt="サーファーイラスト">
+            <!-- <img class="position-absolute bottom-0 start-0" style="width:130px; height:auto; transform:translateY(50%);" src="<?php echo $pre; ?>asset/img/news/surfer.svg" alt="サーファーイラスト"> -->
         </div>
     </div>
 

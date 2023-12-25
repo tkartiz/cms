@@ -30,9 +30,14 @@ if ($level === 3) {
 
 <!-- 専用Js読込み start -->
 <!-- メイン -->
-<script src="<?php echo $pre;?>asset/js/main.js?p=(new Date()).getTime()"></script>
+<script src="<?php echo $pre; ?>asset/js/main.js?p=(new Date()).getTime()"></script>
 <!-- 波 -->
-<script src="<?php echo $pre;?>asset/js/wave.js?p=(new Date()).getTime()"></script>
+<?php if ($level === 1) { ?>
+    <script src="<?php echo $pre; ?>asset/js/wave_init1.js?p=(new Date()).getTime()"></script>
+<?php } else { ?>
+    <script src="<?php echo $pre; ?>asset/js/wave_init2.js?p=(new Date()).getTime()"></script>
+<?php } ?>
+<script src="<?php echo $pre; ?>asset/js/wave_func.js?p=(new Date()).getTime()"></script>
 <!-- カウントダウンタイマー -->
-<!-- <script src="<?php echo $pre;?>asset/js/countdown.js?p=(new Date()).getTime()"></script> -->
+<!-- <script src="<?php echo $pre; ?>asset/js/countdown.js?p=(new Date()).getTime()"></script> -->
 <!-- 専用Js読込み end -->

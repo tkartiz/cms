@@ -46,7 +46,7 @@ $delay_time = 0.7;
                     <?php } ?>
                 </div>
             </div>
-            <div class="w-100 mx-auto bg-white mx-3 fadeIn d-block d-lg-none">
+            <div class="w-100 mx-auto bg-white fadeIn d-block d-lg-none">
                 <div class="px-2 pt-3 px-md-4 lh-lg fw-bold">
                     <p class="fs-3 text-center">ALOHA湘南初！茅ヶ崎発！</p>
                     <p class="mb-0">潮風薫る“ちがさき愛”いっぱいの交流拠点。<br>

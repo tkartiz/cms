@@ -19,9 +19,9 @@ $subtitle3_fonts = array('2', '0', '2', '5', '.', '7', '&nbsp;', 'O', 'P', 'E', 
                     <?php endforeach; ?>
                     <?php $delay_time += 0.1; ?>
                 </div>
-                <div class="fsv-subtitle4 fadeIn" style="animation-delay: <?php echo $delay_time; ?>s; ">
+                <div class="fsv-subtitle4" style="animation-delay: <?php echo $delay_time; ?>s; ">
                     <p class="m-0 ps-0 ps-sm-3 ps-md-0">
-                        茅ヶ崎の魅力いっぱい<br>あなたのセカンドリビング
+                        茅ヶ崎の魅力いっぱい<br><span style="color:#db62e0;">湘南初</span>の道の駅が誕生！
                     </p>
                 </div>
             </div>

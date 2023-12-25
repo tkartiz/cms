@@ -39,7 +39,7 @@ $delay_time = 0.7;
                     出品を応募される方はオンラインフォーム<br>
                     郵送またはFAXからお申し込みください。
                 </p>
-                <!-- <p class="m-2 pick">
+                <p class="m-2 pick">
                     <a href="inquiry/fax/事業者募集説明会チラシ・ポスター.pdf" target="_blank">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29.57 23.88" class="me-3" style="width:auto; height:20px;">
                             <defs>
@@ -54,10 +54,10 @@ $delay_time = 0.7;
                                 <path class="cls-1" d="m5.67,10.85L.34,3.09C-.73,1.47.92-.56,2.72.14l25.58,9.94c1.69.66,1.69,3.06,0,3.71L2.72,23.74c-1.81.7-3.45-1.33-2.39-2.95l5.33-7.75c.44-.66.44-1.52,0-2.19Z" />
                             </g>
                         </svg>
-                        FAX・郵送でのお申し込み
+                        募集の詳細はこちら
                     </a>
-                </p> -->
-                <p class="m-2 pick">
+                </p>
+                <!-- <p class="m-2 pick">
                     <a href="https://docs.google.com/forms/d/e/1FAIpQLSdOan7bxdGu69WBCFO0gdYQ9lwd0P7YVKYncjxbaWHU9Yi4gw/viewform" target="_blank">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29.57 23.88" class="me-3" style="width:auto; height:20px;">
                             <defs>
@@ -74,7 +74,7 @@ $delay_time = 0.7;
                         </svg>
                         オンラインでのお申し込み
                     </a>
-                </p>
+                </p> -->
             </div>
             <div class="pick col-12 px-2 col-md-8 px-md-0 text-center">
                 <a href="inquiry/">

@@ -4,7 +4,7 @@
     <div class="swiper-wrapper">
       <?php if (!is_null($announces)) { ?>
         <?php foreach ($announces as $announce) : ?>
-          <div class="swiper-slide pe-3" style="color: #24b5f5;">
+          <div class="swiper-slide pe-3">
             <a class="text-decoration-none" href="news/index.php?filename=<?php echo $announce["stamp"]; ?>">
               <p class="swiper_newsbar_title w-100 px-3 text-truncate">
                 <?php if ($announce['item'] === "event") { ?>
@@ -44,7 +44,7 @@
   } else {
     const swiper_newsbar = new Swiper(".swiper_newsbar", {
       loop: true, // ループ有効
-      slidesPerView: 2, // 一度に表示する枚数
+      slidesPerView: 3, // 一度に表示する枚数
       speed: 8000, // ループの時間
       allowTouchMove: false, // スワイプ無効
       autoplay: {

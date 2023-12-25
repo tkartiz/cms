@@ -45,44 +45,20 @@ if ($current_page = $total_pages) {
                         <li class="breadcrumb-item active" aria-current="page">お知らせ一覧</li>
                     </ol>
                 </nav>
-                <a href="../index.php">ホーム</a>
             </div>
             <div class="d-flex justify-content-between align-items-center mb-2 pt-0 pt-md-2">
                 <div class="col-8 col-sm-9 col-md-8">
                     <p class="title-font title-fs">Info-list</p>
-                    <ul class="d-flex gap-4 p-0 m-0">
+                    <!-- <ul class="d-flex gap-4 p-0 m-0">
                         <li id="all" class="title-font title-fs-sub m-0" style="cursor:pointer;">すべて</li>
                         <li id="event" class="title-font title-fs-sub m-0" style="cursor:pointer;">イベント</li>
                         <li id="press" class="title-font title-fs-sub m-0" style="cursor:pointer;">お知らせ</li>
-                    </ul>
-                </div>
-                <div class="col-4 col-sm-3 col-md-2">
-                    <img class="w-100 h-100 object-fit-cover" src="../asset/img/news/info_image01.svg" alt="波のイラスト">
+                    </ul> -->
                 </div>
             </div>
-            <nav aria-label="Page navigation">
-                <?php if ($total_pages > 0) { ?>
-                    <ul class="pagination d-flex justify-content-center m-0">
-                        <li class="page-item">
-                            <a class="page-link border-0" style="background-color:#f5f5f5!important;" href="<?php echo 'list.php?page=' . $previous_page; ?>" aria-label="Previous">
-                                <span aria-hidden="true">&laquo;</span>
-                            </a>
-                        </li>
-                        <?php for ($i = 1; $i <= $total_pages; $i++) { ?>
-                            <li class="page-item"><a class="page-link border-0" style="background-color:#f5f5f5!important;" href="<?php echo 'list.php?page=' . $i; ?>"><?php echo $i; ?></a></li>
-                        <?php } ?>
-                        <li class="page-item">
-                            <a class="page-link border-0" style="background-color:#f5f5f5!important;" href="<?php echo 'list.php?page=' . $next_page; ?>" aria-label="Next">
-                                <span aria-hidden="true">&raquo;</span>
-                            </a>
-                        </li>
-                    </ul>
-                <?php } ?>
-            </nav>
-
-
+            
             <?php if (count($announces) > 0) { ?>
-                <div class="w-100 mx-auto" style="height:<?php echo (int)$list_height; ?>px;">
+                <div class="w-100 mx-auto" style="height:<?php echo (int)$list_height; ?>px; margin-top:30px;">
                     <?php
                     foreach ($announces as $announce) :
                         if ($count > $max) {
@@ -116,10 +92,26 @@ if ($current_page = $total_pages) {
                     <p class="align-self-center fs-5 fw-bold">現在、お知らせはありません。</p>
                 </div>
             <?php } ?>
+            <nav aria-label="Page navigation">
+                <?php if ($total_pages > 0) { ?>
+                    <ul class="pagination d-flex justify-content-center m-0">
+                        <li class="page-item">
+                            <a class="page-link border-0" style="background-color:#f5f5f5!important;" href="<?php echo 'list.php?page=' . $previous_page; ?>" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                        <?php for ($i = 1; $i <= $total_pages; $i++) { ?>
+                            <li class="page-item"><a class="page-link border-0" style="background-color:#f5f5f5!important;" href="<?php echo 'list.php?page=' . $i; ?>"><?php echo $i; ?></a></li>
+                        <?php } ?>
+                        <li class="page-item">
+                            <a class="page-link border-0" style="background-color:#f5f5f5!important;" href="<?php echo 'list.php?page=' . $next_page; ?>" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    </ul>
+                <?php } ?>
+            </nav>
 
-        </div>
-        <div class="w-100 position-relative">
-            <img class="news-illust" src="../asset/img/news/surfer.svg" alt="サーファーイラスト">
         </div>
     </div>
 

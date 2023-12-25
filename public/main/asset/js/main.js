@@ -79,6 +79,17 @@ window.addEventListener("scroll", () => {
         }
     });
 
+    $(".recruit-comment-trigger").each(function () {
+        var elemPos = $(this).offset().top - 50;
+        var windowHeight = $(window).height();
+        var inner = $(this).find(".recruit-comment-inner");
+
+        if (scroll >= elemPos - windowHeight) {
+            $(this).addClass("appear");
+            inner.addClass("appear");
+        }
+    });
+
     $(".fadeIn").each(function () {
         var elemPos = $(this).offset().top - 50;
         var windowHeight = $(window).height();

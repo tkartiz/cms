@@ -18,7 +18,7 @@ class BannerController extends Controller
     {
         $banners = Banner::orderBy('location', 'asc')
             ->orderBy('turn', 'asc')
-            ->orderBy('id','asc')
+            ->orderBy('id', 'asc')
             ->get();
 
         return view('banners.index', [
@@ -32,7 +32,7 @@ class BannerController extends Controller
     public function create()
     {
         $shops = Shop::select('stamp', 'name')->get();
-        return view('banners.create',[
+        return view('banners.create', [
             'shops' => $shops,
         ]);
     }

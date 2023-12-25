@@ -112,6 +112,7 @@
                                                 <?php }; ?>
                                             </td>
                                             <td rowspan="2" class="border border-slate-300">
+                                                
                                                 @if($banner->release === "release")
                                                 <a href="#!" target='_BLANK' class="w-full p-1 text-center">
                                                     @else

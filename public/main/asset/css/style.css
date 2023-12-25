@@ -206,7 +206,7 @@ header {
 /* フッター  -------------------------------------------- */
 footer {
   color: #f5f5f5;
-  height: 18vw;
+  height: 12vw;
 }
 
 .waveBaseFooter {
@@ -223,13 +223,23 @@ footer {
   transform: translateX(-50%);
 }
 
+@media screen and (max-width: 1200px) {
+  footer {
+    height: 15vw;
+  }
+}
+
 @media screen and (max-width: 992px) {
   footer {
-    height: 30vw;
+    height: 20vw;
   }
 }
 
 @media screen and (max-width: 768px) {
+  footer {
+    height: 23vw;
+  }
+
   .waveBaseFooter {
     height: 20px;
   }
@@ -237,7 +247,7 @@ footer {
 
 @media screen and (max-width: 576px) {
   footer {
-    height: 40vw;
+    height: 30vw;
   }
 
   .waveBaseFooter {
@@ -250,28 +260,28 @@ footer {
 /* メイン画面 ================================================*/
 /* TOP --------------------------------- */
 #top {
-  height: calc(100vh - 110px);
-  margin-bottom: 30px;
+  height: calc(100vh - 160px);
+  margin-bottom: 80px;
 }
 
 @media screen and (max-width: 1200px) {
   #top {
-    height: calc(100vh - 90px);
-    margin-bottom: 20px;
+    height: calc(100vh - 140px);
+    margin-bottom: 70px;
   }
 }
 
 @media screen and (max-width: 992px) {
   #top {
-    height: calc(100vh - 110px);
-    margin-bottom: 30px;
+    height: calc(100vh - 150px);
+    margin-bottom: 70px;
   }
 }
 
 @media screen and (max-width: 768px) {
   #top {
-    height: calc(100vh - 140px);
-    margin-bottom: 20px;
+    height: calc(100vh - 200px);
+    margin-bottom: 80px;
   }
 }
 
@@ -585,7 +595,7 @@ footer {
 }
 
 .title-recruit .title-fs-sub {
-  margin-right: -1rem;
+  margin-right: 2.75rem;
 }
 
 .title-recruit::after {
@@ -625,6 +635,10 @@ footer {
     width: calc(70px * 2.11);
     height: calc(70px * 2.11);
   }
+
+  .title-recruit .title-fs-sub {
+    margin-right: 2rem;
+  }
 }
 
 @media screen and (max-width: 576px) {
@@ -634,7 +648,7 @@ footer {
   }
 
   .title-recruit .title-fs-sub {
-    margin-right: 0;
+    margin-right: 1.5rem;
   }
 
   .title-recruit::after {
@@ -651,6 +665,10 @@ footer {
   .title-recruit::after {
     width: calc(50px * 2.11);
     height: calc(50px * 2.11);
+  }
+
+  .title-recruit .title-fs-sub {
+    margin-right: 0.75rem;
   }
 }
 
@@ -712,9 +730,37 @@ footer {
 .recruit-comment-title {
   top: -20px;
   left: -40px;
-  background-color: #fff338;
   padding: 1rem 3rem;
+  background-color: #fff338;
   transform: rotate(-8.3deg);
+  opacity: 0;
+  animation-name: recruit-comment-title-anime;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+  animation-delay: 2s;
+}
+
+@keyframes recruit-comment-title-anime {
+  0% {
+    opacity: 0;
+    transform: rotate(-8.3deg) translateX(80%) scaleX(40%);
+  }
+
+  50% {
+    transform: rotate(-8.3deg) translateX(-40%) scaleX(20%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: rotate(-8.3deg) translateX(0) scaleX(100%);
+  }
+}
+
+
+.recruit-comment .pick:hover {
+  color: #24b5f5;
+  transform: translateY(-1px);
 }
 
 @media screen and (max-width: 1200px) {
@@ -776,14 +822,33 @@ footer {
   }
 }
 
-@media screen and (max-width: 375px) {
+@media screen and (max-width: 576px) {
   .recruit-comment-title {
     top: -10px;
-    left: 45px;
-    padding: 0.5rem 2rem;
-    transform: rotate(0deg);
+    left: 50%;
+    padding: 0.5rem 1.5rem;
+    width: 70vw;
+    transform: rotate(0deg) translateX(-50%);
   }
 
+  @keyframes recruit-comment-title-anime {
+    0% {
+      opacity: 0;
+      transform: translateX(30%) scaleX(40%);
+    }
+
+    50% {
+      transform: translateX(-90%) scaleX(20%);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateX(-50%) scaleX(100%);
+    }
+  }
+}
+
+@media screen and (max-width: 375px) {
   .recruit-comment-inner {
     font-size: 1rem;
   }

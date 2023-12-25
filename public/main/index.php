@@ -79,9 +79,9 @@ $slider_height = '400px';
     // section間隙間設定
     var screenWidth = $(window).width();
     if (screenWidth < 1401) {
-      sectionMargin = 350;
+      sectionMargin = 240;
     } else {
-      sectionMargin = 400;
+      sectionMargin = 300;
     }
     document.documentElement.style.setProperty('--sectionMargin', sectionMargin + 'px');
     // section間隙間設定
@@ -91,7 +91,7 @@ $slider_height = '400px';
     const news_bar_h = document.getElementById('news_bar').clientHeight;
     const about_h = document.getElementById('about').clientHeight;
     const sns_h = document.getElementById('sns').clientHeight;
-    const anime_top = top_h + news_bar_h + about_h + sectionMargin * 2 + sns_h / 2;
+    const anime_top = top_h + news_bar_h + about_h + sectionMargin * 2.15 + sns_h / 2;
     document.documentElement.style.setProperty('--animeTop', anime_top + 'px');
     // 背景アニメーション位置設定
 

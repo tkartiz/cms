@@ -31,23 +31,19 @@ if ($level === 3) {
             <p class="m-0">道の駅<br><span class="fs-3">湘南ちがさき</span></p>
         </div>
         <div class="position-relative">
-            <div style="padding:120px 0 80px;">
+            <div style="padding:0 0 50px;">
                 <div class="d-flex justify-content-between">
                     <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="<?php echo $linkfile; ?>">ホーム</a></li>
+                            <li class="breadcrumb-item"><a href="list.php?page=1">お知らせ一覧</a></li>
                             <li class="breadcrumb-item active" aria-current="page">お知らせ</li>
                         </ol>
                     </nav>
-                    <a href="list.php?page=1">お知らせ一覧</a>
                 </div>
-                <div class="d-flex justify-content-between align-items-center mb-5 pt-4">
+                <div class="d-flex justify-content-between align-items-center mb-5 pt-3">
                     <div class="col-2">
                         <p class="title-font title-fs">Info</p>
-                        <p class="title-font title-fs-sub m-0">お知らせ</p>
-                    </div>
-                    <div class="col-2">
-                        <img class="w-100 h-100 object-fit-cover" src="<?php echo $pre; ?>asset/img/news/info_image01.svg" alt="波のイラスト">
                     </div>
                 </div>
 
@@ -59,7 +55,6 @@ if ($level === 3) {
                     <?php endforeach; ?>
                 </div>
             </div>
-            <img class="position-absolute bottom-0 start-0" style="width:170px; height:auto; transform:translateY(50%);" src="<?php echo $pre; ?>asset/img/news/surfer.svg" alt="サーファーイラスト">
         </div>
     </div>
 

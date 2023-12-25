@@ -52,6 +52,9 @@ window.addEventListener("load", () => {
         var subtitle3 = $(this).find(".fsv-subtitle3");
         subtitle3.addClass("appear");
 
+        var subtitle4 = $(this).find(".fsv-subtitle4");
+        subtitle4.addClass("appear");
+
         var clipText = $(this).find(".clip-text");
         var fadeInText = $(this).find(".fadeIn");
         var container = $(this).find(".effect-inner-container");

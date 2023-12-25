@@ -41,22 +41,22 @@ button {
 
 .title-fs {
   font-weight: 900;
-  line-height: calc(90px * 0.583);
-  font-size: 90px;
+  line-height: calc(70px * 0.583);
+  font-size: 70px;
 }
 
 .shop-logo {
-  height: calc(90px * 0.583);
+  height: calc(70px * 0.583);
   width: auto;
 }
 
 .title-fs-sub {
   font-weight: 700;
-  font-size: calc(90px * 0.25);
+  font-size: calc(70px * 0.25);
 }
 
 @media screen and (max-width: 1200px) {
-  .title-fs {
+  /* .title-fs {
     line-height: calc(70px * 0.583);
     font-size: 70px;
   }
@@ -68,7 +68,7 @@ button {
 
   .title-fs-sub {
     font-size: calc(70px * 0.25);
-  }
+  } */
 }
 
 @media screen and (max-width: 576px) {
@@ -307,9 +307,20 @@ footer {
   opacity: 0;
 }
 
+.fsv-subtitle4 {
+  color: #e0822d;
+  text-shadow: #ffffff 0 1px 6px;
+  background-color: rgb(198, 182, 83, 0.05);
+  text-align: start;
+  font-weight: bold;
+  font-size: calc((2.6667vw + 24px)* 0.375);
+  opacity: 0;
+}
+
 .fsv-subtitle1.appear,
 .fsv-subtitle2.appear,
-.fsv-subtitle3.appear {
+.fsv-subtitle3.appear,
+.fsv-subtitle4.appear {
   animation-name: topfadeInAnime;
   animation-delay: 1s;
   animation-duration: 1.5s;
@@ -334,15 +345,6 @@ footer {
   font-size: calc((2.6667vw + 24px) * 0.6);
   padding: 0 30px;
   transform: translateX(60px);
-}
-
-.fsv-subtitle4 {
-  color: #ffffff;
-  text-shadow: #393939 0 1px 6px;
-  background-color: rgb(57, 57, 57, 0.035);
-  text-align: start;
-  font-weight: bold;
-  font-size: calc((2.6667vw + 24px)* 0.375);
 }
 
 @media screen and (max-width: 1400px) {
@@ -512,7 +514,7 @@ footer {
 /* ABOUT ---------------------------------*/
 .title-about {
   z-index: 10;
-  top: -3.5rem;
+  top: -3rem;
   left: -2.5rem;
 }
 
@@ -522,8 +524,8 @@ footer {
   position: absolute;
   top: -50%;
   left: 20%;
-  width: calc(90px * 2.11);
-  height: calc(90px * 2.11);
+  width: calc(70px * 2.11);
+  height: calc(70px * 2.11);
   transform: rotate(45deg);
   background-color: #ffffff;
   opacity: 0;
@@ -545,6 +547,14 @@ footer {
   }
 }
 
+.about-message {
+  z-index: 10;
+  position: absolute;
+  bottom: 0px;
+  right: 0;
+  animation-delay: 0.2s;
+}
+
 
 @media screen and (max-width: 1400px) {
   .title-about {
@@ -560,6 +570,12 @@ footer {
   .title-about::after {
     width: calc(70px * 2.11);
     height: calc(70px * 2.11);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .about-message {
+    display: none;
   }
 }
 
@@ -587,403 +603,447 @@ footer {
 
 /* ABOUT ---------------------------------*/
 
-/* 出品者様募集 ---------------------------------*/
-.title-recruit {
+/* SNS ---------------------------------*/
+.sns-title {
+  /* height: 260px; */
+  top: -180px;
+  left: 0;
   z-index: 10;
-  top: -4.5rem;
-  right: -3.5rem;
-}
-
-.title-recruit .title-fs-sub {
-  margin-right: 2.75rem;
-}
-
-.title-recruit::after {
-  content: '';
-  z-index: -1;
   position: absolute;
-  top: -50%;
-  right: 5%;
-  width: calc(90px * 2.11);
-  height: calc(90px * 2.11);
-  transform: rotate(45deg);
-  background-color: #ffffff;
-  opacity: 0;
 }
 
-.title-recruit.appear::after {
-  animation-name: titlefadeInAnime;
-  /* aboutのタイトルと共有 */
-  animation-duration: 1.5s;
-  animation-fill-mode: forwards;
+.sns-logo {
+  width: 160px;
+  height: 160px;
 }
 
-@media screen and (max-width: 1400px) {
-  .title-recruit {
-    top: -4rem;
-    right: 0;
-  }
-}
-
-@media screen and (max-width: 1200px) {
-  .title-recruit {
-    top: -3rem;
-    right: -1rem;
+@media screen and (max-width: 768px) {
+  .sns-title {
+    top: -180px;
   }
 
-  .title-recruit::after {
-    width: calc(70px * 2.11);
-    height: calc(70px * 2.11);
-  }
-
-  .title-recruit .title-fs-sub {
-    margin-right: 2rem;
+  .sns-logo {
+    width: 120px;
+    height: 120px;
   }
 }
 
 @media screen and (max-width: 576px) {
-  .title-recruit {
-    top: -2.75rem;
-    right: 0;
+  #sns {
+    margin-top: 0;
   }
 
-  .title-recruit .title-fs-sub {
-    margin-right: 1.5rem;
-  }
-
-  .title-recruit::after {
-    width: calc(60px * 2.11);
-    height: calc(60px * 2.11);
+  .sns-title {
+    position: relative;
+    flex-wrap: wrap;
+    top: 0;
   }
 }
 
 @media screen and (max-width: 375px) {
-  .title-recruit {
-    top: -2rem;
+  #sns {
+    margin-top: 40px;
   }
 
-  .title-recruit::after {
-    width: calc(50px * 2.11);
-    height: calc(50px * 2.11);
+  /* SNS ---------------------------------*/
+
+  /* 出品者様募集 ---------------------------------*/
+  .title-recruit {
+    z-index: 10;
+    top: -3.5rem;
+    right: -3.5rem;
   }
 
   .title-recruit .title-fs-sub {
-    margin-right: 0.75rem;
+    margin-right: 2.75rem;
   }
-}
 
-#recruit {
-  height: 780px;
-}
-
-.recruit-img {
-  position: absolute;
-  z-index: 0;
-  width: 890px;
-  top: 0;
-  right: 0;
-}
-
-.recruit-img-outer {
-  height: 586px;
-}
-
-.recruit-img-inner {
-  z-index: 5;
-  width: calc(890px - 60px);
-  height: calc(586px - 34px);
-  background-image: url(../img/recruit/image.jpg);
-  background-size: cover;
-  background-position: 70% 50%;
-  border-radius: 15px;
-}
-
-.recruit-img-frm1 {
-  width: calc(890px - 30px);
-  height: calc(586px - 17px);
-  background-color: #05b9d7;
-  border-radius: 25px;
-}
-
-.recruit-img-frm2 {
-  width: calc(890px - 30px);
-  height: calc(586px - 17px);
-  background-color: #c7e4ee;
-  border-radius: 25px;
-}
-
-.recruit-comment {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  z-index: 10;
-  width: 580px;
-  height: 610px;
-  background-color: #ffffff;
-}
-
-.recruit-comment-inner {
-  padding: 100px 0;
-  font-size: 1.25rem;
-}
-
-.recruit-comment-title {
-  top: -20px;
-  left: -40px;
-  padding: 1rem 3rem;
-  background-color: #fff338;
-  transform: rotate(-8.3deg);
-  opacity: 0;
-  animation-name: recruit-comment-title-anime;
-  animation-duration: 1s;
-  animation-timing-function: ease-in-out;
-  animation-fill-mode: forwards;
-  animation-delay: 2s;
-}
-
-@keyframes recruit-comment-title-anime {
-  0% {
+  .title-recruit::after {
+    content: '';
+    z-index: -1;
+    position: absolute;
+    top: -50%;
+    right: 5%;
+    width: calc(70px * 2.11);
+    height: calc(70px * 2.11);
+    transform: rotate(45deg);
+    background-color: #ffffff;
     opacity: 0;
-    transform: rotate(-8.3deg) translateX(80%) scaleX(40%);
   }
 
-  50% {
-    transform: rotate(-8.3deg) translateX(-40%) scaleX(20%);
+  .title-recruit.appear::after {
+    animation-name: titlefadeInAnime;
+    /* aboutのタイトルと共有 */
+    animation-duration: 1.5s;
+    animation-fill-mode: forwards;
   }
 
-  100% {
-    opacity: 1;
-    transform: rotate(-8.3deg) translateX(0) scaleX(100%);
+  @media screen and (max-width: 1400px) {
+    .title-recruit {
+      top: -4rem;
+      right: 0;
+    }
   }
-}
 
+  @media screen and (max-width: 1200px) {
+    .title-recruit {
+      top: -3rem;
+      right: -1rem;
+    }
 
-.recruit-comment .pick:hover {
-  color: #24b5f5;
-  transform: translateY(-1px); 
-}
+    .title-recruit::after {
+      width: calc(70px * 2.11);
+      height: calc(70px * 2.11);
+    }
 
-@media screen and (max-width: 1200px) {
-  .recruit-img {
-    position: relative;
-    margin: 0 auto;
+    .title-recruit .title-fs-sub {
+      margin-right: 2rem;
+    }
+  }
+
+  @media screen and (max-width: 576px) {
+    .title-recruit {
+      top: -2.75rem;
+      right: 0;
+    }
+
+    .title-recruit .title-fs-sub {
+      margin-right: 1.5rem;
+    }
+
+    .title-recruit::after {
+      width: calc(60px * 2.11);
+      height: calc(60px * 2.11);
+    }
+  }
+
+  @media screen and (max-width: 375px) {
+    .title-recruit {
+      top: -2rem;
+    }
+
+    .title-recruit::after {
+      width: calc(50px * 2.11);
+      height: calc(50px * 2.11);
+    }
+
+    .title-recruit .title-fs-sub {
+      margin-right: 0.75rem;
+    }
   }
 
   #recruit {
-    height: auto;
+    height: 780px;
   }
 
-  .recruit-comment {
-    position: relative;
-    height: auto;
-    margin: -80px auto 0;
-  }
-}
-
-@media screen and (max-width: 768px) {
   .recruit-img {
-    width: 96%;
+    position: absolute;
+    z-index: 0;
+    width: 890px;
+    top: 0;
+    right: 0;
   }
 
   .recruit-img-outer {
-    height: 45vh;
+    height: 586px;
   }
 
   .recruit-img-inner {
-    width: calc(96% - 60px);
-    height: calc(45vh - 34px);
+    z-index: 5;
+    width: calc(890px - 60px);
+    height: calc(586px - 34px);
+    background-image: url(../img/recruit/image.jpg);
+    background-size: cover;
     background-position: 70% 50%;
+    border-radius: 15px;
   }
 
   .recruit-img-frm1 {
-    width: calc(96% - 30px);
-    height: calc(45vh - 17px);
+    width: calc(890px - 30px);
+    height: calc(586px - 17px);
+    background-color: #05b9d7;
+    border-radius: 25px;
   }
 
   .recruit-img-frm2 {
-    width: calc(96% - 30px);
-    height: calc(45vh - 17px);
+    width: calc(890px - 30px);
+    height: calc(586px - 17px);
+    background-color: #c7e4ee;
+    border-radius: 25px;
   }
 
   .recruit-comment {
-    margin-top: 0;
-    width: 96%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+    width: 580px;
+    height: 610px;
+    background-color: #ffffff;
+  }
+
+  .recruit-comment-inner {
+    padding: 100px 0;
+    font-size: 1.25rem;
   }
 
   .recruit-comment-title {
     top: -20px;
-    left: -25px;
+    left: -40px;
     padding: 1rem 3rem;
+    background-color: #fff338;
     transform: rotate(-8.3deg);
-  }
-
-  .recruit-comment-inner {
-    padding: 60px 0;
-  }
-}
-
-@media screen and (max-width: 576px) {
-  .recruit-comment-title {
-    top: -10px;
-    left: 50%;
-    padding: 0.5rem 1.5rem;
-    width: 70vw;
-    transform: rotate(0deg) translateX(-50%);
+    opacity: 0;
+    animation-name: recruit-comment-title-anime;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+    animation-delay: 2s;
   }
 
   @keyframes recruit-comment-title-anime {
     0% {
       opacity: 0;
-      transform: translateX(30%) scaleX(40%);
+      transform: rotate(-8.3deg) translateX(80%) scaleX(40%);
     }
 
     50% {
-      transform: translateX(-90%) scaleX(20%);
+      transform: rotate(-8.3deg) translateX(-40%) scaleX(20%);
     }
 
     100% {
       opacity: 1;
-      transform: translateX(-50%) scaleX(100%);
+      transform: rotate(-8.3deg) translateX(0) scaleX(100%);
     }
   }
-}
 
-@media screen and (max-width: 375px) {
-  .recruit-comment-inner {
-    font-size: 1rem;
+
+  .recruit-comment .pick:hover {
+    color: #24b5f5;
+    transform: translateY(-1px);
   }
-}
 
-/* 出品者様募集 ---------------------------------*/
-/* メイン画面 ================================================*/
+  @media screen and (max-width: 1200px) {
+    .recruit-img {
+      position: relative;
+      margin: 0 auto;
+    }
+
+    #recruit {
+      height: auto;
+    }
+
+    .recruit-comment {
+      position: relative;
+      height: auto;
+      margin: -80px auto 0;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .recruit-img {
+      width: 96%;
+    }
+
+    .recruit-img-outer {
+      height: 45vh;
+    }
+
+    .recruit-img-inner {
+      width: calc(96% - 60px);
+      height: calc(45vh - 34px);
+      background-position: 70% 50%;
+    }
+
+    .recruit-img-frm1 {
+      width: calc(96% - 30px);
+      height: calc(45vh - 17px);
+    }
+
+    .recruit-img-frm2 {
+      width: calc(96% - 30px);
+      height: calc(45vh - 17px);
+    }
+
+    .recruit-comment {
+      margin-top: 0;
+      width: 96%;
+    }
+
+    .recruit-comment-title {
+      top: -20px;
+      left: -25px;
+      padding: 1rem 3rem;
+      transform: rotate(-8.3deg);
+    }
+
+    .recruit-comment-inner {
+      padding: 60px 0;
+    }
+  }
+
+  @media screen and (max-width: 576px) {
+    .recruit-comment-title {
+      top: -10px;
+      left: 50%;
+      padding: 0.5rem 1.5rem;
+      width: 70vw;
+      transform: rotate(0deg) translateX(-50%);
+    }
+
+    @keyframes recruit-comment-title-anime {
+      0% {
+        opacity: 0;
+        transform: translateX(30%) scaleX(40%);
+      }
+
+      50% {
+        transform: translateX(-90%) scaleX(20%);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateX(-50%) scaleX(100%);
+      }
+    }
+  }
+
+  @media screen and (max-width: 375px) {
+    .recruit-comment-inner {
+      font-size: 1rem;
+    }
+  }
+
+  /* 出品者様募集 ---------------------------------*/
+  /* メイン画面 ================================================*/
 
 
 
-/* お知らせ画面 ================================================*/
-#news_list {
-  min-height: calc(100vh - 18vw);
-}
-
-@media screen and (max-width: 992px) {
+  /* お知らせ画面 ================================================*/
   #news_list {
-    min-height: calc(100vh - 30vw);
+    min-height: calc(100vh - 18vw);
   }
-}
 
-@media screen and (max-width: 576px) {
-  #news_list {
-    min-height: calc(100vh - 40vw);
+  @media screen and (max-width: 992px) {
+    #news_list {
+      min-height: calc(100vh - 30vw);
+    }
   }
-}
 
-.container-inner {
-  /* 内容表示部分・子画面共通 */
-  padding: 0 0 60px;
-}
+  @media screen and (max-width: 576px) {
+    #news_list {
+      min-height: calc(100vh - 40vw);
+    }
+  }
 
-@media screen and (max-width: 576px) {
   .container-inner {
-    padding: 0 0 30px;
+    /* 内容表示部分・子画面共通 */
+    padding: 0 0 60px;
   }
-}
 
-.news-illust {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 15%;
-  height: auto;
-}
-
-@media screen and (max-width: 1400px) {
-  .news-illust {
-    width: 12%;
+  @media screen and (max-width: 576px) {
+    .container-inner {
+      padding: 0 0 30px;
+    }
   }
-}
 
-@media screen and (max-width: 992px) {
   .news-illust {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 15%;
-  }
-}
-
-@media screen and (max-width: 576px) {
-  .news-illust {
-    width: 20%;
-  }
-}
-
-/* お知らせ画面 ================================================*/
-
-
-
-/* 効果：ホバー時に拡大 ---------------------------------*/
-.impress {
-  transform: scale(1);
-  transition: transform 0.6s;
-}
-
-.impress:hover {
-  transform: scale(1.15);
-}
-
-/* 効果：ホバー時に拡大 ---------------------------------*/
-
-/* 効果：タイトル出現時に左に詰めてから表示 ---------------------------------*/
-.effect-inner-container {
-  opacity: 0;
-}
-
-.effect-inner-container.appear {
-  animation: title-effect-anime 1s ease-out 0s forwards;
-}
-
-.effect-inner.appear {
-  animation-delay: 0s;
-  animation-duration: 1.5s;
-}
-
-@keyframes title-effect-anime {
-  0% {
-    opacity: 0;
-    transform: translateX(15px);
+    height: auto;
   }
 
-  40% {
-    transform: translateX(-4px);
+  @media screen and (max-width: 1400px) {
+    .news-illust {
+      width: 12%;
+    }
   }
 
-  100% {
-    opacity: 1;
-    transform: translateX(0);
+  @media screen and (max-width: 992px) {
+    .news-illust {
+      width: 15%;
+    }
   }
-}
 
-.fadeIn {
-  opacity: 0;
-}
+  @media screen and (max-width: 576px) {
+    .news-illust {
+      width: 20%;
+    }
+  }
 
-.fadeIn.appear {
-  animation-name: fadeInAnime;
-  animation-duration: 1.5s;
-  animation-fill-mode: forwards;
-}
+  /* お知らせ画面 ================================================*/
 
-@keyframes fadeInAnime {
-  from {
+
+
+  /* 効果：ホバー時に拡大 ---------------------------------*/
+  .impress {
+    transform: scale(1);
+    transition: transform 0.6s;
+  }
+
+  .impress:hover {
+    transform: scale(1.15);
+  }
+
+  /* 効果：ホバー時に拡大 ---------------------------------*/
+
+  /* 効果：タイトル出現時に左に詰めてから表示 ---------------------------------*/
+  .effect-inner-container {
     opacity: 0;
   }
 
-  to {
-    opacity: 1;
+  .effect-inner-container.appear {
+    animation: title-effect-anime 1s ease-out 0s forwards;
   }
-}
+
+  .effect-inner.appear {
+    animation-delay: 0s;
+    animation-duration: 1.5s;
+  }
+
+  @keyframes title-effect-anime {
+    0% {
+      opacity: 0;
+      transform: translateX(15px);
+    }
+
+    40% {
+      transform: translateX(-4px);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .fadeIn {
+    opacity: 0;
+  }
+
+  .fadeIn.appear {
+    animation-name: fadeInAnime;
+    animation-duration: 1.5s;
+    animation-fill-mode: forwards;
+  }
+
+  @keyframes fadeInAnime {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
 
 
-/* 効果：タイトル出現時に左に詰めてから表示 ---------------------------------*/
+  /* 効果：タイトル出現時に左に詰めてから表示 ---------------------------------*/
 
 
-/* ========================================================== */
-/* 画面サイズ　***px未満 */
-/* ========================================================== */
-@media screen and (max-width: px) {}
+  /* ========================================================== */
+  /* 画面サイズ　***px未満 */
+  /* ========================================================== */
+  @media screen and (max-width: px) {}

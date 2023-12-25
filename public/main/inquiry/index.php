@@ -56,8 +56,13 @@ if ($level === 3) {
                             <div class="mb-3">
                                 <input type="text" class="form-control" name="name" placeholder="名前（必須）" value="" required>
                             </div>
-                            <div class="mb-3">
-                                <input type="text" class="form-control" name="title" placeholder="タイトル（必須）" value="" required>
+                            <div class="mb-3 d-flex align-items-center">
+                                <label for="title" style="width:20%;">タイトル（必須）</label>
+                                <select required id="title" name="title" class="form-control" style="width:80%!important;">
+                                    <option selected disabled value="">選択してください／選択なし</option>
+                                    <option value="出品">出品について</option>
+                                    <option value="その他">その他</option>
+                                </select>
                             </div>
                             <div class="mb-3">
                                 <input type="text" class="form-control" name="email" placeholder="メールアドレス（必須）" value="" required>

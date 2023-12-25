@@ -132,20 +132,20 @@
     opacity: 1;
   }
 
-  33% {
+  35% {
     opacity: 1;
   }
 
-  35% {
+  38% {
     opacity: 0;
   }
 
-  62% {
+  67% {
     opacity: 0;
     transform: scale(1.2);
   }
 
-  65% {
+  70% {
     opacity: 1;
   }
 
@@ -179,7 +179,7 @@
   transform: translateY(30%);
 
   left: 20vw;
-  bottom: 0;
+  bottom: -4vw;
 }
 @media screen and (max-width: 768px) {
   .lady2 {

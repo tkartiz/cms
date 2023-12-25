@@ -32,14 +32,14 @@ $delay_time = 0.7;
             <div class="col-12 px-4 px-sm-5 col-md-8 px-md-0 mx-auto mb-5">
                 <p class="mb-4">
                     湘南ちがさきのオープンに合わせ<br>
-                    農産品・加工品等の出品者様を広く募集<br>
+                    農産物等の出品者様を広く募集<br>
                     しています！
                 </p>
                 <p class="mb-5">
                     出品を応募される方はオンラインフォーム<br>
                     郵送またはFAXからお申し込みください。
                 </p>
-                <p class="m-2 pick">
+                <!-- <p class="m-2 pick">
                     <a href="inquiry/fax/事業者募集説明会チラシ・ポスター.pdf" target="_blank">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29.57 23.88" class="me-3" style="width:auto; height:20px;">
                             <defs>
@@ -56,9 +56,9 @@ $delay_time = 0.7;
                         </svg>
                         FAX・郵送でのお申し込み
                     </a>
-                </p>
+                </p> -->
                 <p class="m-2 pick">
-                    <a href="">
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdOan7bxdGu69WBCFO0gdYQ9lwd0P7YVKYncjxbaWHU9Yi4gw/viewform" target="_blank">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29.57 23.88" class="me-3" style="width:auto; height:20px;">
                             <defs>
                                 <style>

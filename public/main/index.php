@@ -24,8 +24,7 @@ $slider_height = '400px';
 <body>
   <div class="w-100 position-relative overflow-hidden">
     <!-- 背景アニメーション -->
-    <div id="anime" class="surfer-trace position-absolute">
-      <!-- サーファー軌跡 -->
+    <!-- <div id="anime" class="surfer-trace position-absolute">
       <div class="w-100 h-100 position-relative top-0 start-0">
         <div id="surferTrace1" class="w-100 h-100 position-absolute top-0 start-0">
           <svg width="0" height="0" viewBox="0 0 1920 730">
@@ -42,17 +41,16 @@ $slider_height = '400px';
           </svg>
         </div>
       </div>
-      <!-- サーファー軌跡 -->
 
-      <div class="surfer position-absolute" style="top:-50px;"></div> <!-- サーファー -->
+      <div class="surfer position-absolute" style="top:-50px;"></div>
 
-      <div class="lady position-absolute" style="z-index:20; margin-top:-380px;"></div> <!-- 歩く女性 -->
+      <div class="lady position-absolute" style="z-index:20; margin-top:-380px;"></div>
 
-      <div class="lady2 position-absolute" style="z-index:0"></div> <!-- お茶を飲む女性 -->
+      <div class="lady2 position-absolute" style="z-index:0"></div>
 
-      <div class="gentleman position-absolute"></div> <!-- 散策する男性 -->
-      <div class="child position-absolute"></div> <!-- 散策する娘 -->
-    </div>
+      <div class="gentleman position-absolute"></div> 
+      <div class="child position-absolute"></div> 
+    </div> -->
     <!-- 背景アニメーション -->
 
     <?php include "asset/include/header.php"; ?><!-- ヘッダー -->
@@ -78,7 +76,9 @@ $slider_height = '400px';
   <script>
     // section間隙間設定
     var screenWidth = $(window).width();
-    if (screenWidth < 1401) {
+    if (screenWidth < 769) {
+      sectionMargin = 180;
+    } else if(screenWidth < 1401) {
       sectionMargin = 240;
     } else {
       sectionMargin = 300;
@@ -91,7 +91,7 @@ $slider_height = '400px';
     const news_bar_h = document.getElementById('news_bar').clientHeight;
     const about_h = document.getElementById('about').clientHeight;
     const sns_h = document.getElementById('sns').clientHeight;
-    const anime_top = top_h + news_bar_h + about_h + sectionMargin * 2.15 + sns_h / 2;
+    const anime_top = top_h + news_bar_h + about_h + sectionMargin * 2.1 + sns_h / 2;
     document.documentElement.style.setProperty('--animeTop', anime_top + 'px');
     // 背景アニメーション位置設定
 
@@ -99,7 +99,7 @@ $slider_height = '400px';
     if (screenWidth < 993) {
       animeHeight = sns_h + sectionMargin;
     } else {
-      animeHeight = sns_h + sectionMargin * 1.5;
+      animeHeight = sns_h + sectionMargin * 1.3;
     }
     document.documentElement.style.setProperty('--animeHeight', animeHeight + 'px');
 

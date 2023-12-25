@@ -41,6 +41,7 @@ if ($level === 3) {
             $headers = "From: " . $_POST['email'];
             $headers .= "\r\n";
             $headers .= "Cc:";
+            $headers .= "\r\n";
             $headers .= "Bcc:jigyou@farmersforest.co.jp";
 
             if (mb_send_mail($to, $title, $message, $headers)) {

@@ -13,7 +13,7 @@ $delay_time = 0.7;
 ?>
 <section id="about" class="container">
     <div class="position-relative" style="height:<?php echo $about_height; ?>px;">
-        <a href="about/">
+        <!-- <a href="about/"> -->
             <div class="title-about position-absolute title-effect-trigger">
                 <div class="title-font title-fs d-flex mb-2">
                     <?php foreach ($title_about_fonts as $title_about_font) : ?>
@@ -61,7 +61,7 @@ $delay_time = 0.7;
                     </div>
                 </div>
             </div>
-        </a>
+        <!-- </a> -->
     </div>
 </section>
 

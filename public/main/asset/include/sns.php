@@ -102,23 +102,20 @@ foreach ($obj['media']['data'] as $k => $v) {
             </a>
             </li>
     </ul>
-
     <div class="swiper_sns_container container position-relative overflow-hidden">
         <div class="swiper_sns">
             <div class="swiper-wrapper">
                 <?php foreach ($insta as $k => $v) : ?>
-                    <div class="swiper-slide size_swiper_sns px-1">
-                        <a href="' . $v['link'] . '" target="_blank">
+                    <div class="swiper-slide size_swiper_sns px-1 overflow-hidden">
+                        <!-- <a href="' . $v['link'] . '" target="_blank"> -->
                             <img class="impress w-100 h-100 object-fit-cover rounded-2" src="<?php echo $v['img']; ?>">
-                        </a>
+                        <!-- </a> -->
                     </div>
                 <?php endforeach; ?>
             </div>
         </div>
-        <!-- 前後の矢印 -->
         <div class="swiper-button-prev"></div>
         <div class="swiper-button-next"></div>
-        <!-- ページネーション -->
         <div class="swiper-pagination"></div>
     </div>
     <!-- <div class="text-muted"><a href="https://www.instagram.com/tk.sample/">view more</a></div> -->

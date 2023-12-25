@@ -760,7 +760,7 @@ footer {
 
 .recruit-comment .pick:hover {
   color: #24b5f5;
-  transform: translateY(-1px);
+  transform: translateY(-1px); 
 }
 
 @media screen and (max-width: 1200px) {

@@ -34,12 +34,12 @@ $title_sns_fonts = array('C', 'h', 'o', 'i', 'c', 'e', '！');
 
 <section id="sns" class="container mx-auto text-center position-relative">
     <div class="sns-title d-flex align-items-center">
-        <img src="asset/img/sns/logo.png" alt="" class="sns-logo me-3 me-lg-5">
+        <a href="https://www.chigasaki-brand.jp/item/" target="_blank"><img src="asset/img/sns/logo.png" alt="" class="sns-logo me-3 me-lg-5"></a>
         <div class="text-start pt-4 fw-bold">
             <span class="fs-4">道の駅から発信するオリジナルブランド<br class="d-block d-lg-none">「Choice! CHIGASAKI」</span><br>
             <p class="ms-0 ms-lg-3">
                 <span class="">茅ヶ崎には、ここにしかないいいもの、もとからあるいいもの、<br class="d-none d-lg-block d-xl-none">茅ヶ崎だからこそのライフスタイルがあります。<br>
-                <span class="">「Choice! CHIGASAKI」は、そんな茅ヶ崎の本質的な魅⼒の発信をしています。</span>
+                    <span class="">「Choice! CHIGASAKI」は、そんな茅ヶ崎の本質的な魅⼒の発信をしています。</span>
             </p>
         </div>
     </div>

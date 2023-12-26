@@ -5,10 +5,10 @@
         </h2>
     </x-slot>
 
-    <div class="py-12">
+    <div class="py-6">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 bg-white border-b border-gray-200">
+                <div class="px-6 py-3 bg-white border-b border-gray-200">
                     ようこそ！
                 </div>
             </div>
@@ -35,8 +35,25 @@
 
                     <div class="ml-12">
                         <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                            お知らせ記事の追加・編集・削除&nbsp;⇒
-                            マニュアルは<a href="{{ asset('storage/manual/「道の駅 湘南ちがさき」サイト CMS操作手順書.pdf') }}" target="_blank" class="ml-1 underline">こちら</a>
+                            ログイン・ログアウト、お知らせ記事の追加・編集・削除&nbsp;⇒
+                            マニュアルは<a href="{{ asset('storage/manual/「道の駅 湘南ちがさき」サイト CMS操作手順書_お知らせ編.pdf') }}" target="_blank" class="ml-1 underline">こちら</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
+                    <div class="flex items-center">
+                        <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="text-gray-500" style="width:2rem; height:2rem;">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+                        </svg>
+                        <div class="ml-4 text-lg leading-7 font-semibold">
+                            <sppn class="text-gray-900 dark:text-white">ファイルアップロード</span>
+                        </div>
+                    </div>
+                    <div class="ml-12">
+                        <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
+                            画像・文書などのファイルのアップロード・削除&nbsp;⇒
+                            マニュアルは<a href="#!" class="ml-1 underline">こちら</a><br>
                         </div>
                     </div>
                 </div>
@@ -50,11 +67,27 @@
                             <sppn class="text-gray-900 dark:text-white">バナー</span>
                         </div>
                     </div>
-
                     <div class="ml-12">
                         <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
                             バナーの追加・編集・削除&nbsp;⇒
-                            マニュアルは<a href="{{ asset('storage/manual/「道の駅 湘南ちがさき」サイト CMS操作手順書.pdf') }}" target="_blank" class="ml-1 underline">こちら</a>
+                            マニュアルは<a href="#!" class="ml-1 underline">こちら</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
+                    <div class="flex items-center">
+                        <svg class="w-6 h-6 text-gray-500" style="width:2rem; height:1.5rem;" fill="none" viewBox="0 0 21 20">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.308 9a2.257 2.257 0 0 0 2.25-2.264 2.25 2.25 0 0 0 4.5 0 2.25 2.25 0 0 0 4.5 0 2.25 2.25 0 1 0 4.5 0C19.058 5.471 16.956 1 16.956 1H3.045S1.058 5.654 1.058 6.736A2.373 2.373 0 0 0 3.308 9Zm0 0a2.243 2.243 0 0 0 1.866-1h.767a2.242 2.242 0 0 0 3.733 0h.767a2.242 2.242 0 0 0 3.733 0h.767a2.247 2.247 0 0 0 1.867 1A2.22 2.22 0 0 0 18 8.649V19H9v-7H5v7H2V8.524c.37.301.83.469 1.308.476ZM12 12h3v3h-3v-3Z" />
+                        </svg>
+                        <div class="ml-4 text-lg leading-7 font-semibold">
+                            <sppn class="text-gray-900 dark:text-white">ショップ</span>
+                        </div>
+                    </div>
+                    <div class="ml-12">
+                        <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
+                            ショップ情報の追加・編集・削除&nbsp;⇒
+                            マニュアルは<a href="#!" class="ml-1 underline">こちら</a>
                         </div>
                     </div>
                 </div>

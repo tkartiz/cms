@@ -3,6 +3,10 @@ include "../asset/include/release.php"; // 公開/非公開変数読込み
 include '../asset/include/function_min.php'; // 共通関数読込み
 $level = 2; // ２階層
 $announces = read_Json('announce', $siteview, $level);
+if (!is_null($announces)) {
+    $ids = array_column($announces, 'date');
+    array_multisort($ids, SORT_DESC, $announces);
+}
 
 $max_count = 5;
 $list_height = 86 * $max_count;
@@ -56,7 +60,7 @@ if ($current_page = $total_pages) {
                     </ul> -->
                 </div>
             </div>
-            
+
             <?php if (count($announces) > 0) { ?>
                 <div class="w-100 mx-auto" style="height:<?php echo (int)$list_height; ?>px; margin-top:30px;">
                     <?php
@@ -66,21 +70,26 @@ if ($current_page = $total_pages) {
                         } elseif ($count < $min) {
                         } else {
                     ?>
-                            <div id="info_<?php echo $announce["stamp"]; ?>" class="<?php echo $announce["release"] . ' ' . $announce['item']; ?> pt-4 fw-bold" style="border-bottom:1px solid #0a3f70">
-                                <div class="d-flex small ">
-                                    <div class="me-3">
-                                        <?php if ($announce['item'] === "press") { ?>
-                                            <i class="bi bi-circle-fill" style="color:#fff338" ;"></i><span class="ms-2">プレスリリース</span>
+                            <a href="index.php?filename=<?php echo $announce["stamp"]; ?>">
+                                <div id="info_<?php echo $announce["stamp"]; ?>" class="<?php echo $announce["release"] . ' ' . $announce['item']; ?> pt-4 fw-bold" style="border-bottom:1px solid #0a3f70">
+                                    <div class="pe-0 pe-sm-3 d-flex">
+                                        <?php if ($announce['item'] === "event") { ?>
+                                            <p class="d-flex align-items-center justify-content-center col-2 col-lg-1 mb-1 text-white small rounded-sm" style="background-color:#eb8878;">EVENT</p>
                                         <?php } else { ?>
-                                            <i class="bi bi-circle-fill" style="color:#d263ab;"></i><span class="ms-2">イベント</span>
+                                            <p class="d-flex align-items-center justify-content-center col-2 col-lg-1 mb-1 text-white small rounded-sm" style="background-color:#ff9e00;">PRESS</p>
                                         <?php } ?>
+                                        <p class="d-none d-sm-block col-10 col-lg-11 mb-1 text-truncate">
+                                            <?php echo '&nbsp;' . $announce["date"]; ?>
+                                        </p>
+                                        <p class="d-block d-sm-none mb-2 pb-0 col-11 text-truncate">
+                                            <?php echo '&nbsp;' . $announce["date"]; ?>
+                                        </p>
                                     </div>
-                                    <p class="mb-0"><?php echo $announce["date"]; ?></p>
+                                    <p class="mb-2 pb-0 col-11 text-truncate">
+                                            <?php echo '&emsp;' . $announce["title"]; ?>
+                                        </p>
                                 </div>
-                                <a href="index.php?filename=<?php echo $announce["stamp"]; ?>">
-                                    <p class="ps-4 text-truncate w-100"><?php echo $announce["title"]; ?></p>
-                                </a>
-                            </div>
+                            </a>
                     <?php
                         }
                         $count += 1;

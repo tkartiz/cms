@@ -84,14 +84,21 @@ class Common
                     $savedfile = Common::saveFile($request, $k, $kind); // ファイルの保存
                     $content[$tmpImg] = $savedfile[0];
                     $content[$tmpImg . 'Path'] = $savedfile[1];
+
+                    $content[$tmpImg . 'Location'] = $request->$requestImgLocation;
+
+                    $content[$tmpImg . 'Width'] = $request->$requestImgWidth;
+
+                    $content[$tmpImg . 'Height'] = $request->$requestImgHeight;
+                    $content[$tmpImg . 'Cap'] = $request->$requestImgCap;
                 } else {
                     $content[$tmpImg] = $request->$requestImgorg;
                     $content[$tmpImg . 'Path'] = $request->$requestImgPathorg;
+                    $content[$tmpImg . 'Location'] = $request->$requestImgLocation;
+                    $content[$tmpImg . 'Width'] = $request->$requestImgWidth;
+                    $content[$tmpImg . 'Height'] = $request->$requestImgHeight;
+                    $content[$tmpImg . 'Cap'] = $request->$requestImgCap;
                 }
-                $content[$tmpImg . 'Location'] = $request->$requestImgLocation;
-                $content[$tmpImg . 'Width'] = $request->$requestImgWidth;
-                $content[$tmpImg . 'Height'] = $request->$requestImgHeight;
-                $content[$tmpImg . 'Cap'] = $request->$requestImgCap;
 
                 // ファイル削除時
                 if ($request->$requestImgDelete == "yes") {

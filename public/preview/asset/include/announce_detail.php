@@ -31,7 +31,11 @@ $colImgNum = 3;
                 <?php } else if ($ImgCount == 1 && !empty($announce["content" . ($i + 1)])) { ?>
                     <?php
                     $name = "col" . ($i + 1) . "Img" . $Img[$ImgCount - 1];
-                    $ImgWidth = $announce[$name . "Width"];
+                    if(!is_null($announce[$name . "Width"])){
+                        $ImgWidth = $announce[$name . "Width"];
+                    } else {
+                        $ImgWidth = 'col-12';  // 空白時は100%幅とする
+                    }
                     $ImgWidth_num = (int)explode('-', $ImgWidth)[1];
                     $pWidth_num = 12 - $ImgWidth_num;
                     if ($announce[$name . "Location"] == "order-2") {

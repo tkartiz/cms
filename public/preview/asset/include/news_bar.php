@@ -1,56 +1,31 @@
 <div id="news_bar" class="flex-container d-flex align-items-center justify-content-center position-relative">
   <a href="news/list.php?page=1" class="bar-side ms-auto title-font">INFO</a>
-  <div class="swiper_newsbar m-0 container">
-    <div class="swiper-wrapper">
-      <?php if (!is_null($announces)) { ?>
-        <?php foreach ($announces as $announce) : ?>
-          <div class="swiper-slide pe-3">
-            <a class="text-decoration-none" href="news/index.php?filename=<?php echo $announce["stamp"]; ?>">
-              <p class="swiper_newsbar_title w-100 px-3 text-truncate">
-                <?php if ($announce['item'] === "event") { ?>
-                  <i class="bi bi-circle-fill" style="color:#d263ab;"></i>イベント&nbsp;
-                <?php } else { ?>
-                  <i class="bi bi-circle-fill" style="color:#fff338" ;"></i>プレスリリース&nbsp;
-                <?php } ?>
-                <?php echo $announce["date"]; ?>：<?php echo $announce["title"]; ?>
-              </p>
-            </a>
+  <div class="news_bar_list m-0 px-1 container lh-sm">
+    <?php if (!is_null($announces)) { ?>
+      <?php foreach ($announces as $announce) : ?>
+        <?php if ($count > 4) {
+          break;
+        } ?>
+        <a class="text-decoration-none" href="news/index.php?filename=<?php echo $announce["stamp"]; ?>">
+          <div class="pe-0 pe-sm-3 d-flex">
+            <?php if ($announce['item'] === "event") { ?>
+              <p class="d-none d-sm-block col-2 px-0 col-lg-1 news_bar_icon text-center text-white small rounded-sm" style="background-color:#eb8878;">EVENT</p>
+              <p class="d-flex align-items-center justify-content-center d-sm-none col-1 mb-2 pb-0 text-white small rounded-sm" style="background-color:#eb8878;">E</p>
+            <?php } else { ?>
+              <p class="d-none d-sm-block col-2 col-lg-1 news_bar_icon text-center text-white small rounded-sm" style="background-color:#ff9e00;">PRESS</p>
+              <p class="d-flex align-items-center justify-content-center d-sm-none col-1 mb-2 pb-0 text-white small rounded-sm" style="background-color:#ff9e00;">P</p>
+            <?php } ?>
+            <p class="d-none d-sm-block col-10 col-lg-11 text-truncate">
+              <?php echo '&nbsp;' . $announce["date"] . '&emsp;' . $announce["title"]; ?>
+            </p>
+            <p class="d-block d-sm-none mb-2 pb-0 col-11 text-truncate">
+              <?php echo '&nbsp;' . $announce["date"] . '<br>&nbsp;' . $announce["title"]; ?>
+            </p>
           </div>
-        <?php endforeach; ?>
-      <?php } ?>
-    </div>
+        </a>
+        <?php $count += 1; ?>
+      <?php endforeach; ?>
+    <?php } ?>
   </div>
-  <a href="news/list.php?page=1" class="d-none d-md-flex bar-side me-auto title-font fw-bold">お知らせ<br class="d-block d-xl-none">一覧</a>
+  <a href="news/list.php?page=1" class="d-none d-md-flex bar-side me-auto title-font fw-bold">お知らせ<br>一覧は<br>こちら</a>
 </div>
-
-
-<script type="module">
-  import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs'
-
-  // ニュースバーの設定　*********************************
-  var screenWidth = $(window).width();
-
-  if (screenWidth < 992) {
-    const swiper_newsbar = new Swiper(".swiper_newsbar", {
-      loop: true, // ループ有効
-      direction: "vertical", // 縦方向
-      slidesPerView: 2, // 一度に表示する枚数
-      speed: 2000, // ループの時間
-      allowTouchMove: false, // スワイプ無効
-      autoplay: {
-        delay: 0, // 途切れなくループ
-      },
-    });
-  } else {
-    const swiper_newsbar = new Swiper(".swiper_newsbar", {
-      loop: true, // ループ有効
-      slidesPerView: 3, // 一度に表示する枚数
-      speed: 8000, // ループの時間
-      allowTouchMove: false, // スワイプ無効
-      autoplay: {
-        delay: 0, // 途切れなくループ
-      },
-    });
-  }
-  // ニュースバーの設定　*********************************
-</script>

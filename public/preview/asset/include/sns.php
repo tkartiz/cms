@@ -33,13 +33,13 @@ $title_sns_fonts = array('C', 'h', 'o', 'i', 'c', 'e', '！');
 ?>
 
 <section id="sns" class="container mx-auto text-center position-relative">
-    <div class="sns-title d-flex align-items-center">
+    <div class="sns-title d-flex align-items-center fadeIn" style="animation-delay:0.4s;">
         <a href="https://www.chigasaki-brand.jp/item/" target="_blank"><img src="asset/img/sns/logo.png" alt="" class="sns-logo me-3 me-lg-5"></a>
         <div class="text-start pt-4 fw-bold">
             <span class="fs-4">道の駅から発信するオリジナルブランド<br class="d-block d-lg-none">「Choice! CHIGASAKI」</span><br>
             <p class="ms-0 ms-lg-3">
                 <span class="">茅ヶ崎には、ここにしかないいいもの、もとからあるいいもの、<br class="d-none d-lg-block d-xl-none">茅ヶ崎だからこそのライフスタイルがあります。<br>
-                    <span class="">「Choice! CHIGASAKI」は、そんな茅ヶ崎の本質的な魅⼒の発信をしています。</span>
+                <span class="">「Choice! CHIGASAKI」は、そんな茅ヶ崎の本質的な魅⼒の発信をしています。</span>
             </p>
         </div>
     </div>
@@ -116,7 +116,7 @@ $title_sns_fonts = array('C', 'h', 'o', 'i', 'c', 'e', '！');
             </a>
             </li>
     </ul> -->
-    <div class="swiper_sns_container container position-relative overflow-hidden" style="z-index:-1;">
+    <div class="swiper_sns_container container position-relative overflow-hidden fadeIn" style="z-index:-1; animation-delay:1.4s;">
         <div class="swiper_sns">
             <!-- <div class="swiper-wrapper">
                 <?php foreach ($insta as $k => $v) : ?>
@@ -195,7 +195,7 @@ $title_sns_fonts = array('C', 'h', 'o', 'i', 'c', 'e', '！');
                 prevEl: ".swiper-button-prev",
             },
             slidesPerView: 4, // 一度に表示する枚数
-            speed: 3000, // ループの時間
+            speed: 5000, // ループの時間
             allowTouchMove: false, // スワイプ無効
             autoplay: {
                 delay: 0, // 途切れなくループ
@@ -213,7 +213,7 @@ $title_sns_fonts = array('C', 'h', 'o', 'i', 'c', 'e', '！');
                 prevEl: ".swiper-button-prev",
             },
             slidesPerView: 5, // 一度に表示する枚数
-            speed: 3000, // ループの時間
+            speed: 5000, // ループの時間
             allowTouchMove: false, // スワイプ無効
             autoplay: {
                 delay: 0, // 途切れなくループ

@@ -43,6 +43,10 @@ if ($level === 3) {
     <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <!-- グーグルフォント -->
 
+    <!-- Adobeフォント -->
+    <link rel="stylesheet" href="https://use.typekit.net/eyp4avr.css">
+    <!-- Adobeフォント -->
+
     <!-- Bootstrap Css読込み start -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <!-- Bootstrap Css読込み end -->

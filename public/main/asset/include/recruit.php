@@ -16,7 +16,7 @@ $delay_time = 0.7;
                 <?php endforeach; ?>
                 <?php $delay_time += 0.2; ?>
             </div>
-            <p class="title-fs-sub fadeIn" style="animation-delay: <?php echo $delay_time; ?>s;">出品者様募集中</p>
+            <p class="title-fs-sub fadeIn" style="animation-delay: <?php echo $delay_time; ?>s;">出品者＆出店者 大募集！</p>
         </div>
         <div class="recruit-img-outer w-100 position-relative">
             <div class="recruit-img-inner position-absolute translate-middle top-50 start-50"></div>
@@ -27,20 +27,15 @@ $delay_time = 0.7;
     <div class="recruit-comment fadeIn" style="animation-delay: <?php echo $delay_time; ?>s;">
         <div class="recruit-comment-inner d-flex flex-wrap justify-content-center w-100 position-relative ih-ig fw-bold">
             <div class="recruit-comment-title position-absolute fs-3 text-center">
-                <span class="recruit-comment-trigger" style="animation-delay: <?php echo $delay_time; ?>s;">出品者様、募集中！</span>
+                <span class="recruit-comment-trigger" style="animation-delay: <?php echo $delay_time; ?>s;">出品者＆出店者 、大募集！</span>
             </div>
             <div class="col-12 px-4 px-sm-5 col-md-8 px-md-0 mx-auto mb-5">
-                <p class="mb-4">
-                    湘南ちがさきのオープンに合わせ<br>
-                    農産物等の出品者様を広く募集<br>
-                    しています！
-                </p>
                 <p class="mb-5">
-                    出品を応募される方はオンラインフォーム<br>
-                    郵送またはFAXからお申し込みください。
+                    令和7年7月オープンに向けて道の駅に農産品等を出品していただける方を募集します。
+                    募集に際し、事前説明会を開催いたしますので、是非ご参加ください。
                 </p>
                 <p class="m-2 pick">
-                    <a href="inquiry/fax/事業者募集説明会チラシ・ポスター.pdf" target="_blank">
+                    <a href="inquiry/fax/出品者＆出店者募集_事前説明会チラシ.pdf" target="_blank">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29.57 23.88" class="me-3" style="width:auto; height:20px;">
                             <defs>
                                 <style>
@@ -54,7 +49,7 @@ $delay_time = 0.7;
                                 <path class="cls-1" d="m5.67,10.85L.34,3.09C-.73,1.47.92-.56,2.72.14l25.58,9.94c1.69.66,1.69,3.06,0,3.71L2.72,23.74c-1.81.7-3.45-1.33-2.39-2.95l5.33-7.75c.44-.66.44-1.52,0-2.19Z" />
                             </g>
                         </svg>
-                        募集の詳細はこちら
+                        事前説明会の詳細はこちら
                     </a>
                 </p>
                 <!-- <p class="m-2 pick">
@@ -91,7 +86,7 @@ $delay_time = 0.7;
                         </svg>
                         Contact
                     </p>
-                    出品に関するお問い合わせはこちら
+                    お問い合わせはこちら
                 </a>
             </div>
         </div>

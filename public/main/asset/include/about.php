@@ -26,11 +26,14 @@ $delay_time = 0.7;
             <?php $delay_time += 0.2; ?>
             <p class="title-fs-sub ms-3 fadeIn" style="animation-delay: <?php echo $delay_time; ?>s;">湘南ちがさき&nbsp;について</p>
         </div>
-        <div class="about-message col-12 col-lg-7 col-xl-6 col-5 bg-white mx-3 fadeIn">
-            <p class="px-5 pt-3 lh-lg fw-bold">
-                <span class="fs-3">ALOHA湘南初！茅ヶ崎発！</span><br>
-                潮風薫る“ちがさき愛”いっぱいの交流拠点。<br>
-                ゆったりとした雰囲気によるリラクゼーションを提供する【休憩機能】、さまざまなニーズに対応した情報提供と魅力・資源を発信する【情報発信機能】、地域とのつながり、 “ちがさき愛”を育み発信する【地域連携機能】を兼ね備えた道の駅が、令和7年7月にオープン予定です。
+        <div class="about-message col-12 col-lg-8 col-xl-7 col-xxl-6 bg-white mx-3 fadeIn">
+            <p class="pt-3 lh-lg fw-bold" style="margin-left:2.25rem; margin-right:2.25rem;">
+                <span class="fs-3">湘南初の道の駅。</span><br>
+                潮風薫る“ちがさき愛”いっぱいの交流拠点として、令和7年7月（予定）にオープンいたします！<br><br>
+                ゆったりとした雰囲気によるリラクゼーションを提供する【休憩機能】<br>
+                さまざまなニーズに対応した情報提供と魅力・資源を発信する【情報発信機能】<br>
+                地域とのつながり、 “ちがさき愛”を育み発信する【地域連携機能】<br>
+                を兼ね備えた道の駅。あなたは、どのように過ごしたいですか？
             </p>
             <p class="px-0 px-sm-5 pb-3 mb-0 w-100 text-end"><a href="https://www.chigasaki-brand.jp/station/" target_="_blank" class="text-muted small">詳しく見る▶</a></p>
         </div>
@@ -79,7 +82,7 @@ $delay_time = 0.7;
         const swiper_about1 = new Swiper(".swiper_about1", {
             loop: true, // ループ有効
             slidesPerView: 1, // 一度に表示する枚数
-            speed: 10000, // ループの時間
+            speed: 15000, // ループの時間
             allowTouchMove: false, // スワイプ無効
             autoplay: {
                 delay: 0, // 途切れなくループ
@@ -90,7 +93,7 @@ $delay_time = 0.7;
         const swiper_about2 = new Swiper(".swiper_about2", {
             loop: true, // ループ有効
             slidesPerView: 1, // 一度に表示する枚数
-            speed: 10000, // ループの時間
+            speed: 15000, // ループの時間
             allowTouchMove: false, // スワイプ無効
             autoplay: {
                 delay: 0, // 途切れなくループ
@@ -100,7 +103,7 @@ $delay_time = 0.7;
         const swiper_about1 = new Swiper(".swiper_about1", {
             loop: true, // ループ有効
             slidesPerView: 2, // 一度に表示する枚数
-            speed: 10000, // ループの時間
+            speed: 15000, // ループの時間
             allowTouchMove: false, // スワイプ無効
             autoplay: {
                 delay: 0, // 途切れなくループ
@@ -111,7 +114,7 @@ $delay_time = 0.7;
         const swiper_about2 = new Swiper(".swiper_about2", {
             loop: true, // ループ有効
             slidesPerView: 2, // 一度に表示する枚数
-            speed: 10000, // ループの時間
+            speed: 15000, // ループの時間
             allowTouchMove: false, // スワイプ無効
             autoplay: {
                 delay: 0, // 途切れなくループ

@@ -36,7 +36,10 @@ button {
 }
 
 .title-font {
-  font-family: 'futura', serif;
+  /* font-family: 'futura', serif; */
+  font-family: "futura-pt", sans-serif;
+  font-weight: 700;
+  font-style: normal;
 }
 
 .title-fs {
@@ -53,22 +56,6 @@ button {
 .title-fs-sub {
   font-weight: 700;
   font-size: calc(70px * 0.25);
-}
-
-@media screen and (max-width: 1200px) {
-  /* .title-fs {
-    line-height: calc(70px * 0.583);
-    font-size: 70px;
-  }
-
-  .shop-logo {
-    height: calc(70px * 0.583);
-    width: auto;
-  }
-
-  .title-fs-sub {
-    font-size: calc(70px * 0.25);
-  } */
 }
 
 @media screen and (max-width: 576px) {
@@ -141,28 +128,6 @@ header {
 @media screen and (max-width: 1200px) {
   .nav-bar ul li {
     height: 80px;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .nav-bar {
-    width: 100%;
-    padding: 0;
-  }
-
-  .nav-bar ul li:nth-child(1),
-  .nav-bar ul li:nth-child(2),
-  .nav-bar ul li:nth-child(3) {
-    width: calc(66% / 3);
-    /* 翻訳使用不可のため変更 */
-  }
-
-  .nav-bar ul li:nth-child(4),
-  .nav-bar ul li:nth-child(5),
-  /* 翻訳 */
-  .nav-bar ul li:nth-child(6) {
-    width: calc(34% / 2);
-    /* 翻訳使用不可のため変更 */
   }
 }
 
@@ -260,28 +225,35 @@ footer {
 /* メイン画面 ================================================*/
 /* TOP --------------------------------- */
 #top {
-  height: calc(100vh - 160px);
-  margin-bottom: 80px;
+  height: calc(100vh - 190px);
+  margin-bottom: 60px;
 }
 
 @media screen and (max-width: 1200px) {
   #top {
-    height: calc(100vh - 140px);
-    margin-bottom: 70px;
+    height: calc(100vh - 170px);
+    margin-bottom: 60px;
   }
 }
 
 @media screen and (max-width: 992px) {
   #top {
-    height: calc(100vh - 150px);
-    margin-bottom: 70px;
+    height: calc(100vh - 190px);
+    margin-bottom: 60px;
   }
 }
 
 @media screen and (max-width: 768px) {
   #top {
+    height: calc(100vh - 190px);
+    margin-bottom: 60px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  #top {
     height: calc(100vh - 200px);
-    margin-bottom: 80px;
+    margin-bottom: 50px;
   }
 }
 
@@ -511,7 +483,73 @@ footer {
 
 /* TOP --------------------------------- */
 
+/* ニュースバー --------------------------------- */
+.news_bar_list {
+  height: 6rem;
+  overflow-y: auto;
+}
+
+.news_bar_list::-webkit-scrollbar {
+  background-color: #f5f5f5;
+}
+
+.news_bar_list::-webkit-scrollbar-thumb {
+  background-color: #86d3f4;
+}
+
+.bar-side {
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 150px;
+  height: 6rem;
+  background-color: #24b5f5;
+  color: #f5f5f5;
+  padding: 0 0.5rem;
+  text-align: center;
+  line-height: 1.25rem;
+}
+
+@media screen and (max-width: 1200px) {
+  .bar-side {
+    width: 110px;
+    font-size: 13px;
+    padding: 0;
+  }
+}
+
+@media screen and (max-width: 992px) {
+
+  .bar-side {
+    height: 100px !important;
+  }
+}
+
+@media screen and (max-width: 576px) {
+
+  .bar-side {
+    width: 55px !important;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .news_bar_list {
+    height: 8.5rem;
+  }
+
+  .bar-side {
+    height: 8.5rem!important;
+  }
+}
+
+/* ニュースバー --------------------------------- */
+
 /* ABOUT ---------------------------------*/
+#about {
+  margin-top: 240px;
+}
+
 .title-about {
   z-index: 10;
   top: -3rem;
@@ -615,6 +653,36 @@ footer {
 .sns-logo {
   width: 160px;
   height: 160px;
+}
+
+.sns-logo:hover {
+  animation-name: sns_logo_anime;
+  animation-fill-mode: both;
+  animation-duration: 0.6s;
+  animation-timing-function: linear;
+  animation-iteration-count: 2;
+}
+
+@keyframes sns_logo_anime {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  25% {
+    transform: rotate(-7deg);
+  }
+
+  50% {
+    transform: rotate(0deg);
+  }
+
+  75% {
+    transform: rotate(7deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -779,12 +847,12 @@ footer {
   left: 0;
   z-index: 10;
   width: 580px;
-  height: 610px;
+  height: auto;
   background-color: #ffffff;
 }
 
 .recruit-comment-inner {
-  padding: 100px 0;
+  padding: 100px 0 60px;
   font-size: 1.25rem;
 }
 

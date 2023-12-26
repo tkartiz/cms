@@ -940,7 +940,7 @@ footer {
   }
 
   .recruit-comment-title {
-    top: -20px;
+    top: -30px;
     left: -25px;
     padding: 1rem 3rem;
     transform: rotate(-8.3deg);
@@ -978,6 +978,10 @@ footer {
 }
 
 @media screen and (max-width: 375px) {
+  .recruit-comment-title {
+    width: 90vw;
+  }
+
   .recruit-comment-inner {
     font-size: 1rem;
   }

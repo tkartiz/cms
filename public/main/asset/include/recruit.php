@@ -29,9 +29,9 @@ $delay_time = 0.7;
             <div class="recruit-comment-title position-absolute fs-3 text-center">
                 <span class="recruit-comment-trigger" style="animation-delay: <?php echo $delay_time; ?>s;">出品者＆出店者 、大募集！</span>
             </div>
-            <div class="col-12 px-4 px-sm-5 col-md-8 px-md-0 mx-auto mb-5">
+            <div class="col-12 px-4 px-sm-5 col-md-10 px-md-0 mx-auto mb-5">
                 <p class="mb-5">
-                    令和7年7月オープンに向けて道の駅に農産品等を出品していただける方を募集します。
+                    令和7年7月オープンに向けて道の駅に農産品等を出品していただける方を募集します。<br><br>
                     募集に際し、事前説明会を開催いたしますので、是非ご参加ください。
                 </p>
                 <p class="m-2 pick">

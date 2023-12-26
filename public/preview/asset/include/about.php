@@ -34,8 +34,7 @@ $delay_time = 0.7;
                 【休憩機能】ゆったりとした雰囲気によるリラクゼーションを提供<br>
                 【情報発信機能】さまざまなニーズに対応した情報提供と魅力・資源を発信<br>
                 【地域連携機能】地域とのつながり、 “ちがさき愛”を育み発信<br>
-                このような機能を兼ね備えた道の駅です。<br><br>
-                あなたは、どのように過ごしたいですか？
+                このような機能を兼ね備えた道の駅です。
             </p>
             <p class="px-0 px-sm-5 pb-3 mb-0 w-100 text-end"><a href="https://www.chigasaki-brand.jp/station/" target_="_blank" class="text-muted small">詳しく見る▶</a></p>
         </div>
@@ -61,8 +60,7 @@ $delay_time = 0.7;
                         【休憩機能】ゆったりとした雰囲気によるリラクゼーションを提供<br><br class="d-block d-sm-none">
                         【情報発信機能】さまざまなニーズに対応した情報提供と魅力・資源を発信<br><br class="d-block d-sm-none">
                         【地域連携機能】地域とのつながり、 “ちがさき愛”を育み発信<br><br class="d-block d-sm-none">
-                        このような機能を兼ね備えた道の駅です。<br><br>
-                        あなたは、どのように過ごしたいですか？
+                        このような機能を兼ね備えた道の駅です。
                     </p>
                 </div>
                 <p class="px-2 pb-3 mb-0 w-100 text-end"><a href="https://www.chigasaki-brand.jp/station/" target_="_blank" class="text-muted small">詳しく見る▶</a></p>

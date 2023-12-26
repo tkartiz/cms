@@ -733,7 +733,7 @@ footer {
 }
 
 .title-recruit .title-fs-sub {
-  margin-right: 2.75rem;
+  margin-right: 0;
 }
 
 .title-recruit::after {
@@ -773,20 +773,12 @@ footer {
     width: calc(70px * 2.11);
     height: calc(70px * 2.11);
   }
-
-  .title-recruit .title-fs-sub {
-    margin-right: 2rem;
-  }
 }
 
 @media screen and (max-width: 576px) {
   .title-recruit {
     top: -2.75rem;
     right: 0;
-  }
-
-  .title-recruit .title-fs-sub {
-    margin-right: 1.5rem;
   }
 
   .title-recruit::after {
@@ -803,10 +795,6 @@ footer {
   .title-recruit::after {
     width: calc(50px * 2.11);
     height: calc(50px * 2.11);
-  }
-
-  .title-recruit .title-fs-sub {
-    margin-right: 0.75rem;
   }
 }
 

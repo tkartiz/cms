@@ -12,6 +12,14 @@ $title_about_fonts = array('A', 'b', 'o', 'u', 't');
 $delay_time = 0.7;
 ?>
 <section id="about" class="container">
+    
+    <!-- 非表示 -->
+    <!-- 見出し -->
+    <h1 class="d-none">湘南初の道の駅。</h1>
+    <!-- 内容 -->
+    <h2 class="d-none">潮風薫る“ちがさき愛”いっぱいの交流拠点として、令和7年7月（予定）にオープンいたします！【休憩機能】ゆったりとした雰囲気によるリラクゼーションを提供、【情報発信機能】さまざまなニーズに対応した情報提供と魅力・資源を発信、【地域連携機能】地域とのつながり、“ちがさき愛”を育み発信、このような機能を兼ね備えた道の駅です。</h2>
+    <!-- 非表示 -->
+
     <div class="position-relative" style="height:<?php echo $about_height; ?>px;">
         <!-- <a href="about/"> -->
         <div class="title-about position-absolute title-effect-trigger">

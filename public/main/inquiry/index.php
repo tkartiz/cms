@@ -73,7 +73,7 @@ if ($level === 3) {
                             <div class="form-check mb-4">
                                 <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
                                 <label class="form-check-label" for="flexCheckIndeterminate">
-                                    利用規約に同意します。<br class="d-block d-sm-none"><a href="#!" target="_blank" rel="noopener noreferrer" class="text-decoration-underline text-dark">プライバシーポリシーはこちら</a>
+                                    利用規約に同意します。<br class="d-block d-sm-none"><a href="https://www.m-shonanchigasaki.com/main/privacy/" target="_blank" rel="noopener noreferrer" class="text-decoration-underline text-dark">プライバシーポリシーはこちら</a>
                                 </label>
                             </div>
                             <div class="text-center pt-4 col-md-6 offset-md-3">

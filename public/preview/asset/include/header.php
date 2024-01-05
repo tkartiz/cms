@@ -165,7 +165,8 @@ if ($level === 3) {
                         <!-- <p class="col-6"><a class="jump" href="<?php echo $pre; ?>access/">アクセスマップ</a></p>
                         <p class="col-6"><a class="jump" href="<?php echo $pre; ?>faq/">よくあるご質問</a></p> -->
 
-                        <p class="col-6"><a class="jump" href="<?php echo $pre; ?>inquiry/">お問い合わせ</a></p>
+                        <p class="col-6"><a class="jump" href="<?php echo $pre; ?>inquiry/">お問い合わせ</a></p><br>
+                        <p class="col-6" style="width:100%;"><a class="jump" href="<?php echo $pre; ?>privacy/">プライバシーポリシー</a></p>
                     </div>
                 </div>
             </div>

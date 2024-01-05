@@ -5,6 +5,16 @@ $delay_time = 0.7;
 ?>
 
 <section id="recruit" class="container position-relative p-0">
+    <!-- 非表示 -->
+    <!-- 見出し -->
+    <h1 class="d-none">道の駅 湘南ちがさきへの出品者＆出店者 、大募集！</h1>
+    <!-- 内容 -->
+    <h2 class="d-none">
+        令和7年7月オープンに向けて道の駅に農産品等を出品していただける方を募集します。
+        募集に際し、事前説明会を開催いたしますので、是非ご参加ください。
+    </h2>
+    <!-- 非表示 -->
+
     <div class="recruit-img">
         <div class="title-recruit position-absolute text-end title-effect-trigger">
             <div class="title-font title-fs d-flex mb-2">

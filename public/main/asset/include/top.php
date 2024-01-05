@@ -6,7 +6,7 @@ $subtitle2_fonts = array('湘', '南', 'ち', 'が', 'さ', 'き');
 $subtitle3_fonts = array('2', '0', '2', '5', '.', '7', '&nbsp;', 'O', 'P', 'E', 'N');
 ?>
 <div id="top" class="w-100 position-relative">
-    
+
     <!-- 非表示 -->
     <!-- 見出し -->
     <h1 class="d-none">湘南初の道の駅。道の駅 湘南ちがさき</h1>

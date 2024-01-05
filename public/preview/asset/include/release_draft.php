@@ -1,2 +1,0 @@
-<?php
-$siteview = "draft";

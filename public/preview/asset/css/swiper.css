@@ -1,10 +1,9 @@
+/* SNS instagramの設定 */
 /* スライドの動き等速 */
 .swiper-wrapper {
   transition-timing-function: linear;
 }
 
-/* SNS instagramの設定 */
-/* スライドの動き等速 */
 .size_swiper_sns {
   height: 240px;
 }

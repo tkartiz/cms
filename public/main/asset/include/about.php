@@ -3,7 +3,6 @@
 $abouts = glob('asset/img/about/*.jpg');
 $abouts_reverse = array_reverse($abouts);
 $slider_height = 250;
-$slider_width = 800;
 $about_height = $slider_height * 2 + 200;
 // ABOUT・スライダー
 
@@ -12,7 +11,7 @@ $title_about_fonts = array('A', 'b', 'o', 'u', 't');
 $delay_time = 0.7;
 ?>
 <section id="about" class="container">
-    
+
     <!-- 非表示 -->
     <!-- 見出し -->
     <h1 class="d-none">湘南初の道の駅。道の駅 湘南ちがさき</h1>
@@ -47,15 +46,27 @@ $delay_time = 0.7;
             <p class="px-0 px-sm-5 pb-3 mb-0 w-100 text-end"><a href="https://www.chigasaki-brand.jp/station/" target_="_blank" class="text-muted small">詳しく見る▶</a></p>
         </div>
         <div>
-            <div class="swiper_about1 overflow-hidden" style="height:<?php echo $slider_height; ?>;">
-                <div class="swiper-wrapper">
-                    <?php if (!is_null($abouts)) { ?>
-                        <?php foreach ($abouts as $about) : ?>
-                            <div class="swiper-slide mt-2 me-3">
-                                <div style="width:<?php echo $slider_width; ?>px; height:<?php echo $slider_height; ?>px;"><img class="w-100 h-100 object-fit-cover" style="object-position:center;" src="<?php echo $about ?>" alt="" loading="lazy"></div>
-                            </div>
-                        <?php endforeach; ?>
-                    <?php } ?>
+            <div class="slide-container" style="height:<?php echo $slider_height; ?>;">
+                <div class="slide-wrapper">
+                    <?php foreach ($abouts as $about) : ?>
+                        <div class="slide">
+                            <img src="<?php echo $about ?>" alt="パース画像">
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+                <div class="slide-wrapper">
+                    <?php foreach ($abouts as $about) : ?>
+                        <div class="slide">
+                            <img src="<?php echo $about ?>" alt="パース画像">
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+                <div class="slide-wrapper">
+                    <?php foreach ($abouts as $about) : ?>
+                        <div class="slide">
+                            <img src="<?php echo $about ?>" alt="パース画像">
+                        </div>
+                    <?php endforeach; ?>
                 </div>
             </div>
             <div class="w-100 mx-auto bg-white fadeIn d-block d-lg-none">
@@ -73,69 +84,30 @@ $delay_time = 0.7;
                 </div>
                 <p class="px-2 pb-3 mb-0 w-100 text-end"><a href="https://www.chigasaki-brand.jp/station/" target_="_blank" class="text-muted small">詳しく見る▶</a></p>
             </div>
-            <div class="d-none d-lg-block swiper_about2 overflow-hidden" style="height:<?php echo $slider_height; ?>; margin-top:-8px;">
-                <div class="swiper-wrapper">
-                    <?php if (!is_null($abouts)) { ?>
-                        <?php foreach ($abouts_reverse as $about_reverse) : ?>
-                            <div class="swiper-slide mt-2 me-3">
-                                <div style="width:<?php echo $slider_width; ?>px; height:<?php echo $slider_height; ?>px;"><img class="w-100 h-100 object-fit-cover" style="object-position:center;" src="<?php echo $about_reverse ?>" alt="" loading="lazy"></div>
-                            </div>
-                        <?php endforeach; ?>
-                    <?php } ?>
+            <div class="slide-container-reverse" style="height:<?php echo $slider_height; ?>;">
+                <div class="slide-wrapper-reverse">
+                    <?php foreach ($abouts_reverse as $about_reverse) : ?>
+                        <div class="slide">
+                            <img src="<?php echo $about_reverse ?>" alt="パース画像">
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+                <div class="slide-wrapper-reverse">
+                    <?php foreach ($abouts_reverse as $about_reverse) : ?>
+                        <div class="slide">
+                            <img src="<?php echo $about_reverse ?>" alt="パース画像">
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+                <div class="slide-wrapper-reverse">
+                    <?php foreach ($abouts_reverse as $about_reverse) : ?>
+                        <div class="slide">
+                            <img src="<?php echo $about_reverse ?>" alt="パース画像">
+                        </div>
+                    <?php endforeach; ?>
                 </div>
             </div>
         </div>
         <!-- </a> -->
     </div>
 </section>
-
-<script type="module">
-    import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs'
-
-    // ABOUTの設定　*********************************
-    var screenWidth = $(window).width();
-    if (screenWidth < 769) {
-        const swiper_about1 = new Swiper(".swiper_about1", {
-            loop: true, // ループ有効
-            slidesPerView: 1, // 一度に表示する枚数
-            speed: 15000, // ループの時間
-            allowTouchMove: false, // スワイプ無効
-            autoplay: {
-                delay: 0, // 途切れなくループ
-                reverseDirection: true // 逆方向
-            },
-        });
-
-        const swiper_about2 = new Swiper(".swiper_about2", {
-            loop: true, // ループ有効
-            slidesPerView: 1, // 一度に表示する枚数
-            speed: 15000, // ループの時間
-            allowTouchMove: false, // スワイプ無効
-            autoplay: {
-                delay: 0, // 途切れなくループ
-            },
-        });
-    } else {
-        const swiper_about1 = new Swiper(".swiper_about1", {
-            loop: true, // ループ有効
-            slidesPerView: 2, // 一度に表示する枚数
-            speed: 15000, // ループの時間
-            allowTouchMove: false, // スワイプ無効
-            autoplay: {
-                delay: 0, // 途切れなくループ
-                reverseDirection: true // 逆方向
-            },
-        });
-
-        const swiper_about2 = new Swiper(".swiper_about2", {
-            loop: true, // ループ有効
-            slidesPerView: 2, // 一度に表示する枚数
-            speed: 15000, // ループの時間
-            allowTouchMove: false, // スワイプ無効
-            autoplay: {
-                delay: 0, // 途切れなくループ
-            },
-        });
-    }
-    // ABOUTの設定　*********************************
-</script>

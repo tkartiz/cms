@@ -25,7 +25,7 @@ if ($level === 3) {
                 <li class="d-none d-md-flex justify-content-center align-items-center p-2">
                     <a href="<?php echo $linkfile . '#top'; ?>">
                         <div class="w-100 d-flex align-items-baseline justify-content-center">
-                            <img src="<?php echo $pre; ?>asset/icon/home.svg" style="width:30px; height:30px;">
+                            <img src="<?php echo $pre; ?>asset/icon/home.svg" style="width:30px; height:30px;" alt="ホームアイコン">
                             <p class="ms-2 me-0 mt-0 mb-1 fw-bold">Home</p>
                         </div>
                         <p class="d-none d-md-block w-100 text-center small m-0 fw-bold">ホーム</p>
@@ -34,7 +34,7 @@ if ($level === 3) {
                 <li class="d-none d-md-flex justify-content-center align-items-center p-2">
                     <a href="<?php echo $pre; ?>news/list.php?page=1">
                         <div class="w-100 d-flex align-items-baseline justify-content-center">
-                            <img src="<?php echo $pre; ?>asset/icon/info.svg" style="width:30px; height:30px;">
+                            <img src="<?php echo $pre; ?>asset/icon/info.svg" style="width:30px; height:30px;" alt="お知らせアイコン">
                             <p class="ms-2 me-0 mt-0 mb-1 fw-bold">Information</p>
                         </div>
                         <p class="d-none d-md-block w-100 text-center small m-0 fw-bold">お知らせ</p>
@@ -43,7 +43,7 @@ if ($level === 3) {
                 <li class="d-none d-md-flex justify-content-center align-items-center p-2">
                     <a href="<?php echo $pre . 'inquiry/'; ?>">
                         <div class="w-100 d-flex align-items-baseline justify-content-center">
-                            <img src="<?php echo $pre; ?>asset/icon/contact.svg" style="width:30px; height:30px;">
+                            <img src="<?php echo $pre; ?>asset/icon/contact.svg" style="width:30px; height:30px;" alt="問合せアイコン">
                             <p class="ms-2 me-0 mt-0 mb-1 fw-bold">Contact</p>
                         </div>
                         <p class="d-none d-md-block w-100 text-center small m-0 fw-bold">お問い合わせ</p>
@@ -52,9 +52,9 @@ if ($level === 3) {
                 <!-- <li class="d-none d-md-flex justify-content-center align-items-center p-2">
                     <a href="<?php echo $linkfile . '#sns'; ?>">
                         <div class="w-100 d-flex align-items-baseline justify-content-center">
-                            <img src="<?php echo $pre; ?>asset/icon/X.svg" class="" style="margin:5px 0; width:20px; height:20px;">
-                            <img src="<?php echo $pre; ?>asset/icon/facebook_2.svg" class="" style="width:20px; height:20px;">
-                            <img src="<?php echo $pre; ?>asset/icon/instagram.svg" class="" style="width:20px; height:20px;">
+                            <img src="<?php echo $pre; ?>asset/icon/X.svg" class="" style="margin:5px 0; width:20px; height:20px;" alt="Xアイコン">
+                            <img src="<?php echo $pre; ?>asset/icon/facebook_2.svg" class="" style="width:20px; height:20px;" alt="facebookアイコン">
+                            <img src="<?php echo $pre; ?>asset/icon/instagram.svg" class="" style="width:20px; height:20px;" alt="Instagramアイコン">
                         </div>
                         <p class="d-none d-md-block w-100 text-center small m-0 mt-2 fw-bold">SNS</p>
                     </a>

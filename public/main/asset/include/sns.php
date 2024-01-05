@@ -33,23 +33,13 @@ $title_sns_fonts = array('C', 'h', 'o', 'i', 'c', 'e', '！');
 ?>
 
 <section id="sns" class="container mx-auto text-center position-relative">
-    <!-- 非表示 -->
-    <!-- 見出し -->
-    <h1 class="d-none">道の駅から発信するオリジナルブランド「Choice! CHIGASAKI」</h1>
-    <!-- 内容 -->
-    <h2 class="d-none">
-        茅ヶ崎には、ここにしかないいいもの、もとからあるいいもの、茅ヶ崎だからこそのライフスタイルがあります。
-        「Choice! CHIGASAKI」は、そんな茅ヶ崎の本質的な魅⼒の発信をしています。
-    </h2>
-    <!-- 非表示 -->
-
     <div class="sns-title d-flex align-items-center fadeIn" style="animation-delay:0.4s;">
-        <a href="https://www.chigasaki-brand.jp/item/" target="_blank"><img src="asset/img/sns/logo.png" alt="" class="sns-logo me-3 me-lg-5"></a>
+        <a href="https://www.chigasaki-brand.jp/item/" target="_blank"><img src="asset/img/sns/logo.png" alt="チョイスちがさき製品の画像" class="sns-logo me-3 me-lg-5"></a>
         <div class="text-start pt-4 fw-bold">
-            <span class="fs-4">道の駅から発信するオリジナルブランド<br class="d-block d-lg-none">「Choice! CHIGASAKI」</span><br>
-            <p class="ms-0 ms-lg-3">
-                <span class="">茅ヶ崎には、ここにしかないいいもの、もとからあるいいもの、<br class="d-none d-lg-block d-xl-none">茅ヶ崎だからこそのライフスタイルがあります。<br>
-                <span class="">「Choice! CHIGASAKI」は、そんな茅ヶ崎の本質的な魅⼒の発信をしています。</span>
+            <h2 class="fs-4 fw-bold">道の駅から発信するオリジナルブランド<br class="d-none d-sm-block d-lg-none">「Choice! CHIGASAKI」</h2>
+            <p class="ms-0 ms-lg-3 lh-base">
+                茅ヶ崎には、ここにしかないいいもの、もとからあるいいもの、<br class="d-none d-lg-block d-xl-none">茅ヶ崎だからこそのライフスタイルがあります。<br>
+                「Choice! CHIGASAKI」は、そんな茅ヶ崎の本質的な魅⼒の発信をしています。
             </p>
         </div>
     </div>

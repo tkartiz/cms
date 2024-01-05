@@ -1,7 +1,7 @@
 <?php
-$insta_media_limit = '10';
-$insta_business_id = '17841461303480732';
-$insta_access_token = 'EAATZCWTdoaT8BOZBHoec9xYjmzEnVLGeDnmpN9P2jLO8p1zNZCAXb4G5CG53xoiCZA2rAbYjxDjfKCiu3Nhkxt7sJMZBqaQjollIwnCAlcE6dkQF7RRN36iYUHRZBcZBQPCHRCZCi0Uuc5YlPC4SVpP8EUiDS14JSJx3Cx2B0af6qsLAYQRAm3yLkFfyezwgCVcZD';
+$insta_media_limit = '';
+$insta_business_id = '';
+$insta_access_token = '';
 
 $json = file_get_contents("https://graph.facebook.com/v6.0/{$insta_business_id}?fields=name%2Cmedia.limit({$insta_media_limit})%7Bcaption%2Cmedia_url%2Cthumbnail_url%2Cpermalink%7D&access_token={$insta_access_token}");
 
@@ -34,7 +34,7 @@ $title_sns_fonts = array('C', 'h', 'o', 'i', 'c', 'e', '！');
 
 <section id="sns" class="container mx-auto text-center position-relative">
     <div class="sns-title d-flex align-items-center fadeIn" style="animation-delay:0.4s;">
-        <a href="https://www.chigasaki-brand.jp/item/" target="_blank"><img src="asset/img/sns/logo.png" alt="チョイスちがさき製品の画像" class="sns-logo me-3 me-lg-5"></a>
+        <a href="https://www.chigasaki-brand.jp/item/" target="_blank"><img src="asset/img/sns/logo.png" alt="チョイスちがさきのロゴ" class="sns-logo me-3 me-lg-5"></a>
         <div class="text-start pt-4 fw-bold">
             <h2 class="fs-4 fw-bold">道の駅から発信するオリジナルブランド<br class="d-none d-sm-block d-lg-none">「Choice! CHIGASAKI」</h2>
             <p class="ms-0 ms-lg-3 lh-base">
@@ -130,7 +130,7 @@ $title_sns_fonts = array('C', 'h', 'o', 'i', 'c', 'e', '！');
             <div class="swiper-wrapper">
                 <?php foreach ($stores as $store) : ?>
                     <div class="swiper-slide size_swiper_sns px-1 overflow-hidden">
-                        <img class="impress w-100 h-100 object-fit-cover rounded-2" src="<?php echo $store; ?>">
+                        <img class="impress w-100 h-100 object-fit-cover rounded-2" src="<?php echo $store; ?>" alt="チョイスちがさき製品の画像">
                     </div>
                 <?php endforeach; ?>
             </div>

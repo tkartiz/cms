@@ -1,7 +1,7 @@
 <?php
-$insta_media_limit = '';
-$insta_business_id = '';
-$insta_access_token = '';
+$insta_media_limit = '10';
+$insta_business_id = '17841461303480732';
+$insta_access_token = 'EAATZCWTdoaT8BOZBHoec9xYjmzEnVLGeDnmpN9P2jLO8p1zNZCAXb4G5CG53xoiCZA2rAbYjxDjfKCiu3Nhkxt7sJMZBqaQjollIwnCAlcE6dkQF7RRN36iYUHRZBcZBQPCHRCZCi0Uuc5YlPC4SVpP8EUiDS14JSJx3Cx2B0af6qsLAYQRAm3yLkFfyezwgCVcZD';
 
 $json = file_get_contents("https://graph.facebook.com/v6.0/{$insta_business_id}?fields=name%2Cmedia.limit({$insta_media_limit})%7Bcaption%2Cmedia_url%2Cthumbnail_url%2Cpermalink%7D&access_token={$insta_access_token}");
 

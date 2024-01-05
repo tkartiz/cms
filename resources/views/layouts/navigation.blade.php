@@ -15,6 +15,18 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('announces.index')" :active="request()->routeIs('announces.index')">
+                        お知らせ
+                    </x-nav-link>
+                    <x-nav-link :href="route('documents.index')" :active="request()->routeIs('documents.index')" class='text-center'>
+                        アップロード<br>ファイル
+                    </x-nav-link>
+                    <x-nav-link :href="route('banners.index')" :active="request()->routeIs('banners.index')" class='text-center'>
+                        バナー
+                    </x-nav-link>
+                    <x-nav-link :href="route('shops.index')" :active="request()->routeIs('shops.index')" class='text-center'>
+                        ショップ
+                    </x-nav-link>
                 </div>
             </div>
 
@@ -41,7 +53,7 @@
                             <x-dropdown-link :href="route('logout')"
                                     onclick="event.preventDefault();
                                                 this.closest('form').submit();">
-                                {{ __('Log Out') }}
+                                {{ __('Logout') }}
                             </x-dropdown-link>
                         </form>
                     </x-slot>
@@ -66,6 +78,18 @@
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('announces.index')" :active="request()->routeIs('announces.index')">
+                お知らせ
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('documents.index')" :active="request()->routeIs('documents.index')">
+                アップロードファイル
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('banners.index')" :active="request()->routeIs('banners.index')">
+                バナー
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('shops.index')" :active="request()->routeIs('shops.index')">
+                ショップ
+            </x-responsive-nav-link>
         </div>
 
         <!-- Responsive Settings Options -->
@@ -83,7 +107,7 @@
                     <x-responsive-nav-link :href="route('logout')"
                             onclick="event.preventDefault();
                                         this.closest('form').submit();">
-                        {{ __('Log Out') }}
+                        {{ __('Logout') }}
                     </x-responsive-nav-link>
                 </form>
             </div>

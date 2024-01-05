@@ -8,6 +8,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
+use App\Notifications\ResetPasswordNotification;               //この行を追加
+
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
@@ -41,4 +43,13 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+    //ここから追加
+    public function sendPasswordResetNotification($token)
+    {
+        $url = url("reset-password/${token}");
+        $this->notify(new ResetPasswordNotification($url));
+    }
+    //ここまで追加
 }

@@ -122,7 +122,7 @@ class DocumentController extends Controller
         Common::delDir_CMS($document->filepath);
 
         // LP内フォルダの完全削除
-        Common::delDir_LP($kind, $stamp);
+        // Common::delDir_LP($kind, $stamp);
 
         // DBからの完全削除
         Document::findOrFail($id)->forcedelete();

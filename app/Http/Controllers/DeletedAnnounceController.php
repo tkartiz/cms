@@ -65,7 +65,7 @@ class DeletedAnnounceController extends Controller
         $restore_announce = Announce::find($id);
 
         Common::update_Json($restore_announce->content, $kind); // Jsonへの記載を復活させる
-        Common::restoreDir_LP($kind, $restore_announce->stamp); // LPフォルダへ添付ファイルを復活させる
+        // Common::restoreDir_LP($kind, $restore_announce->stamp); // LPフォルダへ添付ファイルを復活させる
 
         return redirect()
             ->route('deleted_announces.index')

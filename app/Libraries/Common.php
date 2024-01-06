@@ -295,8 +295,8 @@ class Common
         $directory = '/storage/' . $kind . '/' . $request->stamp . '/';
 
         // LP用コピー先
-        $LP_storage_path[0] = '../public/main/asset/storage/' . $kind . '/' . $request->stamp . '/';
-        $LP_storage_path[1] = '../public/preview/asset/storage/' . $kind . '/' . $request->stamp . '/';
+        // $LP_storage_path[0] = '../public/main/asset/storage/' . $kind . '/' . $request->stamp . '/';
+        // $LP_storage_path[1] = '../public/preview/asset/storage/' . $kind . '/' . $request->stamp . '/';
         // ========== ファイル保存先 ================
 
         // ファイル保存（/storage/app/publicフォルダへ保存）
@@ -318,8 +318,8 @@ class Common
         // ファイル読込み用のパスを生成（サーバーではドメインからのパスがないと表示できないため）
         $savedfile[1] = $directory . $savedfile[0];
 
-        // LPのフォルダへファイル保存（※LPからlaravelの/public/storageから画像を読めないため）
-        Common::makeDir_LP($kind, $request->stamp, $request, $k);
+        // LPのフォルダへファイル保存（※LPからlaravelの/public/storageから画像を読めないため）⇒　廃止
+        // Common::makeDir_LP($kind, $request->stamp, $request, $k);
 
         return $savedfile;
     }
@@ -328,60 +328,60 @@ class Common
 
 
     // *****　LPのアップロードディレクトリ＆ファイル生成関数　***************************************
-    public static function makeDir_LP($kind, $stamp, $request, $k)
-    {
-        // ========== ファイル保存先 ================
-        // LP用保存先
-        $LP_storage_path[0] = '../public/main/asset/storage/' . $kind . '/' . $stamp . '/';
-        $LP_storage_path[1] = '../public/preview/asset/storage/' . $kind . '/' . $stamp . '/';
-        // ========== ファイル保存先 ================
+    // public static function makeDir_LP($kind, $stamp, $request, $k)
+    // {
+    //     // ========== ファイル保存先 ================
+    //     // LP用保存先
+    //     $LP_storage_path[0] = '../public/main/asset/storage/' . $kind . '/' . $stamp . '/';
+    //     $LP_storage_path[1] = '../public/preview/asset/storage/' . $kind . '/' . $stamp . '/';
+    //     // ========== ファイル保存先 ================
 
-        $savedfile[0] = $request->file('file')[$k]->getClientOriginalName();
+    //     $savedfile[0] = $request->file('file')[$k]->getClientOriginalName();
 
-        for ($i = 0; $i < 2; $i++) {
-            if (!file_exists($LP_storage_path[$i])) {
-                mkdir($LP_storage_path[$i], 0755, true);
-                chmod($LP_storage_path[$i], 0755);
-            }
-            copy($request->file('file')[$k], $LP_storage_path[$i]  . $savedfile[0]);
-            chmod($LP_storage_path[$i]  . $savedfile[0], 0644);
-        }
-    }
+    //     for ($i = 0; $i < 2; $i++) {
+    //         if (!file_exists($LP_storage_path[$i])) {
+    //             mkdir($LP_storage_path[$i], 0755, true);
+    //             chmod($LP_storage_path[$i], 0755);
+    //         }
+    //         copy($request->file('file')[$k], $LP_storage_path[$i]  . $savedfile[0]);
+    //         chmod($LP_storage_path[$i]  . $savedfile[0], 0644);
+    //     }
+    // }
     // *****　LPのアップロードディレクトリ＆ファイル生成関数　***************************************
 
 
 
     // *****　LPのアップロードディレクトリ＆ファイルレストア関数　***********************************
-    public static function restoreDir_LP($kind, $stamp)
-    {
-        // ========== ファイル保存先 ================
-        // CMSストレージ先（操作用）
-        $directory = 'public/' . $kind . '/' . $stamp . '/';
+    // public static function restoreDir_LP($kind, $stamp)
+    // {
+    //     // ========== ファイル保存先 ================
+    //     // CMSストレージ先（操作用）
+    //     $directory = 'public/' . $kind . '/' . $stamp . '/';
 
-        // LP用保存先
-        $LP_storage_path[0] = '../public/main/asset/storage/' . $kind . '/' . $stamp . '/';
-        $LP_storage_path[1] = '../public/preview/asset/storage/' . $kind . '/' . $stamp . '/';
-        // ========== ファイル保存先 ================       
+    //     // LP用保存先
+    //     $LP_storage_path[0] = '../public/main/asset/storage/' . $kind . '/' . $stamp . '/';
+    //     $LP_storage_path[1] = '../public/preview/asset/storage/' . $kind . '/' . $stamp . '/';
+    //     // ========== ファイル保存先 ================       
 
-        for ($i = 0; $i < 2; $i++) {
-            if (!file_exists($LP_storage_path[$i])) {
-                mkdir($LP_storage_path[$i], 0755, true);
-                chmod($LP_storage_path[$i], 0755);
-            }
-        }
+    //     for ($i = 0; $i < 2; $i++) {
+    //         if (!file_exists($LP_storage_path[$i])) {
+    //             mkdir($LP_storage_path[$i], 0755, true);
+    //             chmod($LP_storage_path[$i], 0755);
+    //         }
+    //     }
 
 
-        $restore_files = Storage::allFiles($directory);
+    //     $restore_files = Storage::allFiles($directory);
 
-        foreach ($restore_files as $restore_file) {
-            $restore_files_name = explode('/', $restore_file)[3];
-            $org_file = 'storage/' . explode('/', $restore_file)[1] . '/' . explode('/', $restore_file)[2] . '/' . explode('/', $restore_file)[3];
-            for ($i = 0; $i < 2; $i++) {
-                copy($org_file, $LP_storage_path[$i] . $restore_files_name);
-                chmod($LP_storage_path[$i]  . $restore_files_name, 0644);
-            }
-        }
-    }
+    //     foreach ($restore_files as $restore_file) {
+    //         $restore_files_name = explode('/', $restore_file)[3];
+    //         $org_file = 'storage/' . explode('/', $restore_file)[1] . '/' . explode('/', $restore_file)[2] . '/' . explode('/', $restore_file)[3];
+    //         for ($i = 0; $i < 2; $i++) {
+    //             copy($org_file, $LP_storage_path[$i] . $restore_files_name);
+    //             chmod($LP_storage_path[$i]  . $restore_files_name, 0644);
+    //         }
+    //     }
+    // }
     // *****　LPのアップロードディレクトリ＆ファイルレストア関数　***********************************
 
 
@@ -393,14 +393,14 @@ class Common
         Storage::disk('public')->delete($CMS_deletefile);
 
         // LP用削除（完全デリート）
-        $LP_deletefile[0] = '../public/main/asset' . $filePath;
-        $LP_deletefile[1] = '../public/preview/asset' . $filePath;
-
-        for ($i = 0; $i < 2; $i++) {
-            if (file_exists($LP_deletefile[$i])) {
-                unlink($LP_deletefile[$i]);
-            }
-        }
+        // $LP_deletefile[0] = '../public/main/asset' . $filePath;
+        // $LP_deletefile[1] = '../public/preview/asset' . $filePath;
+        // for ($i = 0; $i < 2; $i++) {
+        //     if (file_exists($LP_deletefile[$i])) {
+        //         unlink($LP_deletefile[$i]);
+        //     }
+        // }
+        
     }
     // *****　アップロードファイル削除関数　********************************************************
 
@@ -418,34 +418,34 @@ class Common
 
 
     // *****　LPのアップロードディレクトリ＆ファイル削除関数　****************************************
-    public static function delDir_LP($kind, $stamp)
-    {
-        // ========== ファイル保存先 ================
-        // LP用保存先
-        $LP_storage_path[0] = '../public/main/asset/storage/' . $kind . '/' . $stamp . '/';
-        $LP_storage_path[1] = '../public/preview/asset/storage/' . $kind . '/' . $stamp . '/';
-        // ========== ファイル保存先 ================
+    // public static function delDir_LP($kind, $stamp)
+    // {
+    //     // ========== ファイル保存先 ================
+    //     // LP用保存先
+    //     $LP_storage_path[0] = '../public/main/asset/storage/' . $kind . '/' . $stamp . '/';
+    //     $LP_storage_path[1] = '../public/preview/asset/storage/' . $kind . '/' . $stamp . '/';
+    //     // ========== ファイル保存先 ================
 
-        for ($i = 0; $i < 2; $i++) {
-            // 親ディレクトリ、削除するディレクトリが書き込み可能か確認
-            if (is_writable($LP_storage_path[$i])) {
+    //     for ($i = 0; $i < 2; $i++) {
+    //         // 親ディレクトリ、削除するディレクトリが書き込み可能か確認
+    //         if (is_writable($LP_storage_path[$i])) {
 
-                // ディレクトリ内のファイルを取得
-                $files = scandir($LP_storage_path[$i]);
+    //             // ディレクトリ内のファイルを取得
+    //             $files = scandir($LP_storage_path[$i]);
 
-                // ディレクトリ内のファイルを全て削除する
-                foreach ($files as $file_name) {
+    //             // ディレクトリ内のファイルを全て削除する
+    //             foreach ($files as $file_name) {
 
-                    if (!preg_match('/^\.(.*)/', $file_name)) {
-                        unlink($LP_storage_path[$i] . $file_name);
-                    }
-                }
+    //                 if (!preg_match('/^\.(.*)/', $file_name)) {
+    //                     unlink($LP_storage_path[$i] . $file_name);
+    //                 }
+    //             }
 
-                // ディレクトリを削除
-                rmdir($LP_storage_path[$i]);
-            }
-        }
-    }
+    //             // ディレクトリを削除
+    //             rmdir($LP_storage_path[$i]);
+    //         }
+    //     }
+    // }
     // *****　LPのアップロードディレクトリ＆ファイル削除関数　****************************************
 
 

@@ -231,7 +231,7 @@ class BannerController extends Controller
         }
 
         // LP内フォルダの完全削除
-        Common::delDir_LP($kind, $banner->stamp);
+        // Common::delDir_LP($kind, $banner->stamp);
 
         // DBからの完全削除
         Banner::findOrFail($id)->forcedelete();

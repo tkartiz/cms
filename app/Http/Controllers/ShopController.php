@@ -72,10 +72,6 @@ class ShopController extends Controller
         $tmpname = [];
         $tmppath = [];
         for ($i = 0; $i < 5; $i++) {
-            $check_delete = 'file' . $i . '_delete';
-            $filename_org = 'filename' . $i . '_org';
-            $filepath_org = 'filepath' . $i . '_org';
-
             if ($request->file('file') != null && array_key_exists($i, $request->file('file'))) {
                 $savedfile = Common::saveFile($request, $i, $kind);
                 $tmpname[$i] = $savedfile[0];
@@ -293,7 +289,7 @@ class ShopController extends Controller
         }
 
         // LP内フォルダの完全削除
-        Common::delDir_LP($kind, $shop->stamp);
+        // Common::delDir_LP($kind, $shop->stamp);
 
         // DBからの完全削除
         Shop::findOrFail($id)->forcedelete();

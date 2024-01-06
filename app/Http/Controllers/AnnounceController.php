@@ -128,7 +128,7 @@ class AnnounceController extends Controller
         $kind = 'announce';
 
         Common::del_Json($kind, $release, $stamp); // 対象Jsonからの削除
-        Common::delDir_LP($kind, $stamp); // LP内フォルダの完全削除
+        // Common::delDir_LP($kind, $stamp); // LP内フォルダの完全削除
 
         Announce::findOrFail($id)->delete();  // ソフトデリート
 

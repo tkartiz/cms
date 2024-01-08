@@ -11,6 +11,27 @@ if ($level === 3) {
 ?>
 
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-V6CET5RTBK"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-V6CET5RTBK');
+    </script>
+    <!-- End Google tag (gtag.js) -->
+
+    <!-- Google Tag Manager -->
+    <!-- End Google Tag Manager -->
+
+    <!-- Yahoo Tag -->
+    <!-- End Yahoo Tag -->
+
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=2">
     <meta name="description" content="道の駅 湘南ちがさき。湘南初の道の駅。潮風薫る“ちがさき愛”いっぱいの交流拠点として、令和7年7月（予定）にオープンいたします！ゆったりとした雰囲気によるリラクゼーションを提供する休憩機能、さまざまなニーズに対応した情報提供と魅力・資源を発信する情報発信機能、地域とのつながり“ちがさき愛”を育み発信する地域連携機能を兼ね備えた道の駅です。">

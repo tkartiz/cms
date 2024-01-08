@@ -5,6 +5,16 @@ $delay_time = 0.7;
 ?>
 
 <section id="recruit" class="container position-relative p-0">
+    <!-- 非表示 -->
+    <!-- 見出し -->
+    <h1 class="d-none">道の駅 湘南ちがさきへの出品者＆出店者 、大募集！</h1>
+    <!-- 内容 -->
+    <h2 class="d-none">
+        令和7年7月オープンに向けて道の駅に農産品等を出品していただける方を募集します。
+        募集に際し、事前説明会を開催いたしますので、是非ご参加ください。
+    </h2>
+    <!-- 非表示 -->
+
     <div class="recruit-img">
         <div class="title-recruit position-absolute text-end title-effect-trigger">
             <div class="title-font title-fs d-flex mb-2">
@@ -16,7 +26,7 @@ $delay_time = 0.7;
                 <?php endforeach; ?>
                 <?php $delay_time += 0.2; ?>
             </div>
-            <h1 class="fs-6 title-fs-sub fadeIn" style="animation-delay: <?php echo $delay_time; ?>s;">出品者＆出店者 大募集！</h1>
+            <p class="title-fs-sub fadeIn" style="animation-delay: <?php echo $delay_time; ?>s;">出品者＆出店者 大募集！</p>
         </div>
         <div class="recruit-img-outer w-100 position-relative">
             <div class="recruit-img-inner position-absolute translate-middle top-50 start-50"></div>
@@ -26,8 +36,8 @@ $delay_time = 0.7;
     </div>
     <div class="recruit-comment fadeIn" style="animation-delay: <?php echo $delay_time; ?>s;">
         <div class="recruit-comment-inner d-flex flex-wrap justify-content-center w-100 position-relative ih-ig fw-bold">
-            <div class="recruit-comment-title position-absolute text-center">
-                <h1 class="fs-3 fw-bold mb-0 recruit-comment-trigger" style="animation-delay: <?php echo $delay_time; ?>s;">出品者＆出店者 、大募集！</h1>
+            <div class="recruit-comment-title position-absolute fs-3 text-center">
+                <span class="recruit-comment-trigger" style="animation-delay: <?php echo $delay_time; ?>s;">出品者＆出店者 、大募集！</span>
             </div>
             <div class="col-12 px-4 px-sm-5 col-md-10 px-md-0 mx-auto mb-5">
                 <p class="mb-5">
@@ -72,8 +82,8 @@ $delay_time = 0.7;
                 </p> -->
             </div>
             <div class="pick col-12 px-2 col-md-8 px-md-0 text-center">
-                <p class=m-2 fs-5 d-flex align-items-center justify-content-center">
-                    <a href="inquiry/">
+                <a href="inquiry/">
+                    <p class=m-2 fs-5 d-flex align-items-center justify-content-center">
                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 30 30" class="me-2" style="width:30px; height:30px;" xml:space="preserve">
                             <style type="text/css">
                                 .st0 {
@@ -84,10 +94,10 @@ $delay_time = 0.7;
 	C30,5.5,28.8,4.2,27.2,4.2z M25.8,11.7l-7.7,3.9c-1,0.5-2.1,0.8-3.2,0.8c-1.1,0-2.1-0.2-3.1-0.7l-7.9-4c-0.4-0.2-0.6-0.7-0.4-1.1
 	c0.2-0.4,0.7-0.6,1.1-0.4l7.9,3.9c1.5,0.8,3.3,0.7,4.8,0l7.7-3.9c0.4-0.2,0.9,0,1.1,0.4C26.4,11,26.2,11.5,25.8,11.7z" />
                         </svg>
-                        Contact<br>
-                        お問い合わせはこちら
-                    </a>
-                </p>
+                        Contact
+                    </p>
+                    お問い合わせはこちら
+                </a>
             </div>
         </div>
     </div>

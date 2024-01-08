@@ -25,6 +25,6 @@ if ($level === 3) {
     <?php } else { ?>
         <canvas id="waveCanvasFooter2"></canvas>
     <?php } ?>
-    <div class="waveBaseFooter" style="margin-top:-6px;"></div>
+    <div class="waveBaseFooter" style="margin-top:-5px;"></div>
 </div>
 </footer>

@@ -2,19 +2,7 @@
 include "../asset/include/release.php"; // 公開/非公開変数読込み
 include '../asset/include/function_min.php'; // 共通関数読込み
 $level = 2; // ２階層
-
-// パス階層調整
-if ($level === 3) {
-    $pre = '../../';
-    $linkfile = $pre . 'index.php';
-} else if ($level === 2) {
-    $pre = '../';
-    $linkfile = $pre . 'index.php';
-} else {
-    $pre = '';
-    $linkfile = '';
-}
-// パス階層調整
+$layer = read_layer($level);
 ?>
 <!DOCTYPE html>
 <html lang="ja">

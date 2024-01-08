@@ -2,28 +2,16 @@
 include "../asset/include/release.php"; // 公開/非公開変数読込み
 include '../asset/include/function_min.php'; // 共通関数読込み
 $level = 2; // ２階層
-
-// パス階層調整
-if ($level === 3) {
-    $pre = '../../';
-    $linkfile = $pre . 'index.php';
-} else if ($level === 2) {
-    $pre = '../';
-    $linkfile = $pre . 'index.php';
-} else {
-    $pre = '';
-    $linkfile = '';
-}
-// パス階層調整
+$layer = read_layer($level);
 ?>
 
 <!DOCTYPE html>
 <html lang="ja">
 
-<?php include "../asset/include/head.php"; ?><!-- ヘッド読み込み -->
+<?php include $layer . 'asset/include/head.php'; ?><!-- ヘッド読み込み -->
 
 <body>
-    <?php include "../asset/include/header.php"; ?>
+    <?php include $layer . 'asset/include/header.php'; ?>
 
     <div class="container">
         <div class="HPname mt-2 mb-0 d-flex align-items-baseline fw-bold lh-sm">
@@ -34,7 +22,7 @@ if ($level === 3) {
                 <div class="d-flex">
                     <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="<?php echo $linkfile; ?>">ホーム</a></li>
+                            <li class="breadcrumb-item"><a href="<?php echo $layer; ?>">ホーム</a></li>
                             <li class="breadcrumb-item active" aria-current="page">お問い合わせ</li>
                         </ol>
                     </nav>
@@ -73,7 +61,7 @@ if ($level === 3) {
                             <div class="form-check mb-4">
                                 <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
                                 <label class="form-check-label" for="flexCheckIndeterminate">
-                                    利用規約に同意します。<br class="d-block d-sm-none"><a href="https://www.m-shonanchigasaki.com/main/privacy/" target="_blank" rel="noopener noreferrer" class="text-decoration-underline text-dark">プライバシーポリシーはこちら</a>
+                                    利用規約に同意します。<br class="d-block d-sm-none"><a href="../privacy" target="_blank" rel="noopener noreferrer" class="text-decoration-underline text-dark">プライバシーポリシーはこちら</a>
                                 </label>
                             </div>
                             <div class="text-center pt-4 col-md-6 offset-md-3">
@@ -87,9 +75,9 @@ if ($level === 3) {
         </div>
     </div>
 
-    <?php include "../asset/include/footer.php" ?><!-- フッター -->
+    <?php include $layer.'asset/include/footer.php' ?><!-- フッター -->
 
-    <?php include "../asset/include/script.php"; ?><!-- script読み込み -->
+    <?php include $layer.'asset/include/script.php'; ?><!-- script読み込み -->
 </body>
 
 </html>

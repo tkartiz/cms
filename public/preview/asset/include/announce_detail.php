@@ -60,7 +60,7 @@ $colImgNum = 3;
                             <?php echo nl2br($announce["content" . ($i + 1)]); ?>
                         </p>
                         <div class="<?php echo $img_class ?>">
-                            <img class="img1" style="<?php echo $img_style ?>" src="<?php echo $img_src ?>" alt="お知らせ関連画像">
+                            <img class="img1" style="<?php echo $img_style ?>" src="<?php echo $img_src ?>" alt="">
                             <p class="small p-1 px-sm-2">
                                 <?php echo $announce[$name . 'Cap'] ?>
                             <p>
@@ -76,7 +76,7 @@ $colImgNum = 3;
                 ?>
                     <div class="d-flex flex-wrap pb-5">
                         <div class="<?php echo $img_class ?>">
-                            <img class="object-fit-cover w-100 h-auto" style="<?php echo $img_style ?>" src="<?php echo $img_src ?>" alt="お知らせ関連画像">
+                            <img class="object-fit-cover w-100 h-auto" style="<?php echo $img_style ?>" src="<?php echo $img_src ?>" alt="">
                             <p class="small p-1 px-sm-2">
                                 <?php echo $announce[$name . 'Cap'] ?>
                             <p>
@@ -110,7 +110,7 @@ $colImgNum = 3;
                             $img_src = $announce_pre . $announce[$name . 'Path'] . '?p=(new Date()).getTime()';
                         ?>
                             <div class="<?php echo $img_class ?>">
-                                <img class="img2" style="<?php echo $img_style ?>" src="<?php echo $img_src ?>" alt="お知らせ関連画像">
+                                <img class="img2" style="<?php echo $img_style ?>" src="<?php echo $img_src ?>" alt="">
                                 <p class="small p-1 px-sm-2">
                                     <?php echo $announce[$name . 'Cap'] ?>
                                 <p>
@@ -148,7 +148,7 @@ $colImgNum = 3;
                             $img_src = $announce_pre . $announce[$name . 'Path'] . '?p=(new Date()).getTime()';
                         ?>
                             <div class="<?php echo $img_class ?>">
-                                <img class="img3" style="<?php echo $img_style ?>" src="<?php echo $img_src ?>" alt="お知らせ関連画像">
+                                <img class="img3" style="<?php echo $img_style ?>" src="<?php echo $img_src ?>" alt="">
                                 <p class="small p-1 px-sm-2">
                                     <?php echo $announce[$name . 'Cap'] ?>
                                 <p>

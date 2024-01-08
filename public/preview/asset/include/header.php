@@ -1,21 +1,9 @@
 <?php
-// パス階層調整
-if ($level === 3) {
-    $pre = '../../';
-    $linkfile = $pre . 'index.php';
-} else if ($level === 2) {
-    $pre = '../';
-    $linkfile = $pre . 'index.php';
-} else {
-    $pre = '';
-    $linkfile = '';
-}
-// パス階層調整
+$layer = read_layer($level);
 ?>
-
 <header id="header" class="w-100 position-fixed top-0 start-0">
     <?php if ($siteview === 'draft') { ?>
-        <h1 class="w-50 position-absolute top-0 start-0 bg-warning">ドラフト版</h1>
+        <h1 class="position-absolute top-0 start-50 bg-warning" style="transform:translatex(-50%);">ドラフト版</h1>
     <?php } ?>
 
     <div class="d-flex justify-content-end">
@@ -23,38 +11,38 @@ if ($level === 3) {
         <div class="nav-bar">
             <ul class="d-flex m-0 p-0">
                 <li class="d-none d-md-flex justify-content-center align-items-center p-2">
-                    <a href="<?php echo $linkfile . '#top'; ?>">
+                    <a href="<?php echo $layer; ?>">
                         <div class="w-100 d-flex align-items-baseline justify-content-center">
-                            <img src="<?php echo $pre; ?>asset/icon/home.svg" style="width:30px; height:30px;" alt="ホームアイコン">
+                            <img src="<?php echo $layer; ?>asset/icon/home.svg" style="width:30px; height:30px;">
                             <p class="ms-2 me-0 mt-0 mb-1 fw-bold">Home</p>
                         </div>
                         <p class="d-none d-md-block w-100 text-center small m-0 fw-bold">ホーム</p>
                     </a>
                 </li>
                 <li class="d-none d-md-flex justify-content-center align-items-center p-2">
-                    <a href="<?php echo $pre; ?>news/list.php?page=1">
+                    <a href="<?php echo $layer; ?>news/?page=1">
                         <div class="w-100 d-flex align-items-baseline justify-content-center">
-                            <img src="<?php echo $pre; ?>asset/icon/info.svg" style="width:30px; height:30px;" alt="お知らせアイコン">
+                            <img src="<?php echo $layer; ?>asset/icon/info.svg" style="width:30px; height:30px;">
                             <p class="ms-2 me-0 mt-0 mb-1 fw-bold">Information</p>
                         </div>
                         <p class="d-none d-md-block w-100 text-center small m-0 fw-bold">お知らせ</p>
                     </a>
                 </li>
                 <li class="d-none d-md-flex justify-content-center align-items-center p-2">
-                    <a href="<?php echo $pre . 'inquiry/'; ?>">
+                    <a href="<?php echo $layer . 'inquiry/'; ?>">
                         <div class="w-100 d-flex align-items-baseline justify-content-center">
-                            <img src="<?php echo $pre; ?>asset/icon/contact.svg" style="width:30px; height:30px;" alt="問合せアイコン">
+                            <img src="<?php echo $layer; ?>asset/icon/contact.svg" style="width:30px; height:30px;">
                             <p class="ms-2 me-0 mt-0 mb-1 fw-bold">Contact</p>
                         </div>
                         <p class="d-none d-md-block w-100 text-center small m-0 fw-bold">お問い合わせ</p>
                     </a>
                 </li>
                 <!-- <li class="d-none d-md-flex justify-content-center align-items-center p-2">
-                    <a href="<?php echo $linkfile . '#sns'; ?>">
+                    <a href="<?php echo $layer . '#sns'; ?>">
                         <div class="w-100 d-flex align-items-baseline justify-content-center">
-                            <img src="<?php echo $pre; ?>asset/icon/X.svg" class="" style="margin:5px 0; width:20px; height:20px;" alt="Xアイコン">
-                            <img src="<?php echo $pre; ?>asset/icon/facebook_2.svg" class="" style="width:20px; height:20px;" alt="facebookアイコン">
-                            <img src="<?php echo $pre; ?>asset/icon/instagram.svg" class="" style="width:20px; height:20px;" alt="Instagramアイコン">
+                            <img src="<?php echo $layer; ?>asset/icon/X.svg" class="" style="margin:5px 0; width:20px; height:20px;">
+                            <img src="<?php echo $layer; ?>asset/icon/facebook_2.svg" class="" style="width:20px; height:20px;">
+                            <img src="<?php echo $layer; ?>asset/icon/instagram.svg" class="" style="width:20px; height:20px;">
                         </div>
                         <p class="d-none d-md-block w-100 text-center small m-0 mt-2 fw-bold">SNS</p>
                     </a>
@@ -114,7 +102,7 @@ if ($level === 3) {
     </div>
     <div class="d-flex justify-content-end">
         <div id="menu-collapse" class="p-3 p-sm-5 d-none">
-            <a href="<?php echo $linkfile . '#top'; ?>">
+            <a href="<?php echo $layer; ?>">
                 <p class="fs-6 fw-bold text-center m-0">～Mohala He Li'a～</p>
                 <p class="fs-3 fw-bold text-center mb-3 mb-sm-4">湘南ちがさき</p>
             </a>
@@ -125,8 +113,8 @@ if ($level === 3) {
                         <p class="text-muted small">お知らせ</p>
                     </div>
                     <div class="ms-4 d-flex">
-                        <!-- <p class="col-6"><a class="jump" href="<?php echo $pre; ?>event/list.php">イベント</a></p> -->
-                        <p class="col-6"><a class="jump" href="<?php echo $pre; ?>news/list.php?page=1">お知らせ一覧</a></p>
+                        <!-- <p class="col-6"><a class="jump" href="<?php echo $layer; ?>event/list.php">イベント</a></p> -->
+                        <p class="col-6"><a class="jump" href="<?php echo $layer; ?>news/?page=1">お知らせ一覧</a></p>
                     </div>
                 </div>
                 <div class="mb-2 mb-sm-3">
@@ -136,8 +124,8 @@ if ($level === 3) {
                     </div>
 
                     <!-- <div class="ms-4 d-flex">
-                        <p class="col-6"><a class="jump" href="<?php echo $pre; ?>about/concept/">コンセプト</a></p>
-                        <p class="col-6"><a class="jump" href="<?php echo $pre; ?>about/environment/">環境への取組み</a></p>
+                        <p class="col-6"><a class="jump" href="<?php echo $layer; ?>about/concept/">コンセプト</a></p>
+                        <p class="col-6"><a class="jump" href="<?php echo $layer; ?>about/environment/">環境への取組み</a></p>
                     </div> -->
                 </div>
 
@@ -147,10 +135,10 @@ if ($level === 3) {
                         <p class="text-muted small">施設ガイド</p>
                     </div>
                     <div class="ms-4 d-flex flex-wrap">
-                        <p class="col-12"><a class="jump" href="<?php echo $pre; ?>areamap/">エリアマップ</a></p>
-                        <p class="col-6"><a class="jump" href="<?php echo $pre; ?>areamap/product_food/">物販・フード</a></p>
-                        <p class="col-6"><a class="jump" href="<?php echo $pre; ?>areamap/service/">「コト」サービス</a></p>
-                        <p class="col-6"><a class="jump" href="<?php echo $pre; ?>areamap/rest/">休憩所・広場</a></p>
+                        <p class="col-12"><a class="jump" href="<?php echo $layer; ?>areamap/">エリアマップ</a></p>
+                        <p class="col-6"><a class="jump" href="<?php echo $layer; ?>areamap/product_food/">物販・フード</a></p>
+                        <p class="col-6"><a class="jump" href="<?php echo $layer; ?>areamap/service/">「コト」サービス</a></p>
+                        <p class="col-6"><a class="jump" href="<?php echo $layer; ?>areamap/rest/">休憩所・広場</a></p>
                     </div>
                 </div> -->
 
@@ -160,13 +148,11 @@ if ($level === 3) {
                         <p class="text-muted small">その他</p>
                     </div>
                     <div class="ms-4 d-flex flex-wrap">
-                        <!-- <p class="col-6"><a class="jump" href="<?php echo $linkfile; ?>#sns">SNS</a></p> -->
+                        <!-- <p class="col-6"><a class="jump" href="<?php echo $layer; ?>access/">アクセスマップ</a></p>
+                        <p class="col-6"><a class="jump" href="<?php echo $layer; ?>faq/">よくあるご質問</a></p> -->
 
-                        <!-- <p class="col-6"><a class="jump" href="<?php echo $pre; ?>access/">アクセスマップ</a></p>
-                        <p class="col-6"><a class="jump" href="<?php echo $pre; ?>faq/">よくあるご質問</a></p> -->
-
-                        <p class="col-6"><a class="jump" href="<?php echo $pre; ?>inquiry/">お問い合わせ</a></p><br>
-                        <p class="col-6" style="width:100%;"><a class="jump" href="<?php echo $pre; ?>privacy/">プライバシーポリシー</a></p>
+                        <p class="col-6"><a class="jump" href="<?php echo $layer; ?>inquiry/">お問い合わせ</a></p><br>
+                        <p class="col-6" style="width:100%;"><a class="jump" href="<?php echo $layer; ?>privacy/">プライバシーポリシー</a></p>
                     </div>
                 </div>
             </div>
@@ -177,4 +163,10 @@ if ($level === 3) {
 <script>
     const headerHeight = document.getElementById('header').clientHeight;;
     document.documentElement.style.setProperty('--headerHeight', headerHeight + 'px');
+
+    $(document).ready(function() {
+        $('html,body').animate({
+            scrollTop: 0
+        }, '1');
+    });
 </script>

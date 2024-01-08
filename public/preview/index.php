@@ -2,9 +2,11 @@
 <html lang="ja">
 
 <?php
-include "asset/include/release.php"; // 公開/非公開変数読込み
+include 'asset/include/release.php'; // 公開/非公開変数読込み
 include 'asset/include/function_min.php'; // 共通関数読込み
 $level = 1; // 1階層
+$layer = read_layer($level);
+
 $announces = read_Json('announce', $siteview, $level);
 if (!is_null($announces)) {
   $ids = array_column($announces, 'date');
@@ -19,12 +21,11 @@ $slider_height = '400px';
 // ABOUT・スライダー
 ?>
 
-<?php include "asset/include/head.php"; ?><!-- ヘッド -->
+<?php include $layer . 'asset/include/head.php'; ?><!-- ヘッド -->
 
 <body>
-  <div class="w-100 position-relative overflow-hidden">
-    <!-- 背景アニメーション -->
-    <!-- <div id="anime" class="surfer-trace position-absolute">
+  <!-- 背景アニメーション -->
+  <!-- <div id="anime" class="surfer-trace position-absolute">
       <div class="w-100 h-100 position-relative top-0 start-0">
         <div id="surferTrace1" class="w-100 h-100 position-absolute top-0 start-0">
           <svg width="0" height="0" viewBox="0 0 1920 730">
@@ -51,34 +52,34 @@ $slider_height = '400px';
       <div class="gentleman position-absolute"></div> 
       <div class="child position-absolute"></div> 
     </div> -->
-    <!-- 背景アニメーション -->
+  <!-- 背景アニメーション -->
 
-    <?php include "asset/include/header.php"; ?><!-- ヘッダー -->
+  <?php include $layer.'asset/include/header.php'; ?><!-- ヘッダー -->
 
-    <!-- ******************************************************************* -->
-    <?php include "asset/include/top.php"; ?><!-- ファーストビュー -->
+  <!-- ******************************************************************* -->
+  <?php include $layer.'asset/include/top.php'; ?><!-- ファーストビュー -->
 
-    <?php include "asset/include/news_bar.php"; ?> <!-- お知らせ -->
+  <?php include $layer.'asset/include/news_bar.php'; ?> <!-- お知らせ -->
 
-    <?php include "asset/include/about.php"; ?> <!-- ABOUT -->
+  <?php include $layer.'asset/include/about.php'; ?> <!-- ABOUT -->
 
-    <?php include "asset/include/sns.php"; ?> <!-- SNS -->
+  <?php include $layer.'asset/include/sns.php'; ?> <!-- SNS -->
 
-    <?php include "asset/include/recruit.php"; ?> <!-- 生産事業者様募集 -->
+  <?php include $layer.'asset/include/recruit.php'; ?> <!-- 生産事業者様募集 -->
 
-    <!-- ******************************************************************* -->
+  <!-- ******************************************************************* -->
 
-    <?php include "asset/include/footer.php"; ?><!-- フッター -->
+  <?php include $layer.'asset/include/footer.php' ?><!-- フッター -->
   </div>
 
-  <?php include "asset/include/script.php"; ?><!-- script読み込み -->
+  <?php include $layer.'asset/include/script.php'; ?><!-- script読み込み -->
 
   <script>
     // section間隙間設定
     var screenWidth = $(window).width();
     if (screenWidth < 769) {
       sectionMargin = 180;
-    } else if(screenWidth < 1401) {
+    } else if (screenWidth < 1401) {
       sectionMargin = 240;
     } else {
       sectionMargin = 300;

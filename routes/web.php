@@ -40,7 +40,7 @@ Route::resource('shops', ShopController::class)
 
 
 Route::get('/', function () {
-    return view('m-shonanchigasaki');
+    return view('welcome');
 })->name('home');
 
 Route::get('/cms', function () {

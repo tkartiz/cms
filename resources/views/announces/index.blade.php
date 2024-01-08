@@ -121,7 +121,7 @@
                                             </td>
                                             <td rowspan="2" class="border border-slate-300">
                                                 @if($announce->release === "release")
-                                                <a href="{{ 'main/news/index.php?filename='.$announce->stamp }}" target='_BLANK' class="w-full p-1 text-center">
+                                                <a href="{{ 'http://localhost/laravel/public_html/news/?filename='.$announce->stamp }}" target='_BLANK' class="w-full p-1 text-center">
                                                     @else
                                                     <a href="{{ 'preview/news/index.php?filename='.$announce->stamp }}" target='_BLANK' class="w-full p-1 text-center">
                                                         @endif

@@ -1,31 +1,4 @@
 <?php
-$insta_media_limit = '10';
-$insta_business_id = '17841461303480732';
-$insta_access_token = 'EAATZCWTdoaT8BOZBHoec9xYjmzEnVLGeDnmpN9P2jLO8p1zNZCAXb4G5CG53xoiCZA2rAbYjxDjfKCiu3Nhkxt7sJMZBqaQjollIwnCAlcE6dkQF7RRN36iYUHRZBcZBQPCHRCZCi0Uuc5YlPC4SVpP8EUiDS14JSJx3Cx2B0af6qsLAYQRAm3yLkFfyezwgCVcZD';
-
-$json = file_get_contents("https://graph.facebook.com/v6.0/{$insta_business_id}?fields=name%2Cmedia.limit({$insta_media_limit})%7Bcaption%2Cmedia_url%2Cthumbnail_url%2Cpermalink%7D&access_token={$insta_access_token}");
-
-$json = mb_convert_encoding($json, 'UTF8', 'ASCII,JIS,UTF-8,EUC-JP,SJIS-WIN');
-$obj = json_decode($json, true);
-
-$insta = [];
-foreach ($obj['media']['data'] as $k => $v) {
-    if (!empty($v['thumbnail_url'])) {
-        $data = [
-            'img' => $v['thumbnail_url'],
-            'caption' => $v['caption'],
-            'link' => $v['permalink'],
-        ];
-    } else {
-        $data = [
-            'img' => $v['media_url'],
-            'caption' => $v['caption'],
-            'link' => $v['permalink'],
-        ];
-    }
-    $insta[] = $data;
-}
-
 $stores =  glob('asset/img/choice_chigasaki/*.jpg');
 
 $title_sns_fonts = array('C', 'h', 'o', 'i', 'c', 'e', '！');
@@ -34,8 +7,6 @@ $title_sns_fonts = array('C', 'h', 'o', 'i', 'c', 'e', '！');
 
 <section id="sns" class="container mx-auto text-center position-relative">
     <!-- 非表示 -->
-    <!-- 見出し -->
-    <h1 class="d-none">道の駅から発信するオリジナルブランド「Choice! CHIGASAKI」</h1>
     <!-- 内容 -->
     <h2 class="d-none">
         茅ヶ崎には、ここにしかないいいもの、もとからあるいいもの、茅ヶ崎だからこそのライフスタイルがあります。
@@ -44,13 +15,14 @@ $title_sns_fonts = array('C', 'h', 'o', 'i', 'c', 'e', '！');
     <!-- 非表示 -->
 
     <div class="sns-title d-flex align-items-center fadeIn" style="animation-delay:0.4s;">
-        <a href="https://www.chigasaki-brand.jp/item/" target="_blank"><img src="asset/img/sns/logo.png" alt="" class="sns-logo me-3 me-lg-5"></a>
+        <a href="https://www.chigasaki-brand.jp/item/" target="_blank"><img src="asset/img/sns/logo.png" alt="チョイスちがさきサイト" class="sns-logo me-3 me-lg-5"></a>
         <div class="text-start pt-4 fw-bold">
-            <span class="fs-4">道の駅から発信するオリジナルブランド<br class="d-block d-lg-none">「Choice! CHIGASAKI」</span><br>
-            <p class="ms-0 ms-lg-3">
-                <span class="">茅ヶ崎には、ここにしかないいいもの、もとからあるいいもの、<br class="d-none d-lg-block d-xl-none">茅ヶ崎だからこそのライフスタイルがあります。<br>
-                <span class="">「Choice! CHIGASAKI」は、そんな茅ヶ崎の本質的な魅⼒の発信をしています。</span>
-            </p>
+            <h1 class="d-none d-sm-block mb-4 fs-4 fw-bold">道の駅から発信するオリジナルブランド<br class="d-block d-lg-none">「Choice! CHIGASAKI」</h1>
+            <h1 class="d-block mb-4 d-sm-none fw-bold" style="font-size:1.2rem;">道の駅から発信するオリジナルブランド<br class="d-block d-lg-none"><span class="fs-4">「Choice! CHIGASAKI」</span></h1>
+            <h2 class="fs-6 lh-base mb-3 ms-0 ms-lg-3">
+                茅ヶ崎には、ここにしかないいいもの、もとからあるいいもの、<br class="d-none d-sm-block d-xl-none">茅ヶ崎だからこそのライフスタイルがあります。<br>
+                「Choice! CHIGASAKI」は、そんな茅ヶ崎の本質的な魅⼒の発信をしています。
+            </h2>
         </div>
     </div>
     <!-- <ul class="d-flex justify-content-center gap-3 gap-md-5 p-0 mb-4">
@@ -126,30 +98,22 @@ $title_sns_fonts = array('C', 'h', 'o', 'i', 'c', 'e', '！');
             </a>
             </li>
     </ul> -->
-    <div class="swiper_sns_container container position-relative overflow-hidden fadeIn" style="z-index:-1; animation-delay:1.4s;">
-        <div class="swiper_sns">
-            <!-- <div class="swiper-wrapper">
-                <?php foreach ($insta as $k => $v) : ?>
-                    <div class="swiper-slide size_swiper_sns px-1 overflow-hidden">
-                        <a href="' . $v['link'] . '" target="_blank">
-                            <img class="impress w-100 h-100 object-fit-cover rounded-2" src="<?php echo $v['img']; ?>">
-                        </a>
-                    </div>
-                <?php endforeach; ?>
-            </div> -->
-            <div class="swiper-wrapper">
-                <?php foreach ($stores as $store) : ?>
-                    <div class="swiper-slide size_swiper_sns px-1 overflow-hidden">
-                        <img class="impress w-100 h-100 object-fit-cover rounded-2" src="<?php echo $store; ?>">
-                    </div>
-                <?php endforeach; ?>
-            </div>
+    <div class="slide-container-sns slide-paused rounded-2 fadeIn" style="z-index:-1; animation-delay:1.4s;" ontouchstart="">
+        <div class="slide-wrapper-sns  rounded-2">
+            <?php foreach ($stores as $store) : ?>
+                <div class="slide-sns">
+                    <img class="impress rounded-2" src="<?php echo $store ?>" alt="チョイスちがさき商品">
+                </div>
+            <?php endforeach; ?>
         </div>
-        <!-- <div class="swiper-button-prev"></div>
-        <div class="swiper-button-next"></div> -->
-        <div class="swiper-pagination"></div>
+        <div class="slide-wrapper-sns rounded-2">
+            <?php foreach ($stores as $store) : ?>
+                <div class="slide-sns">
+                    <img class="impress rounded-2" src="<?php echo $store ?>" alt="チョイスちがさき商品">
+                </div>
+            <?php endforeach; ?>
+        </div>
     </div>
-    <!-- <div class="text-muted"><a href="https://www.instagram.com/tk.sample/">view more</a></div> -->
 </section>
 
 <script type="module">

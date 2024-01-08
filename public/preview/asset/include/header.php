@@ -11,9 +11,9 @@ $layer = read_layer($level);
         <div class="nav-bar">
             <ul class="d-flex m-0 p-0">
                 <li class="d-none d-md-flex justify-content-center align-items-center p-2">
-                    <a href="<?php echo $layer; ?>">
+                    <a href="/">
                         <div class="w-100 d-flex align-items-baseline justify-content-center">
-                            <img src="<?php echo $layer; ?>asset/icon/home.svg" style="width:30px; height:30px;">
+                            <img src="<?php echo $layer; ?>asset/icon/home.svg" style="width:30px; height:30px;" alt="ホームアイコン">
                             <p class="ms-2 me-0 mt-0 mb-1 fw-bold">Home</p>
                         </div>
                         <p class="d-none d-md-block w-100 text-center small m-0 fw-bold">ホーム</p>
@@ -22,7 +22,7 @@ $layer = read_layer($level);
                 <li class="d-none d-md-flex justify-content-center align-items-center p-2">
                     <a href="<?php echo $layer; ?>news/?page=1">
                         <div class="w-100 d-flex align-items-baseline justify-content-center">
-                            <img src="<?php echo $layer; ?>asset/icon/info.svg" style="width:30px; height:30px;">
+                            <img src="<?php echo $layer; ?>asset/icon/info.svg" style="width:30px; height:30px;" alt="お知らせアイコン">
                             <p class="ms-2 me-0 mt-0 mb-1 fw-bold">Information</p>
                         </div>
                         <p class="d-none d-md-block w-100 text-center small m-0 fw-bold">お知らせ</p>
@@ -31,7 +31,7 @@ $layer = read_layer($level);
                 <li class="d-none d-md-flex justify-content-center align-items-center p-2">
                     <a href="<?php echo $layer . 'inquiry/'; ?>">
                         <div class="w-100 d-flex align-items-baseline justify-content-center">
-                            <img src="<?php echo $layer; ?>asset/icon/contact.svg" style="width:30px; height:30px;">
+                            <img src="<?php echo $layer; ?>asset/icon/contact.svg" style="width:30px; height:30px;" alt="お問い合わせアイコン">
                             <p class="ms-2 me-0 mt-0 mb-1 fw-bold">Contact</p>
                         </div>
                         <p class="d-none d-md-block w-100 text-center small m-0 fw-bold">お問い合わせ</p>
@@ -102,7 +102,7 @@ $layer = read_layer($level);
     </div>
     <div class="d-flex justify-content-end">
         <div id="menu-collapse" class="p-3 p-sm-5 d-none">
-            <a href="<?php echo $layer; ?>">
+            <a href="/">
                 <p class="fs-6 fw-bold text-center m-0">～Mohala He Li'a～</p>
                 <p class="fs-3 fw-bold text-center mb-3 mb-sm-4">湘南ちがさき</p>
             </a>
@@ -163,10 +163,4 @@ $layer = read_layer($level);
 <script>
     const headerHeight = document.getElementById('header').clientHeight;;
     document.documentElement.style.setProperty('--headerHeight', headerHeight + 'px');
-
-    $(document).ready(function() {
-        $('html,body').animate({
-            scrollTop: 0
-        }, '1');
-    });
 </script>

@@ -27,15 +27,12 @@ function read_layer($level)
 {
     // パス階層調整
     if ($level === 3) {
-        $pre = '../../';
-        $linkfile = $pre;
+        $layer = '../../';
     } else if ($level === 2) {
-        $pre = '../';
-        $linkfile = $pre;
+        $layer = '../';
     } else {
-        $pre = '';
-        $linkfile = '';
+        $layer = '';
     }
     // パス階層調整
-    return $linkfile;
+    return $layer;
 }

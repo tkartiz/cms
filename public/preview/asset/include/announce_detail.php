@@ -1,7 +1,6 @@
 <?php
-// ========== ファイル保存先 ================
-$announce_pre = '../asset';
-// ========== ファイル保存先 ================
+$layer = read_layer($level);
+
 // ========= お知らせ欄と画像数の設定 ==========
 $colNum = 6;
 $colImgNum = 3;
@@ -31,7 +30,7 @@ $colImgNum = 3;
                 <?php } else if ($ImgCount == 1 && !empty($announce["content" . ($i + 1)])) { ?>
                     <?php
                     $name = "col" . ($i + 1) . "Img" . $Img[$ImgCount - 1];
-                    if(!is_null($announce[$name . "Width"])){
+                    if (!is_null($announce[$name . "Width"])) {
                         $ImgWidth = $announce[$name . "Width"];
                     } else {
                         $ImgWidth = 'col-12';  // 空白時は100%幅とする
@@ -52,7 +51,7 @@ $colImgNum = 3;
                         $img_style = 'max-height:' . $announce[$name . 'Height'] . 'px;';
                     }
 
-                    $img_src = $announce_pre . $announce[$name . 'Path'] . '?p=(new Date()).getTime()';
+                    $img_src = $layer . 'asset' . $announce[$name . 'Path'] . '?p=(new Date()).getTime()';
                     ?>
 
                     <div class="d-flex flex-wrap pb-5">
@@ -72,7 +71,7 @@ $colImgNum = 3;
                     $ImgWidth_num = 12;
                     $img_class = "col-12 order-1 order-sm-1 col-sm-" . $ImgWidth_num;
                     $img_style = 'max-height:' . $announce[$name . 'Height'] . 'px;';
-                    $img_src = $announce_pre . $announce[$name . 'Path'] . '?p=(new Date()).getTime()';
+                    $img_src = $layer . 'asset' . $announce[$name . 'Path'] . '?p=(new Date()).getTime()';
                 ?>
                     <div class="d-flex flex-wrap pb-5">
                         <div class="<?php echo $img_class ?>">
@@ -107,7 +106,7 @@ $colImgNum = 3;
                             } else {
                                 $img_class = "overflow-hidden h-auto col-12 col-sm-6 ps-sm-1 order-" . ($k + 1) . " order-sm-" . ($k + 1);
                             }
-                            $img_src = $announce_pre . $announce[$name . 'Path'] . '?p=(new Date()).getTime()';
+                            $img_src = $layer . 'asset' . $announce[$name . 'Path'] . '?p=(new Date()).getTime()';
                         ?>
                             <div class="<?php echo $img_class ?>">
                                 <img class="img2" style="<?php echo $img_style ?>" src="<?php echo $img_src ?>" alt="">
@@ -145,7 +144,7 @@ $colImgNum = 3;
                             } else {
                                 $img_class = "overflow-hidden h-auto col-12 col-sm-4 ps-sm-1 order-" . ($k + 1) . "order-sm-" . ($k + 1);
                             }
-                            $img_src = $announce_pre . $announce[$name . 'Path'] . '?p=(new Date()).getTime()';
+                            $img_src = $layer . 'asset' . $announce[$name . 'Path'] . '?p=(new Date()).getTime()';
                         ?>
                             <div class="<?php echo $img_class ?>">
                                 <img class="img3" style="<?php echo $img_style ?>" src="<?php echo $img_src ?>" alt="">
